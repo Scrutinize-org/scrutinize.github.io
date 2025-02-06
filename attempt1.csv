@@ -1,4 +1,5 @@
 case_number,county,quotes
 1,Bronx,"""This does work"""
+1,Bronx,"""This does not work"""
 2,Kings,"""This is invalid"""
 3,Queens,"""This does work"""
