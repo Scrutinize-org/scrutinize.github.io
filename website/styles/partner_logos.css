@@ -1,69 +1,104 @@
-/* ───────────── Logos Section ───────────── */
-<style>
-/* Background section for logos */
-.press-inline-section {
-    background: #fff7f2;
-    padding: 30px 1px 20px;
-    margin-bottom: 40px;
+/* ───────────────────────────────────────────────────
+   partner_logos.css — Clean, documented logo section
+   Used for press partners, funders, awards, etc.
+──────────────────────────────────────────────────── */
+
+/* SECTION BACKGROUND
+   Wraps the logo strip in a soft-colored box.
+   Used to separate logos visually from surrounding content. */
+   .press-inline-section {
+    background: #fff7f2;              /* Light peach tone for branding */
+    padding: 30px 1px 20px;           /* Top, horizontal, bottom padding */
+    margin-bottom: 40px;              /* Spacing below section */
   }
   
-  /* Container for logo strip */
+  /* LOGO STRIP CONTAINER
+     Flexbox layout for wrapping logos horizontally.
+     Hidden by default (opacity: 0) to enable entry animation. */
   .press-inline-logos {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    flex-wrap: wrap;                  /* Allow logos to wrap on small screens */
+    justify-content: center;         /* Center-align logos horizontally */
+    align-items: center;             /* Vertically align within row */
+    gap: 10px;                        /* Space between logos */
     padding-bottom: 10px;
   
-    /* Optional animation (can remove these lines if not animating) */
+    /* Entry animation setup: logos fade and slide in */
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
   }
   
-  /* Reveal animation when logos come into view */
+  /* ANIMATED VISIBILITY TRIGGER
+     Applied via JS when the section comes into view. */
   .press-inline-logos.in-view {
     opacity: 1;
     transform: translateY(0);
   }
   
-  /* Style each logo link wrapper */
+  /* LOGO LINK WRAPPER
+     Allows logos to link to partners’ websites.
+     Adds a smooth lift on hover. */
   .press-inline-logos a {
-    flex: 0 0 auto;
-    scroll-snap-align: center;
+    flex: 0 0 auto;                   /* Prevent links from stretching */
+    scroll-snap-align: center;       /* Better control if used in a scrollable container */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  /* Hover effect for logos */
+  /* HOVER EFFECT ON LINKS
+     Adds elevation and a slight lift when hovering over logos. */
   .press-inline-logos a:hover {
     transform: translateY(-6px) scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
     z-index: 2;
   }
   
-  /* Image styling */
+  /* LOGO IMAGE STYLING
+     Maintains visual consistency and prevents distortion. */
   .press-inline-logos img {
     height: 70px;
     max-width: 140px;
-    object-fit: contain;
-    opacity: 0.85;
+    object-fit: contain;             /* Keep aspect ratio, don’t stretch */
+    opacity: 0.85;                   /* Slightly muted look */
     transition: opacity 0.8s ease;
   }
   
-  /* On hover: full opacity */
+  /* HOVER EFFECT ON IMAGES
+     Full brightness on hover for attention. */
   .press-inline-logos img:hover {
     opacity: 1;
   }
   
-  /* ────── Responsive tweaks for mobile ────── */
+  /* RESPONSIVE ADJUSTMENTS
+     Shrinks logos and spacing on smaller screens for better fit. */
   @media (max-width: 700px) {
     .press-inline-logos {
-      gap: 24px;
+      gap: 24px;                     /* More breathing room on small screens */
     }
   
     .press-inline-logos img {
-      height: 50px;
+      height: 50px;                  /* Smaller logos for mobile */
     }
   }
-</style>
+  
+  /* OPTIONAL: PRESS BOX WRAPPER
+     Used if placing logos alongside article or news highlights. */
+  .press-box {
+    position: relative;
+    padding-bottom: 60px;            /* Space for buttons or overlays */
+  }
+  
+  /* ALTERNATE: Reduced spacing version for compressed layout */
+  @media (max-width: 700px) {
+    .press-box {
+      padding-bottom: 10px !important;
+    }
+  }
+  
+  /* POSITIONING FOR PRESS-BOX BUTTONS (if used) */
+  .press-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+  
