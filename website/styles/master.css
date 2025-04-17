@@ -42,7 +42,7 @@
   .scrt-wrapper {
     max-width: 1000px;
     margin: 0 auto;                        /* Center on page */
-    padding: 15px 20px 60px;              /* Extra bottom padding */
+    padding: 15px 20px 5px;              /* Extra bottom padding */
     color: var(--scrt-color-black);       /* Default text color */
   }
   
@@ -52,7 +52,7 @@
     line-height: 1.4;
     font-weight: 400;                     /* Light emphasis */
     color: var(--scrt-color-red);         /* Eye-catching red */
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   
   /* 5. Generic “section / card” block – reusable for content containers */
