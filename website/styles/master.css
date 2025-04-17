@@ -50,7 +50,7 @@
   .scrt-hero-text {
     font-size: var(--scrt-scale-4);       /* Large headline size */
     line-height: 1.4;
-    font-weight: 400;                     /* Light emphasis */
+    font-weight: 450;                     /* Light emphasis */
     color: var(--scrt-color-red);         /* Eye-catching red */
     margin-bottom: 20px;
   }
@@ -59,7 +59,7 @@
   .scrt-section {
     background: #fff;
     border-radius: var(--scrt-radius);
-    padding: 40px;
+    padding: 10px;
     margin-bottom: 40px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);  /* Light shadow for elevation */
   }
