@@ -1,0 +1,279 @@
+/* ─────────────  homepage‑specific styles  ───────────── */
+
+/* Container for article cards */
+.articles-container {
+    display: flex;                   /* Use flex layout */
+    justify-content: center;        /* Center cards horizontally */
+    flex-wrap: wrap;                /* Allow wrapping to next line */
+    gap: 20px;                      /* Space between cards */
+    margin-top: 30px;               /* Top margin for spacing */
+  }
+  
+  /* Individual article card style */
+  .article-card {
+    width: 100%;                    /* Full width on small screens */
+    max-width: 220px;               /* Max width constraint */
+    height: 260px;                  /* Fixed height */
+    padding: 8px;                   /* Inner padding */
+    border: 1px solid #ddd;         /* Light border */
+    border-radius: var(--scrt-radius); /* Rounded corners from token */
+    box-shadow: 2px 2px 8px rgba(0,0,0,.1); /* Subtle shadow */
+    background: #fff;              /* White background */
+    display: flex;                 /* Flex layout for content stacking */
+    flex-direction: column;        /* Stack items vertically */
+    justify-content: space-between;/* Space between top and bottom */
+    transition: transform .3s ease, box-shadow .3s ease; /* Smooth hover effects */
+  }
+  
+  /* Remove underline from links inside article cards */
+  .article-card-link,
+  .article-card a:hover {
+    text-decoration: none !important;
+  }
+  
+  /* Style for link that wraps the entire article card */
+  .article-card-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: inherit;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  
+  /* Hover effect for cards and their link wrappers */
+  .article-card-link:hover,
+  .article-card:hover {
+    transform: translateY(-6px) scale(1.05); /* Lift and enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0,0,0,.08);   /* Stronger shadow */
+    z-index: 2;                              /* Bring above neighbors */
+  }
+  
+  /* Image inside article card */
+  .article-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;        /* Cover the area without distortion */
+    border-radius: 5px;       /* Slight rounding */
+  }
+  
+  /* Title of the article */
+  .article-card-content h3 {
+    font-size: 1.1em;
+    text-align: center;
+    margin: 10px 0;
+    height: 50px;             /* Lock height for uniform cards */
+    overflow: hidden;         /* Avoid layout breaks */
+  }
+  
+  /* Publication name text */
+  .article-card-content p.publication {
+    font-size: .9em;
+    color: var(--scrt-color-gray4);
+    text-align: center;
+    margin-top: auto;         /* Push to bottom of card */
+    padding-top: 5px;
+  }
+  
+  /* ────── Inline press‑logo strip ────── */
+  
+  /* Background section for logos */
+  .press-inline-section {
+    background: #fff7f2;
+    padding: 30px 1px 20px;
+    margin-bottom: 40px;
+  }
+  
+  /* Container for logo strip */
+  .press-inline-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    transition: opacity .6s ease-out, transform .6s ease-out, box-shadow .3s ease;
+    opacity: 0;                  /* Start hidden for animation */
+    transform: translateY(10px); /* Start slightly below */
+  }
+  
+  /* Reveal logos when in view */
+  .press-inline-logos.in-view a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Style each logo container link */
+  .press-inline-logos a {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  
+  /* Hover effect for logos */
+  .press-inline-logos a:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,.08);
+    z-index: 2;
+  }
+  
+  /* Image styling for press logos */
+  .press-inline-logos img {
+    height: 70px;
+    max-width: 140px;
+    object-fit: contain;
+    opacity: .85;
+    transition: opacity .8s ease;
+  }
+  
+  /* Full opacity on hover */
+  .press-inline-logos img:hover {
+    opacity: 1;
+  }
+  
+  /* ────── Special press‑box tweaks ────── */
+  
+  .press-box {
+    position: relative;
+    padding-bottom: 60px;
+  }
+  
+  /* Button inside press-box */
+  .press-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  /* Link to "all coverage" articles */
+  .all-coverage-link {
+    margin-top: -30px;
+    margin-bottom: 15px;
+  }
+  
+  /* Styling the "see all coverage" link */
+  .all-coverage-link a {
+    font-size: var(--scrt-scale-0);
+    color: var(--scrt-color-blue);
+    font-weight: var(--scrt-weight-semibold);
+    transition: color .3s ease;
+  }
+  
+  /* Hover effect for "all coverage" link */
+  .all-coverage-link a:hover {
+    color: var(--scrt-color-black);
+    text-decoration: none !important;
+  }
+  
+  /* ────── Dropdown & button helper wrappers ────── */
+  
+  /* Wrapper to center dropdown and buttons */
+  .dropdown-centered,
+  .explore-button-wrap {
+    width: 100%;
+    margin: 0 auto calc(var(--scrt-unit) * 3);
+  }
+  
+  /* Style for global dropdowns and buttons inside wrapper */
+  .dropdown-centered :global(select),
+  .dropdown-centered :global(button) {
+    width: 100%;
+  }
+  
+  /* Explore button styling */
+  .explore-button {
+    font-family: inherit;
+    background: var(--scrt-color-blue);
+    color: #fff;
+    font-size: var(--scrt-scale-0);
+    border-radius: calc(var(--scrt-unit) * 1);
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: calc(var(--scrt-unit) * 2) calc(var(--scrt-unit) * 4);
+  }
+  
+  /* Link to methodology explanation */
+  .method-link-wrap {
+    text-align: right;
+    margin: 1 auto calc(var(--scrt-unit) * 4) auto;
+  }
+  
+  /* Text style for methodology link */
+  .method-link {
+    font-size: .85rem;
+    color: var(--scrt-color-gray4);
+  }
+  
+  /* Hover state for methodology link */
+  .method-link:hover {
+    color: var(--scrt-color-blue4);
+  }
+  
+  /* ─────────────  breakpoint‑specific overrides  ───────────── */
+  
+  /* Desktop‑only styling, ≥800px */
+  @media (min-width: 800px) {
+    .scrt-text-block {
+      margin-left: 30px; /* Shift text block to left for layout balance */
+    }
+  }
+  
+  /* Mobile‑only adjustments, ≤700px */
+  @media (max-width: 700px) {
+  
+    /* Completely hide hero image */
+    .scrt-img-block {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  
+    /* Align flex items to top */
+    .scrt-flex {
+      align-items: flex-start;
+    }
+  
+    /* Resize hero headline for small screens */
+    .scrt-hero-text {
+      font-size: 26px;
+      line-height: 1.3;
+    }
+  
+    /* Reduce padding around homepage sections */
+    .scrt-section {
+      padding: 20px 10px 1px !important;
+      margin-bottom: 10px;
+    }
+  
+    /* Reduce bottom spacing in press box */
+    .press-box {
+      padding-bottom: 10px !important;
+    }
+  
+    /* Resize buttons in button row */
+    .scrt-button-row .scrt-button {
+      font-size: 12px;
+      padding: 10px 12px;
+      margin-bottom: 0 !important;
+    }
+  
+    /* Adjust spacing and logo size */
+    .press-inline-logos {
+      gap: 24px;
+    }
+  
+    .press-inline-logos img {
+      height: 50px;
+    }
+  
+    /* Ensure text block fills width */
+    .scrt-text-block {
+      max-width: 100%;
+      padding: 0px !important;
+    }
+  }
+  
