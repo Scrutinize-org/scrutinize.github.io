@@ -272,8 +272,9 @@
     }
     .scrt-img-block img {
       width: 100%;
-      max-width: 180px;
+      max-width: 40vw; /* scales image to 40% of viewport width */
       height: auto; /* Just in case it's not inherited properly */
+      align: center;
 
     }
     .scrt-text-block {
