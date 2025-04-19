@@ -97,6 +97,80 @@
       margin-top: 0;                          /* remove top spacing if any */
     }
   }
+
+  /* 1. Make both halves exactly the same box-sizing, width, max-width, centering */
+.scrt-intro-block,
+.scrt-intro-block + .scrt-section {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;              /* center in wrapper */
+  padding-left: 40px;          /* same horizontal padding */
+  padding-right: 40px;
+}
+
+/* 2. Collapse the gap and split the rounded corners */
+.scrt-intro-block {
+  margin-bottom: 0;                              /* remove space under blue */
+  border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
+  padding-top:   30px;                           /* keep your vertical padding */
+  padding-bottom:30px;
+}
+.scrt-intro-block + .scrt-section {
+  margin-top:     0;                             /* remove space above white */
+  border-radius:  0 0 var(--scrt-radius) var(--scrt-radius);
+  padding-top:    30px !important;               /* tweak if you want more space */
+  padding-bottom: 30px !important;
+}
+
+/* 3. Continue the blue border down into the white half */
+.scrt-intro-block,
+.scrt-intro-block + .scrt-section {
+  border-left: 6px solid var(--scrt-color-blue);
+}
+
+/* Alt blocks: unify intro‑alt + next section into one card with right border */
+.scrt-intro-block.alt,
+.scrt-intro-block.alt + .scrt-section {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-left: none;                             /* remove any left border */
+  border-right: 6px solid var(--scrt-color-blue);
+}
+
+/* Top half (blue) */
+.scrt-intro-block.alt {
+  margin-bottom: 0;                              /* collapse gap */
+  border-radius: var(--scrt-radius) var(--scrt-radius) 0 0; 
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* Bottom half (white) */
+.scrt-intro-block.alt + .scrt-section {
+  margin-top: 0;                                 /* collapse gap */
+  border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+/* add space above any intro block that follows a .scrt-section */
+.scrt-section + .scrt-intro-block,
+.scrt-section + .scrt-intro-block.alt {
+  margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+    .scrt-button-row .scrt-button {
+      font-size: 11px;
+      padding: 10px 5px;
+      margin-bottom: 0 !important;
+    }
+  }
     
 </style>      
 <div class="scrt-wrapper">
@@ -230,7 +304,7 @@
             Turning Complex Decisions into Clear Insights
     </h2>
     <p>
-        Scrutinize uses advanced data analysis, artificial intelligence, and meticulous legal research to transform complex legal data into accessible insights. Our reports equip policymakers and the public with actionable information backed by rigorous analysis.
+        Scrutinize harnesses advanced data analysis, AI, and rigorous legal research to distill complex judicial data into clear insights, empowering policymakers and the public to drive informed action.
     </p>
   </div>
 
@@ -275,7 +349,7 @@
         <p>Scrutinize seeks every order naming Acting Supreme Court Justices since 2010 and the rules that govern these assignments. Opening these records lifts the curtain on an opaque promotion tool that has never been publicly audited for fairness, merit, diversity, or genuine caseload need.</p>
         <div class="scrt-button-row">
         <a href="/transparency#foil-requests" class="scrt-button">Read FOIL</a>
-        <a href="/transparency#memos" class="scrt-button">All FOILs and Memos</a>
+        <a href="/transparency#memos" class="scrt-button">View All</a>
         </div>
     </div>
     </div>
