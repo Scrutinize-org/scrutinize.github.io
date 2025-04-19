@@ -86,7 +86,7 @@
   
     /* Type scale – headings and body text sizes */
     --scrt-scale-0:       18px;      /* Base body text */
-    --scrt-scale-1:       24px;      /* paras */
+    --scrt-scale-1:       22px;      /* paras */
     --scrt-scale-2:       25px;      /* Section titles */
     --scrt-scale-4:       34px;      /* Hero headlines */
     --scrt-scale-6:       46px;      /* Large titles if needed */
