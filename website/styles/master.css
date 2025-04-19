@@ -264,6 +264,8 @@
       order: 1; /* Image appears first */
       margin-bottom: 10px;
       justify-content: center;
+      display: flex;
+      align-items: center;
     }
     .scrt-img-block img {
       max-width: 180px;
