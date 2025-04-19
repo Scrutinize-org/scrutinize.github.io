@@ -43,7 +43,7 @@
     max-width: 1000px;
     margin: 0 auto;                        /* Center on page */
     padding: 15px 20px 5px;              /* Extra bottom padding */
-    color: var(--scrt-color-black);       /* Default text color */
+    color: var(--scrt-color-black);        /* Default text color */
   }
   
   /* 4. Hero headline – used for main page introductions or banners */
@@ -59,7 +59,7 @@
   .scrt-section {
     background: #fff;
     border-radius: var(--scrt-radius);
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 40px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);  /* Light shadow for elevation */
   }
