@@ -62,23 +62,6 @@
   --scrt-color-gray5: #5c6373;
   --scrt-color-gray6: #404856;
   --scrt-color-gray7: #272e3b;
-  --scrt-color-category0: #984447;
-  /* --scrt-color-category0: #b31c34; */
-  --scrt-color-category1: #1F78B4;
-  --scrt-color-category2: #7eb09b;
-  --scrt-color-category3: #f2c598;
-  --scrt-color-category4: #a96da3;
-  --scrt-color-highlight: var(--scrt-color-category0);
-  --scrt-color-primary: var(--scrt-color-category1);
-  --scrt-color-secondary: var(--scrt-color-category4);
-  --scrt-color-gray: var(--scrt-color-gray5);
-  --scrt-color-red: var(--scrt-color-category0);
-  --scrt-color-blue: var(--scrt-color-category1);
-  --scrt-color-green: var(--scrt-color-category2);
-  --scrt-color-yellow: var(--scrt-color-category3);
-  --scrt-color-purple: var(--scrt-color-category4);
-  --scrt-color-white: #ffffff;
-  --scrt-color-black: #333335;
   
     /* Spacing and border radius */
     --scrt-unit:          5px;       /* Base spacing unit */
@@ -128,7 +111,6 @@
   .scrt-section {
     background: #fff;
     border-radius: var(--scrt-radius);
-    padding: 50px 60px;
     margin-bottom: 40px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);  /* Light shadow for elevation */
   }
@@ -170,7 +152,6 @@
     flex: 1 1 500px;                      /* Grows and shrinks as needed */
     max-width: 500px;
     padding-left: 30px;
-    min-width: 0; 
   }
   
   /* 7. Buttons – consistent clickable elements */
@@ -227,8 +208,5 @@
       padding: 10px 12px;
     }
 
-    .scrt-section {
-      padding: 30px 20px;
-    }
   }
   
