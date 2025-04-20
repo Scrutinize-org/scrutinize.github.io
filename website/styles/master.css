@@ -248,13 +248,14 @@ body, html {
   margin-bottom: 0;
 }
 
-/* Default hero text style (desktop) */
+/* HERO */
 .scrt-hero-text {
   font-size: var(--scrt-scale-4);
+  font-weight: var(--scrt-weight-semibold);
   line-height: 1.4;
-  font-weight: 450;
   color: var(--scrt-color-red);
-  margin-bottom: 20px;
+  text-align: center;
+  margin: calc(var(--scrt-unit)*4) 0 calc(var(--scrt-unit)*2);
 }
 
 /* Mobile hero text */
