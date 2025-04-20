@@ -174,6 +174,20 @@
         overflow-wrap: normal !important;
         hyphens: none !important;
       }
+
+      @media (max-width: 700px) {
+        /* shrink accordion body text on mobile */
+        .scrt-card.expanded .scrt-card-body {
+          font-size: var(--scrt-scale-00) !important; /* ~15px */
+        }
+        /* shrink descriptions and list items */
+        .scrt-card.expanded .scrt-foil-desc,
+        .scrt-card.expanded .scrt-doc-list li {
+          font-size: var(--scrt-scale-0000) !important; /* ~13px */
+        }
+      }
+      
+
   
 </style>
 
@@ -194,10 +208,10 @@
       </div>
       <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Full rosters, affiliations, and vetting criteria of members of the Governor’s Judicial Screening Committees from 2000 to present, plus internal guidelines and statistics on candidate evaluations.</p>
+        <p class="scrt-foil-desc">What: Full rosters, affiliations, and vetting criteria of members of the Governor’s Judicial Screening Committees, plus internal guidelines and statistics on candidate evaluations.</p>
         <p class="scrt-foil-desc">Why: Unveil who influences judicial appointments and how candidates are assessed—allowing the public to evaluate the fairness, impartiality, and merit of state judicial selections​.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#foil-gov-screening" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_Judicial_Screening_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
         </ul>
       </div>
     </div>
@@ -211,9 +225,9 @@
       <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
       <div class="scrt-card-body">
         <p class="scrt-foil-desc">What: Names, affiliations, internal manuals, and recruitment criteria for all committee members since 2000, plus details on processes for evaluating and recommending judicial candidates.</p>
-        <p class="scrt-foil-desc">Why: Reveal how New York City appoints judges, ensuring transparency around criteria, fairness, and merit in judicial appointments​</p>
+        <p class="scrt-foil-desc">Why: Reveal how New York City appoints judges, ensuring transparency around criteria, fairness, and merit in judicial appointments​.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#foil-mayor-committee" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_MACJ_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
         </ul>
       </div>
     </div>
@@ -227,10 +241,10 @@
       <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
       <div class="scrt-card-body">
         <p class="scrt-foil-desc">What: Records identifying judges designated as Acting Supreme Court Justices (ASCJ) since 2010, including details of designations, external consultations, decision-making panel members, and criteria used in evaluations.</p>
-        <p class="scrt-foil-desc">Why: Expose the opaque process behind judicial promotions to assess whether assignments reflect genuine need, merit, and fair practice​</p>
+        <p class="scrt-foil-desc">Why: Expose the opaque process behind judicial promotions to assess whether assignments reflect genuine need, merit, and fair practice.​</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#foil-oca-justices" class="scrt-view-link">View FOIL Request</a></li>
-          <li><a href="/transparency#appeal-oca-justices" class="scrt-view-link">View Appeal</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_ASCJ_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_Appeal_Judges_ASCJ_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
         </ul>
       </div>
     </div>
@@ -246,8 +260,8 @@
         <p class="scrt-foil-desc">What: Comprehensive roster of every current New York State judge, detailing court, jurisdiction, appointment dates, current term duration, and specific judicial roles or specializations.</p>
         <p class="scrt-foil-desc">Why: Provide a transparent baseline for monitoring judicial appointments, reappointments, and court performance, promoting accountability within the judiciary​.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#foil-oca-judges" class="scrt-view-link">View FOIL Request</a></li>
-          <li><a href="/transparency#appeal-oca-judges" class="scrt-view-link">View Appeal</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_Judges_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_Appeal_Judges_ASCJ_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
         </ul>
       </div>
     </div>
@@ -263,8 +277,8 @@
         <p class="scrt-foil-desc">What: Statewide case-level datasets on criminal cases, including bail, release outcomes, and sentencing, along with the comprehensive datasets provided to third-party researchers.</p>
         <p class="scrt-foil-desc">Why: Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#foil-oca-data" class="scrt-view-link">View FOIL Request</a></li>
-          <li><a href="/transparency#appeal-oca-data" class="scrt-view-link">View Appeal</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.01.25_FOIL_OCA_court_data_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.05.30_FOIL_OCA_Appeal_court_data_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
         </ul>
       </div>
     </div>
@@ -280,7 +294,7 @@
         <p class="scrt-foil-desc">What: Comprehensive NYC criminal court datasets (2008-present) covering arraignment decisions, judge identities, charges, bail outcomes, and defendant evaluations.</p>
         <p class="scrt-foil-desc">Why: Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#foil-mocj-data" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.01.25_FOIL_MOCJ_court_data_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
         </ul>
       </div>
     </div>
@@ -296,8 +310,8 @@
         <p class="scrt-foil-desc">What: Complete statewide criminal court data (2008-present) including judge IDs, charges, defendant demographics, and bail decisions, plus documentation explaining datasets provided to academic researchers.</p>
         <p class="scrt-foil-desc">Why: Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#foil-dcjs-data" class="scrt-view-link">View FOIL Request</a></li>
-          <li><a href="/transparency#appeal-dcjs-data" class="scrt-view-link">View Appeal</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.01.25_FOIL_DCJS_court_data_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.03.08_FOIL_DCJS_Appeal_court_data_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
         </ul>
       </div>
     </div>
@@ -316,7 +330,7 @@
         <p class="scrt-foil-desc">What: Establish statewide electronic filing for all trial courts, streamlining court processes and enhancing public access to records. </p>
         <p class="scrt-foil-desc">Why: Simplifies court interactions, reduces bureaucracy, and makes judicial data more transparent and easily accessible for accountability.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#memo-efiling" class="scrt-view-link">View Joint Memo</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/memos_support/Expand%20e%E2%80%91Filing%20in%20NYS%20Courts.pdf" class="scrt-view-link">View Memo of Support</a></li>
         </ul>
       </div>
     </div>
@@ -332,7 +346,7 @@
       <p class="scrt-foil-desc"What: Protect the Judicial Conduct Commission’s budget from political interference and make more misconduct records publicly accessible.</p>
       <p class="scrt-foil-desc">Why: Ensures improve the accountability of the judiciary by providing transparent oversight and enabling public scrutiny of judicial conduct.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#memo-conduct" class="scrt-view-link">View Group Memo</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/memos_support/Strengthen%20the%20Commission%20on%20Judicial%20Conduct.pdf" class="scrt-view-link">View Memo of Support</a></li>
         </ul>
       </div>
     </div>
@@ -348,7 +362,7 @@
         <p class="scrt-foil-desc">What: Remove limits on the number of Supreme Court Justices, enabling the legislature to appoint additional judges where caseloads demand.</p>
         <p class="scrt-foil-desc">Why: A well-resourced court system is essential to achieving transparency and accountability in the judiciary.</p>
         <ul class="scrt-doc-list">
-          <li><a href="/transparency#memo-cap" class="scrt-view-link">View Scrutinize Memo</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/memos_support/Lift%20Supreme%20Court%20Justice%20Cap.pdf" class="scrt-view-link">View Memo of Support</a></li>
         </ul>
       </div>
     </div>
@@ -380,6 +394,15 @@
         document.getElementById('foil-requests').style.display = filt === 'foil' ? 'grid' : 'none';
         document.getElementById('memos').style.display        = filt === 'memos' ? 'grid' : 'none';
       });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href$=".pdf"]').forEach(link => {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
     });
   });
 </script>
