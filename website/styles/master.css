@@ -154,6 +154,14 @@ body, html {
   font-family: var(--scrt-font-sans);
 }
 
+/*makes hero and section heading not break mid word on screen*/
+.scrt-hero-text,
+.scrt-section-heading {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
 /* 3. Main layout wrapper */
 .scrt-wrapper {
   max-width: 1000px;
@@ -308,12 +316,4 @@ body, html {
   .scrt-section-heading {
     font-size: var(--scrt-scale-2) !important; 
   }
-}
-
-/*makes hero and section heading not break mid word on screen*/
-.scrt-hero-text,
-.scrt-section-heading {
-  word-break: keep-all !important;
-  overflow-wrap: normal !important;
-  hyphens: none !important;
 }
