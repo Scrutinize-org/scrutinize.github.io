@@ -82,12 +82,14 @@
     padding: calc(var(--scrt-unit)*4);
     max-height: 500px;
     padding-top: 0 !important;
+    padding-bottom: 0 !important;
 
   }
   .scrt-foil-desc {
     margin: 0.5em 0;
     font-size: var(--scrt-scale-0);
     line-height: var(--scrt-lh-normal);
+    padding-bottom: 0;
   }
 
   /* ───── Document List ───── */ 
@@ -165,10 +167,13 @@
     }
   }
 
-  
-  @media (max-width: 700px) {
- 
-  }
+      /*makes hero and section heading not break mid word on screen*/
+      .scrt-hero-text,
+      .scrt-section-heading {
+        word-break: keep-all !important;
+        overflow-wrap: normal !important;
+        hyphens: none !important;
+      }
   
 </style>
 
@@ -189,8 +194,8 @@
       </div>
       <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Complete roster and rating criteria of Governor’s Judicial Screening Committees since 2000.</p>
-        <p class="scrt-foil-desc">Why: Reveal who vets judges—and by what standards—so New Yorkers can judge fairness, diversity, and merit.</p>
+        <p class="scrt-foil-desc">What: Full rosters, affiliations, and vetting criteria of members of the Governor’s Judicial Screening Committees from 2000 to present, plus internal guidelines and statistics on candidate evaluations.</p>
+        <p class="scrt-foil-desc">Why: Unveil who influences judicial appointments and how candidates are assessed—allowing the public to evaluate the fairness, impartiality, and merit of state judicial selections​.</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#foil-gov-screening" class="scrt-view-link">View FOIL Request</a></li>
         </ul>
@@ -205,8 +210,8 @@
       </div>
       <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Names, affiliations, and vetting manuals for every member since 2000.</p>
-        <p class="scrt-foil-desc">Why: Show whether the City’s appointment pipeline reflects fairness, diversity, and merit.</p>
+        <p class="scrt-foil-desc">What: Names, affiliations, internal manuals, and recruitment criteria for all committee members since 2000, plus details on processes for evaluating and recommending judicial candidates.</p>
+        <p class="scrt-foil-desc">Why: Reveal how New York City appoints judges, ensuring transparency around criteria, fairness, and merit in judicial appointments​</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#foil-mayor-committee" class="scrt-view-link">View FOIL Request</a></li>
         </ul>
@@ -221,8 +226,8 @@
       </div>
       <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Every order naming Acting Supreme Court Justices since 2010 and the rules that govern these assignments.</p>
-        <p class="scrt-foil-desc">Why: Audit an opaque promotion tool never reviewed for fairness, merit, diversity, or genuine need.</p>
+        <p class="scrt-foil-desc">What: Records identifying judges designated as Acting Supreme Court Justices (ASCJ) since 2010, including details of designations, external consultations, decision-making panel members, and criteria used in evaluations.</p>
+        <p class="scrt-foil-desc">Why: Expose the opaque process behind judicial promotions to assess whether assignments reflect genuine need, merit, and fair practice​</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#foil-oca-justices" class="scrt-view-link">View FOIL Request</a></li>
           <li><a href="/transparency#appeal-oca-justices" class="scrt-view-link">View Appeal</a></li>
@@ -238,8 +243,8 @@
       </div>
       <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Current master list of every NYS judge, including court, jurisdiction, and term dates.</p>
-        <p class="scrt-foil-desc">Why: Provide a verified roster baseline to track elections, reappointments, and performance.</p>
+        <p class="scrt-foil-desc">What: Comprehensive roster of every current New York State judge, detailing court, jurisdiction, appointment dates, current term duration, and specific judicial roles or specializations.</p>
+        <p class="scrt-foil-desc">Why: Provide a transparent baseline for monitoring judicial appointments, reappointments, and court performance, promoting accountability within the judiciary​.</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#foil-oca-judges" class="scrt-view-link">View FOIL Request</a></li>
           <li><a href="/transparency#appeal-oca-judges" class="scrt-view-link">View Appeal</a></li>
@@ -255,8 +260,8 @@
       </div>
       <p class="scrt-card-with">With NYCLU &amp; the Harvard Law School Cyberlaw Clinic</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Statewide case‑level files with bail amounts, release outcomes, and sentencing decisions.</p>
-        <p class="scrt-foil-desc">Why: Permit researchers, policymakers, and communities to analyze bail and sentencing disparities.</p>
+        <p class="scrt-foil-desc">What: Statewide case-level datasets on criminal cases, including bail, release outcomes, and sentencing, along with the comprehensive datasets provided to third-party researchers.</p>
+        <p class="scrt-foil-desc">Why: Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#foil-oca-data" class="scrt-view-link">View FOIL Request</a></li>
           <li><a href="/transparency#appeal-oca-data" class="scrt-view-link">View Appeal</a></li>
@@ -272,8 +277,8 @@
       </div>
       <p class="scrt-card-with">With NYCLU &amp; the Harvard Law School Cyberlaw Clinic</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: NYC arrest‑to‑arraignment dataset with judge IDs, charges, and release outcomes (2008–present).</p>
-        <p class="scrt-foil-desc">Why: Expose how bail and sentencing disparities play out across boroughs.</p>
+        <p class="scrt-foil-desc">What: Comprehensive NYC criminal court datasets (2008-present) covering arraignment decisions, judge identities, charges, bail outcomes, and defendant evaluations.</p>
+        <p class="scrt-foil-desc">Why: Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#foil-mocj-data" class="scrt-view-link">View FOIL Request</a></li>
         </ul>
@@ -288,8 +293,8 @@
       </div>
       <p class="scrt-card-with">With NYCLU &amp; the Harvard Law School Cyberlaw Clinic</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Statewide records—arraigning‑judge IDs, demographics, charges, and bail decisions since 2008.</p>
-        <p class="scrt-foil-desc">Why: Uncover trends and racial disparities hidden in court data.</p>
+        <p class="scrt-foil-desc">What: Complete statewide criminal court data (2008-present) including judge IDs, charges, defendant demographics, and bail decisions, plus documentation explaining datasets provided to academic researchers.</p>
+        <p class="scrt-foil-desc">Why: Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#foil-dcjs-data" class="scrt-view-link">View FOIL Request</a></li>
           <li><a href="/transparency#appeal-dcjs-data" class="scrt-view-link">View Appeal</a></li>
@@ -308,14 +313,15 @@
       </div>
       <p class="scrt-card-with">Joint Memo of Support</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Uniform, statewide e‑filing for all trial courts cuts red tape and makes court records easier to access.</p>
+        <p class="scrt-foil-desc">What: Establish statewide electronic filing for all trial courts, streamlining court processes and enhancing public access to records. </p>
+        <p class="scrt-foil-desc">Why: Simplifies court interactions, reduces bureaucracy, and makes judicial data more transparent and easily accessible for accountability.</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#memo-efiling" class="scrt-view-link">View Joint Memo</a></li>
         </ul>
       </div>
     </div>
   
-    <!-- 2. Strengthen Judicial Conduct Commission -->
+    <!-- 2. Strengthen the Commission on Judicial Conduct -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
         <span class="scrt-card-title">Strengthen Judicial Conduct Commission</span>
@@ -323,7 +329,8 @@
       </div>
       <p class="scrt-card-with">Joint Memo of Support</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Shield the Commission’s budget from political tampering and open formal misconduct records to the public.</p>
+      <p class="scrt-foil-desc"What: Protect the Judicial Conduct Commission’s budget from political interference and make more misconduct records publicly accessible.</p>
+      <p class="scrt-foil-desc">Why: Ensures improve the accountability of the judiciary by providing transparent oversight and enabling public scrutiny of judicial conduct.</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#memo-conduct" class="scrt-view-link">View Group Memo</a></li>
         </ul>
@@ -338,7 +345,8 @@
       </div>
       <p class="scrt-card-with">Joint Memo of Support</p>
       <div class="scrt-card-body">
-        <p class="scrt-foil-desc">What: Remove the cap on Supreme Court Justices so lawmakers can add judges where caseloads demand.</p>
+        <p class="scrt-foil-desc">What: Remove limits on the number of Supreme Court Justices, enabling the legislature to appoint additional judges where caseloads demand.</p>
+        <p class="scrt-foil-desc">Why: A well-resourced court system is essential to achieving transparency and accountability in the judiciary.</p>
         <ul class="scrt-doc-list">
           <li><a href="/transparency#memo-cap" class="scrt-view-link">View Scrutinize Memo</a></li>
         </ul>
