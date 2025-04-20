@@ -1,0 +1,414 @@
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
+
+      <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/partner_logos.css">
+
+      <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/news.css">
+    
+<style>
+/* ───────────────────────────────────────────────
+   Scrutinize – Intro Blocks + Featured Sections
+   Used for colored top blocks + featured content pairs
+──────────────────────────────────────────────── */
+
+/* Ensure flex layout doesn't wrap (horizontal alignment) */
+.scrt-section .scrt-flex {
+  flex-wrap: nowrap;
+}
+
+/* Intro block (blue left border, default layout) */
+.scrt-intro-block {
+  background-color: var(--scrt-color-blue0) !important;
+  padding: 30px 40px;
+  border-left: 6px solid var(--scrt-color-blue);
+  border-radius: var(--scrt-radius);
+  max-width: 950px;
+  margin: 0 auto 20px auto;
+}
+
+/* Alternate intro block (right border, flipped alignment) */
+.scrt-intro-block.alt {
+  text-align: left;
+  border-left: none;
+  border-right: 6px solid var(--scrt-color-blue);
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+/* Typography for H2 inside intro blocks */
+.scrt-intro-block h2 {
+  font-size: var(--scrt-scale-2);
+  color: var(--scrt-color-blue);
+  font-weight: var(--scrt-weight-semibold);
+  margin-top: 0;
+  letter-spacing: 0.3px;
+}
+
+/* Paragraph styling for intro blocks */
+.scrt-intro-block p {
+  font-size: var(--scrt-scale-1);
+  line-height: var(--scrt-lh-normal);
+  color: var(--scrt-color-black);
+  margin-bottom: 0;
+}
+
+/* Animation trigger when scrolled into view */
+.scrt-intro-block[data-animate],
+.scrt-section[data-animate] {
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scrt-intro-block[data-animate].in-view,
+.scrt-section[data-animate].in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Featured news layout (align content side-by-side + center) */
+.featured-news-block .scrt-flex {
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 0 !important;
+}
+
+.featured-news-block .scrt-img-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0 !important;
+}
+
+/* Intro + White Section Combo Card */
+.scrt-intro-block,
+.scrt-intro-block + .scrt-section {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.scrt-intro-block {
+  margin-bottom: 0;
+  border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.scrt-intro-block + .scrt-section {
+  margin-top: 0;
+  border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+/* Extend the blue border down from intro to section */
+.scrt-intro-block,
+.scrt-intro-block + .scrt-section {
+  border-left: 6px solid var(--scrt-color-blue);
+}
+
+/* Alt block combo (mirror layout with right border) */
+.scrt-intro-block.alt,
+.scrt-intro-block.alt + .scrt-section {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-left: none;
+  border-right: 6px solid var(--scrt-color-blue);
+}
+
+.scrt-intro-block.alt {
+  margin-bottom: 0;
+  border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.scrt-intro-block.alt + .scrt-section {
+  margin-top: 0;
+  border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+/* Add spacing above an intro block if following a white section */
+.scrt-section + .scrt-intro-block,
+.scrt-section + .scrt-intro-block.alt {
+  margin-top: 50px;
+}
+
+/* ───── Responsive: Mobile (max-width: 700px) ───── */
+@media (max-width: 700px) {
+  /* Shrink buttons */
+  .scrt-button-row .scrt-button {
+    font-size: 11px;
+    padding: 10px 5px;
+    margin-bottom: 0 !important;
+  }
+
+  /* Shrink and tighten intro block text */
+  .scrt-intro-block h2 {
+    font-size: var(--scrt-scale-1);
+    margin-bottom: calc(var(--scrt-unit) * 2);
+  }
+
+  .scrt-intro-block p {
+    font-size: var(--scrt-scale-00);
+    line-height: var(--scrt-lh-tight);
+    margin-top: 0;
+  }
+
+  /* Hero headline */
+  .scrt-hero-text {
+    font-size: var(--scrt-scale-2) !important;
+    line-height: 1.3;
+    margin: 0 0 20px 0;
+  }
+
+  /* Match white section paragraph styling to intro */
+  .scrt-section:not(.scrt-intro-block) p {
+    font-size: var(--scrt-scale-00);
+    line-height: var(--scrt-lh-tight);
+    margin-top: 0;
+  }
+
+  /* Unify H2 size and spacing */
+  .scrt-text-block h2,
+  .scrt-intro-block h2 {
+    font-size: var(--scrt-scale-1);
+    margin-bottom: calc(var(--scrt-unit) * 1);
+  }
+
+  .scrt-text-block p {
+    margin-top: calc(var(--scrt-unit) * 0.5);
+  }
+}
+
+/* Default hero text style (desktop) */
+.scrt-hero-text {
+  font-size: var(--scrt-scale-4);
+  line-height: 1.4;
+  font-weight: 450;
+  color: var(--scrt-color-red);
+  margin-bottom: 20px;
+}
+    
+</style>      
+<div class="scrt-wrapper">
+
+<!-- HERO TEXT -->
+<h1 class="scrt-hero-text">
+  State judges wield enormous power with little oversight.<br>
+  Scrutinize makes their decisions transparent and impact known.
+</h1>
+
+
+<div class="press-inline-section">
+  <div class="press-inline-logos">
+    <a href="https://www.nytimes.com" target="_blank">
+      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/a146667b-9e9f-47a2-8106-0d4f6912e18f/1.png" alt="The New York Times">
+    </a>
+    <a href="https://www.wnyc.org" target="_blank">
+      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/245871ad-47a0-4346-a55d-39561d857d64/2.png" alt="WNYC">
+    </a>
+    <a href="https://hls.harvard.edu/public-service-venture-fund/" target="_blank">
+      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/08be9481-4c7b-469b-a81c-f5f7dca5e33e/3.png" alt="Harvard Law School">
+    </a>
+    <a href="https://www.justimpactadvisors.org" target="_blank">
+      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/bdfc3866-2967-4f98-8127-1270408ca5c9/6.png" alt="Just Impact">
+    </a>
+    <a href="https://www.ffwd.org" target="_blank">
+      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/f578837c-6fa4-4adf-8812-8b950717f1c7/FFWD.png" alt="Fast Forward">
+    </a>
+    <a href="https://ironcladapp.com/blog/winners-legal-ai-innovators-award-2025/" target="_blank">
+      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/e5e346b4-9007-428e-92a5-c2499b800c71/Scrutinize+logos+.png" alt="Legal AI Award">
+    </a>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector('.press-inline-logos');
+
+    // fallback: add class immediately in case observer misses it
+    section.classList.add('in-view');
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          section.classList.add('in-view');
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(section);
+
+    // Load articles
+    fetch('https://scrutinize-org.github.io/scrutinize.github.io/articles.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(articles => {
+        const container = document.getElementById('articles-container');
+
+        articles.slice(0, 3).forEach(article => {
+          const card = document.createElement("div");
+          card.classList.add("article-card");
+          card.innerHTML = `
+            <a href="${article.url}" target="_blank" style="text-decoration: none; color: inherit;">
+              <img src="${article.image}" alt="${article.title}">
+              <div class="article-card-content">
+                <h3>${article.title}</h3>
+                <p class="publication">${article.publication || 'Unknown Publication'}</p>
+              </div>
+            </a>`;
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error loading JSON:', error));
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const animatedBlocks = document.querySelectorAll('.scrt-intro-block[data-animate], .scrt-section[data-animate]');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    animatedBlocks.forEach(el => observer.observe(el));
+  });
+</script>
+
+<!-- ───── SCRUTINIZE INTRO: Why State Courts Matter ───── -->
+<div class="scrt-section scrt-intro-block">
+  <h2>Why State Courts Matter</h2>
+  <p>
+    State courts shape our lives, but their decisions remain inaccessible. We reveal their records to strengthen democracy.
+  </p>
+</div>
+
+<!-- ───── JUDICIAL PROFILES ───── -->
+<div class="scrt-section" data-animate>
+  <div class="scrt-flex">
+    <div class="scrt-img-block">
+      <img src="https://images.squarespace-cdn.com/content/635986ea4e3869168261490b/70501959-5150-4b6e-a745-83666e10cfbf/profiles-screenshot.png" alt="Latest Report">
+    </div>
+    <div class="scrt-text-block">
+      <h2>Judicial Profiles</h2>
+      <p>
+        Learn about every state judge in New York. Our profiles make it easy to explore judges’ backgrounds, decisions, and key metrics—so you can understand their records and see who’s up for reappointment or re-election in 2025.
+      </p>
+      <div class="scrt-button-row">
+        <a href="https://judges.scrutinize.org/" class="scrt-button">2025 Profiles</a>
+        <a href="https://judges.scrutinize.org/all-judges" class="scrt-button">All Profiles</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── INTRO: Clear Insights from Complex Data ───── -->
+<div class="scrt-intro-block alt" data-animate>
+  <h2>Turning Complex Decisions into Clear Insights</h2>
+  <p>
+    We use data analysis, AI, and rigorous legal research to transform complex judicial data into clear insights, empowering informed public action.
+  </p>
+</div>
+
+<!-- ───── LATEST REPORT ───── -->
+<div class="scrt-section" data-animate>
+  <div class="scrt-flex">
+    <div class="scrt-img-block">
+      <img src="https://static1.squarespace.com/static/635986ea4e3869168261490b/t/67f9058a3e73852e3868234e/1744373130563/the-state-of-criminal-court-transparency-in-2024.png" alt="Latest Report">
+    </div>
+    <div class="scrt-text-block">
+      <h2>Latest Report</h2>
+      <p>
+        <strong>The State of Criminal Court Transparency in 2024</strong><br>
+        A small group of judges and counties leads the way in publishing decisions, demonstrating that open justice is possible—even as many decisions are not published online.
+      </p>
+      <div class="scrt-button-row">
+        <a href="/the-state-of-criminal-court-transparency-in-2024" class="scrt-button">Full Report</a>
+        <a href="/reports" class="scrt-button">All Research</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── INTRO: From Transparency to Reform ───── -->
+<div class="scrt-section scrt-intro-block" data-animate>
+  <h2>From Transparency to Reform</h2>
+  <p>
+    Through FOILs and support for legislative reform, we expand court transparency and strengthen the legal system.
+  </p>
+</div>
+
+<!-- ───── FEATURED FOIL ───── -->
+<div class="scrt-section" data-animate>
+  <div class="scrt-flex">
+    <div class="scrt-img-block">
+      <img src="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/38f9cb9955cfe80f96c70af9b18aeb1c3d50aba3/website/resources/general_pngs/courthouse_light.png" alt="Transparency Illustration">
+    </div>
+    <div class="scrt-text-block">
+      <h2>Featured FOIL: Acting Supreme Court Justice Designations</h2>
+      <p>
+        Scrutinize seeks orders naming Acting Supreme Court Justices and the rules that govern these assignments. This data would lift the curtain on a promotion system never audited for fairness, merit, diversity, or need.
+      </p>
+      <div class="scrt-button-row">
+        <a href="/transparency#foil-requests" class="scrt-button">Read FOIL</a>
+        <a href="/transparency#memos" class="scrt-button">View All</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── INTRO: Public Engagement & Policy ───── -->
+<div class="scrt-intro-block alt" data-animate>
+  <h2>Engaging the Public, Informing Policy</h2>
+  <p>
+    Scrutinize sparks public dialogue, shapes policy, and promotes accountable, transparent state courts.
+  </p>
+</div>
+
+<!-- ───── FEATURED COVERAGE ───── -->
+<div class="scrt-section featured-news-block" data-animate>
+  <div class="scrt-flex">
+    <div class="scrt-img-block">
+      <img src="https://k2-prod-alm.s3.us-east-1.amazonaws.com/brightspot/de/94/5fe86a744f60a5d345b8296d6637/judge-documents-767x633.jpg" alt="Featured Article" />
+    </div>
+    <div class="scrt-text-block">
+      <h2>Featured Coverage</h2>
+      <p>
+        <strong>What Should Judicial Accountability Look Like</strong><br>
+        Scrutinize and the former Presiding Justice of New York’s First Department argue that judicial accountability is essential—and must be grounded in context and the responsible use of data.
+      </p>
+      <div class="scrt-button-row">
+        <a href="https://www.law.com/newyorklawjournal/2025/04/09/what-should-judicial-accountability-look-like/" class="scrt-button">Read Article</a>
+        <a href="/ourwork" class="scrt-button">All Coverage</a>
+      </div>
+    </div>
+  </div>
+</div>
