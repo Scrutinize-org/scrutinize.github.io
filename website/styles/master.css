@@ -293,5 +293,18 @@
       padding: 10px 12px;
     }
 
+    .scrt-section:not(.scrt-intro-block) p {
+      margin-bottom: 0.75rem;  /* shrink from whatever it is now */
+    }
+
+    .scrt-text-block h2 {
+      font-size: var(--scrt-scale-1);   /* or whatever your “slightly smaller” scale is */
+    }
+
+    .scrt-intro-block p {
+      margin-bottom: 1.5rem;  /* or padding-bottom: 1.5rem; */
+    }
+    
+
   }
   
