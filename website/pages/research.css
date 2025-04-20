@@ -2,14 +2,6 @@
 
 <style>
 /* ───── Reports Page Custom Styles ───── */
-.scrt-section-intro {
-  font-size: var(--scrt-scale-2);
-  line-height: var(--scrt-lh-normal);
-  color: var(--scrt-color-black);
-  text-align: left;
-  margin-bottom: calc(var(--scrt-unit)*6);
-}
-
 /* Section */
 .scrt-section {
   background: #fff;
@@ -92,7 +84,7 @@
 <div class="scrt-wrapper">
   <h1 class="scrt-hero-text">Research</h1>
   <p class="scrt-section-intro">
-    We use data analysis, AI, and rigorous legal research to transform complex judicial data into clear insights, empowering informed public action.
+    Using data analysis, artificial intelligence, and rigorous legal research, we transform complex judicial data into clear insights. Our research empowers the public to take informed action, creating a more transparent and accountable legal system.
   </p>
   <br>
 
