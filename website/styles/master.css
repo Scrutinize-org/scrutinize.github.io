@@ -248,7 +248,35 @@ body, html {
   margin-bottom: 0;
 }
 
-/* 8. Responsive styles for mobile < 700px */
+/* Default hero text style (desktop) */
+.scrt-hero-text {
+  font-size: var(--scrt-scale-4);
+  line-height: 1.4;
+  font-weight: 450;
+  color: var(--scrt-color-red);
+  margin-bottom: 20px;
+}
+
+/* Mobile hero text */
+
+@media (max-width: 700px) {
+  /* Shrink buttons */
+  .scrt-button-row .scrt-button {
+    font-size: 11px;
+    padding: 10px 5px;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* define text below hero title*/
+.scrt-section-intro {
+  font-size: var(--scrt-scale-2);
+  line-height: var(--scrt-lh-normal);
+  color: var(--scrt-color-black);
+  text-align: left;
+  margin-bottom: calc(var(--scrt-unit)*6);
+}
+
 @media (max-width: 700px) {
   .scrt-flex {
     flex-direction: column;
