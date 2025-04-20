@@ -293,6 +293,11 @@
       padding: 10px 12px;
     }
 
+    .scrt-section {
+      padding-bottom: 10px !important;
+    }
+  
+
     .scrt-section:not(.scrt-intro-block) p {
       margin-bottom: 0.75rem;  /* shrink from whatever it is now */
     }
