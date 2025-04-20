@@ -257,6 +257,14 @@
     white-space: nowrap;                    /* Prevent wrapping */
   }
   
+  /* kill extra bottom padding on the Squarespace page wrapper */
+.Index-page-content,
+.page-content,
+.main-content-wrapper {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
   /* 8. Mobile overrides – responsive tweaks for screens < 700px */
   @media (max-width: 700px) {
     .scrt-flex {
