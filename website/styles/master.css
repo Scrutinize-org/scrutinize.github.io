@@ -88,7 +88,7 @@
   --scrt-scale-0: 18px;
   --scrt-scale-1: 21px;
   --scrt-scale-2: 25px;
-  --scrt-scale-3: 29px;
+  --scrt-scale-3: 30px;
   --scrt-scale-4: 34px;
   --scrt-scale-5: 40px;
   --scrt-scale-6: 46px;
@@ -279,7 +279,8 @@ body, html {
 
 /* define text below hero title*/
 .scrt-section-intro {
-  font-size: var(--scrt-scale-2);
+  font-size: var(--scrt-scale-3);
+  font-weight: var( --scrt-weight-medium); 
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-black);
   text-align: left;
