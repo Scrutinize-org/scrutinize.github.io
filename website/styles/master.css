@@ -301,15 +301,6 @@
       padding: 10px 12px;
     }
 
-    .scrt-section {
-      padding-bottom: 10px !important;
-    }
-  
-
-    .scrt-section:not(.scrt-intro-block) p {
-      padding-bottom: 10px !important;
-    }
-
     .scrt-text-block h2 {
       font-size: var(--scrt-scale-1);   /* or whatever your “slightly smaller” scale is */
     }
