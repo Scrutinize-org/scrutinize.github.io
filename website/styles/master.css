@@ -259,7 +259,7 @@ body, html {
 
 /* HERO */
 .scrt-hero-text {
-  font-size: var(--scrt-scale-4);
+  font-size: var(--scrt-scale-5);
   font-weight: var(--scrt-weight-semibold);
   line-height: 1.4;
   color: var(--scrt-color-red);
@@ -278,13 +278,13 @@ body, html {
   }
 
   .scrt-section-intro {
-    font-size: var(--scrt-scale-2) !important;
+    font-size: var(--scrt-scale-3) !important;
   }
 }
 
 /* define text below hero title*/
 .scrt-section-intro {
-  font-size: var(--scrt-scale-3);
+  font-size: var(--scrt-scale-);
   font-weight: var( --scrt-weight-medium); 
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-black);
@@ -321,6 +321,10 @@ body, html {
   }
   .scrt-section-heading {
     font-size: var(--scrt-scale-2) !important; 
+  }
+
+  .scrt-hero-text {
+    font-size: var(--scrt-scale-2) !important;
   }
 
     /*makes hero and section heading not break mid word on screen*/

@@ -1,37 +1,46 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
 
 <style>
-  /* ───── Section headings ───── */
+  /* ───── HEADINGS ───── */
   .scrt-section-heading {
     font-size: var(--scrt-scale-4) !important;
     color: var(--scrt-color-blue6);
     margin: calc(var(--scrt-unit)*12) 0 calc(var(--scrt-unit)*5);
   }
 
-  /* ───── Single‐column Accordions ───── */
+  /* Prevent headings and hero text from breaking awkwardly */
+  .scrt-hero-text,
+  .scrt-section-heading {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  /* ───── LAYOUT GRID ───── */
   .scrt-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: calc(var(--scrt-unit)*4);
   }
 
-  /* ───── Card & Accordion Styles ───── */
+  /* ───── ACCORDION CARD ───── */
   .scrt-card {
     background: #fff;
     border-radius: var(--scrt-radius);
     box-shadow: var(--scrt-elevation-1);
     border-left: 6px solid var(--scrt-color-blue3);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     padding: 0 0 calc(var(--scrt-unit)*4);
     margin: 0;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   }
+
   .scrt-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--scrt-elevation-2);
     background: var(--scrt-color-blue0);
   }
+
   .scrt-card-title-row {
     display: flex;
     align-items: baseline;
@@ -39,12 +48,47 @@
     padding: calc(var(--scrt-unit)*6) calc(var(--scrt-unit)*4) 0;
     cursor: pointer;
   }
+
   .scrt-card-title {
     font-size: var(--scrt-scale-2);
     font-weight: var(--scrt-weight-semibold);
     color: var(--scrt-color-blue);
     margin: 0;
   }
+
+  .scrt-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 calc(var(--scrt-unit)*4);
+  }
+
+  .scrt-card.expanded .scrt-card-body {
+    padding: calc(var(--scrt-unit)*4);
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    max-height: 500px;
+  }
+
+  /* ───── “With” attribution line ───── */
+  .scrt-card-with {
+    font-size: var(--scrt-scale--1);
+    color: var(--scrt-color-gray5);
+    margin: calc(var(--scrt-unit)*0) calc(var(--scrt-unit)*4) 0;
+    font-style: italic;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  /* ───── FOIL DESCRIPTION ───── */
+  .scrt-foil-desc {
+    margin: 0.5em 0;
+    font-size: var(--scrt-scale-0);
+    line-height: var(--scrt-lh-normal);
+    padding-bottom: 0;
+  }
+
+  /* ───── STATUS BADGES ───── */
   .scrt-status-badge {
     margin-left: 12px;
     padding: 4px 10px;
@@ -55,146 +99,101 @@
     letter-spacing: 0.03em;
     box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
   }
+
   .scrt-status-badge.appealed  { background: var(--scrt-color-red1); color: #000; }
   .scrt-status-badge.resolved  { background: var(--scrt-color-green1); color: #000; }
   .scrt-status-badge.closed    { background: var(--scrt-color-gray1); color: #000; }
   .scrt-status-badge.pending   { background: var(--scrt-color-yellow1); color: #000; }
   .scrt-status-badge.support   { background: var(--scrt-color-green2); color: #000; }
 
-  /* ───── “With” line ───── */
-  .scrt-card-with {
-    font-size: var(--scrt-scale--1);
-    color: var(--scrt-color-gray5);
-    margin: calc(var(--scrt-unit)*0) calc(var(--scrt-unit)*4) 0;
-    font-style: italic;
-    line-height: 1.2;           /* tighter spacing when it wraps */
-    white-space: normal;        /* ensure it breaks naturally */
-  }
-
-  /* ───── Accordion Body ───── */
-  .scrt-card-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 calc(var(--scrt-unit)*4);
-  }
-  .scrt-card.expanded .scrt-card-body {
-    padding: calc(var(--scrt-unit)*4);
-    max-height: 500px;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-
-  }
-  .scrt-foil-desc {
-    margin: 0.5em 0;
-    font-size: var(--scrt-scale-0);
-    line-height: var(--scrt-lh-normal);
-    padding-bottom: 0;
-  }
-
-  /* ───── Document List ───── */ 
+  /* ───── DOCUMENT LIST ───── */
   .scrt-doc-list {
     list-style: none;
     padding: 0;
     margin: 1em 0;
     font-size: var(--scrt-scale-0);
   }
+
   .scrt-doc-list li {
     margin-bottom: 0.5em;
   }
+
   .scrt-view-link {
     color: var(--scrt-color-blue5);
     font-weight: var(--scrt-weight-medium);
     text-decoration: none;
   }
+
   .scrt-view-link:hover {
     text-decoration: underline;
   }
 
+  /* ───── MOBILE STYLES ───── */
   @media (max-width: 700px) {
-    /* prevent any horizontal scroll */
     html, body {
       overflow-x: hidden !important;
     }
-  
-    /* tighter side‑padding */
+
     .scrt-wrapper {
       padding: 0 10px;
     }
-  
-    /* force one card per row with smaller gaps */
+
     .scrt-grid {
       grid-template-columns: 1fr;
       gap: calc(var(--scrt-unit)*3);
     }
-  
-    /* full‑width cards, no overflow */
+
     .scrt-card {
       width: 100%;
       box-sizing: border-box;
       margin: 0 0 calc(var(--scrt-unit)*4);
     }
-  
-    /* allow title and badge to wrap */
+
     .scrt-card-title-row {
-          /* override flex so badge stays tied to the bottom of the title block */
-    display: grid !important;
-    grid-template-columns: 1fr max-content !important;
-    column-gap: calc(var(--scrt-unit)*1) !important;
-    align-items: start;
+      display: grid !important;
+      grid-template-columns: 1fr max-content !important;
+      column-gap: calc(var(--scrt-unit)*1) !important;
+      align-items: start;
     }
+
     .scrt-card-title {
       flex: 1 1 auto;
       min-width: 0;
       overflow-wrap: break-word;
-      font-size: var(--scrt-scale-0) !important; /* down from scale‑2 */
+      font-size: var(--scrt-scale-0) !important;
       line-height: 1.2 !important;
-
     }
+
     .scrt-status-badge {
       margin-top: calc(var(--scrt-unit)*1);
       font-size: 0.65rem !important;
       padding: 0px 2px 0px !important;
-      /* sit at bottom of the title cell */
-    align-self: end !important;
+      align-self: end !important;
     }
-  
-    /* reduce space and line‑height on “With” */
+
     .scrt-card-with {
       margin: 0 calc(var(--scrt-unit)*4) !important;
       margin-top: calc(var(--scrt-unit)*2) !important;
       line-height: 1.2 !important;
     }
+
+    /* Shrink text inside expanded accordions on mobile */
+    .scrt-card.expanded .scrt-card-body {
+      font-size: var(--scrt-scale-00) !important;
+    }
+
+    .scrt-card.expanded .scrt-foil-desc,
+    .scrt-card.expanded .scrt-doc-list li {
+      font-size: var(--scrt-scale-0000) !important;
+    }
   }
-
-      /*makes hero and section heading not break mid word on screen*/
-      .scrt-hero-text,
-      .scrt-section-heading {
-        word-break: keep-all !important;
-        overflow-wrap: normal !important;
-        hyphens: none !important;
-      }
-
-      @media (max-width: 700px) {
-        /* shrink accordion body text on mobile */
-        .scrt-card.expanded .scrt-card-body {
-          font-size: var(--scrt-scale-00) !important; /* ~15px */
-        }
-        /* shrink descriptions and list items */
-        .scrt-card.expanded .scrt-foil-desc,
-        .scrt-card.expanded .scrt-doc-list li {
-          font-size: var(--scrt-scale-0000) !important; /* ~13px */
-        }
-      }
-      
-
-  
 </style>
+
 
 <div class="scrt-wrapper">
   <h1 class="scrt-hero-text">Transparency & Reform</h1>
   <p class="scrt-section-intro">
-    Through FOIL requests and memos supporting key reform bills, we surface the data and policy changes New York needs.
+    Through FOILs and support for legislative reform, we expand court transparency and strengthen the legal system
   </p>
 
   <!-- FOIL REQUESTS -->
