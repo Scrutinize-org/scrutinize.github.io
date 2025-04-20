@@ -299,7 +299,7 @@
   
 
     .scrt-section:not(.scrt-intro-block) p {
-      margin-bottom: 0.75rem;  /* shrink from whatever it is now */
+      padding-bottom: 10px !important;
     }
 
     .scrt-text-block h2 {
