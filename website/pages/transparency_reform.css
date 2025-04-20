@@ -1,0 +1,377 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
+
+<style>
+  /* ───── Section headings ───── */
+  .scrt-section-heading {
+    font-size: var(--scrt-scale-4) !important;
+    color: var(--scrt-color-blue6);
+    margin: calc(var(--scrt-unit)*12) 0 calc(var(--scrt-unit)*5);
+  }
+
+  /* ───── Single‐column Accordions ───── */
+  .scrt-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: calc(var(--scrt-unit)*4);
+  }
+
+  /* ───── Card & Accordion Styles ───── */
+  .scrt-card {
+    background: #fff;
+    border-radius: var(--scrt-radius);
+    box-shadow: var(--scrt-elevation-1);
+    border-left: 6px solid var(--scrt-color-blue3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 0 0 calc(var(--scrt-unit)*4);
+    margin: 0;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .scrt-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--scrt-elevation-2);
+    background: var(--scrt-color-blue0);
+  }
+  .scrt-card-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: calc(var(--scrt-unit)*6) calc(var(--scrt-unit)*4) 0;
+    cursor: pointer;
+  }
+  .scrt-card-title {
+    font-size: var(--scrt-scale-2);
+    font-weight: var(--scrt-weight-semibold);
+    color: var(--scrt-color-blue);
+    margin: 0;
+  }
+  .scrt-status-badge {
+    margin-left: 12px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: var(--scrt-weight-semibold);
+    border-radius: var(--scrt-radius);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+  }
+  .scrt-status-badge.appealed  { background: var(--scrt-color-red1); color: #000; }
+  .scrt-status-badge.resolved  { background: var(--scrt-color-green1); color: #000; }
+  .scrt-status-badge.closed    { background: var(--scrt-color-gray1); color: #000; }
+  .scrt-status-badge.pending   { background: var(--scrt-color-yellow1); color: #000; }
+  .scrt-status-badge.support   { background: var(--scrt-color-green2); color: #000; }
+
+  /* ───── “With” line ───── */
+  .scrt-card-with {
+    font-size: var(--scrt-scale--1);
+    color: var(--scrt-color-gray5);
+    margin: calc(var(--scrt-unit)*0) calc(var(--scrt-unit)*4) 0;
+    font-style: italic;
+    line-height: 1.2;           /* tighter spacing when it wraps */
+    white-space: normal;        /* ensure it breaks naturally */
+  }
+
+  /* ───── Accordion Body ───── */
+  .scrt-card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 calc(var(--scrt-unit)*4);
+  }
+  .scrt-card.expanded .scrt-card-body {
+    padding: calc(var(--scrt-unit)*4);
+    max-height: 500px;
+    padding-top: 0 !important;
+
+  }
+  .scrt-foil-desc {
+    margin: 0.5em 0;
+    font-size: var(--scrt-scale-0);
+    line-height: var(--scrt-lh-normal);
+  }
+
+  /* ───── Document List ───── */ 
+  .scrt-doc-list {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+    font-size: var(--scrt-scale-0);
+  }
+  .scrt-doc-list li {
+    margin-bottom: 0.5em;
+  }
+  .scrt-view-link {
+    color: var(--scrt-color-blue5);
+    font-weight: var(--scrt-weight-medium);
+    text-decoration: none;
+  }
+  .scrt-view-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 700px) {
+    /* prevent any horizontal scroll */
+    html, body {
+      overflow-x: hidden !important;
+    }
+  
+    /* tighter side‑padding */
+    .scrt-wrapper {
+      padding: 0 10px;
+    }
+  
+    /* force one card per row with smaller gaps */
+    .scrt-grid {
+      grid-template-columns: 1fr;
+      gap: calc(var(--scrt-unit)*3);
+    }
+  
+    /* full‑width cards, no overflow */
+    .scrt-card {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 0 calc(var(--scrt-unit)*4);
+    }
+  
+    /* allow title and badge to wrap */
+    .scrt-card-title-row {
+          /* override flex so badge stays tied to the bottom of the title block */
+    display: grid !important;
+    grid-template-columns: 1fr max-content !important;
+    column-gap: calc(var(--scrt-unit)*1) !important;
+    align-items: start;
+    }
+    .scrt-card-title {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-wrap: break-word;
+      font-size: var(--scrt-scale-0) !important; /* down from scale‑2 */
+      line-height: 1.2 !important;
+
+    }
+    .scrt-status-badge {
+      margin-top: calc(var(--scrt-unit)*1);
+      font-size: 0.65rem !important;
+      padding: 0px 2px 0px !important;
+      /* sit at bottom of the title cell */
+    align-self: end !important;
+    }
+  
+    /* reduce space and line‑height on “With” */
+    .scrt-card-with {
+      margin: 0 calc(var(--scrt-unit)*4) !important;
+      margin-top: calc(var(--scrt-unit)*2) !important;
+      line-height: 1.2 !important;
+    }
+  }
+
+  
+  @media (max-width: 700px) {
+ 
+  }
+  
+</style>
+
+<div class="scrt-wrapper">
+  <h1 class="scrt-hero-text">Transparency & Reform</h1>
+  <p class="scrt-section-intro">
+    Through FOIL requests and memos supporting key reform bills, we surface the data and policy changes New York needs.
+  </p>
+
+  <!-- FOIL REQUESTS -->
+  <h2 class="scrt-section-heading">FOIL Requests</h2>
+  <section id="foil-requests" class="scrt-grid">
+    <!-- 1. Governor’s Judicial Screening Committees -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Governor’s Judicial Screening Committees</span>
+        <span class="scrt-status-badge pending">Pending</span>
+      </div>
+      <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Complete roster and rating criteria of Governor’s Judicial Screening Committees since 2000.</p>
+        <p class="scrt-foil-desc">Why: Reveal who vets judges—and by what standards—so New Yorkers can judge fairness, diversity, and merit.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#foil-gov-screening" class="scrt-view-link">View FOIL Request</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 2. Mayor’s Advisory Committee on the Judiciary -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Mayor’s Advisory Committee on the Judiciary</span>
+        <span class="scrt-status-badge pending">Pending</span>
+      </div>
+      <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Names, affiliations, and vetting manuals for every member since 2000.</p>
+        <p class="scrt-foil-desc">Why: Show whether the City’s appointment pipeline reflects fairness, diversity, and merit.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#foil-mayor-committee" class="scrt-view-link">View FOIL Request</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 3. Acting Supreme Court Justice Designations -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Acting Supreme Court Justice Designations</span>
+        <span class="scrt-status-badge appealed">Appealed</span>
+      </div>
+      <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Every order naming Acting Supreme Court Justices since 2010 and the rules that govern these assignments.</p>
+        <p class="scrt-foil-desc">Why: Audit an opaque promotion tool never reviewed for fairness, merit, diversity, or genuine need.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#foil-oca-justices" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="/transparency#appeal-oca-justices" class="scrt-view-link">View Appeal</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 4. Names & Terms of All NY State Judges -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Names &amp; Terms of All NY State Judges</span>
+        <span class="scrt-status-badge appealed">Appealed</span>
+      </div>
+      <p class="scrt-card-with">With the Cornell Law First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Current master list of every NYS judge, including court, jurisdiction, and term dates.</p>
+        <p class="scrt-foil-desc">Why: Provide a verified roster baseline to track elections, reappointments, and performance.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#foil-oca-judges" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="/transparency#appeal-oca-judges" class="scrt-view-link">View Appeal</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 5. Criminal Court Data from OCA -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Criminal Court Data from OCA</span>
+        <span class="scrt-status-badge resolved">Resolved</span>
+      </div>
+      <p class="scrt-card-with">With NYCLU &amp; the Harvard Law School Cyberlaw Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Statewide case‑level files with bail amounts, release outcomes, and sentencing decisions.</p>
+        <p class="scrt-foil-desc">Why: Permit researchers, policymakers, and communities to analyze bail and sentencing disparities.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#foil-oca-data" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="/transparency#appeal-oca-data" class="scrt-view-link">View Appeal</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 6. Criminal Court Data from MOCJ -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Criminal Court Data from MOCJ</span>
+        <span class="scrt-status-badge pending">Pending</span>
+      </div>
+      <p class="scrt-card-with">With NYCLU &amp; the Harvard Law School Cyberlaw Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: NYC arrest‑to‑arraignment dataset with judge IDs, charges, and release outcomes (2008–present).</p>
+        <p class="scrt-foil-desc">Why: Expose how bail and sentencing disparities play out across boroughs.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#foil-mocj-data" class="scrt-view-link">View FOIL Request</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 7. Criminal Court Data from DCJS -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Criminal Court Data from DCJS</span>
+        <span class="scrt-status-badge closed">Closed</span>
+      </div>
+      <p class="scrt-card-with">With NYCLU &amp; the Harvard Law School Cyberlaw Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Statewide records—arraigning‑judge IDs, demographics, charges, and bail decisions since 2008.</p>
+        <p class="scrt-foil-desc">Why: Uncover trends and racial disparities hidden in court data.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#foil-dcjs-data" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="/transparency#appeal-dcjs-data" class="scrt-view-link">View Appeal</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <h2 class="scrt-section-heading">Memos of Support</h2>
+  <section id="memos" class="scrt-grid">
+    <!-- 1. Expand e‑Filing in NYS Courts -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Expand e‑Filing in NYS Courts</span>
+        <span class="scrt-status-badge support">Supported</span>
+      </div>
+      <p class="scrt-card-with">Joint Memo of Support</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Uniform, statewide e‑filing for all trial courts cuts red tape and makes court records easier to access.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#memo-efiling" class="scrt-view-link">View Joint Memo</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 2. Strengthen Judicial Conduct Commission -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Strengthen Judicial Conduct Commission</span>
+        <span class="scrt-status-badge support">Supported</span>
+      </div>
+      <p class="scrt-card-with">Joint Memo of Support</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Shield the Commission’s budget from political tampering and open formal misconduct records to the public.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#memo-conduct" class="scrt-view-link">View Group Memo</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 3. Lift Supreme Court Justice Cap -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Lift Supreme Court Justice Cap</span>
+        <span class="scrt-status-badge support">Supported</span>
+      </div>
+      <p class="scrt-card-with">Joint Memo of Support</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc">What: Remove the cap on Supreme Court Justices so lawmakers can add judges where caseloads demand.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="/transparency#memo-cap" class="scrt-view-link">View Scrutinize Memo</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // replace title‑row click with whole‑card click
+    document.querySelectorAll('.scrt-card').forEach(card => {
+      card.addEventListener('click', e => {
+        // prevent toggling when clicking links inside
+        if (e.target.closest('.scrt-view-link')) return;
+        const grid = card.closest('.scrt-grid');
+        const open = card.classList.contains('expanded');
+        grid.querySelectorAll('.scrt-card.expanded').forEach(c => c.classList.remove('expanded'));
+        if (!open) card.classList.add('expanded');
+      });
+    });
+
+    // filter FOIL vs Memos (unchanged)…
+    document.querySelectorAll('.scrt-subnav button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.scrt-subnav button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filt = btn.dataset.filter;
+        document.getElementById('foil-requests').style.display = filt === 'foil' ? 'grid' : 'none';
+        document.getElementById('memos').style.display        = filt === 'memos' ? 'grid' : 'none';
+      });
+    });
+  });
+</script>
