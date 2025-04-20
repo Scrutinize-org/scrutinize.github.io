@@ -316,4 +316,12 @@ body, html {
   .scrt-section-heading {
     font-size: var(--scrt-scale-2) !important; 
   }
+
+    /*makes hero and section heading not break mid word on screen*/
+  .scrt-hero-text,
+  .scrt-section-heading {
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
 }
