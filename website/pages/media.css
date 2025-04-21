@@ -3,9 +3,7 @@
 
 <style>
   /* ───── Page wrapper & intro ───── */
-  .scrt-wrapper {
-    width: 100%;
-    margin: 0 auto;
+  .scrt-wrapper { /*gets most definitions from master.css*/
     padding: 0;
   }
 

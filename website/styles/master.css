@@ -60,6 +60,15 @@
   --scrt-color-gray6: #404856;
   --scrt-color-gray7: #272e3b;
 
+  --scrt-color-gray: var(--scrt-color-gray5);
+  --scrt-color-red: var(--scrt-color-category0);
+  --scrt-color-blue: var(--scrt-color-category1);
+  --scrt-color-green: var(--scrt-color-category2);
+  --scrt-color-yellow: var(--scrt-color-category3);
+  --scrt-color-purple: var(--scrt-color-category4);
+  --scrt-color-white: #ffffff;
+  --scrt-color-black: #333335;
+
   /* Breakpoints */
   --scrt-breakpoint-min-xs: 0;
   --scrt-breakpoint-max-xs: 479;
