@@ -11,9 +11,10 @@
   /* Remove gaps between sections */
   .scrt-section {
     margin-bottom: 0 !important;
-    background-color: #FFF7F2 !important;
+    background-color: #FFF7F2;
     border-left: 3px solid var(--scrt-color-white) !important;
     padding: calc(var(--scrt-unit)*6);
+    margin-bottom: calc(var(--scrt-unit)*6) !important;
   }
 
   /* Fade‑in animation on scroll */
@@ -57,19 +58,14 @@
 
 <div class="scrt-wrapper">
 
-  <!-- HERO -->
-  <h1 class="scrt-hero-text" style="text-align: center;">About Us</h1>
-  <br>
-
-  <!-- WHAT WE DO -->
-  <div class="scrt-section" data-animate>
-    <h2>Mission</h2>
-    <p>
-      Scrutinize’s mission is to make state courts more transparent, accountable, and legitimate. We achieve this by analyzing data to reveal judicial decisions and impacts.
-    </p>
-  </div>
-
-  <!-- WHY FOCUS ON STATE COURTS -->
+    <div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08);">
+        <!-- HERO -->
+        <h1 class="scrt-hero-text" style="text-align: center;">About Us</h1>
+        <p class="scrt-section-intro">
+            Our mission is to make state courts more transparent, accountable, and legitimate. We use data analysis, AI, and rigorous legal research to turn complex judicial data into clear insights.        </p>
+    </div>
+ 
+    <!-- WHY FOCUS ON STATE COURTS -->
   <div class="scrt-section" data-animate>
     <h2>Why Focus on State Courts and State Judiciaries?</h2>
     <p>
