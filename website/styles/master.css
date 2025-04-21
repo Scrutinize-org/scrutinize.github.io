@@ -23,6 +23,7 @@
   --scrt-color-blue5: #0169a3;
   --scrt-color-blue6: #004b7c;
   --scrt-color-blue7: #002e57;
+  --scrt-color-blue: #0169a3;
 
   --scrt-color-green0: #e6fff4;
   --scrt-color-green1: #b8ecd5;
@@ -187,7 +188,7 @@ body, html {
 }
 .scrt-section h2 {
   font-size: var(--scrt-scale-2);
-  color: var(--scrt-color-blue6);
+  color: var(--scrt-color-blue5);
   font-weight: var(--scrt-weight-semibold);
   margin-top: 0;
 }
@@ -263,7 +264,7 @@ body, html {
 /* HERO */
 .scrt-hero-text {
   font-size: var(--scrt-scale-5) !important;
-  font-weight: var(--scrt-weight-semibold);
+  font-weight: var(--scrt-weight-regular);
   line-height: 1.4;
   color: var(--scrt-color-red5);
   text-align: center;

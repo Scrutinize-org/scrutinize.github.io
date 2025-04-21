@@ -1,4 +1,10 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
+<script>
+  const l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
+           + Date.now();
+  document.head.appendChild(l);
+</script>
 
 <style>
 /* ───── Reports Page Custom Styles ───── */
@@ -7,7 +13,7 @@
   background: #fff;
   border-radius: var(--scrt-radius);
   padding: calc(var(--scrt-unit)*6) calc(var(--scrt-unit)*4);
-  margin-bottom: calc(var(--scrt-unit)*6);
+  margin-bottom: calc(var(--scrt-unit)*4);
   box-shadow: var(--scrt-elevation-1);
   border-left: 6px solid var(--scrt-color-blue1);
   transition: transform 0.3s var(--scrt-easing-standard), box-shadow 0.5s var(--scrt-easing-standard);
@@ -43,18 +49,6 @@
   margin: 0 0 calc(var(--scrt-unit)*4);
 }
 
-/* Button */
-.scrt-button {
-  display: inline-block;
-  background: var(--scrt-color-blue);
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: var(--scrt-radius);
-  font-size: var(--scrt-scale-0);
-  font-weight: var(--scrt-weight-semibold);
-}
-
 /* Responsive */
 @media(max-width:700px) {
   .scrt-flex { flex-direction: column; align-items: center; }
@@ -82,11 +76,14 @@
 </style>
 
 <div class="scrt-wrapper">
-  <h1 class="scrt-hero-text">Research</h1>
-  <p class="scrt-section-intro">
-    Using data analysis, artificial intelligence, and rigorous legal research, we transform complex judicial data into clear insights. Our research empowers the public to take informed action, creating a more transparent and accountable legal system.
-  </p>
-  <br>
+  
+  <div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08);">
+
+    <h1 class="scrt-hero-text">Research</h1>
+      <p class="scrt-section-intro">
+        Using data analysis, artificial intelligence, and rigorous legal research, we transform complex judicial data into clear insights. Our research empowers the public to take informed action, creating a more transparent and accountable legal system.
+      </p>
+  </div>
 
   <!-- Scroll-animate script -->
   <script>
