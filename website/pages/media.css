@@ -1,0 +1,150 @@
+<!-- Load your global Scrutinize styles if not already loaded -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
+
+<style>
+  /* ───── Page wrapper & intro ───── */
+  .scrt-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* ───── Grid container ───── */
+  #main-coverage {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;   /* tighter gutter */
+  }
+  @media (max-width: 700px) {
+    #main-coverage {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+  }
+
+
+  /* ───── Article cards ───── */
+  .article-card {
+    background: #fff;
+    border-radius: var(--scrt-radius);
+    box-shadow: var(--scrt-elevation-2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--scrt-elevation-3);
+    background: var(--scrt-color-blue0) !important;
+  }
+
+  /* remove underline on the entire-card link */
+.article-card a.card-link,
+.article-card a.card-link:hover {
+  text-decoration: none !important;
+}
+
+  .article-card img {
+    width: 100%;
+    height: 150px;           /* smaller photo */
+    object-fit: cover;
+  }
+  .article-card-content {
+    padding: calc(var(--scrt-unit)*4);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+/* clamp titles to two lines with ellipsis */
+.article-card-content h3 {
+    font-size: var(--scrt-scale-0) !important;    /* uniform size */
+    line-height: 1.2;
+    margin: 0 0 calc(var(--scrt-unit)*1.5);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;                        /* max 2 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .article-card-content p.publication {
+    margin: 0 0 calc(var(--scrt-unit)*1.5);
+    font-size: var(--scrt-scale-0); /* smaller publication text */
+    color: var(--scrt-color-black);
+    margin-top: auto;
+  }
+  .article-card-content a.read-more {
+    font-weight: var(--scrt-weight-semibold);
+    text-decoration: none;
+    font-size: var(--scrt-scale-0); /* smaller link */
+    color: var(--scrt-color-blue5);
+  }
+
+  /* ───── Error state ───── */
+  #main-coverage.error {
+    padding: calc(var(--scrt-unit)*4);
+    background: var(--scrt-color-red0);
+    border-radius: var(--scrt-radius);
+    color: var(--scrt-color-red6);
+    text-align: center;
+  }
+
+    /* make the whole card link fill its container */
+    .article-card a.card-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: inherit;
+        text-decoration: none;
+      }
+
+
+
+  
+</style>
+
+
+<div class="scrt-wrapper">
+  <!-- page title -->
+  <h1 class="scrt-hero-text">Scrutinize in the News</h1>
+
+  <!-- intro paragraph -->
+  <p class="scrt-section-intro">
+    Scrutinize’s work has been featured and cited by a range of influential media outlets, including mainstream sources like The New York Times, The Brian Lehrer Show, WNYC/Gothamist, and The City, as well as legal publications such as New York Law Journal, Law360, and State Court Report.
+  </p>
+
+  <!-- your grid of cards -->
+  <div id="main-coverage"></div>
+</div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("main-coverage");
+  fetch("https://scrutinize-org.github.io/scrutinize.github.io/articles.json")
+    .then(r => r.ok ? r.json() : Promise.reject(r.statusText))
+    .then(articles => {
+      articles.forEach(({ title, url, publication, date, image }) => {
+        const card = document.createElement("div");
+        card.className = "article-card";
+        card.innerHTML = `
+          <a class="card-link" href="${url}" target="_blank" rel="noopener">
+            <img src="${image}" alt="${title}">
+            <div class="article-card-content">
+              <h3>${title}</h3>
+              <p class="publication">${publication || ""}${date ? " • " + date : ""}</p>
+            </div>
+          </a>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      container.classList.add("error");
+      container.textContent = "Failed to load articles.";
+      console.error("Error loading media JSON:", err);
+    });
+});
+</script>

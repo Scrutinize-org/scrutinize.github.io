@@ -278,13 +278,13 @@ body, html {
   }
 
   .scrt-section-intro {
-    font-size: var(--scrt-scale-3) !important;
+    font-size: var(--scrt-scale-2) !important;
   }
 }
 
 /* define text below hero title*/
 .scrt-section-intro {
-  font-size: var(--scrt-scale-);
+  font-size: var(--scrt-scale-4);
   font-weight: var( --scrt-weight-medium); 
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-black);
