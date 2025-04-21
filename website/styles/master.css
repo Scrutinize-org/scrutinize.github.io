@@ -265,7 +265,7 @@ body, html {
   font-size: var(--scrt-scale-5);
   font-weight: var(--scrt-weight-semibold);
   line-height: 1.4;
-  color: var(--scrt-color-red1);
+  color: var(--scrt-color-red);
   text-align: center;
   margin: calc(var(--scrt-unit)*4) 0 calc(var(--scrt-unit)*2);
 }
