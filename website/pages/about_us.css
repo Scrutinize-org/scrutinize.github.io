@@ -1,0 +1,199 @@
+<!-- About Us page -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/partner_logos.css">
+
+<style>
+  /* Remove gaps between sections */
+  .scrt-section {
+    margin-bottom: 0 !important;
+    background-color: #FFF7F2 !important;
+    border-left: 3px solid var(--scrt-color-white) !important;
+    padding: calc(var(--scrt-unit)*6);
+  }
+
+  /* Fade‑in animation on scroll */
+  .scrt-section[data-animate] {
+    opacity: 0;
+    transform: scale(0.97);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .scrt-section[data-animate].in-view {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Founder name styling */
+  .founder-name {
+    text-align: left;
+    font-weight: var(--scrt-weight-bold);
+    margin-bottom: 0.5rem;
+  }
+
+  /* Partner logos grid */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 0;
+    margin: 0;
+    max-width: 1200px;
+  }
+  .partners-grid img {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+    margin: 0;
+  }
+  .partners-grid img:hover {
+    opacity: 0.5;
+  }
+</style>
+
+<div class="scrt-wrapper">
+
+  <!-- HERO -->
+  <h1 class="scrt-hero-text" style="text-align: center;">About Us</h1>
+  <br>
+
+  <!-- WHAT WE DO -->
+  <div class="scrt-section" data-animate>
+    <h2>Mission</h2>
+    <p>
+      Scrutinize’s mission is to make state courts more transparent, accountable, and legitimate. We achieve this by analyzing data to reveal judicial decisions and impacts.
+    </p>
+  </div>
+
+  <!-- WHY FOCUS ON STATE COURTS -->
+  <div class="scrt-section" data-animate>
+    <h2>Why Focus on State Courts and State Judiciaries?</h2>
+    <p>
+      Public confidence in democratic institutions is essential but increasingly strained—especially confidence in the judiciary. Widespread doubts about federal judges’ commitment to constitutional rights, fair application of the law, and receptivity to any forms of accountability have created deep distrust in courts across the nation.
+    </p>
+    <p>
+      In this context, state courts play a critical role in protecting rights and restoring trust in public institutions. They are the primary forums for justice, handling the vast majority of legal cases that shape people’s lives—from criminal prosecutions to family disputes, evictions, and civil claims. State courts are far closer to the communities they serve than federal courts are, making them uniquely positioned to demonstrate fairness, equity, and responsiveness to public needs.
+    </p>
+  </div>
+
+  <!-- WHY FOCUS ON JUDICIAL TRANSPARENCY -->
+  <div class="scrt-section" data-animate>
+    <h2>Why Focus on Judicial Transparency?</h2>
+    <p>
+      Transparency across all branches of government is essential to accountability, public trust, and the durability of democracy. Yet state judiciaries have long operated opaquely, shielding judicial decisions from scrutiny and limiting accountability.
+    </p>
+    <p>
+      Accessible judicial data empowers the public to understand how judges apply the law and what influences their decisions. It also enables us to see how consistent and fair our courts are, bolstering trust, countering misinformation, and strengthening accountability at all levels of the judiciary.
+    </p>
+    <p>
+      Despite state courts’ critical influence over Americans’ lives, no independent organization has systematically and directly confronted their lack of transparency. Judicial decision‑making in state courts remains largely unexamined. Scrutinize is the first organization dedicated to publicizing and mitigating this problem.
+    </p>
+    <p>
+      By making judicial data accessible and comprehensible, Scrutinize pushes state courts and judiciaries to be transparent, resilient, accountable, and committed to fairness, equality, and the protection of constitutional rights for all.
+    </p>
+  </div>
+
+  <!-- HOW WE PROMOTE TRANSPARENCY -->
+  <div class="scrt-section" data-animate>
+    <h2>How Do We Promote Transparency and Public Trust?</h2>
+    <p>
+      Scrutinize uses data to make judicial decisions, reasoning, and impacts clear and accessible. We collect publicly available judicial data and file Freedom of Information Law requests to expand public access to information on judges’ activities and court system operations.
+    </p>
+    <p>
+      With this data, we analyze judicial decisions, estimate their impacts, and compile our findings into reports and a comprehensive database of judicial profiles. We equip policymakers, voters, and the public with the information needed to hold state judiciaries accountable, foster trust in the legal system, and strengthen democracy.
+    </p>
+    <p>
+      No other organization has leveraged court data to advance judicial transparency at this scale. Scrutinize is redefining how judicial power is tracked, challenged, and held accountable.
+    </p>
+  </div>
+
+  <!-- WHERE WE WORK -->
+  <div class="scrt-section" data-animate>
+    <h2>Where We Work</h2>
+    <p>
+      Scrutinize currently operates in New York, where state courts handle vast caseloads and wield enormous discretion. But judicial opacity is a nationwide problem.
+    </p>
+  </div>
+
+  <!-- WHO WE ARE -->
+  <div class="scrt-section" data-animate>
+    <h2>Who We Are</h2>
+    <p class="founder-name">Oded Oren</p>
+    <p>
+      Oded is the Founder & Executive Director of Scrutinize. A former public defender in the Bronx, he is a graduate of Harvard College (magna cum laude) and Harvard Law School (cum laude).
+    </p>
+  </div>
+
+
+<!-- PARTNERS -->
+<div class="scrt-section" data-animate>
+  <h2>Partners</h2>
+  <div class="partners-grid">
+    <a href="https://hls.harvard.edu/public-service-venture-fund/psvf-organization-based-fellowships/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/hls.png" alt="Harvard Law School">
+    </a>
+    <a href="https://www.mercatus.org/emergent-ventures" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/emergent_ventures.png" alt="Emergent Ventures">
+    </a>
+    <a href="https://www.justimpactadvisors.org/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/just_impact.png" alt="Just Impact Advisors">
+    </a>
+    <a href="https://www.ffwd.org/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/fastforward.png" alt="Fast Forward">
+    </a>
+    <a href="https://ironcladapp.com/blog/winners-legal-ai-innovators-award-2025/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/innovator_award.png" alt="Innovator Award">
+    </a>
+    <a href="https://www.navigation.org/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/navigation_fund.png" alt="The Navigation Fund">
+    </a>
+    <a href="https://www.nyclu.org/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/nyclu.png" alt="NYCLU">
+    </a>
+    <a href="https://www.law.nyu.edu/centers/zimroth" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/zimroth.png" alt="Zimroth">
+    </a>
+    <a href="https://hls.harvard.edu/clinics/in-house-clinics/cyberlaw-clinic/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/hls_cyberlaw.png" alt="HLS Cyberlaw Clinic">
+    </a>
+    <a href="https://cornell1a.law.cornell.edu/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/cornell_first.png" alt="Cornell First">
+    </a>
+    <a href="https://www.law.nyu.edu/centers/race-inequality-law" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/cril.png" alt="CRIL">
+    </a>
+    <a href="https://reinventalbany.org/" target="_blank" rel="noopener">
+        <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/reinvent_albany.png" alt="Reinvent Albany">
+    </a>
+    <a href="https://sja.urbanjustice.org/" target="_blank" rel="noopener">
+        <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/ujc.png" alt="UJC">
+    </a>
+    <a href="https://qsideinstitute.org/" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/qside.png" alt="QSide">
+    </a>
+    <a href="https://projects.propublica.org/nonprofits/organizations/136059064" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/rmr.png" alt="RMR">
+    </a>
+    <a href="https://projects.propublica.org/nonprofits/organizations/133711340" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/vital_projects.png" alt="Vital Projects">
+    </a>
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/hidden_figures.png" alt="Hidden Figures">
+    <a href="https://fconline.foundationcenter.org/fdo-grantmaker-profile/?key=KOHL315" target="_blank" rel="noopener">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/kohler.png" alt="Kohler Foundation">
+    </a>
+  </div>
+</div>
+
+
+<script>
+  // fade‑in on scroll
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      new IntersectionObserver(([e], obs) => {
+        if (e.isIntersecting) {
+          el.classList.add('in-view');
+          obs.unobserve(el);
+        }
+      }, { threshold: 0.1 }).observe(el);
+    });
+  });
+</script>

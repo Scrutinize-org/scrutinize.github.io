@@ -60,12 +60,6 @@
   --scrt-color-gray6: #404856;
   --scrt-color-gray7: #272e3b;
 
-  --scrt-color-gray: var(--scrt-color-gray5);
-  --scrt-color-red: var(--scrt-color-category0);
-  --scrt-color-blue: var(--scrt-color-category1);
-  --scrt-color-green: var(--scrt-color-category2);
-  --scrt-color-yellow: var(--scrt-color-category3);
-  --scrt-color-purple: var(--scrt-color-category4);
   --scrt-color-white: #ffffff;
   --scrt-color-black: #333335;
 
@@ -193,7 +187,7 @@ body, html {
 }
 .scrt-section h2 {
   font-size: var(--scrt-scale-2);
-  color: var(--scrt-color-blue);
+  color: var(--scrt-color-blue6);
   font-weight: var(--scrt-weight-semibold);
   margin-top: 0;
 }
@@ -234,7 +228,7 @@ body, html {
 /* 6. Button styles */
 .scrt-button {
   display: inline-block;
-  background: var(--scrt-color-blue);
+  background: var(--scrt-color-blue5);
   color: #fff;
   text-decoration: none;
   padding: 12px 20px;
@@ -271,7 +265,7 @@ body, html {
   font-size: var(--scrt-scale-5);
   font-weight: var(--scrt-weight-semibold);
   line-height: 1.4;
-  color: var(--scrt-color-red);
+  color: var(--scrt-color-red6);
   text-align: center;
   margin: calc(var(--scrt-unit)*4) 0 calc(var(--scrt-unit)*2);
 }
