@@ -1,5 +1,10 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
-
+<script>
+  const l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
+           + Date.now();
+  document.head.appendChild(l);
+</script>
 <style>
   /* ───── HEADINGS ───── */
   .scrt-section-heading {
@@ -51,7 +56,7 @@
 
   .scrt-card-title {
     font-size: var(--scrt-scale-2);
-    font-weight: var(--scrt-weight-semibold);
+    font-weight: var(--scrt-weight-regular);
     color: var(--scrt-color-blue);
     margin: 0;
   }
@@ -120,7 +125,7 @@
 
   .scrt-view-link {
     color: var(--scrt-color-blue5);
-    font-weight: var(--scrt-weight-medium);
+    font-weight: var(--scrt-weight-regular);
     text-decoration: none;
   }
 
@@ -191,10 +196,14 @@
 
 
 <div class="scrt-wrapper">
-  <h1 class="scrt-hero-text">Transparency & Reform</h1>
-  <p class="scrt-section-intro">
-    Through FOILs and support for legislative reform, we expand court transparency and strengthen the legal system
-  </p>
+
+    <div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08); padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);">
+
+        <h1 class="scrt-hero-text">Transparency & Reform</h1>
+        <p class="scrt-section-intro">
+        We promote transparency and accessible courts by filing FOIL requests for data and records the public can’t otherwise access, in partnership with the NYCLU, Harvard Law School's Cyberlaw Clinic, and Cornell’s First Amendment Clinic. We also advocate for legislative reforms that strengthen public trust and improve the transparency and accountability of New York’s court system.        
+        </p>
+    </div>
 
   <!-- FOIL REQUESTS -->
   <h2 class="scrt-section-heading">FOIL Requests</h2>

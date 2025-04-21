@@ -180,12 +180,13 @@ body, html {
   background: #fff;
   border-radius: var(--scrt-radius);
   margin-bottom: 20px;
-  padding-bottom: 10px !important;
+  padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
   box-shadow: var(--scrt-elevation-1);
   max-width: 950px;
   margin-left: auto;
   margin-right: auto;
 }
+ 
 .scrt-section h2 {
   font-size: var(--scrt-scale-2);
   color: var(--scrt-color-blue5);
@@ -234,7 +235,7 @@ body, html {
   text-decoration: none;
   padding: 12px 20px;
   border-radius: var(--scrt-radius);
-  font-weight: var(--scrt-weight-semibold);
+  font-weight: var(--scrt-weight-regular);
   font-size: var(--scrt-scale-0);
 }
 .scrt-button:hover {
@@ -289,7 +290,7 @@ body, html {
 /* define text below hero title*/
 .scrt-section-intro {
   font-size: var(--scrt-scale-4);
-  font-weight: var( --scrt-weight-medium); 
+  font-weight: var( --scrt-weight-regular); 
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-black);
   text-align: left;

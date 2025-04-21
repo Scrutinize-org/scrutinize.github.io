@@ -11,7 +11,6 @@
   /* Remove gaps between sections */
   .scrt-section {
     margin-bottom: 0 !important;
-    background-color: #FFF7F2;
     border-left: 3px solid var(--scrt-color-white) !important;
     padding: calc(var(--scrt-unit)*6);
     margin-bottom: calc(var(--scrt-unit)*6) !important;
@@ -31,7 +30,7 @@
   /* Founder name styling */
   .founder-name {
     text-align: left;
-    font-weight: var(--scrt-weight-bold);
+    font-weight: var(--scrt-weight-semibold);
     margin-bottom: 0.5rem;
   }
 
@@ -58,8 +57,8 @@
 
 <div class="scrt-wrapper">
 
-    <div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08);">
-        <!-- HERO -->
+<div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08); padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);">
+<!-- HERO -->
         <h1 class="scrt-hero-text" style="text-align: center;">About Us</h1>
         <p class="scrt-section-intro">
             Our mission is to make state courts more transparent, accountable, and legitimate. We use data analysis, AI, and rigorous legal research to turn complex judicial data into clear insights.        </p>

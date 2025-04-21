@@ -1,12 +1,12 @@
-<!-- Load your global Scrutinize styles if not already loaded -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
+<script>
+  const l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
+           + Date.now();
+  document.head.appendChild(l);
+</script>
 
 <style>
-  /* ───── Page wrapper & intro ───── */
-  .scrt-wrapper { /*gets most definitions from master.css*/
-    padding: 0;
-  }
-
   /* ───── Grid container ───── */
   #main-coverage {
     display: grid;
@@ -73,7 +73,7 @@
     margin-top: auto;
   }
   .article-card-content a.read-more {
-    font-weight: var(--scrt-weight-semibold);
+    font-weight: var(--scrt-weight-regular);
     text-decoration: none;
     font-size: var(--scrt-scale-0); /* smaller link */
     color: var(--scrt-color-blue5);
@@ -104,13 +104,17 @@
 
 
 <div class="scrt-wrapper">
-  <!-- page title -->
-  <h1 class="scrt-hero-text">Scrutinize in the News</h1>
 
-  <!-- intro paragraph -->
-  <p class="scrt-section-intro">
-    Scrutinize’s work has been featured and cited by a range of influential media outlets, including mainstream sources like The New York Times, The Brian Lehrer Show, WNYC/Gothamist, and The City, as well as legal publications such as New York Law Journal, Law360, and State Court Report.
-  </p>
+<div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08); padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);">
+
+    <!-- page title -->
+    <h1 class="scrt-hero-text">Scrutinize in the News</h1>
+
+    <!-- intro paragraph -->
+    <p class="scrt-section-intro">
+      Scrutinize’s work has been featured and cited by a range of influential media outlets, including mainstream sources like <i>The New York Times</i>, <i>The Brian Lehrer Show</i>, and <i>WNYC/Gothamist</i>, as well as legal publications such as <i>New York Law Journal</i>, <i>Law360</i>, and <i>State Court Report</i>.
+    </p>
+  </div>
 
   <!-- your grid of cards -->
   <div id="main-coverage"></div>

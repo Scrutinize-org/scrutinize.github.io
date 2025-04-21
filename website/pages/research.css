@@ -40,7 +40,7 @@
 .scrt-text-block h2 {
   font-size: var(--scrt-scale-2);
   color: var(--scrt-color-blue);
-  font-weight: var(--scrt-weight-semibold);
+  font-weight: var(--scrt-weight-regular);
   margin: 0 0 calc(var(--scrt-unit)*2);
 }
 .scrt-text-block p {
@@ -77,7 +77,7 @@
 
 <div class="scrt-wrapper">
   
-  <div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08);">
+<div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08); padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);">
 
     <h1 class="scrt-hero-text">Research</h1>
       <p class="scrt-section-intro">
