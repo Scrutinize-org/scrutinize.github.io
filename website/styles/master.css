@@ -191,64 +191,34 @@ body, html {
   margin-left: auto;
   margin-right: auto;
 }
- 
+
+/* 4.1 Section title styling */
 .scrt-section h2 {
   font-size: var(--scrt-scale-2);
   color: var(--scrt-color-blue5);
   font-weight: var(--scrt-weight-semibold);
   margin-top: 0;
 }
+/* Mobile adjustments for .scrt-section h2 */
 @media (max-width: 700px) {
   .scrt-section h2 {
     font-size: var(--scrt-scale-2m); /* adjust as needed */
-    color: var(--scrt-color-blue5);
-    font-weight: var(--scrt-weight-semibold);
-    margin-top: 0;
+    /* inheriting other properties from above */
   }
 }
 
+/* 4.2 Section paragraph styling */
 .scrt-section p {
   font-size: var(--scrt-scale-0);
   line-height: 1.6;
   margin-bottom: 1.25em;
 }
+
+/* 4.3 (Duplicate) Additional .scrt-section h2 styling – likely intended for paragraphs */
 .scrt-section h2 {
   font-size: var(--scrt-scale-0m);
   line-height: 1.6;
   margin-bottom: 1.25em;
-}
-
-/* 4a. Hero section variant: scrt-top */
-.scrt-top {
-  /* inherit all scrt-section base styles */
-  background: #fff;
-  border-radius: var(--scrt-radius);
-  margin-bottom: 20px;
-  padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
-  box-shadow: 0 12px 12px rgba(0,0,0,0.08);
-  max-width: 950px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* 4b. Prevent overflow on mobile and fix hero text wrapping */
-@media (max-width: 700px) {
-  .scrt-top {
-    /* shrink padding and soften shadow */
-    padding: calc(var(--scrt-unit)*2) calc(var(--scrt-unit)*2) !important;
-    box-shadow: 0 8px 8px rgba(0,0,0,0.06) !important;
-    overflow-x: hidden;
-  }
-
-  /* keep hero headline wrapping only at spaces */
-  .scrt-top {
-    display: block !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
-    hyphens: none !important;
-  }
 }
 
 /* 5. Flex layout for image/text rows */
@@ -260,12 +230,31 @@ body, html {
   gap: 50px;
   padding: 0 10px;
 }
+/* Mobile adjustments for .scrt-flex */
+@media (max-width: 700px) {
+  .scrt-flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 .scrt-img-block {
   flex: 0 0 auto;
   display: flex;
   justify-content: center;
   padding-right: 30px;
 }
+/* Mobile adjustments for .scrt-img-block */
+@media (max-width: 700px) {
+  .scrt-img-block {
+    order: 1;
+    margin-bottom: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+}
+
 .scrt-img-block img {
   width: 100%;
   max-width: 220px;
@@ -273,10 +262,25 @@ body, html {
   border-radius: var(--scrt-radius);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
+/* Mobile adjustments for images in .scrt-img-block */
+@media (max-width: 700px) {
+  .scrt-img-block img {
+    max-width: 40vw;
+  }
+}
+
 .scrt-text-block {
   flex: 1 1 500px;
   max-width: 500px;
   padding-left: 30px;
+}
+/* Mobile adjustments for .scrt-text-block */
+@media (max-width: 700px) {
+  .scrt-text-block {
+    max-width: 100%;
+    padding-left: 0;
+    order: 2;
+  }
 }
 
 /* 6. Button styles */
@@ -294,6 +298,7 @@ body, html {
   background: var(--scrt-color-blue6);
   text-decoration: none !important;
 }
+
 .scrt-button-row {
   display: flex;
   flex-wrap: nowrap;
@@ -305,6 +310,14 @@ body, html {
   text-align: center;
   white-space: nowrap;
 }
+/* Mobile adjustments for button rows */
+@media (max-width: 700px) {
+  .scrt-button-row .scrt-button {
+    font-size: var(--scrt-scale-0m);
+    padding: 10px 5px;
+    margin-bottom: 0 !important;
+  }
+}
 
 /* 7. Remove extra bottom spacing on Squarespace wrapper */
 .Index-page-content,
@@ -314,86 +327,64 @@ body, html {
   margin-bottom: 0;
 }
 
-/* HERO */
+/* 8. Hero text styling */
 .scrt-hero-text {
-  font-size: var(--scrt-scale-5);
+  font-size: var(--scrt-scale-6);
   font-weight: var(--scrt-weight-regular);
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-red5);
   text-align: center;
   margin: calc(var(--scrt-unit)*4) 0 calc(var(--scrt-unit)*2);
 }
+/* Mobile adjustments for hero text */
+@media (max-width: 700px) {
+  .scrt-hero-text {
+    font-size: var(--scrt-scale-6m);
+  }
+}
 
-
-/* define text below hero title*/
+/* 9. Define text below hero title */
 .scrt-section-intro {
   font-size: var(--scrt-scale-3);
-  font-weight: var( --scrt-weight-regular); 
+  font-weight: var(--scrt-weight-regular);
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-black);
   text-align: left;
   margin-bottom: calc(var(--scrt-unit)*6);
 }
-
+/* Mobile adjustments for section intro text */
 @media (max-width: 700px) {
-  /* Shrink buttons */
-  .scrt-button-row .scrt-button {
-    font-size: var(--scrt-scale-0m);
-    padding: 10px 5px;
-    margin-bottom: 0 !important;
-  }
-
   .scrt-section-intro {
     font-size: var(--scrt-scale-3m) !important;
   }
 }
 
+/* 10. Section heading (alternative) */
 .scrt-section-heading {
   font-size: var(--scrt-scale-4) !important;
   color: var(--scrt-color-blue6);
   margin: calc(var(--scrt-unit)*12) 0 calc(var(--scrt-unit)*5);
 }
+/* Mobile adjustments for section headings */
+@media (max-width: 700px) {
+  .scrt-section-heading {
+    font-size: var(--scrt-scale-1m);
+  }
+}
 
+/* 11. Secondary text-block heading */
 .scrt-text-block h2 {
   font-size: var(--scrt-scale-1);
 }
-
+/* Mobile adjustments for text-block headings */
 @media (max-width: 700px) {
   .scrt-text-block h2 {
-    font-size: var(--scrt-scale-1m); /* ← not using --scrt-scale-1m */
+    font-size: var(--scrt-scale-1m);
   }
 }
 
-
+/* 12. Prevent overflow on mobile for hero and section headings */
 @media (max-width: 700px) {
-  .scrt-flex {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .scrt-img-block {
-    order: 1;
-    margin-bottom: 20px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-  }
-  .scrt-img-block img {
-    max-width: 40vw;
-  }
-  .scrt-text-block {
-    max-width: 100%;
-    padding-left: 0;
-    order: 2;
-  }
-  .scrt-section-heading {
-    font-size: var(--scrt-scale-1m); 
-  }
-
-  .scrt-hero-text {
-    font-size: var(--scrt-scale-5m);
-  }
-
-    /*makes hero and section heading not break mid word on screen*/
   .scrt-hero-text,
   .scrt-section-heading {
     word-break: keep-all !important;
