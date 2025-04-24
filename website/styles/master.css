@@ -318,7 +318,7 @@ body, html {
 .scrt-hero-text {
   font-size: var(--scrt-scale-5);
   font-weight: var(--scrt-weight-regular);
-  line-height: 1.4;
+  line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-red5);
   text-align: center;
   margin: calc(var(--scrt-unit)*4) 0 calc(var(--scrt-unit)*2);
@@ -333,7 +333,6 @@ body, html {
   color: var(--scrt-color-black);
   text-align: left;
   margin-bottom: calc(var(--scrt-unit)*6);
-  padding: calc(var(--scrt-unit)*6) calc(var(--scrt-unit)*4) 0
 }
 
 @media (max-width: 700px) {
@@ -392,21 +391,6 @@ body, html {
 
   .scrt-hero-text {
     font-size: var(--scrt-scale-5m);
-        /* make the heading itself a flex container */
-    display: flex;
-    flex-direction: column;      /* stack any child elements vertically */
-    flex-wrap: wrap;             /* allow content to wrap within the container */
-    justify-content: center;     /* center‐align if you have multiple lines or icons */
-    align-items: center;         /* center‐align children horizontally */
-    
-    /* ensure it never exceeds its parent’s width */
-    width: 100%;
-    box-sizing: border-box;
-    
-    /* allow natural line-breaks rather than forcing keep-all */
-    word-break: break-word !important;
-    overflow-wrap: break-word !important;
-    hyphens: auto !important;
   }
 
     /*makes hero and section heading not break mid word on screen*/
