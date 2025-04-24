@@ -196,7 +196,7 @@ body, html {
 .scrt-section h2 {
   font-size: var(--scrt-scale-2);
   color: var(--scrt-color-blue5);
-  font-weight: var(--scrt-weight-semibold);
+  font-weight: var(--scrt-weight-medium);
   margin-top: 0;
 }
 /* Mobile adjustments for .scrt-section h2 */
