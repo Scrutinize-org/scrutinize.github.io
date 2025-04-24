@@ -184,10 +184,10 @@ body, html {
 .scrt-section {
   background: #fff;
   border-radius: var(--scrt-radius);
-  margin-bottom: 20px;
+  margin-bottom: calc(var(--scrt-unit)*6);
   padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
   box-shadow: var(--scrt-elevation-1);
-  max-width: 950px;
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -330,7 +330,7 @@ body, html {
 /* 8. Hero text styling */
 .scrt-hero-text {
   font-size: var(--scrt-scale-6);
-  font-weight: var(--scrt-weight-medium);
+  font-weight: var(--scrt-weight-semibold);
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-red5);
   text-align: center;

@@ -8,13 +8,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/partner_logos.css">
 
 <style>
-  /* Remove gaps between sections */
-  .scrt-section {
-    margin-bottom: 0 !important;
-    border-left: 3px solid var(--scrt-color-white) !important;
-    padding: calc(var(--scrt-unit)*6);
-    margin-bottom: calc(var(--scrt-unit)*6) !important;
-  }
 
   /* Fade‑in animation on scroll */
   .scrt-section[data-animate] {
@@ -57,18 +50,18 @@
 
 <div class="scrt-wrapper">
 
-<div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08); padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);">
+<div class="scrt-section">
 <!-- HERO -->
-        <h1 class="scrt-hero-text" style="text-align: center;">About Us</h1>
+        <h1 class="scrt-hero-text">About Us</h1>
         <p class="scrt-section-intro">
-            Our mission is to make state courts more transparent, accountable, and legitimate. We use data analysis, AI, and rigorous legal research to turn complex judicial data into clear insights.        </p>
+            Our mission is to make state courts more transparent, accountable, and legitimate. We use data analysis, Artificial Intelligence, and rigorous legal research to turn complex judicial data into clear insights.        </p>
     </div>
  
     <!-- WHY FOCUS ON STATE COURTS -->
   <div class="scrt-section" data-animate>
     <h2>Why Focus on State Courts and State Judiciaries?</h2>
     <p>
-      Public confidence in democratic institutions is essential but increasingly strained—especially confidence in the judiciary. Widespread doubts about federal judges’ commitment to constitutional rights, fair application of the law, and receptivity to any forms of accountability have created deep distrust in courts across the nation.
+      Public confidence in democratic institutions is essential but increasingly strained—especially confidence in the judiciary. Widespread doubts about federal judges’ commitment to constitutional rights, fair application of the law, and receptivity to any forms of accountability have created deep distrust in federal courts across the nation.
     </p>
     <p>
       In this context, state courts play a critical role in protecting rights and restoring trust in public institutions. They are the primary forums for justice, handling the vast majority of legal cases that shape people’s lives—from criminal prosecutions to family disputes, evictions, and civil claims. State courts are far closer to the communities they serve than federal courts are, making them uniquely positioned to demonstrate fairness, equity, and responsiveness to public needs.
@@ -79,16 +72,16 @@
   <div class="scrt-section" data-animate>
     <h2>Why Focus on Judicial Transparency?</h2>
     <p>
-      Transparency across all branches of government is essential to accountability, public trust, and the durability of democracy. Yet state judiciaries have long operated opaquely, shielding judicial decisions from scrutiny and limiting accountability.
+      Transparency across all branches of government is essential for accountability, public trust, and the durability of democracy. Yet state judiciaries have long operated opaquely, shielding judicial decisions from scrutiny and limiting accountability.
     </p>
     <p>
-      Accessible judicial data empowers the public to understand how judges apply the law and what influences their decisions. It also enables us to see how consistent and fair our courts are, bolstering trust, countering misinformation, and strengthening accountability at all levels of the judiciary.
+      Accessible judicial data empowers the public to understand how judges apply the law and what influences their decisions. It  enables the public to see how consistent and fair our courts are, bolstering trust, countering misinformation, and strengthening accountability at all levels of the judiciary.
     </p>
     <p>
-      Despite state courts’ critical influence over Americans’ lives, no independent organization has systematically and directly confronted their lack of transparency. Judicial decision‑making in state courts remains largely unexamined. Scrutinize is the first organization dedicated to publicizing and mitigating this problem.
+      Despite state courts’ critical influence over Americans’ lives, no independent organization has ever systematically and directly confronted their lack of transparency. Judicial decision‑making in state courts remains largely unexamined. Scrutinize is the first organization dedicated to publicizing and mitigating this problem.
     </p>
     <p>
-      By making judicial data accessible and comprehensible, Scrutinize pushes state courts and judiciaries to be transparent, resilient, accountable, and committed to fairness, equality, and the protection of constitutional rights for all.
+      By making judicial data accessible, comprehensible, and actionable, Scrutinize pushes state courts and judiciaries to be transparent, accountable, and committed to fairness, equality, and the protection of constitutional rights for all.
     </p>
   </div>
 
@@ -150,13 +143,13 @@
       <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/nyclu.png" alt="NYCLU">
     </a>
     <a href="https://www.law.nyu.edu/centers/zimroth" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/zimroth.png" alt="Zimroth">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/zimroth.png" alt="Zimroth Center">
     </a>
     <a href="https://hls.harvard.edu/clinics/in-house-clinics/cyberlaw-clinic/" target="_blank" rel="noopener">
       <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/hls_cyberlaw.png" alt="HLS Cyberlaw Clinic">
     </a>
     <a href="https://cornell1a.law.cornell.edu/" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/cornell_first.png" alt="Cornell First">
+      <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/cornell_first.png" alt="Cornell">
     </a>
     <a href="https://www.law.nyu.edu/centers/race-inequality-law" target="_blank" rel="noopener">
       <img src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/partner_logos/cril.png" alt="CRIL">
