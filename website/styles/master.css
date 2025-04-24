@@ -299,7 +299,7 @@ body, html {
 
 /* HERO */
 .scrt-hero-text {
-  font-size: var(--scrt-scale-5) !important;
+  font-size: var(--scrt-scale-5);
   font-weight: var(--scrt-weight-regular);
   line-height: 1.4;
   color: var(--scrt-color-red5);
@@ -307,7 +307,16 @@ body, html {
   margin: calc(var(--scrt-unit)*4) 0 calc(var(--scrt-unit)*2);
 }
 
-/* Mobile hero text */
+
+/* define text below hero title*/
+.scrt-section-intro {
+  font-size: var(--scrt-scale-3);
+  font-weight: var( --scrt-weight-regular); 
+  line-height: var(--scrt-lh-normal);
+  color: var(--scrt-color-black);
+  text-align: left;
+  margin-bottom: calc(var(--scrt-unit)*6);
+}
 
 @media (max-width: 700px) {
   /* Shrink buttons */
@@ -320,16 +329,6 @@ body, html {
   .scrt-section-intro {
     font-size: var(--scrt-scale-0) !important;
   }
-}
-
-/* define text below hero title*/
-.scrt-section-intro {
-  font-size: var(--scrt-scale-4);
-  font-weight: var( --scrt-weight-regular); 
-  line-height: var(--scrt-lh-normal);
-  color: var(--scrt-color-black);
-  text-align: left;
-  margin-bottom: calc(var(--scrt-unit)*6);
 }
 
 @media (max-width: 700px) {
@@ -360,7 +359,7 @@ body, html {
     font-size: var(--scrt-scale-1);
   }
   .scrt-section-heading {
-    font-size: var(--scrt-scale-2) !important; 
+    font-size: var(--scrt-scale-1) !important; 
   }
 
   .scrt-hero-text {
