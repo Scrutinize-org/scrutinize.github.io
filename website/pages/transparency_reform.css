@@ -5,20 +5,17 @@
            + Date.now();
   document.head.appendChild(l);
 </script>
-<style>
-  /* ───── HEADINGS ───── */
-  .scrt-section-heading {
-    font-size: var(--scrt-scale-4) !important;
-    color: var(--scrt-color-blue6);
-    margin: calc(var(--scrt-unit)*12) 0 calc(var(--scrt-unit)*5);
-  }
 
-  /* Prevent headings and hero text from breaking awkwardly */
-  .scrt-hero-text,
-  .scrt-section-heading {
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
-    hyphens: none !important;
+<style>
+  /* ───── GLOBAL MOBILE OVERRIDES ───── */
+  /* (no regular definitions here) */
+  @media (max-width: 700px) {
+    html, body {
+      overflow-x: hidden !important;
+    }
+    .scrt-wrapper {
+      padding: 0 10px;
+    }
   }
 
   /* ───── LAYOUT GRID ───── */
@@ -26,6 +23,13 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: calc(var(--scrt-unit)*4);
+  }
+  /* Mobile: adjust grid gap */
+  @media (max-width: 700px) {
+    .scrt-grid {
+      grid-template-columns: 1fr;
+      gap: calc(var(--scrt-unit)*3);
+    }
   }
 
   /* ───── ACCORDION CARD ───── */
@@ -39,13 +43,23 @@
     margin: 0;
     cursor: pointer;
   }
+  /* Mobile: full width & spacing */
+  @media (max-width: 700px) {
+    .scrt-card {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 0 calc(var(--scrt-unit)*4);
+    }
+  }
 
+  /* ───── CARD HOVER STATE ───── */
   .scrt-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--scrt-elevation-2);
     background: var(--scrt-color-blue0);
   }
 
+  /* ───── CARD TITLE ROW ───── */
   .scrt-card-title-row {
     display: flex;
     align-items: baseline;
@@ -53,29 +67,56 @@
     padding: calc(var(--scrt-unit)*6) calc(var(--scrt-unit)*4) 0;
     cursor: pointer;
   }
+  /* Mobile: title row grid layout */
+  @media (max-width: 700px) {
+    .scrt-card-title-row {
+      display: grid !important;
+      grid-template-columns: 1fr max-content !important;
+      column-gap: calc(var(--scrt-unit)*1) !important;
+      align-items: start;
+    }
+  }
 
+  /* ───── CARD TITLE ───── */
   .scrt-card-title {
     font-size: var(--scrt-scale-2);
     font-weight: var(--scrt-weight-regular);
     color: var(--scrt-color-blue);
     margin: 0;
   }
+  /* Mobile: title font adjustments */
+  @media (max-width: 700px) {
+    .scrt-card-title {
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-wrap: break-word;
+      font-size: var(--scrt-scale-2m);
+      line-height: 1.2 !important;
+    }
+  }
 
+  /* ───── CARD BODY ───── */
   .scrt-card-body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
     padding: 0 calc(var(--scrt-unit)*4);
   }
-
+  /* Expanded state */
   .scrt-card.expanded .scrt-card-body {
     padding: calc(var(--scrt-unit)*4);
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     max-height: 500px;
   }
+  /* Mobile: shrink text in expanded body */
+  @media (max-width: 700px) {
+    .scrt-card.expanded .scrt-card-body {
+      font-size: var(--scrt-scale-00) !important;
+    }
+  }
 
-  /* ───── “With” attribution line ───── */
+  /* ───── “With” ATTRIBUTION LINE ───── */
   .scrt-card-with {
     font-size: var(--scrt-scale--1);
     color: var(--scrt-color-gray5);
@@ -84,6 +125,14 @@
     line-height: 1.2;
     white-space: normal;
   }
+  /* Mobile: adjust attribution margin/line-height */
+  @media (max-width: 700px) {
+    .scrt-card-with {
+      margin: 0 calc(var(--scrt-unit)*4) !important;
+      margin-top: calc(var(--scrt-unit)*2) !important;
+      line-height: 1.2 !important;
+    }
+  }
 
   /* ───── FOIL DESCRIPTION ───── */
   .scrt-foil-desc {
@@ -91,6 +140,12 @@
     font-size: var(--scrt-scale-0);
     line-height: var(--scrt-lh-normal);
     padding-bottom: 0;
+  }
+  /* Mobile: font-size in expanded card */
+  @media (max-width: 700px) {
+    .scrt-card.expanded .scrt-foil-desc {
+      font-size: var(--scrt-scale-00m);
+    }
   }
 
   /* ───── STATUS BADGES ───── */
@@ -104,11 +159,20 @@
     letter-spacing: 0.03em;
     box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
   }
-
-  .scrt-status-badge.appealed  { background: var(--scrt-color-red1); color: #000; }
+  /* Mobile: badge adjustments */
+  @media (max-width: 700px) {
+    .scrt-status-badge {
+      margin-top: calc(var(--scrt-unit)*1);
+      font-size: 0.65rem !important;
+      padding: 0px 2px 0px !important;
+      align-self: end !important;
+    }
+  }
+  /* Badge variants */
+  .scrt-status-badge.appealed  { background: var(--scrt-color-red1);   color: #000; }
   .scrt-status-badge.resolved  { background: var(--scrt-color-green1); color: #000; }
-  .scrt-status-badge.closed    { background: var(--scrt-color-gray1); color: #000; }
-  .scrt-status-badge.pending   { background: var(--scrt-color-yellow1); color: #000; }
+  .scrt-status-badge.closed    { background: var(--scrt-color-gray1);  color: #000; }
+  .scrt-status-badge.pending   { background: var(--scrt-color-yellow1);color: #000; }
   .scrt-status-badge.support   { background: var(--scrt-color-green2); color: #000; }
 
   /* ───── DOCUMENT LIST ───── */
@@ -118,95 +182,37 @@
     margin: 1em 0;
     font-size: var(--scrt-scale-0);
   }
-
   .scrt-doc-list li {
     margin-bottom: 0.5em;
   }
 
+  /* ───── VIEW LINKS ───── */
   .scrt-view-link {
     color: var(--scrt-color-blue5);
     font-weight: var(--scrt-weight-regular);
     text-decoration: none;
   }
-
   .scrt-view-link:hover {
     text-decoration: underline;
-  }
-
-  /* ───── MOBILE STYLES ───── */
-  @media (max-width: 700px) {
-    html, body {
-      overflow-x: hidden !important;
-    }
-
-    .scrt-wrapper {
-      padding: 0 10px;
-    }
-
-    .scrt-grid {
-      grid-template-columns: 1fr;
-      gap: calc(var(--scrt-unit)*3);
-    }
-
-    .scrt-card {
-      width: 100%;
-      box-sizing: border-box;
-      margin: 0 0 calc(var(--scrt-unit)*4);
-    }
-
-    .scrt-card-title-row {
-      display: grid !important;
-      grid-template-columns: 1fr max-content !important;
-      column-gap: calc(var(--scrt-unit)*1) !important;
-      align-items: start;
-    }
-
-    .scrt-card-title {
-      flex: 1 1 auto;
-      min-width: 0;
-      overflow-wrap: break-word;
-      font-size: var(--scrt-scale-0) !important;
-      line-height: 1.2 !important;
-    }
-
-    .scrt-status-badge {
-      margin-top: calc(var(--scrt-unit)*1);
-      font-size: 0.65rem !important;
-      padding: 0px 2px 0px !important;
-      align-self: end !important;
-    }
-
-    .scrt-card-with {
-      margin: 0 calc(var(--scrt-unit)*4) !important;
-      margin-top: calc(var(--scrt-unit)*2) !important;
-      line-height: 1.2 !important;
-    }
-
-    /* Shrink text inside expanded accordions on mobile */
-    .scrt-card.expanded .scrt-card-body {
-      font-size: var(--scrt-scale-00) !important;
-    }
-
-    .scrt-card.expanded .scrt-foil-desc,
-    .scrt-card.expanded .scrt-doc-list li {
-      font-size: var(--scrt-scale-0000) !important;
-    }
   }
 </style>
 
 
+
 <div class="scrt-wrapper">
 
-    <div class="scrt-section" style="border: none !important; box-shadow: 0 12px 12px rgba(0,0,0,0.08); padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);">
+    <div class="scrt-section">
 
-        <h1 class="scrt-hero-text">Transparency & Reform</h1>
+        <h1 class="scrt-hero-text">Transparency & Reform</h1>
         <p class="scrt-section-intro">
-        We promote transparency and accessible courts by filing FOIL requests for data and records the public can’t otherwise access, in partnership with the NYCLU, Harvard Law School's Cyberlaw Clinic, and Cornell’s First Amendment Clinic. We also advocate for legislative reforms that strengthen public trust and improve the transparency and accountability of New York’s court system.        
+        Scrutinize promotes court transparency by filing Freedom of Information requests for data that the public can’t
+        otherwise access. We also advocate for legislative reforms that strengthen public trust and improve the
+        transparency and accountability of New York’s court system.        
         </p>
     </div>
 
   <!-- FOIL REQUESTS -->
-  <h2 class="scrt-section-heading">FOIL Requests</h2>
+  <h2 class="scrt-section-heading">FOIL Requests</h2>
   <section id="foil-requests" class="scrt-grid">
     <!-- 1. Governor’s Judicial Screening Committees -->
     <div class="scrt-card">
@@ -346,13 +352,13 @@
     <!-- 2. Strengthen the Commission on Judicial Conduct -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
-        <span class="scrt-card-title">Strengthen Judicial Conduct Commission</span>
+        <span class="scrt-card-title">Strengthen the Commission on Judicial Conduct</span>
         <span class="scrt-status-badge support">Supported</span>
       </div>
       <p class="scrt-card-with">Joint Memo of Support</p>
       <div class="scrt-card-body">
-      <p class="scrt-foil-desc"What: Protect the Judicial Conduct Commission’s budget from political interference and make more misconduct records publicly accessible.</p>
-      <p class="scrt-foil-desc">Why: Ensures improve the accountability of the judiciary by providing transparent oversight and enabling public scrutiny of judicial conduct.</p>
+      <p class="scrt-foil-desc">What: Protect the Commission on Judicial Conduct's budget from political interference and make more misconduct records publicly accessible.</p>
+      <p class="scrt-foil-desc">Why: Improve the accountability of the judiciary by providing transparent oversight and enabling public scrutiny of judicial conduct.</p>
         <ul class="scrt-doc-list">
           <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/memos_support/Strengthen%20the%20Commission%20on%20Judicial%20Conduct.pdf" class="scrt-view-link">View Memo of Support</a></li>
         </ul>

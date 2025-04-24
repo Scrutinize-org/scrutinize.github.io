@@ -330,7 +330,7 @@ body, html {
 /* 8. Hero text styling */
 .scrt-hero-text {
   font-size: var(--scrt-scale-6);
-  font-weight: var(--scrt-weight-regular);
+  font-weight: var(--scrt-weight-medium);
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-red5);
   text-align: center;
@@ -361,14 +361,14 @@ body, html {
 
 /* 10. Section heading (alternative) */
 .scrt-section-heading {
-  font-size: var(--scrt-scale-4) !important;
+  font-size: var(--scrt-scale-3);
   color: var(--scrt-color-blue6);
   margin: calc(var(--scrt-unit)*12) 0 calc(var(--scrt-unit)*5);
 }
 /* Mobile adjustments for section headings */
 @media (max-width: 700px) {
   .scrt-section-heading {
-    font-size: var(--scrt-scale-1m);
+    font-size: var(--scrt-scale-3m);
   }
 }
 
