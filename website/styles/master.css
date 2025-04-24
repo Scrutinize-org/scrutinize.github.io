@@ -318,7 +318,7 @@ body, html {
   }
 
   .scrt-section-intro {
-    font-size: var(--scrt-scale-1) !important;
+    font-size: var(--scrt-scale-0) !important;
   }
 }
 
