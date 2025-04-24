@@ -99,6 +99,19 @@
   --scrt-scale-6: 46px;
   --scrt-scale-7: 54px;
   --scrt-scale-8: 64px;
+  --scrt-scale-0000m: 6px;
+  --scrt-scale-000m: 6px;
+  --scrt-scale-00m: 6px;
+  --scrt-scale-0m: 10px;
+  --scrt-scale-1m: 12px;
+  --scrt-scale-2m: 14px;
+  --scrt-scale-3m: 16px;
+  --scrt-scale-33m: 18px;
+  --scrt-scale-4m: 22px;
+  --scrt-scale-5m: 28px;
+  --scrt-scale-6m: 34px;
+  --scrt-scale-7m: 42px;
+  --scrt-scale-8m: 52px;
 
   /* Font, weights, line heights */
   --scrt-font-sans: "Poppins", Arial, sans-serif;
@@ -159,14 +172,6 @@ body, html {
   font-family: var(--scrt-font-sans);
 }
 
-/*makes hero and section heading not break mid word on screen*/
-.scrt-hero-text,
-.scrt-section-heading {
-  word-break: keep-all !important;
-  overflow-wrap: normal !important;
-  hyphens: none !important;
-}
-
 /* 3. Main layout wrapper */
 .scrt-wrapper {
   max-width: 1000px;
@@ -193,8 +198,22 @@ body, html {
   font-weight: var(--scrt-weight-semibold);
   margin-top: 0;
 }
+@media (max-width: 700px) {
+  .scrt-section h2 {
+    font-size: var(--scrt-scale-2m); /* adjust as needed */
+    color: var(--scrt-color-blue5);
+    font-weight: var(--scrt-weight-semibold);
+    margin-top: 0;
+  }
+}
+
 .scrt-section p {
   font-size: var(--scrt-scale-0);
+  line-height: 1.6;
+  margin-bottom: 1.25em;
+}
+.scrt-section h2 {
+  font-size: var(--scrt-scale-0m);
   line-height: 1.6;
   margin-bottom: 1.25em;
 }
@@ -222,17 +241,15 @@ body, html {
   }
 
   /* keep hero headline wrapping only at spaces */
-  .scrt-top .scrt-hero-text {
+  .scrt-top {
     display: block !important;
     width: 100% !important;
     box-sizing: border-box !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
     hyphens: none !important;
-    font-size: var(--scrt-scale-2) !important;
   }
 }
-
 
 /* 5. Flex layout for image/text rows */
 .scrt-flex {
@@ -321,15 +338,32 @@ body, html {
 @media (max-width: 700px) {
   /* Shrink buttons */
   .scrt-button-row .scrt-button {
-    font-size: 11px;
+    font-size: var(--scrt-scale-0m);
     padding: 10px 5px;
     margin-bottom: 0 !important;
   }
 
   .scrt-section-intro {
-    font-size: var(--scrt-scale-0) !important;
+    font-size: var(--scrt-scale-3m) !important;
   }
 }
+
+.scrt-section-heading {
+  font-size: var(--scrt-scale-4) !important;
+  color: var(--scrt-color-blue6);
+  margin: calc(var(--scrt-unit)*12) 0 calc(var(--scrt-unit)*5);
+}
+
+.scrt-text-block h2 {
+  font-size: var(--scrt-scale-1);
+}
+
+@media (max-width: 700px) {
+  .scrt-text-block h2 {
+    font-size: var(--scrt-scale-1m); /* ← not using --scrt-scale-1m */
+  }
+}
+
 
 @media (max-width: 700px) {
   .scrt-flex {
@@ -351,19 +385,12 @@ body, html {
     padding-left: 0;
     order: 2;
   }
-  .scrt-button-row .scrt-button {
-    font-size: 14px;
-    padding: 10px 12px;
-  }
-  .scrt-text-block h2 {
-    font-size: var(--scrt-scale-1);
-  }
   .scrt-section-heading {
-    font-size: var(--scrt-scale-1) !important; 
+    font-size: var(--scrt-scale-1m); 
   }
 
   .scrt-hero-text {
-    font-size: var(--scrt-scale-2) !important;
+    font-size: var(--scrt-scale-5m);
         /* make the heading itself a flex container */
     display: flex;
     flex-direction: column;      /* stack any child elements vertically */
