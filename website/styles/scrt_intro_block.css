@@ -128,6 +128,13 @@
     justify-content: center;
     margin-bottom: 0 !important;
   }
+
+      /* Unify H2 size and spacing across blocks */
+      .scrt-text-block h2,
+      .scrt-intro-block h2 {
+        font-size: var(--scrt-scale-4);
+        margin-bottom: calc(var(--scrt-unit) * 0.5);
+      }
   
   /* --- Responsive Adjustments (max-width: 700px) --- */
   @media (max-width: 700px) {
@@ -140,7 +147,7 @@
   
     /* Match white section paragraph styling */
     .scrt-section:not(.scrt-intro-block) p {
-      font-size: var(--scrt-scale-3m);
+      font-size: var(--scrt-scale-2m);
       line-height: var(--scrt-lh-tight);
       margin-top: 0;
     }

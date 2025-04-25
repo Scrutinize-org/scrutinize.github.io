@@ -369,12 +369,12 @@ body, html {
 
 /* 11. Secondary text-block heading */
 .scrt-text-block h2 {
-  font-size: var(--scrt-scale-1);
+  font-size: var(--scrt-scale-4);
 }
 /* Mobile adjustments for text-block headings */
 @media (max-width: 700px) {
   .scrt-text-block h2 {
-    font-size: var(--scrt-scale-1m);
+    font-size: var(--scrt-scale-4m);
   }
 }
 
