@@ -314,8 +314,8 @@ body, html {
 @media (max-width: 700px) {
   .scrt-button-row .scrt-button {
     font-size: var(--scrt-scale-0m);
-    padding: 10px 5px;
-    margin-bottom: 0 !important;
+    padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
+    margin-bottom: 0;
   }
 }
 
