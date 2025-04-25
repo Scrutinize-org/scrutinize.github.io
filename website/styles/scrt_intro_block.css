@@ -29,9 +29,7 @@
     padding-right: calc(var(--scrt-unit) * 1);
     max-width: 1000px;
   }
-  
-
-  
+    
   .scrt-intro-block p {
     font-size: var(--scrt-scale-1);
     line-height: var(--scrt-lh-normal);
@@ -158,6 +156,12 @@
     .scrt-intro-block,
     .scrt-intro-block.alt {
       padding: calc(var(--scrt-unit) * 1);
+    }
+
+    .scrt-section,
+    .scrt-intro-block + .scrt-section,
+    .scrt-intro-block.alt + .scrt-section{
+      padding: calc(var(--scrt-unit)*1) !important;   /* 5 px all around */
     }
   }
   
