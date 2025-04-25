@@ -395,6 +395,14 @@ body, html {
   }
 }
 
+@media (max-width: 700px) {
+  .scrt-section h2,
+  .scrt-section p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 /* 12. Prevent overflow on mobile for hero and section headings */
 @media (max-width: 700px) {
   .scrt-hero-text,
