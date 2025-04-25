@@ -161,7 +161,7 @@
     .scrt-section,
     .scrt-intro-block + .scrt-section,
     .scrt-intro-block.alt + .scrt-section{
-      padding: calc(var(--scrt-unit)*1) !important;   /* 5 px all around */
+      padding: 0 !important; 
     }
   }
   
