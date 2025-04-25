@@ -1,167 +1,100 @@
-/* ==========================================================================
-   SCRT Intro Blocks and Featured News Layout
-   Styles for intro blocks (default and alt variants), scroll animations,
-   attached white sections, and the featured news layout.
-========================================================================== */
+/* ────────────────────────────────────────────────────────────────
+   SCRT Intro Blocks & Featured News
+   — layout, borders, animations, typography
+──────────────────────────────────────────────────────────────── */
 
-/* --- Flex Layout --- */
-.scrt-section .scrt-flex {
-    flex-wrap: nowrap; /* Prevent wrapping inside sections */
-  }
-  
-  /* --- Intro Block: Default (blue left border) --- */
-  .scrt-intro-block {
-    background-color: var(--scrt-color-blue0) !important;
-    padding: calc(var(--scrt-unit) * 4) calc(var(--scrt-unit) * 4);
-    border-left: 6px solid var(--scrt-color-blue);
-    border-radius: var(--scrt-radius);
-    max-width: 1000px;
-    margin: 0 auto calc(var(--scrt-unit) * 4) auto;
-  }
-  
-  /* --- Intro Block: Alternate (blue right border) --- */
-  .scrt-intro-block.alt {
-    text-align: left;
+/* === Core layout tweaks === */
+.scrt-section .scrt-flex            { flex-wrap: nowrap; }            /* keep rows intact */
+.featured-news-block .scrt-flex     { align-items: center; margin: 0 !important; }
+.featured-news-block .scrt-img-block{ display: flex; align-items: center; justify-content: center; margin: 0 !important; }
+
+/* === Intro blocks (shared) === */
+.scrt-intro-block{
+  background: var(--scrt-color-blue0) !important;
+  border-left: 6px solid var(--scrt-color-blue);
+  border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
+  padding: calc(var(--scrt-unit)*4);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Alt variant (mirror layout) --- */
+.scrt-intro-block.alt{
     border-left: none;
     border-right: 6px solid var(--scrt-color-blue);
-    margin: 0 auto calc(var(--scrt-unit) * 4) auto;
-    padding-left: calc(var(--scrt-unit) * 1);
-    padding-right: calc(var(--scrt-unit) * 1);
-    max-width: 1000px;
   }
-    
-  .scrt-intro-block p {
-    font-size: var(--scrt-scale-1);
-    line-height: var(--scrt-lh-normal);
-    color: var(--scrt-color-black);
-    margin-bottom: 0;
+
+.scrt-intro-block p{
+  font-size: var(--scrt-scale-1);
+  line-height: var(--scrt-lh-normal);
+  color: var(--scrt-color-black);
+  margin: 0;
+  padding: 0;
+}
+
+/* === Attached white section that follows any intro block === */
+.scrt-intro-block + .scrt-section,
+.scrt-intro-block.alt + .scrt-section{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-left: 6px solid var(--scrt-color-blue);
+  border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
+}
+/* flip border for alt combo */
+.scrt-intro-block.alt + .scrt-section{
+  border-left: none;
+  border-right: 6px solid var(--scrt-color-blue);
+}
+
+/* === Stacked-section spacing === */
+.scrt-section + .scrt-intro-block,
+.scrt-section + .scrt-intro-block.alt{ margin-top: 50px; }
+
+/* === Scroll-in animation === */
+.scrt-intro-block[data-animate],
+.scrt-section[data-animate]{
+  opacity: 0; transform: scale(.97);
+  transition: opacity .6s ease-out, transform .6s ease-out;
+}
+.scrt-intro-block[data-animate].in-view,
+.scrt-section[data-animate].in-view{
+  opacity: 1; transform: scale(1);
+}
+
+/* === Unified H2 styling === */
+.scrt-text-block h2,
+.scrt-intro-block h2{
+  font-size: var(--scrt-scale-3);
+  font-weight: var(--scrt-weight-medium);
+  color: var(--scrt-color-blue);
+  letter-spacing: .3px;
+  margin: 0 0 calc(var(--scrt-unit)*0.5);
+}
+
+/* ─────────── Mobile (≤700 px) ─────────── */
+@media (max-width:700px){
+
+  /* compact typography */
+  .scrt-intro-block p,
+  .scrt-section:not(.scrt-intro-block) p{
+    font-size: var(--scrt-scale-3m);
+    line-height: var(--scrt-lh-tight);
+    margin: calc(var(--scrt-unit)*1);
   }
-  
-  /* --- Default Intro (not alt): Flatten bottom corners --- */
-  .scrt-intro-block:not(.alt) {
-    margin-bottom: 0;
-    border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
+  .scrt-text-block h2,
+  .scrt-intro-block h2{
+    font-size: var(--scrt-scale-4m);
+    margin: calc(var(--scrt-unit)*1);
   }
-  
-  /* --- Attached White Section (after Intro Block) --- */
+
+  /* tighter padding everywhere */
   .scrt-intro-block,
-  .scrt-intro-block + .scrt-section {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-left: calc(var(--scrt-unit) * 2);
-    padding-right: calc(var(--scrt-unit) * 2);
-    border-left: 6px solid var(--scrt-color-blue);
-  }
-  
-  .scrt-intro-block + .scrt-section {
-    margin-top: 0;
-    border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  
-  /* --- Alt Combo (mirror attached white section layout) --- */
   .scrt-intro-block.alt,
-  .scrt-intro-block.alt + .scrt-section {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-left: calc(var(--scrt-unit) * 2);
-    padding-right: calc(var(--scrt-unit) * 2);
-    border-left: none;
-    border-right: 6px solid var(--scrt-color-blue);
+  .scrt-section,
+  .scrt-intro-block + .scrt-section,
+  .scrt-intro-block.alt + .scrt-section{
+    padding: calc(var(--scrt-unit)*1) !important;
   }
-  
-  .scrt-intro-block.alt {
-    margin-bottom: 0;
-    border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
-    padding-top: calc(var(--scrt-unit) * 1);
-    padding-bottom: calc(var(--scrt-unit) * 1);
-  }
-  
-  .scrt-intro-block.alt + .scrt-section {
-    margin-top: 0;
-    border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
-    padding-top: calc(var(--scrt-unit) * 1);
-    padding-bottom: calc(var(--scrt-unit) * 1);
-  }
-  
-  /* --- Spacing above Intro Blocks if following White Section --- */
-  .scrt-section + .scrt-intro-block,
-  .scrt-section + .scrt-intro-block.alt {
-    margin-top: 50px;
-  }
-  
-  /* --- Scroll Animation for Intro Blocks and Sections --- */
-  .scrt-intro-block[data-animate],
-  .scrt-section[data-animate] {
-    opacity: 0;
-    transform: scale(0.97);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  
-  .scrt-intro-block[data-animate].in-view,
-  .scrt-section[data-animate].in-view {
-    opacity: 1;
-    transform: scale(1);
-  }
-  
-  /* --- Featured News Layout --- */
-  .featured-news-block .scrt-flex {
-    align-items: center;
-    flex-wrap: nowrap;
-    margin-bottom: 0 !important;
-  }
-  
-  .featured-news-block .scrt-img-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0 !important;
-  }
-
-      /* Unify H2 size and spacing across blocks */
-      .scrt-text-block h2,
-      .scrt-intro-block h2 {
-        font-size: var(--scrt-scale-3);
-        margin-bottom: calc(var(--scrt-unit) * 0.5);
-        font-weight: var(--scrt-weight-normal);
-        margin-top: 0;
-        letter-spacing: 0.3px;
-        color: var(--scrt-color-blue);
-      }
-
-  /* --- Responsive Adjustments (max-width: 700px) --- */
-  @media (max-width: 700px) {
-  
-    .scrt-intro-block p,
-    .scrt-section:not(.scrt-intro-block) p {
-      font-size: var(--scrt-scale-3m);
-      line-height: var(--scrt-lh-tight);
-      margin: calc(var(--scrt-unit) * 1);
-      padding: calc(var(--scrt-unit) * 1);
-    }
-  
-    /* Unify H2 size and spacing across blocks */
-    .scrt-text-block h2,
-    .scrt-intro-block h2 {
-      font-size: var(--scrt-scale-4m);
-      margin: calc(var(--scrt-unit) * 1);
-      padding: calc(var(--scrt-unit) * 1);
-    }
-
-    .scrt-intro-block,
-    .scrt-intro-block.alt {
-      padding: calc(var(--scrt-unit) * 1);
-    }
-
-    .scrt-section,
-    .scrt-intro-block + .scrt-section,
-    .scrt-intro-block.alt + .scrt-section{
-      padding: 0 !important; 
-    }
-  }
-  
+}

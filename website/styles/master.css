@@ -188,15 +188,15 @@ body, html {
   }
 
 /* 4. Content section/card block */
-.scrt-section {
+.scrt-section{
   background: #fff;
   border-radius: var(--scrt-radius);
-  margin-bottom: calc(var(--scrt-unit)*6);
-  padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
+  /* NEW –- more air inside */
+  padding: var(--scrt-scale-1) var(--scrt-scale-0);
+  /* NEW –- extra breathing-room between boxes */
+  margin: 0 auto var(--scrt-scale-2);
   box-shadow: var(--scrt-elevation-1);
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 @media (max-width: 700px) {

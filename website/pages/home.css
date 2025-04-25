@@ -10,6 +10,7 @@
   l2.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/scrt_intro_block.css?ts=' 
             + Date.now();
   document.head.appendChild(l2);
+  
 </script>
 
 
@@ -66,7 +67,6 @@
     margin-top: calc(var(--scrt-unit)*2);
   }
 }
-
 
 
 </style>      
