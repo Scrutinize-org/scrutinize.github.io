@@ -71,8 +71,8 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding-left: calc(var(--scrt-unit) * 4);
-    padding-right: calc(var(--scrt-unit) * 4);
+    padding-left: calc(var(--scrt-unit) * 1);
+    padding-right: calc(var(--scrt-unit) * 1);
     border-left: none;
     border-right: 6px solid var(--scrt-color-blue);
   }
@@ -80,15 +80,15 @@
   .scrt-intro-block.alt {
     margin-bottom: 0;
     border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
-    padding-top: calc(var(--scrt-unit) * 4);
-    padding-bottom: calc(var(--scrt-unit) * 4);
+    padding-top: calc(var(--scrt-unit) * 1);
+    padding-bottom: calc(var(--scrt-unit) * 1);
   }
   
   .scrt-intro-block.alt + .scrt-section {
     margin-top: 0;
     border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
-    padding-top: calc(var(--scrt-unit) * 4);
-    padding-bottom: calc(var(--scrt-unit) * 4);
+    padding-top: calc(var(--scrt-unit) * 1);
+    padding-bottom: calc(var(--scrt-unit) * 1);
   }
   
   /* --- Spacing above Intro Blocks if following White Section --- */
