@@ -133,14 +133,14 @@
   @media (max-width: 700px) {
   
     .scrt-intro-block p {
-      font-size: var(--scrt-scale-1m);
+      font-size: var(--scrt-scale-2m);
       line-height: var(--scrt-lh-tight);
       margin-top: 0;
     }
   
     /* Match white section paragraph styling */
     .scrt-section:not(.scrt-intro-block) p {
-      font-size: var(--scrt-scale-00);
+      font-size: var(--scrt-scale-2m);
       line-height: var(--scrt-lh-tight);
       margin-top: 0;
     }
@@ -148,8 +148,8 @@
     /* Unify H2 size and spacing across blocks */
     .scrt-text-block h2,
     .scrt-intro-block h2 {
-      font-size: var(--scrt-scale-2m);
-      margin-bottom: calc(var(--scrt-unit) * 1);
+      font-size: var(--scrt-scale-3m);
+      margin-bottom: calc(var(--scrt-unit) * 0.5);
     }
   
     .scrt-text-block p {
