@@ -356,7 +356,6 @@ body, html {
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-red5);
   text-align: center;
-  margin: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
 }
 /* Mobile adjustments for hero text */
 @media (max-width: 700px) {
