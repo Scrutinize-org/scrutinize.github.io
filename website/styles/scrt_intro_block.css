@@ -50,8 +50,8 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding-left: calc(var(--scrt-unit) * 1);
-    padding-right: calc(var(--scrt-unit) * 1);
+    padding-left: calc(var(--scrt-unit) * 2);
+    padding-right: calc(var(--scrt-unit) * 2);
     border-left: 6px solid var(--scrt-color-blue);
   }
   
@@ -69,8 +69,8 @@
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding-left: calc(var(--scrt-unit) * 1);
-    padding-right: calc(var(--scrt-unit) * 1);
+    padding-left: calc(var(--scrt-unit) * 2);
+    padding-right: calc(var(--scrt-unit) * 2);
     border-left: none;
     border-right: 6px solid var(--scrt-color-blue);
   }
