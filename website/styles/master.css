@@ -194,7 +194,7 @@ body, html {
 
 /* 4.1 Section title styling */
 .scrt-section h2 {
-  font-size: var(--scrt-scale-2);
+  font-size: var(--scrt-scale-4);
   color: var(--scrt-color-blue5);
   font-weight: var(--scrt-weight-medium);
   margin-top: 0;

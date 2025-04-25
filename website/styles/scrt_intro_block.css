@@ -12,11 +12,11 @@
   /* --- Intro Block: Default (blue left border) --- */
   .scrt-intro-block {
     background-color: var(--scrt-color-blue0) !important;
-    padding: 30px 40px;
+    padding: calc(var(--scrt-unit) * 4) calc(var(--scrt-unit) * 4);
     border-left: 6px solid var(--scrt-color-blue);
     border-radius: var(--scrt-radius);
-    max-width: 950px;
-    margin: 0 auto 20px auto;
+    max-width: 1000px;
+    margin: 0 auto calc(var(--scrt-unit) * 4) auto;
   }
   
   /* --- Intro Block: Alternate (blue right border) --- */
@@ -24,7 +24,9 @@
     text-align: left;
     border-left: none;
     border-right: 6px solid var(--scrt-color-blue);
-    margin: 0 auto 20px auto;
+    margin: 0 auto calc(var(--scrt-unit) * 4) auto;
+    padding: calc(var(--scrt-unit) * 4) calc(var(--scrt-unit) * 4);
+    max-width: 1000px;
   }
   
   /* --- Intro Block Typography --- */
@@ -54,10 +56,10 @@
   .scrt-intro-block + .scrt-section {
     box-sizing: border-box;
     width: 100%;
-    max-width: 950px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: calc(var(--scrt-unit) * 4);
+    padding-right: calc(var(--scrt-unit) * 4);
     border-left: 6px solid var(--scrt-color-blue);
   }
   
@@ -73,10 +75,10 @@
   .scrt-intro-block.alt + .scrt-section {
     box-sizing: border-box;
     width: 100%;
-    max-width: 950px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: calc(var(--scrt-unit) * 4);
+    padding-right: calc(var(--scrt-unit) * 4);
     border-left: none;
     border-right: 6px solid var(--scrt-color-blue);
   }
@@ -84,15 +86,15 @@
   .scrt-intro-block.alt {
     margin-bottom: 0;
     border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: calc(var(--scrt-unit) * 4);
+    padding-bottom: calc(var(--scrt-unit) * 4);
   }
   
   .scrt-intro-block.alt + .scrt-section {
     margin-top: 0;
     border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
-    padding-top: 30px !important;
-    padding-bottom: 30px !important;
+    padding-top: calc(var(--scrt-unit) * 4);
+    padding-bottom: calc(var(--scrt-unit) * 4);
   }
   
   /* --- Spacing above Intro Blocks if following White Section --- */
@@ -139,28 +141,24 @@
   /* --- Responsive Adjustments (max-width: 700px) --- */
   @media (max-width: 700px) {
   
-    .scrt-intro-block p {
-      font-size: var(--scrt-scale-2m);
-      line-height: var(--scrt-lh-tight);
-      margin-top: 0;
-    }
-  
-    /* Match white section paragraph styling */
+    .scrt-intro-block p,
     .scrt-section:not(.scrt-intro-block) p {
-      font-size: var(--scrt-scale-2m);
+      font-size: var(--scrt-scale-3m);
       line-height: var(--scrt-lh-tight);
-      margin-top: 0;
+      margin: calc(var(--scrt-unit) * 1);
     }
   
     /* Unify H2 size and spacing across blocks */
     .scrt-text-block h2,
     .scrt-intro-block h2 {
       font-size: var(--scrt-scale-4m);
-      margin-bottom: calc(var(--scrt-unit) * 0.5);
+      margin: calc(var(--scrt-unit) * 1);
+
     }
-  
-    .scrt-text-block p {
-      margin-top: calc(var(--scrt-unit) * 0.5);
+
+    .scrt-intro-block,
+    .scrt-intro-block.alt {
+      padding: calc(var(--scrt-unit) * 2);
     }
   }
   
