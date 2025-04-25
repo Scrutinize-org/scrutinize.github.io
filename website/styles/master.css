@@ -326,7 +326,7 @@ body, html {
 
 /* 8. Hero text styling */
 .scrt-hero-text {
-  font-size: var(--scrt-scale-5);
+  font-size: var(--scrt-scale-4);
   font-weight: var(--scrt-weight-semibold);
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-red5);
@@ -336,7 +336,7 @@ body, html {
 /* Mobile adjustments for hero text */
 @media (max-width: 700px) {
   .scrt-hero-text {
-    font-size: var(--scrt-scale-5m);
+    font-size: var(--scrt-scale-4m);
   }
 }
 

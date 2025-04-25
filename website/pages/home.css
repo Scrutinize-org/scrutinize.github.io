@@ -1,149 +1,23 @@
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/master.css">
+<script>
+  const l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
+           + Date.now();
+  document.head.appendChild(l);
+</script>
 
-      <link rel="stylesheet"
+<script>
+  const l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/scrt_intro_block.css?ts=' 
+           + Date.now();
+  document.head.appendChild(l);
+</script>
+
+<link rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/partner_logos.css">
 
 <style>
-/* ───────────────────────────────────────────────
-   Scrutinize – Intro Blocks + Featured Sections
-   Used for colored top blocks + featured content pairs
-──────────────────────────────────────────────── */
-
-/* Ensure flex layout doesn't wrap (horizontal alignment) */
-.scrt-section .scrt-flex {
-  flex-wrap: nowrap;
-}
-
-/* Intro block (blue left border, default layout) */
-.scrt-intro-block {
-  background-color: var(--scrt-color-blue0) !important;
-  padding: 30px 40px;
-  border-left: 6px solid var(--scrt-color-blue);
-  border-radius: var(--scrt-radius);
-  max-width: 950px;
-  margin: 0 auto 20px auto;
-}
-
-/* Alternate intro block (right border, flipped alignment) */
-.scrt-intro-block.alt {
-  text-align: left;
-  border-left: none;
-  border-right: 6px solid var(--scrt-color-blue);
-  margin-left: auto;
-  margin-right: 0;
-  margin-bottom: 20px;
-}
-
-/* Typography for H2 inside intro blocks */
-.scrt-intro-block h2 {
-  font-size: var(--scrt-scale-2);
-  color: var(--scrt-color-blue);
-  font-weight: var(--scrt-weight-semibold);
-  margin-top: 0;
-  letter-spacing: 0.3px;
-}
-
-/* Paragraph styling for intro blocks */
-.scrt-intro-block p {
-  font-size: var(--scrt-scale-1);
-  line-height: var(--scrt-lh-normal);
-  color: var(--scrt-color-black);
-  margin-bottom: 0;
-}
-
-/* Animation trigger when scrolled into view */
-.scrt-intro-block[data-animate],
-.scrt-section[data-animate] {
-  opacity: 0;
-  transform: scale(0.97);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.scrt-intro-block[data-animate].in-view,
-.scrt-section[data-animate].in-view {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Featured news layout (align content side-by-side + center) */
-.featured-news-block .scrt-flex {
-  align-items: center;
-  flex-wrap: nowrap;
-  margin-bottom: 0 !important;
-}
-
-.featured-news-block .scrt-img-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0 !important;
-}
-
-/* Intro + White Section Combo Card */
-.scrt-intro-block,
-.scrt-intro-block + .scrt-section {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 950px;
-  margin: 0 auto;
-  padding-left: 40px;
-  padding-right: 40px;
-}
-
-.scrt-intro-block {
-  margin-bottom: 0;
-  border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.scrt-intro-block + .scrt-section {
-  margin-top: 0;
-  border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
-  padding-top: 30px !important;
-  padding-bottom: 30px !important;
-}
-
-/* Extend the blue border down from intro to section */
-.scrt-intro-block,
-.scrt-intro-block + .scrt-section {
-  border-left: 6px solid var(--scrt-color-blue);
-}
-
-/* Alt block combo (mirror layout with right border) */
-.scrt-intro-block.alt,
-.scrt-intro-block.alt + .scrt-section {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 950px;
-  margin: 0 auto;
-  padding-left: 40px;
-  padding-right: 40px;
-  border-left: none;
-  border-right: 6px solid var(--scrt-color-blue);
-}
-
-.scrt-intro-block.alt {
-  margin-bottom: 0;
-  border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.scrt-intro-block.alt + .scrt-section {
-  margin-top: 0;
-  border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
-  padding-top: 30px !important;
-  padding-bottom: 30px !important;
-}
-
-/* Add spacing above an intro block if following a white section */
-.scrt-section + .scrt-intro-block,
-.scrt-section + .scrt-intro-block.alt {
-  margin-top: 50px;
-}
-
 /* ───── Responsive: Mobile (max-width: 700px) ───── */
 @media (max-width: 700px) {
   /* Shrink buttons */
@@ -152,38 +26,50 @@
     padding: 10px 5px;
     margin-bottom: 0 !important;
   }
+}
 
-  /* Shrink and tighten intro block text */
-  .scrt-intro-block h2 {
-    font-size: var(--scrt-scale-1);
-    margin-bottom: calc(var(--scrt-unit) * 2);
-  }
+.scrt-button-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+  margin-top: calc(var(--scrt-unit) * 4);
+}
 
-  .scrt-intro-block p {
-    font-size: var(--scrt-scale-00);
-    line-height: var(--scrt-lh-tight);
-    margin-top: 0;
-  }
+/* Center “Ways to Support” heading just in this block */
+.support-options .scrt-text-block h2 {
+  text-align: center;
+}
 
-  /* Match white section paragraph styling to intro */
-  .scrt-section:not(.scrt-intro-block) p {
-    font-size: var(--scrt-scale-00);
-    line-height: var(--scrt-lh-tight);
-    margin-top: 0;
-  }
+/* Stack buttons at half the width, centered */
+.support-options .scrt-button-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  margin: calc(var(--scrt-unit) * 4) auto 0;
 
-  /* Unify H2 size and spacing */
-  .scrt-text-block h2,
-  .scrt-intro-block h2 {
-    font-size: var(--scrt-scale-1);
-    margin-bottom: calc(var(--scrt-unit) * 1);
-  }
+  /* ← replace this: align-items: center; */
+  align-items: stretch; 
+}
 
-  .scrt-text-block p {
-    margin-top: calc(var(--scrt-unit) * 0.5);
+/* Let each button fill that half‐width container */
+.support-options .scrt-button-column .scrt-button,
+.support-options .scrt-button-column .scrt-dropdown-toggle {
+  width: 100%;
+  text-align: center;
+}
+
+/* Optional mobile tweak: full width on narrow screens */
+@media (max-width: 700px) {
+  .support-options .scrt-button-column {
+    width: 100%;
+    margin-top: calc(var(--scrt-unit)*2);
   }
 }
-   
+
+
+
 </style>      
 <div class="scrt-wrapper">
 
@@ -390,6 +276,9 @@
         <a href="https://www.law.com/newyorklawjournal/2025/04/09/what-should-judicial-accountability-look-like/" class="scrt-button">Read Article</a>
         <a href="/media" class="scrt-button">All Coverage</a>
       </div>
+    </div>
+  </div>
+</div>
     </div>
   </div>
 </div>
