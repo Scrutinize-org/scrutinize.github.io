@@ -258,11 +258,11 @@ body, html {
 @media (max-width: 700px) {
   .scrt-img-block {
     order: 1;
-    margin-bottom: calc(var(--scrt-unit) * 2);
+    margin-bottom: calc(var(--scrt-unit) * 1);
     justify-content: center;
     display: flex;
     align-items: center;
-    padding: calc(var(--scrt-unit) * 1);
+    padding: calc(var(--scrt-unit) * 0.5);
   }
 }
 
@@ -289,7 +289,8 @@ body, html {
 @media (max-width: 700px) {
   .scrt-text-block {
     max-width: 100%;
-    padding: calc(var(--scrt-unit) * 1);
+    padding: calc(var(--scrt-unit) * 1) !important;
+    margin: calc(var(--scrt-unit) * 1) !important;
     order: 2;
   }
 }
