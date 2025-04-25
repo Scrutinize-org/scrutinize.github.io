@@ -176,7 +176,7 @@ body, html {
 .scrt-wrapper {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 15px 20px 5px;
+  padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
   color: var(--scrt-color-black);
 }
 
@@ -228,7 +228,7 @@ body, html {
   align-items: flex-start;
   justify-content: center;
   gap: 50px;
-  padding: 0 10px;
+  padding: 0 calc(var(--scrt-unit)*4);
 }
 /* Mobile adjustments for .scrt-flex */
 @media (max-width: 700px) {
@@ -242,7 +242,7 @@ body, html {
   flex: 0 0 auto;
   display: flex;
   justify-content: center;
-  padding-right: 30px;
+  padding-right: calc(var(--scrt-unit)*4);
 }
 /* Mobile adjustments for .scrt-img-block */
 @media (max-width: 700px) {
@@ -272,7 +272,7 @@ body, html {
 .scrt-text-block {
   flex: 1 1 500px;
   max-width: 500px;
-  padding-left: 30px;
+  padding-left: calc(var(--scrt-unit)*4);
 }
 /* Mobile adjustments for .scrt-text-block */
 @media (max-width: 700px) {
@@ -289,7 +289,7 @@ body, html {
   background: var(--scrt-color-blue5);
   color: #fff;
   text-decoration: none;
-  padding: 12px 20px;
+  padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
   border-radius: var(--scrt-radius);
   font-weight: var(--scrt-weight-regular);
   font-size: var(--scrt-scale-0);
@@ -329,17 +329,17 @@ body, html {
 
 /* 8. Hero text styling */
 .scrt-hero-text {
-  font-size: var(--scrt-scale-6);
+  font-size: var(--scrt-scale-5);
   font-weight: var(--scrt-weight-semibold);
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-red5);
   text-align: center;
-  margin: calc(var(--scrt-unit)*4) 0 calc(var(--scrt-unit)*2);
+  margin: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
 }
 /* Mobile adjustments for hero text */
 @media (max-width: 700px) {
   .scrt-hero-text {
-    font-size: var(--scrt-scale-6m);
+    font-size: var(--scrt-scale-5m);
   }
 }
 
