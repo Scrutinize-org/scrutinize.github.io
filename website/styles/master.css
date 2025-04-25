@@ -180,6 +180,13 @@ body, html {
   color: var(--scrt-color-black);
 }
 
+@media (max-width: 700px) {
+  /* 1) Kill the outer wrapper’s pad */
+  .scrt-wrapper {
+    padding-left:  0;
+    padding-right: 0;
+  }
+
 /* 4. Content section/card block */
 .scrt-section {
   background: #fff;
@@ -392,7 +399,6 @@ body, html {
 @media (max-width: 700px) {
   .scrt-text-block h2 {
     font-size: var(--scrt-scale-4m);
-    padding: calc(var(--scrt-unit) * 1);
   }
 }
 
