@@ -198,6 +198,7 @@ body, html {
     padding-left: calc(var(--scrt-unit) * 1);
     padding-right: calc(var(--scrt-unit) * 1);
   }
+}
 
 /* 4.1 Section title styling */
 .scrt-section h2 {
@@ -205,22 +206,28 @@ body, html {
   color: var(--scrt-color-blue5);
   font-weight: var(--scrt-weight-medium);
   margin-top: 0;
-  line-height: 1.6;
-  margin-bottom: 1.25em;
+  line-height: var(--scrt-lh-tight);
+  margin-bottom: calc(var(--scrt-unit) * 1);
+}
+
+.scrt-section p {
+  font-size: var(--scrt-scale-3);
+  line-height: var(--scrt-lh-tight);
+  margin-bottom: calc(var(--scrt-unit) * 1);
 }
 /* Mobile adjustments for .scrt-section h2 */
 @media (max-width: 700px) {
   .scrt-section h2 {
     font-size: var(--scrt-scale-4m); /* adjust as needed */
-    padding: calc(var(--scrt-unit) * 1);
+    line-height: var(--scrt-lh-tight);
+    margin-bottom: calc(var(--scrt-unit) * 1);
   }
-}
-
-/* 4.2 Section paragraph styling */
-.scrt-section p {
-  font-size: var(--scrt-scale-3m);
-  line-height: 1.6;
-  margin-bottom: 1.25em;
+  /* 4.2 Section paragraph styling */
+  .scrt-section p {
+    font-size: var(--scrt-scale-3m);
+    line-height: var(--scrt-lh-tight);
+    margin-bottom: calc(var(--scrt-unit) * 1);
+  }
 }
 
 /* 5. Flex layout for image/text rows */
@@ -282,7 +289,6 @@ body, html {
   .scrt-text-block {
     max-width: 100%;
     padding: calc(var(--scrt-unit) * 1);
-    padding-left: 0;
     order: 2;
   }
 }
