@@ -140,7 +140,7 @@
   
     /* Match white section paragraph styling */
     .scrt-section:not(.scrt-intro-block) p {
-      font-size: var(--scrt-scale-2m);
+      font-size: var(--scrt-scale-3m);
       line-height: var(--scrt-lh-tight);
       margin-top: 0;
     }
@@ -148,7 +148,7 @@
     /* Unify H2 size and spacing across blocks */
     .scrt-text-block h2,
     .scrt-intro-block h2 {
-      font-size: var(--scrt-scale-3m);
+      font-size: var(--scrt-scale-4m);
       margin-bottom: calc(var(--scrt-unit) * 0.5);
     }
   

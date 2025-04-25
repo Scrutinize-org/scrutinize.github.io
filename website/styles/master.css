@@ -198,25 +198,20 @@ body, html {
   color: var(--scrt-color-blue5);
   font-weight: var(--scrt-weight-medium);
   margin-top: 0;
+  line-height: 1.6;
+  margin-bottom: 1.25em;
 }
 /* Mobile adjustments for .scrt-section h2 */
 @media (max-width: 700px) {
   .scrt-section h2 {
-    font-size: var(--scrt-scale-2m); /* adjust as needed */
+    font-size: var(--scrt-scale-4m); /* adjust as needed */
     /* inheriting other properties from above */
   }
 }
 
 /* 4.2 Section paragraph styling */
 .scrt-section p {
-  font-size: var(--scrt-scale-0);
-  line-height: 1.6;
-  margin-bottom: 1.25em;
-}
-
-/* 4.3 (Duplicate) Additional .scrt-section h2 styling – likely intended for paragraphs */
-.scrt-section h2 {
-  font-size: var(--scrt-scale-0m);
+  font-size: var(--scrt-scale-3m);
   line-height: 1.6;
   margin-bottom: 1.25em;
 }
