@@ -243,8 +243,8 @@ body, html {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  gap: 50px;
-  padding: 0 calc(var(--scrt-unit)*4);
+  gap: var(--scrt-scale-1);
+  padding: 0 var(--scrt-scale-0);
 }
 /* Mobile adjustments for .scrt-flex */
 @media (max-width: 700px) {
@@ -324,7 +324,7 @@ body, html {
 .scrt-button-row {
   display: flex;
   flex-wrap: nowrap;
-  gap: 10px;
+  gap: var(--scrt-scale-00);
 }
 .scrt-button-row .scrt-button {
   flex: 1 1 0;
@@ -372,7 +372,7 @@ body, html {
   line-height: var(--scrt-lh-normal);
   color: var(--scrt-color-black);
   text-align: left;
-  margin-bottom: calc(var(--scrt-unit)*6);
+  margin-bottom: 0;
 }
 /* Mobile adjustments for section intro text */
 @media (max-width: 700px) {

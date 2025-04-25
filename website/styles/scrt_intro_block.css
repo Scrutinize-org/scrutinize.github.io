@@ -13,13 +13,15 @@
   background: var(--scrt-color-blue0) !important;
   border-left: 6px solid var(--scrt-color-blue);
   border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
-  padding: calc(var(--scrt-unit)*4);
+  border-left-width: 6px;
+  padding: var(--scrt-scale-1);
   max-width: 1000px;
   margin: 0 auto;
 }
 
 /* --- Alt variant (mirror layout) --- */
 .scrt-intro-block.alt{
+    padding: var(--scrt-scale-1);
     border-left: none;
     border-right: 6px solid var(--scrt-color-blue);
   }
