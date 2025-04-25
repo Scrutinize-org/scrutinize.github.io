@@ -244,6 +244,7 @@ body, html {
   .scrt-flex {
     flex-direction: column;
     gap: 10px;
+    padding: 0 calc(var(--scrt-unit)*1);
   }
 }
 
