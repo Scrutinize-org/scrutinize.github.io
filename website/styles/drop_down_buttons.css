@@ -1,0 +1,59 @@
+/* Remove underlines & hover state from dropdown links */
+.scrt-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .scrt-dropdown-menu a {
+    display: block;
+    padding: 0.5em 1em;
+    color: var(--scrt-color-black);
+    text-decoration: none !important;
+  }
+
+  
+.scrt-dropdown-menu a:hover {
+    background: var(--scrt-color-blue0);
+    text-decoration: none !important;
+  }
+
+  
+/* Make the dropdown a flex‐item matching the other buttons */
+.scrt-button-row .scrt-dropdown {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .scrt-dropdown-toggle {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  
+.scrt-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--scrt-color-white);
+    box-shadow: var(--scrt-elevation-2);
+    border-radius: var(--scrt-radius-sm);
+    z-index: var(--scrt-layer-1);
+  }
+  
+  /* (Optional) remove default focus outline */
+  .scrt-dropdown-toggle:focus {
+    outline: none;
+  }
+
+  .scrt-dropdown:hover .scrt-dropdown-menu,
+.scrt-dropdown-menu:hover {
+  display: block;
+}
+
+.scrt-dropdown-menu a {
+  text-align: center;
+}
