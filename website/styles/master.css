@@ -192,6 +192,13 @@ body, html {
   margin-right: auto;
 }
 
+@media (max-width: 700px) {
+  /* Narrower padding for regular content sections */
+  .scrt-section {
+    padding-left: calc(var(--scrt-unit) * 1);
+    padding-right: calc(var(--scrt-unit) * 1);
+  }
+
 /* 4.1 Section title styling */
 .scrt-section h2 {
   font-size: var(--scrt-scale-4);

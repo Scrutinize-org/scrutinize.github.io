@@ -1,18 +1,17 @@
 <script>
-  const l = document.createElement('link');
-  l.rel = 'stylesheet';
-  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
-           + Date.now();
-  document.head.appendChild(l);
+  const l1 = document.createElement('link');
+  l1.rel = 'stylesheet';
+  l1.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
+            + Date.now();
+  document.head.appendChild(l1);
+
+  const l2 = document.createElement('link');
+  l2.rel = 'stylesheet';
+  l2.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/scrt_intro_block.css?ts=' 
+            + Date.now();
+  document.head.appendChild(l2);
 </script>
 
-<script>
-  const l = document.createElement('link');
-  l.rel = 'stylesheet';
-  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/scrt_intro_block.css?ts=' 
-           + Date.now();
-  document.head.appendChild(l);
-</script>
 
 <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/partner_logos.css">
