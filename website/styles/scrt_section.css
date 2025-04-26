@@ -1,0 +1,104 @@
+/* ───────────────────────────────────────
+   Scrutinize – Section Styles (scrt-section and related)
+──────────────────────────────────────── */
+
+/* --- Base section block --- */
+.scrt-section {
+    background: #fff;
+    border-radius: var(--scrt-radius);
+    margin-bottom: calc(var(--scrt-unit) * 6);
+    padding: calc(var(--scrt-unit) * 4) calc(var(--scrt-unit) * 4);
+    box-shadow: var(--scrt-elevation-1);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* --- Section title inside a section block --- */
+  .scrt-section h2 {
+    font-size: var(--scrt-scale-4);
+    color: var(--scrt-color-blue5);
+    font-weight: var(--scrt-weight-medium);
+    margin-top: 0;
+    margin-bottom: calc(var(--scrt-unit) * 1);
+    line-height: var(--scrt-lh-tight);
+  }
+  
+  /* --- Paragraph text inside a section block --- */
+  .scrt-section p {
+    font-size: var(--scrt-scale-3);
+    line-height: var(--scrt-lh-tight);
+    margin-bottom: calc(var(--scrt-unit) * 1);
+  }
+  
+  /* --- Section introductory paragraph (optional under h2) --- */
+  .scrt-section-intro {
+    font-size: var(--scrt-scale-3);
+    font-weight: var(--scrt-weight-regular);
+    line-height: var(--scrt-lh-normal);
+    color: var(--scrt-color-black);
+    text-align: left;
+    margin-bottom: calc(var(--scrt-unit) * 6);
+  }
+  
+  /* --- Alternative section heading (standalone heading) --- */
+  .scrt-section-heading {
+    font-size: var(--scrt-scale-3);
+    color: var(--scrt-color-blue6);
+    margin: calc(var(--scrt-unit) * 12) 0 calc(var(--scrt-unit) * 5);
+  }
+  
+  /* --- h2 inside a text block (paired with img/text layouts) --- */
+  .scrt-text-block h2 {
+    font-size: var(--scrt-scale-4);
+  }
+  
+  /* ───────────────────────────────────────
+     Mobile adjustments (max-width: 700px)
+  ──────────────────────────────────────── */
+  @media (max-width: 700px) {
+    
+    /* --- Narrower section padding --- */
+    .scrt-section {
+      padding-left: calc(var(--scrt-unit) * 1);
+      padding-right: calc(var(--scrt-unit) * 1);
+    }
+  
+    /* --- Section h2 on mobile --- */
+    .scrt-section h2 {
+      font-size: var(--scrt-scale-4m);
+      line-height: var(--scrt-lh-tight);
+      margin-bottom: calc(var(--scrt-unit) * 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    /* --- Section p on mobile --- */
+    .scrt-section p {
+      font-size: var(--scrt-scale-3m);
+      line-height: var(--scrt-lh-tight);
+      margin-bottom: calc(var(--scrt-unit) * 1);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    /* --- Section intro text on mobile --- */
+    .scrt-section-intro {
+      font-size: var(--scrt-scale-3m) !important;
+    }
+  
+    /* --- Section standalone heading on mobile --- */
+    .scrt-section-heading {
+      font-size: var(--scrt-scale-3m);
+      padding: calc(var(--scrt-unit) * 1);
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      hyphens: none !important;
+    }
+  
+    /* --- Text-block h2 on mobile --- */
+    .scrt-text-block h2 {
+      font-size: var(--scrt-scale-4m);
+    }
+  }
+  

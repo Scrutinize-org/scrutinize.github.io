@@ -1,0 +1,23 @@
+.scrt-hero-text {
+    font-size: var(--scrt-scale-4);
+    font-weight: var(--scrt-weight-semibold);
+    line-height: var(--scrt-lh-normal);
+    color: var(--scrt-color-red5);
+    text-align: center;
+    margin: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*4);
+  }
+  /* Mobile adjustments for hero text */
+  @media (max-width: 700px) {
+    .scrt-hero-text {
+      font-size: var(--scrt-scale-4m);
+    }
+  }
+
+  /* 12. Prevent overflow on mobile for hero and section headings */
+@media (max-width: 700px) {
+    .scrt-hero-text {
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      hyphens: none !important;
+    }
+  }
