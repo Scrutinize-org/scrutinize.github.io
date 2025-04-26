@@ -1,0 +1,339 @@
+/* =========================================================
+   GLOBAL.CSS  –  Consolidated component styles
+   ---------------------------------------------------------
+   [JUDGES]  rules come straight from the live site.
+   [CUSTOM]  rules came from your new files and had no
+            1-to-1 replacement on judges.scrutinize.org.
+   =======================================================*/
+
+/* ———  WRAPPERS, FLEX, BUTTONS  ——— */
+/* [JUDGES] */
+.scrt-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: calc(var(--scrt-unit) * 4);
+    color: var(--scrt-color-black);
+  }
+  
+  .scrt-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
+    padding: 0 calc(var(--scrt-unit) * 4);
+  }
+  
+  .scrt-img-block {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    padding-right: calc(var(--scrt-unit) * 4);
+  }
+  
+  .scrt-img-block img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: var(--scrt-radius);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scrt-text-block {
+    flex: 1 1 500px;
+    max-width: 500px;
+    padding-left: calc(var(--scrt-unit) * 4);
+  }
+  
+  .scrt-button {
+    display: inline-block;
+    background: var(--scrt-color-blue5);
+    color: #fff;
+    text-decoration: none;
+    padding: calc(var(--scrt-unit) * 4);
+    border-radius: var(--scrt-radius);
+    font-weight: var(--scrt-weight-regular);
+    font-size: var(--scrt-scale-0);
+  }
+  
+  .scrt-button:hover {
+    background: var(--scrt-color-blue6);
+    text-decoration: none !important;
+  }
+  
+  .scrt-button-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  
+  .scrt-button-row .scrt-button {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  /* ———  HERO / HEADINGS  ——— */
+  /* [CUSTOM]  (hero_text.css) */
+  .scrt-hero-text {
+    font-size: var(--scrt-scale-4);
+    font-weight: var(--scrt-weight-semibold);
+    line-height: var(--scrt-lh-normal);
+    color: var(--scrt-color-red5);
+    text-align: center;
+    margin: calc(var(--scrt-unit) * 4);
+  }
+  
+  @media (max-width: 700px) {
+    .scrt-hero-text {
+      font-size: var(--scrt-scale-4m);
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      hyphens: none !important;
+    }
+  }
+  
+  /* ———  SECTIONS & INTRO BLOCKS  ——— */
+  /* [JUDGES]  (scrt-section styles) */
+  .scrt-section {
+    background: #fff;
+    border-radius: var(--scrt-radius);
+    margin-bottom: calc(var(--scrt-unit) * 6);
+    padding: calc(var(--scrt-unit) * 4);
+    box-shadow: var(--scrt-elevation-1);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .scrt-section h2 {
+    font-size: var(--scrt-scale-4);
+    color: var(--scrt-color-blue5);
+    font-weight: var(--scrt-weight-medium);
+    margin: 0 0 calc(var(--scrt-unit) * 1);
+  }
+  
+  .scrt-section p {
+    font-size: var(--scrt-scale-3);
+    line-height: var(--scrt-lh-tight);
+    margin-bottom: calc(var(--scrt-unit) * 1);
+  }
+  
+  @media (max-width: 700px) {
+    .scrt-section {
+      padding-left: calc(var(--scrt-unit) * 1);
+      padding-right: calc(var(--scrt-unit) * 1);
+    }
+    
+    .scrt-section h2 {
+      font-size: var(--scrt-scale-4m);
+    }
+    
+    .scrt-section p {
+      font-size: var(--scrt-scale-3m);
+    }
+  }
+  
+  /* [CUSTOM]  (scrt_intro_block.css) */
+  .scrt-intro-block {
+    background: var(--scrt-color-blue0) !important;
+    border-left: 6px solid var(--scrt-color-blue);
+    border-radius: var(--scrt-radius) var(--scrt-radius) 0 0;
+    padding: var(--scrt-scale-1);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .scrt-intro-block.alt {
+    border-left: none;
+    border-right: 6px solid var(--scrt-color-blue);
+  }
+  
+  .scrt-intro-block p {
+    font-size: var(--scrt-scale-1);
+    line-height: var(--scrt-lh-normal);
+    color: var(--scrt-color-black);
+    margin: 0;
+  }
+  
+  .scrt-intro-block + .scrt-section {
+    border-left: 6px solid var(--scrt-color-blue);
+    border-radius: 0 0 var(--scrt-radius) var(--scrt-radius);
+  }
+  
+  .scrt-intro-block.alt + .scrt-section {
+    border-left: none;
+    border-right: 6px solid var(--scrt-color-blue);
+  }
+  
+  .scrt-text-block h2,
+  .scrt-intro-block h2 {
+    font-size: var(--scrt-scale-3);
+    font-weight: var(--scrt-weight-medium);
+    color: var(--scrt-color-blue);
+    margin: 0 0 calc(var(--scrt-unit) * 0.5);
+  }
+  
+  @media (max-width: 700px) {
+    .scrt-intro-block,
+    .scrt-intro-block.alt,
+    .scrt-section,
+    .scrt-intro-block + .scrt-section {
+      padding: calc(var(--scrt-unit) * 1) !important;
+    }
+    
+    .scrt-intro-block p {
+      font-size: var(--scrt-scale-3m);
+    }
+    
+    .scrt-text-block h2,
+    .scrt-intro-block h2 {
+      font-size: var(--scrt-scale-4m);
+    }
+  }
+  
+  /* ———  PARTNER LOGOS  ——— */
+  /* [CUSTOM]  (partner_logos.css) */
+  .press-inline-section {
+    background: #fff7f2;
+    padding: 30px 1px 20px;
+    margin-bottom: 40px;
+  }
+  
+  .press-inline-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
+  }
+  
+  .press-inline-logos.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .press-inline-logos a {
+    flex: 0 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .press-inline-logos a:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+  }
+  
+  .press-inline-logos img {
+    height: 70px;
+    max-width: 140px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.8s ease;
+  }
+  
+  .press-inline-logos img:hover {
+    opacity: 1;
+  }
+  
+  @media (max-width: 700px) {
+    .press-inline-logos {
+      gap: 24px;
+    }
+    
+    .press-inline-logos img {
+      height: 50px;
+    }
+  }
+  
+  /* ———  DROPDOWN  ——— */
+  /* [CUSTOM]  (drop_down_buttons.css) */
+  .scrt-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .scrt-button-row .scrt-dropdown {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  
+  .scrt-dropdown-toggle {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .scrt-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--scrt-color-white);
+    box-shadow: var(--scrt-elevation-2);
+    border-radius: var(--scrt-radius-sm);
+    z-index: var(--scrt-layer-1);
+  }
+  
+  .scrt-dropdown:hover .scrt-dropdown-menu,
+  .scrt-dropdown-menu:hover {
+    display: block;
+  }
+  
+  .scrt-dropdown-menu a {
+    display: block;
+    padding: 0.5em 1em;
+    color: var(--scrt-color-black);
+    text-align: center;
+    text-decoration: none !important;
+  }
+  
+  .scrt-dropdown-menu a:hover {
+    background: var(--scrt-color-blue0);
+  }
+  
+  @media (max-width: 700px) {
+    .scrt-button-row .scrt-button {
+      font-size: var(--scrt-scale-0m);
+      padding: calc(var(--scrt-unit) * 2);
+    }
+  }
+  
+  /* ———  MARKDOWN SECTION CARD / MISC  ——— */
+  /* [CUSTOM]  (global.css original) */
+  .card {
+    background: var(--scrt-color-white);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    border-radius: 0.75em;
+    padding: calc(var(--scrt-unit) * 4);
+  }
+  
+  .md-section {
+    background: var(--scrt-color-white);
+    width: 900px;
+    max-width: calc(100svw - 6 * var(--scrt-unit));
+    margin: auto;
+    padding: calc(var(--scrt-unit) * 6) calc(var(--scrt-unit) * 8);
+    color: var(--scrt-color-black);
+    border-radius: calc(var(--scrt-unit) * 2);
+    margin-bottom: calc(var(--scrt-unit) * 4);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    font-size: var(--scrt-scale-0);
+  }
+  
+  @media (max-width: 500px) {
+    .md-section {
+      padding: calc(var(--scrt-unit) * 4) calc(var(--scrt-unit) * 6);
+    }
+  }
+  
+  /* (other md-section heading/link rules kept as-is) */
+  
