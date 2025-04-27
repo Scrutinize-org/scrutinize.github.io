@@ -1,210 +1,216 @@
-<script>
-  const l = document.createElement('link');
-  l.rel = 'stylesheet';
-  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
-           + Date.now();
-  document.head.appendChild(l);
-</script>
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/scrutinize-base.css" />
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/scrutinize-color.css" />
+      <script>
+        const l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/global.css?ts=' 
+                 + Date.now();
+        document.head.appendChild(l);
+      </script>
+
 
 <style>
-  /* ───── GLOBAL MOBILE OVERRIDES ───── */
-  /* (no regular definitions here) */
-  @media (max-width: 700px) {
-    html, body {
-      overflow-x: hidden !important;
-    }
-    .scrt-wrapper {
-      padding: 0 10px;
-    }
-  }
+ /* transparency_reform.css
+   Updated to use Scrutinize design tokens for spacing, sizing, and colors */
 
-  /* ───── LAYOUT GRID ───── */
+/* ───── GLOBAL MOBILE OVERRIDES ───── */
+@media (max-width: 700px) {
+  html, body {
+    overflow-x: hidden !important;
+  }
+  .scrt-wrapper {
+    /* was 0 10px */
+    padding: 0 calc(var(--scrt-unit) * 2);
+  }
+}
+
+/* ───── LAYOUT GRID ───── */
+.scrt-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--scrt-unit) * 4);
+}
+@media (max-width: 700px) {
   .scrt-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: calc(var(--scrt-unit)*4);
+    /* was 3 * unit */
+    gap: calc(var(--scrt-unit) * 3);
   }
-  /* Mobile: adjust grid gap */
-  @media (max-width: 700px) {
-    .scrt-grid {
-      grid-template-columns: 1fr;
-      gap: calc(var(--scrt-unit)*3);
-    }
-  }
+}
 
-  /* ───── ACCORDION CARD ───── */
-  .scrt-card {
-    background: #fff;
-    border-radius: var(--scrt-radius);
-    box-shadow: var(--scrt-elevation-1);
-    border-left: 6px solid var(--scrt-color-blue3);
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    padding: 0 0 calc(var(--scrt-unit)*4);
-    margin: 0;
-    cursor: pointer;
-  }
-  /* Mobile: full width & spacing */
-  @media (max-width: 700px) {
-    .scrt-card {
-      width: 100%;
-      box-sizing: border-box;
-      margin: 0 0 calc(var(--scrt-unit)*4);
-    }
-  }
+/* ───── ACCORDION CARD ───── */
+.scrt-card {
+  /*borrows .card defintions */
+	background-color: var(--scrt-color-white);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+	border-radius: 0.75em;
+	padding: calc(var(--scrt-unit) * 4) 0 calc(var(--scrt-unit) * 4) 0;
+  border-left: calc(var(--scrt-unit) * 1.2) solid var(--scrt-color-blue3);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
 
-  /* ───── CARD HOVER STATE ───── */
-  .scrt-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--scrt-elevation-2);
-    background: var(--scrt-color-blue0);
-  }
+/* ───── CARD HOVER STATE ───── */
+.scrt-card:hover {
+  /* was translateY(-4px) */
+  transform: translateY(calc(var(--scrt-unit) * -0.8));
+  box-shadow: var(--scrt-elevation-2);
+  background: var(--scrt-color-blue0);
+}
 
-  /* ───── CARD TITLE ROW ───── */
+/* ───── CARD TITLE ROW ───── */
+.scrt-card-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  /* was 6u top, 4u sides, 0 bottom */
+  padding: 0 calc(var(--scrt-unit) * 4) 0;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
   .scrt-card-title-row {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: calc(var(--scrt-unit)*6) calc(var(--scrt-unit)*4) 0;
-    cursor: pointer;
+    display: grid !important;
+    grid-template-columns: 1fr max-content !important;
+    column-gap: calc(var(--scrt-unit) * 1) !important;
+    align-items: start;
   }
-  /* Mobile: title row grid layout */
-  @media (max-width: 700px) {
-    .scrt-card-title-row {
-      display: grid !important;
-      grid-template-columns: 1fr max-content !important;
-      column-gap: calc(var(--scrt-unit)*1) !important;
-      align-items: start;
-    }
-  }
+}
 
-  /* ───── CARD TITLE ───── */
+/* ───── CARD TITLE ───── */
+.scrt-card-title {
+  font-size: var(--scrt-scale-2);
+  font-weight: var(--scrt-weight-regular);
+  color: var(--scrt-color-blue);
+  margin: 0;
+}
+@media (max-width: 700px) {
   .scrt-card-title {
-    font-size: var(--scrt-scale-2);
-    font-weight: var(--scrt-weight-regular);
-    color: var(--scrt-color-blue);
-    margin: 0;
+    overflow-wrap: break-word;
+    /* was scale-2m */
+    font-size: var(--scrt-scale-2m);
+    line-height: var(--scrt-lh-tight) !important;
   }
-  /* Mobile: title font adjustments */
-  @media (max-width: 700px) {
-    .scrt-card-title {
-      flex: 1 1 auto;
-      min-width: 0;
-      overflow-wrap: break-word;
-      font-size: var(--scrt-scale-2m);
-      line-height: 1.2 !important;
-    }
-  }
+}
 
-  /* ───── CARD BODY ───── */
-  .scrt-card-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 calc(var(--scrt-unit)*4);
-  }
-  /* Expanded state */
+/* ───── CARD BODY ───── */
+.scrt-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  /* horizontal padding 4u */
+  padding: 0 calc(var(--scrt-unit) * 4);
+}
+.scrt-card.expanded .scrt-card-body {
+  /* was padding: 4u all around, then override top/bottom to 0 */
+  padding: calc(var(--scrt-unit) * 4);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  max-height: 500px;
+}
+@media (max-width: 700px) {
   .scrt-card.expanded .scrt-card-body {
-    padding: calc(var(--scrt-unit)*4);
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    max-height: 500px;
+    /* was scale-00m */
+    font-size: var(--scrt-scale-00m) !important;
   }
-  /* Mobile: shrink text in expanded body */
-  @media (max-width: 700px) {
-    .scrt-card.expanded .scrt-card-body {
-      font-size: var(--scrt-scale-00) !important;
-    }
-  }
+}
 
-  /* ───── “With” ATTRIBUTION LINE ───── */
+/* ───── “With” ATTRIBUTION LINE ───── */
+.scrt-card-with {
+  /* was scale--1 (typo?) → use scale-00 */
+  font-size: var(--scrt-scale-00);
+  color: var(--scrt-color-gray5);
+  /* was 0 4u 0 */
+  margin: 0 calc(var(--scrt-unit) * 4) 0;
+  font-style: italic;
+  line-height: var(--scrt-lh-tight);
+  white-space: normal;
+}
+@media (max-width: 700px) {
   .scrt-card-with {
-    font-size: var(--scrt-scale--1);
-    color: var(--scrt-color-gray5);
-    margin: calc(var(--scrt-unit)*0) calc(var(--scrt-unit)*4) 0;
-    font-style: italic;
-    line-height: 1.2;
-    white-space: normal;
+    /* was margin-top:2u; margin sides 4u */
+    margin: calc(var(--scrt-unit) * 2) calc(var(--scrt-unit) * 4) 0 !important;
+    line-height: var(--scrt-lh-tight) !important;
   }
-  /* Mobile: adjust attribution margin/line-height */
-  @media (max-width: 700px) {
-    .scrt-card-with {
-      margin: 0 calc(var(--scrt-unit)*4) !important;
-      margin-top: calc(var(--scrt-unit)*2) !important;
-      line-height: 1.2 !important;
-    }
-  }
+}
 
-  /* ───── FOIL DESCRIPTION ───── */
-  .scrt-foil-desc {
-    margin: 0.5em 0;
-    font-size: var(--scrt-scale-0);
-    line-height: var(--scrt-lh-normal);
-    padding-bottom: 0;
+/* ───── FOIL DESCRIPTION ───── */
+.scrt-foil-desc {
+  /* was 0.5em 0 → use 1u */
+  margin: calc(var(--scrt-unit) * 4) 0 calc(var(--scrt-unit) * 2) 0 ;
+  font-size: var(--scrt-scale-0);
+  line-height: var(--scrt-lh-normal);
+  padding-bottom: 0;
+}
+@media (max-width: 700px) {
+  .scrt-card.expanded .scrt-foil-desc {
+    /* was scale-00m */
+    font-size: var(--scrt-scale-0m) !important;
   }
-  /* Mobile: font-size in expanded card */
-  @media (max-width: 700px) {
-    .scrt-card.expanded .scrt-foil-desc {
-      font-size: var(--scrt-scale-00m);
-    }
-  }
+}
 
-  /* ───── STATUS BADGES ───── */
-  .scrt-status-badge {
-    margin-left: 12px;
-    padding: 4px 10px;
-    font-size: 0.75rem;
-    font-weight: var(--scrt-weight-semibold);
-    border-radius: var(--scrt-radius);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
-  }
-  /* Mobile: badge adjustments */
-  @media (max-width: 700px) {
-    .scrt-status-badge {
-      margin-top: calc(var(--scrt-unit)*1);
-      font-size: 0.65rem !important;
-      padding: 0px 2px 0px !important;
-      align-self: end !important;
-    }
-  }
-  /* Badge variants */
+/* ───── STATUS BADGES ───── */
+.scrt-status-badge {
+  /* was margin-left:12px */
+  margin-left: calc(var(--scrt-unit) * 2);
+  /* was padding:4px 10px */
+  padding: calc(var(--scrt-unit) * 0) calc(var(--scrt-unit) * 2);
+  /* was 0.75rem → use scale-00 */
+  font-size: var(--scrt-scale-000);
+  font-weight: var(--scrt-weight-regular);
+  border-radius: var(--scrt-radius-full);
+  text-transform: uppercase;
+  /* border shadow left as px */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+}
+
   .scrt-status-badge.appealed  { background: var(--scrt-color-red1);   color: #000; }
   .scrt-status-badge.resolved  { background: var(--scrt-color-green1); color: #000; }
   .scrt-status-badge.closed    { background: var(--scrt-color-gray1);  color: #000; }
   .scrt-status-badge.pending   { background: var(--scrt-color-yellow1);color: #000; }
   .scrt-status-badge.support   { background: var(--scrt-color-green2); color: #000; }
 
-  /* ───── DOCUMENT LIST ───── */
-  .scrt-doc-list {
-    list-style: none;
-    padding: 0;
-    margin: 1em 0;
-    font-size: var(--scrt-scale-0);
-  }
-  .scrt-doc-list li {
-    margin-bottom: 0.5em;
-  }
+/* ───── DOCUMENT LIST ───── */
+.scrt-doc-list {
+  list-style: none;
+  padding: 0;
+  /* was 1em → 2u */
+  margin: calc(var(--scrt-unit) * 2) 0;
+  font-size: var(--scrt-scale-0);
+}
+.scrt-doc-list li {
+  /* was 0.5em → 1u */
+  margin-bottom: calc(var(--scrt-unit) * 1);
+}
 
-  /* ───── VIEW LINKS ───── */
+/* ───── VIEW LINKS ───── */
+.scrt-view-link {
+  color: var(--scrt-color-blue5);
+  font-weight: var(--scrt-weight-regular);
+  font-size: var(--scrt-scale-0);
+  text-decoration: none;
+}
+.scrt-view-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .scrt-doc-list,
+  .scrt-doc-list li,
   .scrt-view-link {
-    color: var(--scrt-color-blue5);
-    font-weight: var(--scrt-weight-regular);
-    text-decoration: none;
+    font-size: var(--scrt-scale-0m) !important;
   }
-  .scrt-view-link:hover {
-    text-decoration: underline;
-  }
+}
+
 </style>
 
 
 
+
 <div class="scrt-wrapper">
-
     <div class="scrt-section">
-
         <h1 class="scrt-hero-text">Transparency & Reform</h1>
-        <p class="scrt-section-intro">
+        <p>
         Scrutinize promotes court transparency by filing Freedom of Information requests for data that the public can’t
         otherwise access. We also advocate for legislative reforms that strengthen public trust and improve the
         transparency and accountability of New York’s court system.        
@@ -223,7 +229,7 @@
       <p class="scrt-card-with">With Cornell Law School's First Amendment Clinic</p>
       <div class="scrt-card-body">
         <p class="scrt-foil-desc">What: Full rosters, affiliations, and vetting criteria of members of the Governor’s Judicial Screening Committees, plus internal guidelines and statistics on candidate evaluations.</p>
-        <p class="scrt-foil-desc">Why: Unveil who influences judicial appointments and how candidates are assessed—allowing the public to evaluate the fairness, impartiality, and merit of state judicial selections​.</p>
+        <p class="scrt-foil-desc">Why: Unveil who influences judicial appointments and how candidates are assessed—allowing the public to evaluate the fairness, impartiality, and merit of state judicial selections.</p>
         <ul class="scrt-doc-list">
           <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_Judicial_Screening_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
         </ul>
