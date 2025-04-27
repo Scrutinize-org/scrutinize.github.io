@@ -25,6 +25,13 @@
   --scrt-scale-6: 46px;
   --scrt-scale-7: 54px;
   --scrt-scale-8: 64px;
+  /* --- MOBILE SCALE VARIABLES --------------------------------*/
+  --scrt-scale-0m: var(--scrt-scale-00); /* 15px */
+  --scrt-scale-1m: var(--scrt-scale-0);  /* 18px */
+  --scrt-scale-2m: var(--scrt-scale-1);  /* 21px */
+  --scrt-scale-3m: var(--scrt-scale-2);  /* 25px */
+  --scrt-scale-4m: var(--scrt-scale-3);  /* 29px */
+  --scrt-scale-5m: var(--scrt-scale-4);  /* 34px */
   /* --scrt-lh-tightest: round(up, 1em, var(--scrt-unit));
   --scrt-lh-tight: round(up, 1em * 1.2, var(--scrt-unit));
   --scrt-lh-normal: round(up, 1em * 1.4, var(--scrt-unit));
