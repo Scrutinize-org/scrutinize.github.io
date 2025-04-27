@@ -1,14 +1,8 @@
-<script>
-  const l = document.createElement('link');
-  l.rel = 'stylesheet';
-  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
-           + Date.now();
-  document.head.appendChild(l);
-</script>
-
 <!-- Support & Donation Info -->
-<section class="scrt-section" id="donate-info">
-  <h1 class="scrt-hero-text">Support More Transparent and Accountable Courts</h1>
+<div class="scrt-wrapper">
+
+<div class="scrt-section">
+  <h1>Support Transparency in the Courts</h1>
   <p>
      All donations to Scrutinize are tax-deductible to the fullest extent of the law. Scrutinize is fiscally sponsored by the Urban Justice Center, a 501(c)(3) non-profit organization based in NYC (EIN: 13‑3442022).
   </p>
@@ -26,10 +20,9 @@
     <a href="https://secure.givelively.org/donate/urban-justice-center/scrutinize/" target="_blank" rel="noopener">
       Give Lively</a> page.
   </p>
-</section>
+</div>
 
 <!-- Give Lively Widget -->
-<section class="scrt-section" id="donation-widget" style="text-align:center;">
   <!-- Begin Give Lively Fundraising Widget -->
   <script>
     const gl = document.createElement('script');
@@ -43,4 +36,4 @@
     style="max-width:600px; margin:0 auto;">
   </div>
   <!-- End Give Lively Fundraising Widget -->
-</section>
+</div>

@@ -1,81 +1,38 @@
-<script>
-  const l1 = document.createElement('link');
-  l1.rel = 'stylesheet';
-  l1.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
-            + Date.now();
-  document.head.appendChild(l1);
-
-  const l2 = document.createElement('link');
-  l2.rel = 'stylesheet';
-  l2.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/scrt_intro_block.css?ts=' 
-            + Date.now();
-  document.head.appendChild(l2);
-  
-</script>
-
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/hero_text.css">
-
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/partner_logos.css">
-
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/scrt_section.css">
-
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/styles/scrt_section.css">
-
-
 <style>
 /* ───── Responsive: Mobile (max-width: 700px) ───── */
-@media (max-width: 700px) {
-  /* Shrink buttons */
-  .scrt-button-row .scrt-button {
-    font-size: 11px;
-    padding: 10px 5px;
-    margin-bottom: 0 !important;
+
+  @media(max-width:700px) {
+    /* make image smaller on mobile */
+    .scrt-img-block img {
+      max-width: 110px;
+      padding: 0;
+      margin: 0;
+    }
+    /* center image */
+    .scrt-img-block {
+     align-items: center;
+     justify-content: center;
+    }
   }
-}
 
-.scrt-button-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: stretch;
-  margin-top: calc(var(--scrt-unit) * 4);
-}
-
-/* Center “Ways to Support” heading just in this block */
-.support-options .scrt-text-block h2 {
-  text-align: center;
-}
-
-/* Stack buttons at half the width, centered */
-.support-options .scrt-button-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 50%;
-  margin: calc(var(--scrt-unit) * 4) auto 0;
-
-  /* ← replace this: align-items: center; */
-  align-items: stretch; 
-}
-
-/* Let each button fill that half‐width container */
-.support-options .scrt-button-column .scrt-button,
-.support-options .scrt-button-column .scrt-dropdown-toggle {
-  width: 100%;
-  text-align: center;
-}
-
-/* Optional mobile tweak: full width on narrow screens */
-@media (max-width: 700px) {
-  .support-options .scrt-button-column {
-    width: 100%;
-    margin-top: calc(var(--scrt-unit)*2);
+  /* make buttons text smaller and increase margin below them to end of scrt section */
+  @media (max-width: 700px) {
+    .scrt-button,
+    .scrt-button-row .scrt-button {
+      font-size: var(--scrt-scale-00m);
+      margin-bottom: calc(var(--scrt-unit) * 4);
+    }
   }
-}
+
+  /* decrease size of paragraph text for scrt-section */
+  @media (max-width: 700px) {
+    .scrt-section p {
+      font-size: var(--scrt-scale-0m);
+    }
+    .scrt-intro-block p {
+      font-size: var(--scrt-scale-1m); /* or whatever font size you want */
+    }
+  }
 
 
 </style>      
@@ -227,7 +184,7 @@
       </p>
       <div class="scrt-button-row">
         <a href="/the-state-of-criminal-court-transparency-in-2024" class="scrt-button">Full Report</a>
-        <a href="/reports" class="scrt-button">All Research</a>
+        <a href="/research" class="scrt-button">All Research</a>
       </div>
     </div>
   </div>

@@ -1,202 +1,223 @@
-<script>
-  const l = document.createElement('link');
-  l.rel = 'stylesheet';
-  l.href = 'https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@master/website/styles/master.css?ts=' 
-           + Date.now();
-  document.head.appendChild(l);
-</script>
-
 <style>
-/* ───── Reports Page Custom Styles ───── */
-/* Section */
-.scrt-section {
-  margin-bottom: calc(var(--scrt-unit)*4);
-  border-left: 6px solid var(--scrt-color-blue1);
-  transition: transform 0.3s var(--scrt-easing-standard), box-shadow 0.5s var(--scrt-easing-standard);
-}
-.scrt-section:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--scrt-elevation-3);
-}
-
-/* Pop-up animation */
-[data-animate] { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-.in-view { opacity:1; transform: translateY(0); }
-
-/* Layout */
-.scrt-flex {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: calc(var(--scrt-unit)*4);
-}
-.scrt-img-block { flex: 0 0 auto; width: 220px; }
-.scrt-img-block img { width:100%; border-radius: var(--scrt-radius); }
-.scrt-text-block { flex: 1 1 0; }
-.scrt-text-block h2 {
-  font-size: var(--scrt-scale-2);
-  color: var(--scrt-color-blue);
-  font-weight: var(--scrt-weight-regular);
-  margin: 0 0 calc(var(--scrt-unit)*2);
-}
-.scrt-text-block p {
-  font-size: var(--scrt-scale-0);
-  line-height: var(--scrt-lh-normal);
-  margin: 0 0 calc(var(--scrt-unit)*4);
-}
-
-/* Responsive */
-@media(max-width:700px) {
-  .scrt-flex { flex-direction: column; align-items: center; }
-  .scrt-img-block, .scrt-text-block { width:100%; }
-  .scrt-section { padding: calc(var(--scrt-unit)*4) calc(var(--scrt-unit)*2); }
-  .scrt-button { width:100%; text-align:center; }
-}
-
-.scrt-text-block {
-  margin-bottom: calc(var(--scrt-unit)*4);
-}
-
-@media (max-width: 700px) {
-  /* all browsers */
+  /* ───── Reports Page Custom Styles ───── */
+  /* Section */
   .scrt-section {
-    padding: calc(var(--scrt-unit)*4); /* top | sides | bottom */
+    border-left: 6px solid var(--scrt-color-blue1);
+    transition: transform 0.3s var(--scrt-easing-standard), box-shadow 0.5s var(--scrt-easing-standard);
   }
-}
-
-}
-
-</style>
-
-<div class="scrt-wrapper">
+  .scrt-section:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--scrt-elevation-3);
+  }
   
-<div class="scrt-section" style="border-left:none;">
-
-    <h1 class="scrt-hero-text">Research</h1>
-      <p class="scrt-section-intro">
-        Using data analysis, artificial intelligence, and rigorous legal research, we transform complex judicial data into clear insights. Our research empowers the public to take informed action, creating a more transparent and accountable legal system.
-      </p>
+  /* Pop-up animation */
+  [data-animate] { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+  .in-view { opacity:1; transform: translateY(0); }
+  
+  .scrt-card{
+    display:flex;
+    gap:var(--scrt-scale-4);
+  }
+  
+  @media(max-width:700px){
+    .scrt-card{
+      flex-direction:column;
+    }
+  }
+  
+  .scrt-card-img{flex:0 0 200px;max-width:110px;}
+  
+  /* 1. Make and center the image smaller on mobile */
+  @media (max-width: 700px) {
+    .scrt-img-block {
+      display: flex;            /* ensure the wrapper can center its contents */
+      justify-content: center;  /* center the img horizontally */
+    }
+    .scrt-img-block img {
+      display: block;           /* allow margin auto to work */
+      max-width: 110px !important;          /* shrink as desired */
+      width: 100%;              /* responsive fallback */
+      height: auto;
+      margin: 0 auto;
+    }
+  }
+  
+  .scrt-card-body{flex:1 1 0;display:flex;flex-direction:column;}
+  /* 3. Control the size of <h2> and <p> on desktop and mobile */
+  .scrt-card-body h2 {
+    font-size: var(--scrt-scale-3);
+    text-wrap: balance;
+    line-height: var(--scrt-lh-tightest);
+    margin: 0 0 calc(var(--scrt-unit) * 2);
+    font-weight: var(--scrt-weight-semibold);
+    color: var(--scrt-color-blue);
+    font-size: var(--scrt-scale-3);
+  }
+  
+  .scrt-card-body p {
+    font-size: var(--scrt-scale-1);
+    line-height: var(--scrt-lh-normal);
+    text-wrap: pretty;
+  }
+  
+  @media (max-width: 700px) {
+    .scrt-card-body h2 {
+      font-size: var(--scrt-scale-3m);
+      margin: 0;
+      margin-top: calc(var(--scrt-unit) * 1);
+      margin-bottom: 0;
+    }
+    .scrt-card-body p {
+      font-size: var(--scrt-scale-1m);
+      margin-bottom: calc(var(--scrt-unit) * 3);
+    }
+  }
+  
+  .scrt-button{
+      width:auto;        
+      align-self:start; 
+      border-radius: 0.75em !important;   
+    }
+  @media(max-width:700px){
+    .scrt-button{
+      width:auto;         
+      align-self:center;
+      margin: 0;    
+    }
+  }
+  
+  </style>
+  
+  <div class="scrt-wrapper">
+    
+  <div class="scrt-section" style="border-left:none;">
+  
+      <h1>Research</h1>
+        <div class="scrt-section_p_large">
+          Using data analysis, artificial intelligence, and rigorous legal research, we transform complex judicial data into clear insights. Our research empowers the public to take informed action, creating a more transparent and accountable legal system.
+        </div>
+    </div>
+  
+    <!-- Scroll-animate script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', ()=>{
+        const els = document.querySelectorAll('.scrt-section');
+        const obs = new IntersectionObserver((entries, o)=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); o.unobserve(e.target);} });
+        },{threshold:0.1});
+        els.forEach(e=>{ e.setAttribute('data-animate',''); obs.observe(e); });
+      });
+    </script>
+  
+    <!-- Reports list -->
+      <!-- Report 1 -->
+      
+        <div class="scrt-section scrt-card">
+  
+          <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1742047518306-8C1GSICWH2TD4HXNXH7P/the-state-of-criminal-court-transparency-in-2024.png" alt="State of Criminal Court Transparency in 2024"></div>
+          <div class="scrt-card-body">
+            <h2>The State of Criminal Court Transparency in 2024</h2>
+            <p>A small group of judges and counties leads the way in publishing decisions, demonstrating that open justice is possible—even as many decisions are not published online.</p>
+            <a href="/the-state-of-criminal-court-transparency-in-2024" class="scrt-button" target="_blank">Full Report</a>
+          </div>
+        </div>
+  
+      
+        <div class="scrt-section scrt-card">
+          <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1740401839790-N9Q9XXBFQS3VFYTSVON8/discovery_reform_works_png.png" alt="Judges’ Unpublished Decisions Debunk Discovery Myths"></div>
+          <div class="scrt-card-body">
+            <h2>Judges’ Unpublished Decisions Debunk Discovery Myths</h2>
+            <p>
+              Analysis of nearly 300 unpublished discovery decisions reveals that case dismissals result from prosecutorial failures—not minor technicalities or defense tactics.
+            </p>
+            <a href="/decisions-discovery-reform" class="scrt-button" target="_blank">Full Report</a>
+          </div>
+        </div>
+  
+      
+        <div class="scrt-section scrt-card">
+          <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/9063c8ee-b9d8-4c99-905d-a8f4a1e4c620/setting-bail-to-fail-cover-snippet.png" alt="Setting Bail to Fail"></div>
+          <div class="scrt-card-body">
+            <h2>Setting Bail to Fail</h2>
+            <p>
+              Judges followed rules requiring specific bail options but often set amounts that undermined the statutory intent to provide affordable alternatives, particularly to commercial bonds.
+            </p>
+            <a href="/setting-bail-to-fail" class="scrt-button" target="_blank">Full Report</a>
+          </div>
+        </div>
+  
+      
+        <div class="scrt-section scrt-card">
+  
+          <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/635986ea4e3869168261490b/1726161614696-3VLMWM1QHS401857IVMJ/harnessing-ai-factsheet-cover.png" alt="Harnessing AI To Enhance Judicial Transparency"></div>
+          <div class="scrt-card-body">
+            <h2>Harnessing AI To Enhance Judicial Transparency</h2>
+            <p>
+              This factsheet introduces a new method for enhancing judicial transparency using large language models (LLMs) to analyze judicial texts.
+            </p>
+            <a href="/ai-enhance-transparency" class="scrt-button" target="_blank">Full Report</a>
+          </div>
+        </div>
+      
+        <div class="scrt-section scrt-card">
+  
+          <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1726161638607-UFPF1401G9QE0RXJT3NV/unprotected-report-cover.png" alt="Unprotected"></div>
+          <div class="scrt-card-body">
+            <h2>Unprotected</h2>
+            <p>
+              A new metric for assessing individual judges' decisions and impacts: failure to protect constitutional rights against law enforcement overreach.
+            </p>
+            <a href="/unprotected" class="scrt-button" target="_blank">Full Report</a>
+          </div>
+        </div>
+  
+      
+        <div class="scrt-section scrt-card">
+  
+          <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1713727231899-XUC58B76DKQNWDTK4JA7/reverse-and-reassign-thumbnail.png" alt="Reverse & Reassign"></div>
+          <div class="scrt-card-body">
+            <h2>Reverse & Reassign</h2>
+            <p>
+              A new metric for assessing individual judges' decisions and impacts: reassignments to a Different Judge (RDJs), which serve as a red flag, suggesting the possibility of judicial impropriety that goes beyond getting the law wrong.
+            </p>
+            <a href="/reverse-reassign" class="scrt-button" target="_blank">Full Report</a>
+          </div>
+        </div>
+  
+      
+        <div class="scrt-section scrt-card">
+          <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1711131183314-9CQZ2C4WMRR3OEX12SU5/excessive_sentencers_cover.png" alt="Excessive Sentencers"></div>
+          <div class="scrt-card-body">
+            <h2>Excessive Sentencers</h2>
+            <p>
+              A new metric for assessing individual judges' decisions and impacts: exceptionally punitive sentences, so severe that even appellate judges could not uphold them.
+            </p>
+            <a href="/excessive-sentencers" class="scrt-button" target="_blank">Full Report</a>
+          </div>
+        </div>
+  
+  
+    <div class="scrt-section scrt-card">
+      <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/453ceff9-4ad0-48a4-ae79-a5afbd4387b6/opencriminalcourtscoversnippet.png" alt="Open Criminal Courts"></div>
+      <div class="scrt-card-body">
+        <h2>Open Criminal Courts</h2>
+        <p>
+          At most 6% of New York's written criminal court decisions are available to the public online.
+        </p>
+        <a href="/opencriminalcourts" class="scrt-button" target="_blank">Full Report</a>
+      </div>
+    </div>
+  
+    <div class="scrt-section scrt-card">
+      <div class="scrt-img-block">
+        <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/588d2c20-f1fa-48e8-b2c2-8da7957c884d/costdiscretionthumb.png" alt="Cost of Discretion"></div>
+      <div class="scrt-card-body">
+        <h2>Cost of Discretion</h2>
+        <p>
+          The decisions of NYC most carceral judges resulted in appx. 580 additional people detained and $77 million in taxpayer costs.
+        </p>
+        <a href="/costofdiscretion" class="scrt-button" target="_blank">Full Report</a>
+      </div>
+    </div>
+  
   </div>
-
-  <!-- Scroll-animate script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const els = document.querySelectorAll('.scrt-section');
-      const obs = new IntersectionObserver((entries, o)=>{
-        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); o.unobserve(e.target);} });
-      },{threshold:0.1});
-      els.forEach(e=>{ e.setAttribute('data-animate',''); obs.observe(e); });
-    });
-  </script>
-
-  <!-- Reports list -->
-  <div>
-    <!-- Report 1 -->
-    <div class="scrt-section">
-      <div class="scrt-flex">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1742047518306-8C1GSICWH2TD4HXNXH7P/the-state-of-criminal-court-transparency-in-2024.png" alt="State of Criminal Court Transparency in 2024"></div>
-        <div class="scrt-text-block">
-          <h2>The State of Criminal Court Transparency in 2024</h2>
-          <p>Which judges and counties publish their decisions—and which leave the public in the dark? This report offers a statewide transparency ranking.</p>
-          <a href="/the-state-of-criminal-court-transparency-in-2024" class="scrt-button" target="_blank">Read Full Report</a>
-        </div>
-      </div>
-    </div>
-    <!-- Report 2 -->
-    <div class="scrt-section">
-      <div class="scrt-flex">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1740401839790-N9Q9XXBFQS3VFYTSVON8/discovery_reform_works_png.png" alt="Judges’ Unpublished Decisions Debunk Discovery Myths"></div>
-        <div class="scrt-text-block">
-          <h2>Judges’ Unpublished Decisions Debunk Discovery Myths</h2>
-          <p>Judges have ruled on hundreds of disputes under New York’s new discovery law. We reviewed their decisions to expose common myths and misrepresentations.</p>
-          <a href="/decisions-discovery-reform" class="scrt-button" target="_blank">Read Full Report</a>
-        </div>
-      </div>
-    </div>
-    <!-- Report 3 -->
-    <div class="scrt-section">
-      <div class="scrt-flex">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/9063c8ee-b9d8-4c99-905d-a8f4a1e4c620/setting-bail-to-fail-cover-snippet.png" alt="Setting Bail to Fail"></div>
-        <div class="scrt-text-block">
-          <h2>Setting Bail to Fail</h2>
-          <p>We analyzed bail decisions statewide to identify judges who block access to affordable bail and steer people toward exploitative commercial bonds.</p>
-          <a href="/setting-bail-to-fail" class="scrt-button" target="_blank">Read Full Report</a>
-        </div>
-      </div>
-    </div>
-    <!-- Report 4 -->
-    <div class="scrt-section">
-      <div class="scrt-flex">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/635986ea4e3869168261490b/1726161614696-3VLMWM1QHS401857IVMJ/harnessing-ai-factsheet-cover.png" alt="Harnessing AI To Enhance Judicial Transparency"></div>
-        <div class="scrt-text-block">
-          <h2>Harnessing AI To Enhance Judicial Transparency</h2>
-          <p>This factsheet introduces a new method for enhancing judicial transparency using large language models to analyze judicial texts.</p>
-          <a href="/ai-enhance-transparency" class="scrt-button" target="_blank">Read Full Report</a>
-        </div>
-      </div>
-    </div>
-    <!-- Report 5 -->
-    <div class="scrt-section">
-      <div class="scrt-flex">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1726161638607-UFPF1401G9QE0RXJT3NV/unprotected-report-cover.png" alt="Unprotected"></div>
-        <div class="scrt-text-block">
-          <h2>Unprotected</h2>
-          <p>Appellate courts rarely reverse suppression decisions. When they do, it signals a serious failure to protect constitutional rights. This report tracks those reversals by judge.</p>
-          <a href="/unprotected" class="scrt-button" target="_blank">Read Full Report</a>
-        </div>
-      </div>
-    </div>
-    <!-- Report 6 -->
-    <div class="scrt-section">
-      <div class="scrt-flex">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1713727231899-XUC58B76DKQNWDTK4JA7/reverse-and-reassign-thumbnail.png" alt="Reverse & Reassign"></div>
-        <div class="scrt-text-block">
-          <h2>Reverse & Reassign</h2>
-          <p>In rare cases, appellate courts not only overturn trial outcomes but reassign the case to a new judge. This report documents those extraordinary interventions.</p>
-          <a href="/reverse-reassign" class="scrt-button" target="_blank">Read Full Report</a>
-        </div>
-      </div>
-    </div>
-    <!-- Report 7 -->
-    <div class="scrt-section">
-      <div class="scrt-flex">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1711131183314-9CQZ2C4WMRR3OEX12SU5/excessive_sentencers_cover.png" alt="Excessive Sentencers"></div>
-        <div class="scrt-text-block">
-          <h2>Excessive Sentencers</h2>
-          <p>This report reveals which judges handed down the most sentences later deemed excessive—and how many years were cut by appellate courts as a result.</p>
-          <a href="/excessive-sentencers" class="scrt-button" target="_blank">Read Full Report</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Report: Open Criminal Courts -->
-<div class="scrt-section" data-animate>
-  <div class="scrt-flex">
-    <div class="scrt-img-block">
-      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/453ceff9-4ad0-48a4-ae79-a5afbd4387b6/opencriminalcourtscoversnippet.png"
-           alt="Open Criminal Courts">
-    </div>
-    <div class="scrt-text-block">
-      <h2>Open Criminal Courts</h2>
-      <p>How often do judges share their decisions with the public? This early report documents troubling gaps in transparency before the full court dataset was released.</p>
-      <a href="/opencriminalcourts" class="scrt-button" target="_blank">Read Full Report</a>
-    </div>
-  </div>
-</div>
-
-<!-- Report: Cost of Discretion -->
-<div class="scrt-section" data-animate>
-  <div class="scrt-flex">
-    <div class="scrt-img-block">
-      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/588d2c20-f1fa-48e8-b2c2-8da7957c884d/costdiscretionthumb.png"
-           alt="Cost of Discretion">
-    </div>
-    <div class="scrt-text-block">
-      <h2>Cost of Discretion</h2>
-      <p>Using court data from NYC, this report measures how likely each judge is to order pretrial detention—after accounting for case severity and defendant history.</p>
-      <a href="/costofdiscretion" class="scrt-button" target="_blank">Read Full Report</a>
-    </div>
-  </div>
-</div>
-
-</div>
