@@ -1,223 +1,407 @@
 <style>
-/* ───── Reports Page Custom Styles ───── */
-/* Section */
-.scrt-section {
-  border-left: 6px solid var(--scrt-color-blue1);
-  transition: transform 0.3s var(--scrt-easing-standard), box-shadow 0.5s var(--scrt-easing-standard);
-}
-.scrt-section:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--scrt-elevation-3);
-}
 
-/* Pop-up animation */
-[data-animate] { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-.in-view { opacity:1; transform: translateY(0); }
-
-.scrt-card{
-  display:flex;
-  gap:var(--scrt-scale-4);
-}
-
-@media(max-width:700px){
-  .scrt-card{
-    flex-direction:column;
-  }
-}
-
-.scrt-card-img{flex:0 0 200px;max-width:110px;}
-
-/* 1. Make and center the image smaller on mobile */
+/* ───── GLOBAL MOBILE OVERRIDES ───── */
 @media (max-width: 700px) {
-  .scrt-img-block {
-    display: flex;            /* ensure the wrapper can center its contents */
-    justify-content: center;  /* center the img horizontally */
-  }
-  .scrt-img-block img {
-    display: block;           /* allow margin auto to work */
-    max-width: 110px !important;          /* shrink as desired */
-    width: 100%;              /* responsive fallback */
-    height: auto;
-    margin: 0 auto;
+  html, body {
+    overflow-x: hidden !important;
   }
 }
 
-.scrt-card-body{flex:1 1 0;display:flex;flex-direction:column;}
-/* 3. Control the size of <h2> and <p> on desktop and mobile */
-.scrt-card-body h2 {
-  font-size: var(--scrt-scale-3);
-  text-wrap: balance;
-  line-height: var(--scrt-lh-tightest);
-  margin: 0 0 calc(var(--scrt-unit) * 2);
-  font-weight: var(--scrt-weight-semibold);
-  color: var(--scrt-color-blue);
-  font-size: var(--scrt-scale-3);
+/* ───── LAYOUT GRID ───── */
+.scrt-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--scrt-unit) * 4);
+}
+@media (max-width: 700px) {
+  .scrt-grid {
+    /* was 3 * unit */
+    gap: calc(var(--scrt-unit) * 3);
+  }
 }
 
-.scrt-card-body p {
+/* ───── ACCORDION CARD ───── */
+.scrt-card {
+  /*borrows .card defintions */
+	background-color: var(--scrt-color-white);
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+	border-radius: 0.75em;
+	padding: calc(var(--scrt-unit) * 4) 0 calc(var(--scrt-unit) * 4) 0;
+  border-left: calc(var(--scrt-unit) * 1.2) solid var(--scrt-color-blue3);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+/* ───── CARD HOVER STATE ───── */
+.scrt-card:hover {
+  /* was translateY(-4px) */
+  transform: translateY(calc(var(--scrt-unit) * -0.8));
+  box-shadow: var(--scrt-elevation-2);
+  background: var(--scrt-color-blue0);
+}
+
+/* ───── CARD TITLE ROW ───── */
+.scrt-card-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  /* was 6u top, 4u sides, 0 bottom */
+  padding: 0 calc(var(--scrt-unit) * 4) 0;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .scrt-card-title-row {
+    display: grid !important;
+    grid-template-columns: 1fr max-content !important;
+    column-gap: calc(var(--scrt-unit) * 1) !important;
+    align-items: start;
+  }
+}
+
+/* ───── CARD TITLE ───── */
+.scrt-card-title {
   font-size: var(--scrt-scale-1);
+  font-weight: var(--scrt-weight-regular);
+  color: var(--scrt-color-blue);
+  margin: 0;
+}
+@media (max-width: 700px) {
+  .scrt-card-title {
+    overflow-wrap: break-word;
+    /* was scale-2m */
+    font-size: var(--scrt-scale-1m) !important;
+    line-height: var(--scrt-lh-tight) !important;
+  }
+}
+
+/* ───── CARD BODY ───── */
+.scrt-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  /* horizontal padding 4u */
+  padding: 0 calc(var(--scrt-unit) * 4);
+}
+.scrt-card.expanded .scrt-card-body {
+  /* was padding: 4u all around, then override top/bottom to 0 */
+  padding: calc(var(--scrt-unit) * 4);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  max-height: 500px;
+}
+@media (max-width: 700px) {
+  .scrt-card.expanded .scrt-card-body {
+    /* was scale-00m */
+    font-size: var(--scrt-scale-00m) !important;
+  }
+}
+
+/* ───── “With” ATTRIBUTION LINE ───── */
+.scrt-card-with {
+  /* was scale--1 (typo?) → use scale-00 */
+  font-size: var(--scrt-scale-00);
+  color: var(--scrt-color-gray5);
+  /* was 0 4u 0 */
+  margin: 0 calc(var(--scrt-unit) * 4) 0;
+  font-style: italic;
+  line-height: var(--scrt-lh-tight);
+  white-space: normal;
+}
+@media (max-width: 700px) {
+  .scrt-card-with {
+    /* was margin-top:2u; margin sides 4u */
+    margin: calc(var(--scrt-unit) * 2) calc(var(--scrt-unit) * 4) 0 !important;
+    line-height: var(--scrt-lh-tight) !important;
+  }
+}
+
+/* ───── FOIL DESCRIPTION ───── */
+.scrt-foil-desc {
+  /* was 0.5em 0 → use 1u */
+  margin: calc(var(--scrt-unit) * 4) 0 calc(var(--scrt-unit) * 2) 0 ;
+  font-size: var(--scrt-scale-0);
   line-height: var(--scrt-lh-normal);
-  text-wrap: pretty;
+  padding-bottom: 0;
+}
+@media (max-width: 700px) {
+  .scrt-card.expanded .scrt-foil-desc {
+    /* was scale-00m */
+    font-size: var(--scrt-scale-0m) !important;
+  }
+}
+
+/* ───── STATUS BADGES ───── */
+.scrt-status-badge {
+  /* was margin-left:12px */
+  margin-left: calc(var(--scrt-unit) * 2);
+  /* was padding:4px 10px */
+  padding: calc(var(--scrt-unit) * 0) calc(var(--scrt-unit) * 2);
+  /* was 0.75rem → use scale-00 */
+  font-size: var(--scrt-scale-000);
+  font-weight: var(--scrt-weight-regular);
+  border-radius: var(--scrt-radius-full);
+  text-transform: uppercase;
+  /* border shadow left as px */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+  .scrt-status-badge.appealed  { background: var(--scrt-color-red1);   color: #000; }
+  .scrt-status-badge.resolved  { background: var(--scrt-color-green1); color: #000; }
+  .scrt-status-badge.closed    { background: var(--scrt-color-gray1);  color: #000; }
+  .scrt-status-badge.pending   { background: var(--scrt-color-yellow1);color: #000; }
+  .scrt-status-badge.support   { background: var(--scrt-color-green2); color: #000; }
+
+/* ───── DOCUMENT LIST ───── */
+.scrt-doc-list {
+  list-style: none;
+  padding: 0;
+  /* was 1em → 2u */
+  margin: calc(var(--scrt-unit) * 2) 0;
+  font-size: var(--scrt-scale-0);
+}
+.scrt-doc-list li {
+  /* was 0.5em → 1u */
+  margin-bottom: calc(var(--scrt-unit) * 1);
+}
+
+/* ───── VIEW LINKS ───── */
+.scrt-view-link {
+  color: var(--scrt-color-blue5);
+  font-weight: var(--scrt-weight-regular);
+  font-size: var(--scrt-scale-0);
+  text-decoration: none;
+}
+.scrt-view-link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 700px) {
-  .scrt-card-body h2 {
-    font-size: var(--scrt-scale-3m);
-    margin: 0;
-    margin-top: calc(var(--scrt-unit) * 1);
-    margin-bottom: 0;
-  }
-  .scrt-card-body p {
-    font-size: var(--scrt-scale-1m);
-    margin-bottom: calc(var(--scrt-unit) * 3);
+  .scrt-doc-list,
+  .scrt-doc-list li,
+  .scrt-view-link {
+    font-size: var(--scrt-scale-0m) !important;
   }
 }
 
-.scrt-button{
-    width:auto;        
-    align-self:start; 
-    border-radius: 0.75rem;   
-  }
-@media(max-width:700px){
-  .scrt-button{
-    width:auto;         
-    align-self:center;
-    margin: 0;    
-  }
-}
 
 </style>
 
 <div class="scrt-wrapper">
+    <div class="scrt-section">
+        <h1>Transparency & Reform</h1>
+        <div class="scrt-section_p_large">
+        Scrutinize promotes court transparency by filing Freedom of Information Law (FOIL) requests for data that the public cannot 
+        otherwise access. We also advocate for legislative reforms that strengthen public trust and improve the
+        transparency and accountability of New York's court system.        
+        </div>
+    </div>
+
+  <!-- FOIL REQUESTS -->
+  <h2 class="scrt-section-h2">FOIL Requests</h2>
+  <section id="foil-requests" class="scrt-grid">
+    <!-- 1. Governor's Judicial Screening Committees -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Governor's Judicial Screening Committees</span>
+        <span class="scrt-status-badge pending">Pending</span>
+      </div>
+      <p class="scrt-card-with">With Cornell Law School's First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Full rosters, affiliations, and vetting criteria of members of the Governor’s Judicial Screening Committees, plus internal guidelines and statistics on candidate evaluations.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Unveil who influences judicial appointments and how candidates are assessed—allowing the public to evaluate the fairness, impartiality, and merit of state judicial selections.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_Judicial_Screening_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+        </ul>
+      </div>
+    </div>
   
-<div class="scrt-section" style="border-left:none;">
-
-    <h1>Research</h1>
-      <div class="scrt-section_p_large">
-        Using data analysis, artificial intelligence, and rigorous legal research, we transform complex judicial data into clear insights. Our research empowers the public to take informed action, creating a more transparent and accountable legal system.
+    <!-- 2. Mayor’s Advisory Committee on the Judiciary -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Mayor’s Advisory Committee on the Judiciary</span>
+        <span class="scrt-status-badge pending">Pending</span>
       </div>
-  </div>
-
-  <!-- Scroll-animate script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const els = document.querySelectorAll('.scrt-section');
-      const obs = new IntersectionObserver((entries, o)=>{
-        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); o.unobserve(e.target);} });
-      },{threshold:0.1});
-      els.forEach(e=>{ e.setAttribute('data-animate',''); obs.observe(e); });
-    });
-  </script>
-
-  <!-- Reports list -->
-    <!-- Report 1 -->
-    
-      <div class="scrt-section scrt-card">
-
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1742047518306-8C1GSICWH2TD4HXNXH7P/the-state-of-criminal-court-transparency-in-2024.png" alt="State of Criminal Court Transparency in 2024"></div>
-        <div class="scrt-card-body">
-          <h2>The State of Criminal Court Transparency in 2024</h2>
-          <p>A small group of judges and counties leads the way in publishing decisions, demonstrating that open justice is possible—even as many decisions are not published online.</p>
-          <a href="/the-state-of-criminal-court-transparency-in-2024" class="scrt-button" target="_blank">Full Report</a>
-        </div>
+      <p class="scrt-card-with">With Cornell Law School's First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Names, affiliations, internal manuals, and recruitment criteria for all committee members since 2000, plus details on processes for evaluating and recommending judicial candidates.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Reveal how New York City appoints judges, ensuring transparency around criteria, fairness, and merit in judicial appointments​.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_MACJ_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+        </ul>
       </div>
-
-    
-      <div class="scrt-section scrt-card">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1740401839790-N9Q9XXBFQS3VFYTSVON8/discovery_reform_works_png.png" alt="Judges’ Unpublished Decisions Debunk Discovery Myths"></div>
-        <div class="scrt-card-body">
-          <h2>Judges’ Unpublished Decisions Debunk Discovery Myths</h2>
-          <p>
-            Analysis of nearly 300 unpublished discovery decisions reveals that case dismissals result from prosecutorial failures—not minor technicalities or defense tactics.
-          </p>
-          <a href="/decisions-discovery-reform" class="scrt-button" target="_blank">Full Report</a>
-        </div>
-      </div>
-
-    
-      <div class="scrt-section scrt-card">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/9063c8ee-b9d8-4c99-905d-a8f4a1e4c620/setting-bail-to-fail-cover-snippet.png" alt="Setting Bail to Fail"></div>
-        <div class="scrt-card-body">
-          <h2>Setting Bail to Fail</h2>
-          <p>
-            Judges followed rules requiring specific bail options but often set amounts that undermined the statutory intent to provide affordable alternatives, particularly to commercial bonds.
-          </p>
-          <a href="/setting-bail-to-fail" class="scrt-button" target="_blank">Full Report</a>
-        </div>
-      </div>
-
-    
-      <div class="scrt-section scrt-card">
-
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/635986ea4e3869168261490b/1726161614696-3VLMWM1QHS401857IVMJ/harnessing-ai-factsheet-cover.png" alt="Harnessing AI To Enhance Judicial Transparency"></div>
-        <div class="scrt-card-body">
-          <h2>Harnessing AI To Enhance Judicial Transparency</h2>
-          <p>
-            This factsheet introduces a new method for enhancing judicial transparency using large language models (LLMs) to analyze judicial texts.
-          </p>
-          <a href="/ai-enhance-transparency" class="scrt-button" target="_blank">Full Report</a>
-        </div>
-      </div>
-    
-      <div class="scrt-section scrt-card">
-
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1726161638607-UFPF1401G9QE0RXJT3NV/unprotected-report-cover.png" alt="Unprotected"></div>
-        <div class="scrt-card-body">
-          <h2>Unprotected</h2>
-          <p>
-            A new metric for assessing individual judges' decisions and impacts: failure to protect constitutional rights against law enforcement overreach.
-          </p>
-          <a href="/unprotected" class="scrt-button" target="_blank">Full Report</a>
-        </div>
-      </div>
-
-    
-      <div class="scrt-section scrt-card">
-
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1713727231899-XUC58B76DKQNWDTK4JA7/reverse-and-reassign-thumbnail.png" alt="Reverse & Reassign"></div>
-        <div class="scrt-card-body">
-          <h2>Reverse & Reassign</h2>
-          <p>
-            A new metric for assessing individual judges' decisions and impacts: reassignments to a Different Judge (RDJs), which serve as a red flag, suggesting the possibility of judicial impropriety that goes beyond getting the law wrong.
-          </p>
-          <a href="/reverse-reassign" class="scrt-button" target="_blank">Full Report</a>
-        </div>
-      </div>
-
-    
-      <div class="scrt-section scrt-card">
-        <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/1711131183314-9CQZ2C4WMRR3OEX12SU5/excessive_sentencers_cover.png" alt="Excessive Sentencers"></div>
-        <div class="scrt-card-body">
-          <h2>Excessive Sentencers</h2>
-          <p>
-            A new metric for assessing individual judges' decisions and impacts: exceptionally punitive sentences, so severe that even appellate judges could not uphold them.
-          </p>
-          <a href="/excessive-sentencers" class="scrt-button" target="_blank">Full Report</a>
-        </div>
-      </div>
-
-
-  <div class="scrt-section scrt-card">
-    <div class="scrt-img-block"><img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/453ceff9-4ad0-48a4-ae79-a5afbd4387b6/opencriminalcourtscoversnippet.png" alt="Open Criminal Courts"></div>
-    <div class="scrt-card-body">
-      <h2>Open Criminal Courts</h2>
-      <p>
-        At most 6% of New York's written criminal court decisions are available to the public online.
-      </p>
-      <a href="/opencriminalcourts" class="scrt-button" target="_blank">Full Report</a>
     </div>
-  </div>
-
-  <div class="scrt-section scrt-card">
-    <div class="scrt-img-block">
-      <img src="https://images.squarespace-cdn.com/content/v1/635986ea4e3869168261490b/588d2c20-f1fa-48e8-b2c2-8da7957c884d/costdiscretionthumb.png" alt="Cost of Discretion"></div>
-    <div class="scrt-card-body">
-      <h2>Cost of Discretion</h2>
-      <p>
-        The decisions of NYC most carceral judges resulted in appx. 580 additional people detained and $77 million in taxpayer costs.
-      </p>
-      <a href="/costofdiscretion" class="scrt-button" target="_blank">Full Report</a>
+  
+    <!-- 3. Acting Supreme Court Justice Designations -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Acting Supreme Court Justice Designations</span>
+        <span class="scrt-status-badge appealed">Appealed</span>
+      </div>
+      <p class="scrt-card-with">With Cornell Law School's First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Records identifying judges designated as Acting Supreme Court Justices (ASCJ) since 2010, including details of designations, external consultations, decision-making panel members, and criteria used in evaluations.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Expose the opaque process behind judicial promotions to assess whether assignments reflect genuine need, merit, and fair practice.​</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_ASCJ_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_Appeal_Judges_ASCJ_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
+  
+    <!-- 4. Names & Terms of All NY State Judges -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Names &amp; Terms of All NY State Judges</span>
+        <span class="scrt-status-badge appealed">Appealed</span>
+      </div>
+      <p class="scrt-card-with">With Cornell Law School's First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Comprehensive roster of every current New York State judge, detailing court, jurisdiction, appointment dates, current term duration, and specific judicial roles or specializations.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Provide a transparent baseline for monitoring judicial appointments, reappointments, and court performance, promoting accountability within the judiciary​.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_Judges_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_Appeal_Judges_ASCJ_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 5. Criminal Court Data from OCA -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Criminal Court Data from OCA</span>
+        <span class="scrt-status-badge resolved">Resolved</span>
+      </div>
+      <p class="scrt-card-with">With NYCLU &amp; Harvard Law School's Cyberlaw Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Statewide case-level datasets on criminal cases, including bail, release outcomes, and sentencing, along with the comprehensive datasets provided to third-party researchers.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.01.25_FOIL_OCA_court_data_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.05.30_FOIL_OCA_Appeal_court_data_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 6. Criminal Court Data from MOCJ -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Criminal Court Data from MOCJ</span>
+        <span class="scrt-status-badge pending">Pending</span>
+      </div>
+      <p class="scrt-card-with">With NYCLU &amp; Harvard Law School's Cyberlaw Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Comprehensive NYC criminal court datasets (2008-present) covering arraignment decisions, judge identities, charges, bail outcomes, and defendant evaluations.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.01.25_FOIL_MOCJ_court_data_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 7. Criminal Court Data from DCJS -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Criminal Court Data from DCJS</span>
+        <span class="scrt-status-badge closed">Closed</span>
+      </div>
+      <p class="scrt-card-with">With NYCLU &amp; Harvard Law School's Cyberlaw Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Complete statewide criminal court data (2008-present) including judge IDs, charges, defendant demographics, and bail decisions, plus documentation explaining datasets provided to academic researchers.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Facilitate rigorous analysis of patterns and systemic disparities in bail and sentencing practices, promoting transparency and informed policy reform​.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.01.25_FOIL_DCJS_court_data_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.03.08_FOIL_DCJS_Appeal_court_data_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <h2 class="scrt-section-h2">Memos of Support</h2>
+  <section id="memos" class="scrt-grid">
+    <!-- 1. Expand e‑Filing in NYS Courts -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Expand e‑Filing in NYS Courts</span>
+        <span class="scrt-status-badge support">Supported</span>
+      </div>
+      <p class="scrt-card-with">Joint Memo of Support</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Establish statewide electronic filing for all trial courts, streamlining court processes and enhancing public access to records. </p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Simplifies court interactions, reduces bureaucracy, and makes judicial data more transparent and easily accessible for accountability.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/memos_support/Expand%20e%E2%80%91Filing%20in%20NYS%20Courts.pdf" class="scrt-view-link">View Memo of Support</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 2. Strengthen the Commission on Judicial Conduct -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Strengthen the Commission on Judicial Conduct</span>
+        <span class="scrt-status-badge support">Supported</span>
+      </div>
+      <p class="scrt-card-with">Joint Memo of Support</p>
+      <div class="scrt-card-body">
+      <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Protect the Commission on Judicial Conduct's budget from political interference and make more misconduct records publicly accessible.</p>
+      <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Improve the accountability of the judiciary by providing transparent oversight and enabling public scrutiny of judicial conduct.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/memos_support/Strengthen%20the%20Commission%20on%20Judicial%20Conduct.pdf" class="scrt-view-link">View Memo of Support</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <!-- 3. Lift Supreme Court Justice Cap -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Lift Supreme Court Justice Cap</span>
+        <span class="scrt-status-badge support">Supported</span>
+      </div>
+      <p class="scrt-card-with">Joint Memo of Support</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Remove limits on the number of Supreme Court Justices, enabling the legislature to appoint additional judges where caseloads demand.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> A well-resourced court system is essential to achieving transparency and accountability in the judiciary.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/memos_support/Lift%20Supreme%20Court%20Justice%20Cap.pdf" class="scrt-view-link">View Memo of Support</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
 
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // replace title‑row click with whole‑card click
+    document.querySelectorAll('.scrt-card').forEach(card => {
+      card.addEventListener('click', e => {
+        // prevent toggling when clicking links inside
+        if (e.target.closest('.scrt-view-link')) return;
+        const grid = card.closest('.scrt-grid');
+        const open = card.classList.contains('expanded');
+        grid.querySelectorAll('.scrt-card.expanded').forEach(c => c.classList.remove('expanded'));
+        if (!open) card.classList.add('expanded');
+      });
+    });
+
+    // filter FOIL vs Memos (unchanged)…
+    document.querySelectorAll('.scrt-subnav button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.scrt-subnav button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filt = btn.dataset.filter;
+        document.getElementById('foil-requests').style.display = filt === 'foil' ? 'grid' : 'none';
+        document.getElementById('memos').style.display        = filt === 'memos' ? 'grid' : 'none';
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href$=".pdf"]').forEach(link => {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
+  });
+</script>

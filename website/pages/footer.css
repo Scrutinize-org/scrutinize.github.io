@@ -1,0 +1,204 @@
+<!-- ========== FOOTER ========== -->
+<footer class="scrt-footer">
+  <div class="scrt-footer-inner">
+    <!-- Navigation (moved first on mobile) -->
+    <div class="scrt-footer-nav-block">
+      <h2>Navigation</h2>
+      <nav class="scrt-footer-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/judicial-profiles">Judicial Profiles</a></li>
+          <li><a href="/research">Research</a></li>
+          <li><a href="/transparency-reform">Transparency & Reform</a></li>
+          <li><a href="/media">Media</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/donate">Donate</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Contact -->
+    <div class="scrt-footer-contact">
+      <h2>Contact</h2>
+      <address>
+        40 Rector Street, 9th Floor<br>
+        New York, NY 10006<br>
+        <a href="mailto:info@scrutinize.org">info@scrutinize.org</a>
+      </address>
+    </div>
+
+    <!-- Mailchimp signup: field above button -->
+    <div class="scrt-footer-signup">
+      <form
+        id="mc-footer-form"
+        action="https://scrutinize.us22.list-manage.com/subscribe/post?u=c97268f832328bf48c6a480d0&id=3f97ded377&f_id=0007cce1f0"
+        method="post"
+        target="_blank"
+        novalidate
+      >
+        <input
+          id="mc-email"
+          type="email"
+          name="EMAIL"
+          placeholder="Email Address"
+          required
+        />
+
+        <!-- hidden fields required by Mailchimp -->
+        <input type="hidden" name="FNAME" value="">
+        <input type="hidden" name="LNAME" value="">
+        <input type="hidden" name="b_c97268f832328bf48c6a480d0_3f97ded377" tabindex="-1" value="">
+
+        <button type="submit">Subscribe for Updates</button>
+      </form>
+
+      <!-- success message -->
+      <p id="mc-footer-success" class="thank-you" style="display:none;">
+        You’re in! Check your inbox.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ========= AJAX subscribe (no-redirect) ========= -->
+<script>
+  document.getElementById('mc-footer-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      await fetch(form.action, { method: 'POST', mode: 'no-cors', body: data });
+      form.reset();
+      form.style.display = 'none';
+      document.getElementById('mc-footer-success').style.display = 'block';
+    } catch (err) {
+      console.error('Mailchimp error', err);
+    }
+  });
+</script>
+
+<!-- ========== STYLES ========== -->
+<style>
+  .scrt-footer {
+    color: #fff;
+    font-family: "Poppins", Arial, sans-serif;
+    padding: 3rem 0 0 0;
+  }
+
+  @media (max-width: 700px) {
+    .scrt-footer {
+      padding: 1rem 0 1rem 0;
+    }
+  }
+
+  /* grid layout */
+  .scrt-footer-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  /* headings align */
+  .scrt-footer-nav-block h2,
+  .scrt-footer-contact h2 {
+    margin-bottom: 0.75rem;
+    color: #f2c598;
+  }
+
+  /* nav list */
+  .scrt-footer-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .scrt-footer-nav a {
+    font-size: 1.05rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  .scrt-footer-nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* address styling */
+  .scrt-footer-contact address {
+    font-style: normal;
+    line-height: 1.6;
+  }
+
+  /* signup form */
+  .scrt-footer-signup form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .scrt-footer-signup input[type="email"] {
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  .scrt-footer-signup button {
+    padding: 0.65rem 1.25rem;
+    border: none;
+    border-radius: 4px;
+    background: #f2c598;
+    color: #0e73b6;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .scrt-footer-signup button:hover {
+    opacity: 0.9;
+  }
+  .thank-you {
+    color: #77d38a;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+
+  /* desktop adjustments */
+  @media (min-width: 769px) {
+    .scrt-footer-inner {
+      text-align: left;
+    }
+    .scrt-footer-nav ul {
+      align-items: flex-start;
+    }
+    .scrt-footer-signup {
+      text-align: right;
+    }
+  }
+
+  /* mobile reordering */
+  @media (max-width: 768px) {
+    .scrt-footer-nav-block {
+      order: -1;  /* place nav before contact */
+    }
+  }
+
+  /* 1. Desktop: nudge signup down to align with headings */
+
+  .scrt-footer-signup {
+    /* push it down by the height of the H2 + its margin */
+    margin-top: calc(1em + 0.75rem);
+  }
+
+
+/* 2. Mobile: tighten gap between nav and contact */
+@media (max-width: 768px) {
+  .scrt-footer-inner {
+    /* reduce vertical gap on mobile */
+    gap: 1rem;
+  }
+}
+</style>
