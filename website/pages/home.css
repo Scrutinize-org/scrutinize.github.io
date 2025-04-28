@@ -1,26 +1,10 @@
 <style>
-/* ───── Responsive: Mobile (max-width: 700px) ───── */
-
-  @media(max-width:700px) {
-    /* make image smaller on mobile */
-    .scrt-img-block img {
-      max-width: 110px;
-      padding: 0;
-      margin: 0;
-    }
-    /* center image */
-    .scrt-img-block {
-     align-items: center;
-     justify-content: center;
-    }
-  }
-
   /* make buttons text smaller and increase margin below them to end of scrt section */
   @media (max-width: 700px) {
     .scrt-button,
     .scrt-button-row .scrt-button {
       font-size: var(--scrt-scale-00m);
-      margin-bottom: calc(var(--scrt-unit) * 4);
+      margin-bottom: calc(var(--scrt-unit) * 4) !important;
     }
   }
 
@@ -33,6 +17,22 @@
       font-size: var(--scrt-scale-1m); /* or whatever font size you want */
     }
   }
+
+    /* 1. Make and center the image smaller on mobile */
+    @media (max-width: 700px) {
+      .scrt-img-block {
+        display: flex;            /* ensure the wrapper can center its contents */
+        justify-content: center;  /* center the img horizontally */
+      }
+      .scrt-img-block img {
+        display: block;           /* allow margin auto to work */
+        max-width: 110px !important;          /* shrink as desired */
+        width: 100%;              /* responsive fallback */
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+    
 
 
 </style>      
@@ -150,13 +150,13 @@
       <img src="https://images.squarespace-cdn.com/content/635986ea4e3869168261490b/70501959-5150-4b6e-a745-83666e10cfbf/profiles-screenshot.png" alt="Latest Report">
     </div>
     <div class="scrt-text-block">
-      <h2>Judicial Profiles</h2>
+      <h2>Judicial Profiles - Coming May 2025</h2>
       <p>
         Learn about every state judge in New York. Our profiles make it easy to explore judges’ backgrounds, decisions, and key metrics—so you can understand their records and see who’s up for reappointment or re-election in 2025.
       </p>
       <div class="scrt-button-row">
-        <a href="/judicial-profiles" class="scrt-button">2025 Profiles - Coming May 2025</a>
-        <a href="/judicial-profiles" class="scrt-button">All Profiles - Coming May 2025</a>
+        <a href="/judicial-profiles" class="scrt-button">2025 Profiles</a>
+        <a href="/judicial-profiles" class="scrt-button">All Profiles</a>
       </div>
     </div>
   </div>
