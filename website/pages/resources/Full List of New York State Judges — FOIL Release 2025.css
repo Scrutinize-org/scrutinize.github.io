@@ -1,0 +1,56 @@
+<style>
+  .scrt-section h2 {
+     padding-top: 0 !important;
+   }
+
+  /* fix margin bottom/top of intro on mobile */
+  @media (max-width: 700px) {
+    .scrt-section_p_large {
+      margin-top: calc(var(--scrt-unit)*4) !important;
+      margin-bottom: calc(var(--scrt-unit)*4) !important;
+    }
+    /* make buttons text smaller and increase margin below them */
+    .scrt-button,
+    .scrt-button-row .scrt-button {
+      font-size: var(--scrt-scale-00m);
+      margin-bottom: calc(var(--scrt-unit) * 4) !important;
+    }
+  }
+</style>
+
+<div class="scrt-wrapper">
+
+  <div class="scrt-section">
+    <h1>For the First Time: A Complete, Public List of New York State Judges</h1>
+
+    <p>
+      Scrutinize has obtained records identifying every judge currently presiding in New York State courts. We secured these records through a Freedom of Information Law (FOIL) request filed jointly by Scrutinize and journalist Janon Fisher, with pro bono representation from Cornell Law School’s First Amendment Clinic.
+    </p>
+    <p>
+      This release marks the first comprehensive public directory of New York judges, including their current terms, official titles, and court assignments. Until now, the public depended on the judicial directory from the Office of Court Administration (OCA), which is infrequently updated and prone to errors. Individual court websites offer similarly limited, outdated, and occasionally incorrect information.
+    </p>
+    <p>
+      Scrutinize is providing both the original (“raw”) data and a cleaned, standardized version. In our standardized dataset, we:
+    </p>
+    <ul>
+      <li>Matched and normalized judge names for consistency.</li>
+      <li>Categorized judicial titles and court assignments clearly and systematically.</li>
+      <li>Corrected inaccuracies in term dates and clarified appointment details.</li>
+    </ul>
+    <p>
+      Some minor inaccuracies inevitably remain, reflecting typical administrative data challenges, but our cleaned dataset offers a significantly improved and more reliable resource.
+    </p>
+    <p>
+      This dataset is also integrated into Scrutinize’s <a href="judges.scrutinize.org">Judicial Profiles</a>. There, the data is enriched by our own analysis, enabling deeper insights and easier access to information about judges’ backgrounds, decision patterns, and professional histories. New Yorkers now have the tools to meaningfully assess and scrutinize their judiciary.
+    </p>
+    <br>
+    <div class="scrt-button-row">
+      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/csvs/judicial_directory_oca_foil_for_FOIL_data.zip" class="scrt-button">Download Cleaned CSV (zipped)</a>
+      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/b17eb0bcf9ced0eb83f3de043b8dd13d88d74da2/website/resources/pdfs/foils_disclosures/OCA_judges/Scrutinize_FOIL_OCA_judges.zip" class="scrt-button">Original FOIL PDFs (zipped)</a>
+    </div>
+    <br><br>
+    <iframe title="" aria-label="Table" id="datawrapper-chart-7hbHC" src="https://datawrapper.dwcdn.net/7hbHC/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="1698" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+    </script>
+  </div>
+
+</div>
