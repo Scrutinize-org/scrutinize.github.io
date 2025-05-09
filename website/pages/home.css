@@ -32,7 +32,30 @@
         margin: 0 auto;
       }
     }
-    
+/*ROUND CORNERS of scrt-section, scrt-intro-block and the alt. */
+:root { --scrt-card-radius: 24px; }   /* tweak size to taste */
+.scrt-section       { border-radius: var(--scrt-card-radius); }
+.scrt-intro-block   { border-radius: var(--scrt-card-radius) var(--scrt-card-radius) 0 0 !important; }
+.scrt-intro-block + .scrt-section,
+.scrt-intro-block.alt + .scrt-section {
+  border-radius: 0 0 var(--scrt-card-radius) var(--scrt-card-radius) !important;
+}
+.scrt-intro-block.alt { border-radius: var(--scrt-card-radius) var(--scrt-card-radius) 0 0; }
+
+/* ─── Scroll-reveal animation ────────────────────────── */
+.scrt-section[data-animate],
+.scrt-intro-block[data-animate] {
+  opacity: 0;                       /* start invisible   */
+  transform: translateY(24px);      /* and slid down     */
+  transition: opacity .6s ease-out,
+              transform .6s ease-out;
+}
+
+.scrt-section.in-view,
+.scrt-intro-block.in-view {
+  opacity: 1;                       /* fade in           */
+  transform: translateY(0);         /* slide up to place */
+}
 
 
 </style>      
