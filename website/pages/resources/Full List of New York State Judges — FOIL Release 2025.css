@@ -45,8 +45,8 @@
     </p>
     <br>
     <div class="scrt-button-row">
-      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/csvs/judicial_directory_oca_foil_for_FOIL_data.zip" class="scrt-button">Download Cleaned CSV (zipped)</a>
-      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/b17eb0bcf9ced0eb83f3de043b8dd13d88d74da2/website/resources/pdfs/foils_disclosures/OCA_judges/Scrutinize_FOIL_OCA_judges.zip" class="scrt-button">Original FOIL PDFs (zipped)</a>
+      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/csvs/judicial_directory_oca_foil_for_FOIL_data.zip" class="scrt-button">Cleaned CSV</a>
+      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/b17eb0bcf9ced0eb83f3de043b8dd13d88d74da2/website/resources/pdfs/foils_disclosures/OCA_judges/Scrutinize_FOIL_OCA_judges.zip" class="scrt-button">Original PDFs</a>
     </div>
     <br><br>
     <iframe title="" aria-label="Table" id="datawrapper-chart-7hbHC" src="https://datawrapper.dwcdn.net/7hbHC/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="1698" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();

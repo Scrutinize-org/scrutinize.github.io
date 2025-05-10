@@ -182,8 +182,6 @@
     font-size: var(--scrt-scale-0m) !important;
   }
 }
-
-
 </style>
 
 <div class="scrt-wrapper">
@@ -252,7 +250,7 @@
     <div class="scrt-card">
       <div class="scrt-card-title-row">
         <span class="scrt-card-title">Names &amp; Terms of All NY State Judges</span>
-        <span class="scrt-status-badge appealed">Appealed</span>
+        <span class="scrt-status-badge resolved">Resolved</span>
       </div>
       <p class="scrt-card-with">With Cornell Law School's First Amendment Clinic</p>
       <div class="scrt-card-body">
@@ -261,6 +259,7 @@
         <ul class="scrt-doc-list">
           <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_Judges_redacted.pdf" class="scrt-view-link">View FOIL Request</a></li>
           <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2024.11.14_FOIL_OCA_Appeal_Judges_ASCJ_redacted.pdf" class="scrt-view-link">View Appeal</a></li>
+          <li><a href="https://www.scrutinize.org/full-list-of-new-york-state-judges-foil-release-2025" class="scrt-view-link">View Records</a></li>
         </ul>
       </div>
     </div>
