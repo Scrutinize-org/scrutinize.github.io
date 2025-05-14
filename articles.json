@@ -1,8 +1,14 @@
 [
   {
+    "url": "https://gothamist.com/news/judging-ny-judges-theres-a-new-tool-for-scrutinizing-the-deciders-in-robes",
+    "title": "Judging NY judges. There’s a new tool for scrutinizing the deciders in robes.",
+    "image": "https://api-prod.gothamist.com/images/351160/fill-1200x650|format-webp|webpquality-85/",
+    "publication": "Gothamist"
+  },
+  {
     "url": "https://www.nycbar.org/reports/criminal-discovery-reform-in-new-york/",
     "title": "Criminal Discovery Reform in New York | New York City Bar Association",
-    "image": "https://t3.ftcdn.net/jpg/04/62/41/32/360_F_462413201_kDR4hWUPeQmslUN1kb9KRatkdmYu8qZA.jpg",
+    "image": "https://www.shutterstock.com/image-photo/law-theme-gavel-mallet-judge-600nw-2482775329.jpg",
     "publication": "New York City Bar Association"
   },
   {
@@ -37,14 +43,14 @@
   },
   {
     "url": "https://nysfocus.com/2025/04/08/discovery-law-new-york-state-budget-hochul",
-    "title": "No Title",
-    "image": "https://media.istockphoto.com/id/104821184/photo/judge-holding-gavel-in-courtroom.jpg?s=612x612&w=0&k=20&c=5Gqf-nJqrttMxCy606vQmRdTirndw803xObIldSIPug=",
-    "publication": "nysfocus.com"
+    "title": "Court Records Undercut Bronx DA’s Testimony on Discovery Rollbacks",
+    "image": "https://nysfocus.com/assets/_1200x630_crop_center-center_82_none/Discovery-gaffe.png?mtime=1744067832",
+    "publication": "New York Focus"
   },
   {
     "url": "https://www.timesunion.com/opinion/article/editorial-accountability-courts-20230176.php",
     "title": "Editorial: Accountability in NY Courts",
-    "image": "https://t3.ftcdn.net/jpg/04/62/41/32/360_F_462413201_kDR4hWUPeQmslUN1kb9KRatkdmYu8qZA.jpg",
+    "image": "https://media.istockphoto.com/id/104821184/photo/judge-holding-gavel-in-courtroom.jpg?s=612x612&w=0&k=20&c=5Gqf-nJqrttMxCy606vQmRdTirndw803xObIldSIPug=",
     "publication": "Times Union"
   },
   {
@@ -62,13 +68,13 @@
   {
     "url": "https://www.timesunion.com/capitol/article/report-half-ny-counties-don-t-report-criminal-20221837.php",
     "title": "Half of NY Counties Don't Report Criminal Cases",
-    "image": "https://media.istockphoto.com/id/104821184/photo/judge-holding-gavel-in-courtroom.jpg?s=612x612&w=0&k=20&c=5Gqf-nJqrttMxCy606vQmRdTirndw803xObIldSIPug=",
+    "image": "https://t3.ftcdn.net/jpg/04/62/41/32/360_F_462413201_kDR4hWUPeQmslUN1kb9KRatkdmYu8qZA.jpg",
     "publication": "Times Union"
   },
   {
     "url": "https://www.wxxinews.org/new-york-public-news-network/2025-03-17/gov-kathy-hochul-wants-to-streamline-nys-discovery-law-some-say-shes-trying-to-kill-it",
     "title": "Gov. Kathy Hochul wants to streamline NYS discovery law. Some say she's trying to kill it",
-    "image": "https://media.istockphoto.com/id/104821184/photo/judge-holding-gavel-in-courtroom.jpg?s=612x612&w=0&k=20&c=5Gqf-nJqrttMxCy606vQmRdTirndw803xObIldSIPug=",
+    "image": "https://www.shutterstock.com/image-photo/law-theme-gavel-mallet-judge-600nw-2482775329.jpg",
     "publication": "WXXI News"
   },
   {
@@ -97,9 +103,9 @@
   },
   {
     "url": "https://nysfocus.com/2025/02/13/wrongful-conviction-integrity-units-district-attorney-exoneration-new-york",
-    "title": "No Title",
-    "image": "https://www.shutterstock.com/image-photo/law-theme-gavel-mallet-judge-600nw-2482775329.jpg",
-    "publication": "nysfocus.com"
+    "title": "DAs Promised to Help Wrongfully Convicted New Yorkers — And Left Many…",
+    "image": "https://nysfocus.com/assets/_1200x630_crop_center-center_82_none/Calvin-Buari-collage.png?mtime=1739393503",
+    "publication": "New York Focus"
   },
   {
     "url": "https://capitolpressroom.org/2025/02/03/report-finds-judges-undermining-goal-of-bail-law-changes/",
@@ -205,7 +211,7 @@
   },
   {
     "url": "https://www.law360.com/articles/1819323/study-shines-light-on-excessive-ny-prison-sentences",
-    "title": "Study Shines Light On Excessive NY Prison Sentences - Law360 UK",
+    "title": "Study Shines Light On Excessive NY Prison Sentences - Law360",
     "image": "https://assets.law360news.com/1819000/1819323/b7108230ee6b693c213ec3e5a11a6607b32e1a77-istock-139405875.jpg",
     "publication": "Law 360"
   },
@@ -302,7 +308,7 @@
   {
     "url": "https://www.timesunion.com/state/article/rarely-published-push-publicize-criminal-case-18505061.php",
     "title": "Rarely published, push to publicize criminal case decisions",
-    "image": "https://www.shutterstock.com/image-photo/law-theme-gavel-mallet-judge-600nw-2482775329.jpg",
+    "image": "https://media.istockphoto.com/id/104821184/photo/judge-holding-gavel-in-courtroom.jpg?s=612x612&w=0&k=20&c=5Gqf-nJqrttMxCy606vQmRdTirndw803xObIldSIPug=",
     "publication": "Times Union"
   },
   {
@@ -332,7 +338,7 @@
   {
     "url": "https://www.timesunion.com/opinion/article/commentary-study-judges-reveals-costs-pretrial-18112753.php",
     "title": "Commentary: Study of judges reveals costs of pretrial detention",
-    "image": "https://media.istockphoto.com/id/104821184/photo/judge-holding-gavel-in-courtroom.jpg?s=612x612&w=0&k=20&c=5Gqf-nJqrttMxCy606vQmRdTirndw803xObIldSIPug=",
+    "image": "https://t3.ftcdn.net/jpg/04/62/41/32/360_F_462413201_kDR4hWUPeQmslUN1kb9KRatkdmYu8qZA.jpg",
     "publication": "Times Union"
   },
   {
