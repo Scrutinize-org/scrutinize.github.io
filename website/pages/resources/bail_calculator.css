@@ -1,0 +1,161 @@
+<!--  ▸ PSSB Affordability Calculator  ▸  paste into a Squarespace “Code” block  -->
+<section id="pssb-calculator" class="scrt-section" style="max-width:640px">
+  <h1 class="scrt-section-h1" style="text-align:center">PSSB Affordability Calculator</h1>
+  <div class="scrt-text-block" style="text-align:left; margin-bottom:var(--scrt-scale-2)">
+<p>
+  This calculator helps New York judges ensure that the upfront payment for a Partially Secured Surety Bond (PSSB) is lower than for cash bail and commercial bonds, as required by the legislature in the 2020 bail reform law.
+</p>
+<p>
+  Enter the PSSB, cash, and bond amounts. The calculator instantly compares the upfront payments to show whether the PSSB meets its intended role as the most affordable option.
+</p>
+
+    </div>
+
+
+  <!-- ROW 1 ▸ PSSB figure + % -->
+  <div class="scrt-flex" style="gap:var(--scrt-scale-2);align-items:flex-end">
+    <label class="scrt-text-block" style="flex:1">
+      <span>PSSB Amount ($)</span>
+      <input id="pb" type="number" min="0" step="100" class="scrt-input">
+    </label>
+    <label class="scrt-text-block" style="flex:1">
+      <span>PSSB Deposit %</span>
+      <select id="pct" class="scrt-input">
+        <option value="0.5">0.5 %</option><option value="1">1 %</option>
+        <option value="1.5">1.5 %</option><option value="2">2 %</option>
+        <option value="2.5">2.5 %</option><option value="3">3 %</option>
+        <option value="3.5">3.5 %</option><option value="4">4 %</option>
+        <option value="4.5">4.5 %</option><option value="5">5 %</option>
+        <option value="5.5">5.5 %</option><option value="6">6 %</option>
+        <option value="6.5">6.5 %</option><option value="7">7 %</option>
+        <option value="7.5">7.5 %</option><option value="8">8 %</option>
+        <option value="8.5">8.5 %</option><option value="9">9 %</option>
+        <option value="9.5">9.5 %</option><option value="10" selected>10 %</option>
+      </select>
+    </label>
+  </div>
+
+  <!-- ROW 2 ▸ Cash bail -->
+  <div class="scrt-flex" style="margin-top:var(--scrt-scale-1)">
+    <label class="scrt-text-block" style="flex:1">
+      <span>Cash Bail Amount ($)</span>
+      <input id="cb" type="number" min="0" step="100" class="scrt-input">
+    </label>
+  </div>
+
+  <!-- ROW 3 ▸ Commercial bond -->
+  <div class="scrt-flex" style="margin-top:var(--scrt-scale-1)">
+    <label class="scrt-text-block" style="flex:1">
+      <span>Commercial Bond Amount ($)</span>
+      <input id="bb" type="number" min="0" step="100" class="scrt-input">
+    </label>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results" style="margin-top:var(--scrt-scale-2)">
+    <h2 style="text-align:center;color:var(--scrt-color-blue5);margin:20px 0">
+      Upfront Payment Comparison
+    </h2>
+    <table style="width:100%;border-collapse:collapse">
+      <thead><tr><th style="padding:0.4em 0;text-align:left">Option</th><th style="padding:0.4em 0;text-align:left">Upfront Payment</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <!-- ACTION -->
+  <div class="scrt-button-row" style="margin-top:var(--scrt-scale-2)">
+    <button id="reset" class="scrt-button" type="button" style="background:var(--scrt-color-gray5)">Reset</button>
+  </div><br>
+  <p>
+  For more information and analysis, see Scrutinize’s <a href="https://www.scrutinize.org/setting-bail-to-fail" target="_blank">Setting Bail to Fail</a> report.
+  </p>
+</section>
+
+<style>
+  /* light-gray inputs */
+  .scrt-input{
+    width:100%;padding:0.45em;background:#f7f7f7;
+    border:1px solid var(--scrt-color-gray4);border-radius:4px;
+    font-size:var(--scrt-scale-1);
+  }
+  /* row highlights (fallback hex if palette lacks vars) */
+  tr.best{
+    background:var(--scrt-color-green1,#e9f7ef);
+    font-weight:600;
+  }
+  tr.best td{color:var(--scrt-color-green7,#057c44);}
+  tr.worst{
+    background:var(--scrt-color-red1,#fdecea);
+    font-weight:600;
+  }
+  tr.worst td{color:var(--scrt-color-red7,#c92525);}
+  tr.neutral td{color:var(--scrt-color-gray6,#666);}
+
+/* ─── Mobile tweaks: kick in at ≤700 px ─────────────────── */
+@media (max-width: 700px) {
+
+  /* Paragraphs under the H1/H2 */
+  #pssb-calculator .scrt-text-block p {
+    font-size: var(--scrt-scale-1m);   /* one step smaller than default */
+    line-height: 1.45;
+  }
+
+  /* Labels (“PSSB amount ($)”, “deposit %”, etc.)  */
+  #pssb-calculator label span {
+    font-size: var(--scrt-scale-00m);  /* shrink text */
+    line-height: 1.2;                  /* tighter rows to prevent wraps */
+    white-space: nowrap;               /* keep the text on one line */
+  }
+
+  /* Mini-heading “Upfront Payment Comparison” */
+  #pssb-calculator h2 {
+    font-size: var(--scrt-scale-0m);   /* down one step */
+    margin-bottom: var(--scrt-unit);
+  }
+
+  /* Table numbers beneath the mini-heading */
+  #pssb-calculator table {
+    font-size: var(--scrt-scale-0m);  /* smaller but readable */
+  }
+
+    /* Compact the gap between entry rows */
+  #pssb-calculator .scrt-flex + .scrt-flex {
+    margin-top: var(--scrt-unit);      /* ≈ 5 px instead of ~21 px */
+  }
+}
+</style>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const pb=$("pb"),pct=$("pct"),cb=$("cb"),bb=$("bb"),tbody=$("tbody");
+  const fmt=n=>n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0});
+  const fee=f=>f<=200?10:f<=3000?f*0.10:f<=10000?300+(f-3000)*0.08:860+(f-10000)*0.06;
+
+  function calc(){
+    const cash=+cb.value||0;
+    const facePB=+pb.value||0;
+    const faceBB = +bb.value || 0;
+    const depPct=(+pct.value||10)/100;
+    const up={
+      "Cash bail":cash,
+      "PSSB deposit":facePB*depPct,
+      "Commercial bond fee":fee(faceBB)
+    };
+    const cheapest=Math.min(...Object.values(up));
+    tbody.innerHTML="";
+    for(const [label,cost] of Object.entries(up)){
+      const cls=label==="PSSB deposit"
+        ? (cost===cheapest?"best":"worst")
+        : "neutral";
+      tbody.insertAdjacentHTML("beforeend",
+        `<tr class="${cls}"><td style="padding:0.3em 0">${label}</td><td style="padding:0.3em 0">${fmt(cost)}</td></tr>`
+      );
+    }
+  }
+
+  [pb,pct,cb,bb].forEach(i=>i.addEventListener("input",calc));
+  $("reset").addEventListener("click",()=>{[pb,cb,bb].forEach(i=>i.value="");pct.value="10";calc();});
+  calc();
+})();
+</script>
