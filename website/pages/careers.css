@@ -1,0 +1,88 @@
+<style>
+  .scrt-job-note {
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+    margin: 1.2rem 0 0.7rem 0;
+  }
+
+  /* ---------------------------------------------------
+     BUTTON: center it & make its width auto to fit text
+  --------------------------------------------------- */
+  .scrt-button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .scrt-button-row .scrt-button {
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    max-width: none !important;
+    padding: 0.85rem 2.1rem !important;
+    border-radius: 8px !important;
+    background: var(--scrt-color-blue6) !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 1.11rem !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.09) !important;
+    text-align: center !important;
+  }
+  .scrt-button-row .scrt-button:hover {
+    background: #444 !important;
+  }
+
+  @media (max-width: 700px) {
+    .scrt-section_p_large {
+      margin-top: 2rem !important;
+      margin-bottom: 2rem !important;
+    }
+  .scrt-button-row .scrt-button {
+    display: inline-block !important;
+    width: fit-content !important;
+    max-width: 90% !important;   /* ensures it never overflows */
+    white-space: normal !important;
+    padding: 0.6rem 1.4rem !important;
+  }
+}
+
+  .scrt-section-h2,
+.scrt-section :is(h2) {
+  color: var(--scrt-color-red5) !important;
+}
+</style>
+
+<div class="scrt-wrapper">
+  <div class="scrt-section">
+    <h1>Join Our Team</h1>
+    <div class="scrt-section_p_large">
+      At Scrutinize, we use data, AI, and rigorous legal analysis to make state courts more transparent and accountable. <br><br>
+      If you're passionate about applying technology to drive meaningful legal change and thrive in a small, mission-focused team, explore our current opening below.
+    </div>
+  </div>
+  <div class="scrt-section">
+    <h2>Open Position</h2>
+    <h3>Senior Data Engineer, Legal Insights</h3>
+    <p>
+      <strong>Location:</strong> Hybrid – NYC metro (4 days remote; 1 in-person collaboration day per week)<br>
+      <strong>Role Type:</strong> Full-time<br>
+      <strong>Compensation:</strong> $115k–$145k
+    </p>
+    <div class="scrt-job-note">
+      Application is via email. See full details in the PDF.
+    </div>
+    <div class="scrt-button-row">
+      <a class="scrt-button" href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/job_descriptions/Senior Data Engineer, Legal Insights.pdf" target="_blank" rel="noopener">
+        View Job Description (PDF)
+      </a>
+    </div>
+  </div>
+
+  <div class="scrt-section">
+    <h2>Don’t see a fit?</h2>
+    <p>
+      We’re always eager to meet technologists, researchers, and advocates who share our mission. If you’re interested in our work but don’t see a matching role, reach out at <a href="mailto:info@scrutinize.org">info@scrutinize.org</a>.
+    </p>
+  </div>
+</div>
