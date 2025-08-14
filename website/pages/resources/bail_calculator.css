@@ -132,27 +132,35 @@
   const fmt=n=>n.toLocaleString("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0});
   const fee=f=>f<=200?10:f<=3000?f*0.10:f<=10000?300+(f-3000)*0.08:860+(f-10000)*0.06;
 
-  function calc(){
-    const cash=+cb.value||0;
-    const facePB=+pb.value||0;
-    const faceBB = +bb.value || 0;
-    const depPct=(+pct.value||10)/100;
-    const up={
-      "Cash bail":cash,
-      "PSSB deposit":facePB*depPct,
-      "Commercial bond fee":fee(faceBB)
-    };
-    const cheapest=Math.min(...Object.values(up));
-    tbody.innerHTML="";
-    for(const [label,cost] of Object.entries(up)){
-      const cls=label==="PSSB deposit"
-        ? (cost===cheapest?"best":"worst")
-        : "neutral";
-      tbody.insertAdjacentHTML("beforeend",
-        `<tr class="${cls}"><td style="padding:0.3em 0">${label}</td><td style="padding:0.3em 0">${fmt(cost)}</td></tr>`
-      );
-    }
+function calc(){
+  const cash   = +cb.value || 0;
+  const facePB = +pb.value || 0;
+  const faceBB = +bb.value || 0;
+  const depPct = (+pct.value || 10) / 100;
+
+  const up = {
+    "Cash bail": cash,
+    "PSSB deposit": facePB * depPct,
+    "Commercial bond fee": fee(faceBB)
+  };
+
+  const pssb  = up["PSSB deposit"];
+  const cashU = up["Cash bail"];
+  const bondU = up["Commercial bond fee"];
+  const pssbStrictlyCheapest = (pssb < cashU) && (pssb < bondU); // strict < both
+
+  tbody.innerHTML = "";
+  for (const [label, cost] of Object.entries(up)) {
+    const cls = label === "PSSB deposit"
+      ? (pssbStrictlyCheapest ? "best" : "worst") // change "worst"→"neutral" if you want ties gray
+      : "neutral";
+
+    tbody.insertAdjacentHTML(
+      "beforeend",
+      `<tr class="${cls}"><td style="padding:0.3em 0">${label}</td><td style="padding:0.3em 0">${fmt(cost)}</td></tr>`
+    );
   }
+}
 
   [pb,pct,cb,bb].forEach(i=>i.addEventListener("input",calc));
   $("reset").addEventListener("click",()=>{[pb,cb,bb].forEach(i=>i.value="");pct.value="10";calc();});
