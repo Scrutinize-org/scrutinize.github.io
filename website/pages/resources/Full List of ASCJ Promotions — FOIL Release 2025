@@ -1,0 +1,53 @@
+<style>
+  .scrt-section h2 {
+     padding-top: 0 !important;
+   }
+
+  /* fix margin bottom/top of intro on mobile */
+  @media (max-width: 700px) {
+    .scrt-section_p_large {
+      margin-top: calc(var(--scrt-unit)*4) !important;
+      margin-bottom: calc(var(--scrt-unit)*4) !important;
+    }
+    /* make buttons text smaller and increase margin below them */
+    .scrt-button,
+    .scrt-button-row .scrt-button {
+      font-size: var(--scrt-scale-00m);
+      margin-bottom: calc(var(--scrt-unit) * 4) !important;
+    }
+  }
+</style>
+
+<div class="scrt-wrapper">
+
+  <div class="scrt-section">
+    <h1>Transparency Resources: Public Records of Acting Supreme Court Justice Promotions</h1>
+
+    <p>
+      Scrutinize has obtained official records identifying every judge promoted to Acting Supreme Court Justice (ASCJ) in New York since 2010. These records were secured through a Freedom of Information Law (FOIL) request filed jointly by Scrutinize and journalist Janon Fisher, with pro bono representation from Cornell Law School’s First Amendment Clinic.
+    </p>
+    <p>
+      This release marks the first time the public can see who has been promoted to ASCJ, in which years, and how many times their promotion was renewed. Until now, the Office of Court Administration (OCA) did not make this information systematically available. New Yorkers had no way to track the judges exercising Supreme Court power through ASCJ status, or to verify whether promotions were temporary or continuously extended.    </p>
+    <p>
+      Scrutinize is providing both the original (“raw”) data and a cleaned, standardized version. In our standardized dataset, we:
+    </p>
+    <ul>
+      <li>Matched and normalized judge names for consistency.</li>
+      <li>Systematically recorded each year of promotion and any breaks in ASCJ status.</li>
+      <li>Information organized in a format suitable for research and public use.</li>
+    </ul>
+    <p>
+      Please note that this dataset does not capture all promotions of judges who were appointed to the Court of Claims. Some minor inaccuracies inevitably remain, reflecting typical administrative data challenges, but our cleaned dataset offers a significantly improved and more reliable resource.
+    </p>
+
+    <br>
+    <div class="scrt-button-row">
+      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/ASCJ_OCA_foil_2025/ascjs_oca_foil_2025.csv" class="scrt-button">Cleaned CSV</a>
+      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/ASCJ_OCA_foil_2025/ascjs_oca_foil_2025.zip" class="scrt-button">Original PDFs</a>
+    </div>
+    <br><br>
+    <iframe title="" aria-label="Table" id="datawrapper-chart-FNSKT" src="https://datawrapper.dwcdn.net/FNSKT/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="909" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}})}();
+    </script>
+  </div>
+
+</div>
