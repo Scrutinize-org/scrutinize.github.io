@@ -197,7 +197,27 @@
   <!-- FOIL REQUESTS -->
   <h2 class="scrt-section-h2">FOIL Requests</h2>
   <section id="foil-requests" class="scrt-grid">
-    <!-- 1. Governor's Judicial Screening Committees -->
+
+    <!-- 8. OCA Estimates of Costs of Publishing Trial-Level Criminal Decisions -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">OCA Estimates of Costs of Publishing Trial-Level Criminal Decisions</span>
+        <span class="scrt-status-badge pending">Pending</span>
+      </div>
+      <p class="scrt-card-with">With Cornell Law School's First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Records underlying OCA’s projections that publishing already-electronically available criminal court decisions would require a $66.53 million annual cost and 378 new positions statewide, including a $2.8 million decision-processing system.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> To verify the assumptions behind OCA’s estimates for implementing transparency legislation that would give New Yorkers access to the reasoning judges use when deciding rights and liberties.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2025.09.05_FOIL_OCA_Decisions_Cost_Estimates.pdf" class="scrt-view-link">View FOIL Request</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- 7. Governor's Judicial Screening Committees -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
         <span class="scrt-card-title">Governor's Judicial Screening Committees</span>
@@ -216,7 +236,7 @@
       </div>
     </div>
   
-    <!-- 2. Mayor’s Advisory Committee on the Judiciary -->
+    <!-- 6. Mayor’s Advisory Committee on the Judiciary -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
         <span class="scrt-card-title">Mayor’s Advisory Committee on the Judiciary</span>
@@ -232,7 +252,7 @@
       </div>
     </div>
   
-    <!-- 3. Acting Supreme Court Justice Designations -->
+    <!-- 5. Acting Supreme Court Justice Designations -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
         <span class="scrt-card-title">Acting Supreme Court Justice Promotions</span>
@@ -269,7 +289,7 @@
       </div>
     </div>
   
-    <!-- 5. Criminal Court Data from OCA -->
+    <!-- 3. Criminal Court Data from OCA -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
         <span class="scrt-card-title">Criminal Court Data from OCA</span>
@@ -286,7 +306,7 @@
       </div>
     </div>
   
-    <!-- 6. Criminal Court Data from MOCJ -->
+    <!-- 2. Criminal Court Data from MOCJ -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
         <span class="scrt-card-title">Criminal Court Data from MOCJ</span>
@@ -302,7 +322,7 @@
       </div>
     </div>
   
-    <!-- 7. Criminal Court Data from DCJS -->
+    <!-- 1. Criminal Court Data from DCJS -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
         <span class="scrt-card-title">Criminal Court Data from DCJS</span>
