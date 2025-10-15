@@ -1,0 +1,104 @@
+<style>
+  /* --- Resources Page: SCRT Cards (like Research) --- */
+  .scrt-section {
+    border-left: 6px solid var(--scrt-color-blue1);
+    transition: transform 0.35s var(--scrt-easing-standard),
+                box-shadow 0.35s var(--scrt-easing-standard),
+                background-color 0.3s ease, border-color 0.3s ease,
+                opacity 0.45s var(--scrt-easing-standard);
+  }
+  .scrt-section:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--scrt-elevation-3);
+    background: var(--scrt-color-blue1, #eaf2ff);
+    border-left-color: var(--scrt-color-blue3, #5a8dee);
+  }
+
+  /* Side-in scroll animation */
+  [data-animate="left"]  { opacity: 0; transform: translateX(-22px); }
+  [data-animate="right"] { opacity: 0; transform: translateX( 22px); }
+  .in-view { opacity: 1; transform: translateX(0); }
+
+  /* Card layout (no images) */
+  .scrt-card{ display:flex; flex-direction:column; gap:var(--scrt-scale-2); }
+  .scrt-card-body{ display:flex; flex-direction:column; }
+
+  .scrt-card-body h2{
+    font-size: var(--scrt-scale-3);
+    text-wrap: balance;
+    line-height: var(--scrt-lh-tightest);
+    margin: 0 0 calc(var(--scrt-unit) * 4);
+    font-weight: var(--scrt-weight-semibold);
+    color: var(--scrt-color-blue);
+  }
+  .scrt-card-body p{
+    font-size: var(--scrt-scale-1);
+    line-height: var(--scrt-lh-normal);
+    text-wrap: pretty;
+    margin: 0;
+  }
+
+  .scrt-button{
+    width:auto; align-self:start; border-radius: 0.75em !important;
+  }
+  /* Ensure spacing above button overrides global .scrt-button margin */
+  .scrt-section.scrt-card .scrt-button { margin-top: var(--scrt-scale-4); }
+  @media (max-width:700px){
+    .scrt-card-body h2{ font-size: var(--scrt-scale-3m); margin: 0; margin-top: calc(var(--scrt-unit) * 1); margin-bottom: calc(var(--scrt-unit) * 3); }
+    .scrt-card-body p{ font-size: var(--scrt-scale-1m); margin-bottom: calc(var(--scrt-unit) * 3); }
+    /* Larger button on mobile */
+    .scrt-section.scrt-card .scrt-button{
+      align-self:center;
+      margin-top: var(--scrt-scale-4);
+      font-size: var(--scrt-scale-1m);
+      padding: calc(var(--scrt-unit) * 2) calc(var(--scrt-unit) * 3);
+    }
+  }
+</style>
+
+<div class="scrt-wrapper">
+
+  <div class="scrt-section" style="border-left:none;">
+    <h1>Resources</h1>
+    <div class="scrt-section_p_large">
+      Scrutinize promotes court transparency by filing Freedom of Information Law (FOIL) requests for data that the public cannot otherwise access. We publish these releases, along with tools built from our research, to make the court system more transparent.
+    </div>
+  </div>
+
+  <div class="scrt-section scrt-card">
+    <div class="scrt-card-body">
+      <h2>Full List of New York State Judges — FOIL 2025 Results</h2>
+      <p>Scrutinize obtained and released the first comprehensive public directory of all judges currently presiding in New York State courts. The data were secured through a joint FOIL request by Scrutinize and journalist Janon Fisher, with pro bono representation from Cornell Law School’s First Amendment Clinic.</p>
+      <a href="/full-list-of-new-york-state-judges-foil-release-2025" class="scrt-button" target="_blank">Access FOIL Data</a>
+    </div>
+  </div>
+
+  <div class="scrt-section scrt-card">
+    <div class="scrt-card-body">
+      <h2>Full List of ASCJ Promotions — FOIL 2025 Results</h2>
+      <p>Scrutinize obtained and released the first public records identifying every judge promoted to Acting Supreme Court Justice (ASCJ) in New York since 2010. The data were secured through a joint FOIL request by Scrutinize and journalist Janon Fisher, with pro bono representation from Cornell Law School’s First Amendment Clinic.</p>
+      <a href="/full-list-ny-ascj-foil-release-2025" class="scrt-button" target="_blank">Access FOIL Data</a>
+    </div>
+  </div>
+
+    <div class="scrt-section scrt-card">
+    <div class="scrt-card-body">
+      <h2>PSSB Affordability Calculator</h2>
+      <p>Check whether a Partially Secured Surety Bond (PSSB) is more affordable than cash bail or a commercial bond, as required under New York’s 2020 bail reform law. Enter the amounts to instantly compare upfront payments.</p>
+      <a href="/bail-calculator" class="scrt-button" target="_blank">Open Tool</a>
+    </div>
+  </div>
+
+
+  <script>
+    // Alternate left/right slide-in for cards. Card background changes on hover.
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.scrt-section.scrt-card');
+      const io = new IntersectionObserver((entries, o) => {
+        entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in-view'); o.unobserve(e.target);} });
+      }, { threshold: 0.12 });
+      cards.forEach((el, i) => { el.setAttribute('data-animate', i % 2 ? 'right' : 'left'); io.observe(el); });
+    });
+  </script>
+
+</div>
