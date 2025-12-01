@@ -82,7 +82,7 @@
 <!-- ========== STYLES ========== -->
 <style>
   .scrt-footer {
-    color: #fff;
+    color: #fff !important;
     font-family: "Poppins", Arial, sans-serif;
     padding: 3rem 0 0 0;
   }
@@ -124,7 +124,7 @@
   .scrt-footer-nav a {
     font-size: 1.05rem;
     text-decoration: none;
-    color: #fff;
+    color: #fff !important;
   }
   .scrt-footer-nav a:hover {
     text-decoration: underline;
@@ -194,6 +194,14 @@
     /* push it down by the height of the H2 + its margin */
     margin-top: calc(1em + 0.75rem);
   }
+
+  .scrt-footer-contact a {
+  color: #fff !important;
+  text-decoration: none;
+}
+.scrt-footer-contact a:hover {
+  text-decoration: underline;
+}
 
 
 /* 2. Mobile: tighten gap between nav and contact */
