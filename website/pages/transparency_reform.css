@@ -198,6 +198,25 @@
   <h2 class="scrt-section-h2">FOIL Requests</h2>
   <section id="foil-requests" class="scrt-grid">
 
+    <!-- 9. OCA Part 36 Data -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">OCA Part 36 Fiduciary Appointments & Compensation</span>
+        <span class="scrt-status-badge pending">Pending</span>
+      </div>
+      <p class="scrt-card-with">With Cornell Law School's First Amendment Clinic</p>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Machine-readable exports of databases underlying OCA's Part 36 "appointments" and "compensation" public search tools, plus digital copies of all fiduciary appointment and compensation approval forms from 2010 to present.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Expand transparency into how judges assign and compensate fiduciary work.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/pdfs/foils/2025_12_15_oca_part_36_initial.pdf" class="scrt-view-link">View FOIL Request</a></li>
+
+
+        </ul>
+      </div>
+    </div>
+
+
     <!-- 8. OCA Estimates of Costs of Publishing Trial-Level Criminal Decisions -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
