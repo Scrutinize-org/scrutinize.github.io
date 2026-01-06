@@ -198,6 +198,21 @@
   <h2 class="scrt-section-h2">FOIL Requests</h2>
   <section id="foil-requests" class="scrt-grid">
 
+    <!-- 10. OCA Judges and ASCJ status 2026 -->
+    <div class="scrt-card">
+      <div class="scrt-card-title-row">
+        <span class="scrt-card-title">Names, Terms &amp; ASCJ Status of All NY State Judges (2026)</span>
+        <span class="scrt-status-badge pending">Pending</span>
+      </div>
+      <div class="scrt-card-body">
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">What:</span> Comprehensive roster of every current New York State judge, detailing court, jurisdiction, appointment dates, current term duration, ASCJ status, and specific judicial roles or specializations.</p>
+        <p class="scrt-foil-desc"><span style="font-weight: var(--scrt-weight-semibold);">Why:</span> Provide a transparent baseline for monitoring judicial appointments, reappointments, and court performance, promoting accountability within the judiciary​.</p>
+        <ul class="scrt-doc-list">
+          <li><a href="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io/website/resources/foils/OCA/2026_01_01_oca_judges_ascj_status_initial.pdf" class="scrt-view-link">View FOIL Request</a></li>
+        </ul>
+      </div>
+    </div>
+
     <!-- 9. OCA Part 36 Data -->
     <div class="scrt-card">
       <div class="scrt-card-title-row">
