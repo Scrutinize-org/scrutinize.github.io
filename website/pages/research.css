@@ -112,6 +112,16 @@
     <!-- Reports list -->
       <!-- Report 1 -->
 
+        <div class="scrt-section scrt-card">
+  
+          <div class="scrt-img-block"><img src="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/reports/judicial-professional-background-and-pretrial-detention-outcomes/judicial-professional-background-and-pretrial-detention-outcomes.png" alt="Backdoor to the Bench"></div>
+          <div class="scrt-card-body">
+            <h2>Judicial Professional Background and Pretrial Detention Outcomes</h2>
+            <p>In a peer-reviewed study, we analyzed nearly 70,000 New York City arraignments to examine whether a judge's career before the bench affects pretrial detention and bail decisions. The answer is yes.</p>
+            <a href="/judicial-professional-background-and-pretrial-detention-outcomes" class="scrt-button" target="_blank">Research Brief</a>
+          </div>
+        </div>
+
       
         <div class="scrt-section scrt-card">
   
@@ -119,7 +129,10 @@
           <div class="scrt-card-body">
             <h2>Building a 21st Century Judiciary: A Reform Agenda for New York City</h2>
             <p>With a new executive order, the incoming mayor can modernize New York City’s process for appointing roughly 180 judges across the Criminal, Family, and Civil courts.</p>
-            <a href="/building-a-21st-century-judiciary" class="scrt-button" target="_blank">Full Report</a>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+              <a href="/building-a-21st-century-judiciary" class="scrt-button" target="_blank">Full Report</a>
+              <a href="/response-to-executive-order-6" class="scrt-button" target="_blank">Executive Order 6 Assessment</a>
+            </div>
           </div>
         </div>
 
