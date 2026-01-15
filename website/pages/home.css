@@ -57,6 +57,41 @@
   transform: translateY(0);         /* slide up to place */
 }
 
+/* Stop the image column from stretching to the height of the text/buttons */
+.scrt-section .scrt-flex{
+  align-items: flex-start; /* overrides default stretch behavior */
+}
+
+/* Make sure the image itself never stretches vertically */
+.scrt-section .scrt-img-block{
+  align-self: flex-start;
+  height: auto !important;
+}
+
+.scrt-section .scrt-img-block img{
+  height: auto !important; /* kills any height:100% coming from elsewhere */
+  max-height: 220px;       /* tweak until it matches the “good” tile */
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* Mobile: put image on its own row above the text + buttons */
+@media (max-width: 700px) {
+  .scrt-section .scrt-flex{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .scrt-section .scrt-img-block{
+    width: 100%;
+    margin: 0 0 calc(var(--scrt-unit) * 2) 0;
+  }
+
+  .scrt-section .scrt-text-block{
+    width: 100%;
+  }
+}
 
 </style>      
 <div class="scrt-wrapper">
@@ -203,10 +238,10 @@
       <h2>Latest Report</h2>
       <p>
         <strong>Judicial Professional Background and Pretrial Detention Outcomes</strong><br>
-        In a peer-reviewed study, we analyzed nearly 70,000 New York City arraignments to examine whether a judge's career before the bench affects pretrial detention and bail decisions. The answer is yes.
+        In a peer-reviewed study, we analyzed nearly 70,000 NYC arraignments to examine whether a judge's professional background is linked to their pretrial detention and bail decisions.
       </p>
       <div class="scrt-button-row">
-        <a href="/building-a-21st-century-judiciary" class="scrt-button">Full Report</a>
+        <a href="/judicial-professional-background-and-pretrial-detention-outcomes" class="scrt-button">Full Report</a>
         <a href="/research" class="scrt-button">All Research</a>
       </div>
     </div>
