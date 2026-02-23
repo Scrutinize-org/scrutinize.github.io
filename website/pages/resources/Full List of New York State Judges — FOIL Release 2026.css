@@ -1,0 +1,186 @@
+<style>
+  .scrt-section h2 {
+    padding-top: 0 !important;
+  }
+
+  /* fix margin bottom/top of intro on mobile */
+  @media (max-width: 700px) {
+    .scrt-section_p_large {
+      margin-top: calc(var(--scrt-unit) * 4) !important;
+      margin-bottom: calc(var(--scrt-unit) * 4) !important;
+    }
+    /* make buttons text smaller and increase margin below them */
+    .scrt-button,
+    .scrt-button-row .scrt-button {
+      font-size: var(--scrt-scale-00m);
+      margin-bottom: calc(var(--scrt-unit) * 4) !important;
+    }
+  }
+
+  .scrt-table-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--scrt-unit) * 2);
+    margin-top: calc(var(--scrt-unit) * 5);
+    margin-bottom: calc(var(--scrt-unit) * 2);
+  }
+
+  .scrt-table-toolbar label {
+    font-weight: var(--scrt-weight-semibold);
+  }
+
+  .scrt-table-toolbar input[type="search"] {
+    flex: 1;
+    min-width: 240px;
+    padding: calc(var(--scrt-unit) * 2.2) calc(var(--scrt-unit) * 3);
+    border: 1px solid var(--scrt-color-gray1);
+    border-radius: 0.75em;
+    font-size: var(--scrt-scale-0);
+    outline: none;
+  }
+
+  .scrt-table-toolbar input[type="search"]:focus {
+    border-color: var(--scrt-color-blue3);
+    box-shadow: 0 0 0 3px rgba(83, 166, 229, 0.25);
+  }
+
+  .scrt-table-status {
+    margin: 0;
+    color: var(--scrt-color-gray5);
+    font-size: var(--scrt-scale-00);
+  }
+
+  .scrt-table-wrap {
+    border: 1px solid var(--scrt-color-gray1);
+    border-radius: 0.75em;
+    overflow: auto;
+    max-height: 75vh;
+    background: var(--scrt-color-white);
+  }
+
+  table.scrt-judges-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--scrt-scale-00);
+  }
+
+  table.scrt-judges-table th,
+  table.scrt-judges-table td {
+    padding: calc(var(--scrt-unit) * 2.2) calc(var(--scrt-unit) * 3);
+    border-bottom: 1px solid var(--scrt-color-gray1);
+    vertical-align: top;
+  }
+
+  table.scrt-judges-table th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, var(--scrt-color-gray0), #ffffff);
+    font-weight: var(--scrt-weight-semibold);
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  table.scrt-judges-table td {
+    white-space: normal;
+  }
+
+  table.scrt-judges-table tbody tr:hover {
+    background: var(--scrt-color-blue0);
+  }
+
+  table.scrt-judges-table th[aria-sort="ascending"]::after {
+    content: " ▲";
+    color: var(--scrt-color-blue5);
+    font-size: 0.85em;
+  }
+
+  table.scrt-judges-table th[aria-sort="descending"]::after {
+    content: " ▼";
+    color: var(--scrt-color-blue5);
+    font-size: 0.85em;
+  }
+</style>
+
+<div class="scrt-wrapper">
+
+  <div class="scrt-section">
+    <h1>2026 FOIL Release: A Complete, Public List of New York State Judges</h1>
+
+    <p>
+      Scrutinize has obtained records identifying every judge currently presiding in New York State courts. We secured these records through a Freedom of Information Law (FOIL) request filed jointly by Scrutinize and journalist Janon Fisher, with pro bono representation from Cornell Law School’s First Amendment Clinic.
+    </p>
+    <p>
+      This release provides a comprehensive public directory of New York judges, including their current terms, official titles, and court assignments. Until now, the public depended on the judicial directory from the Office of Court Administration (OCA), which is infrequently updated and prone to errors. Individual court websites offer similarly limited, outdated, and occasionally incorrect information.
+    </p>
+    <p>
+      Scrutinize is providing both the original (“raw”) data and a cleaned, standardized version. In our standardized dataset, we:
+    </p>
+    <ul>
+      <li>Matched and normalized judge names for consistency.</li>
+      <li>Categorized judicial titles and court assignments clearly and systematically.</li>
+      <li>Corrected inaccuracies in term dates and clarified appointment details.</li>
+    </ul>
+    <p>
+      Some minor inaccuracies inevitably remain, reflecting typical administrative data challenges, but our cleaned dataset offers a significantly improved and more reliable resource.
+    </p>
+    <p>
+      This dataset is also integrated into Scrutinize’s <a href="https://judges.scrutinize.org">Judicial Profiles</a>. There, the data is enriched by our own analysis, enabling deeper insights and easier access to information about judges’ backgrounds, decision patterns, and professional histories. New Yorkers now have the tools to meaningfully assess and scrutinize their judiciary.
+    </p>
+    <br>
+    <div class="scrt-button-row">
+      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/foils/OCA/Scrutinize_FOIL_OCA_judges_2026_cleaned.zip" class="scrt-button">Cleaned CSV</a>
+      <a href="https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/foils/OCA/Scrutinize_FOIL_OCA_judges_2026_original.zip" class="scrt-button">Original Files</a>
+    </div>
+
+    <div class="scrt-table-toolbar">
+      <label for="scrt-judges-search-2026">Search</label>
+      <input id="scrt-judges-search-2026" type="search" placeholder="Try a judge name, county, court, or title…" autocomplete="off">
+    </div>
+    <p id="scrt-judges-status-2026" class="scrt-table-status"></p>
+
+    <div class="scrt-table-wrap" role="region" aria-label="New York State judges table (2026)" tabindex="0">
+      <table id="scrt-judges-table-2026" class="scrt-judges-table"></table>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/Scrutinize-org/scrutinize.github.io@main/website/scripts/judges_table.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const statusEl = document.getElementById('scrt-judges-status-2026');
+    if (!window.ScrtJudgesTable) {
+      if (statusEl) statusEl.textContent = 'Could not load the table script.';
+      return;
+    }
+
+    window.ScrtJudgesTable.mount({
+      dataUrl: 'https://raw.githubusercontent.com/Scrutinize-org/scrutinize.github.io/main/website/resources/foils/OCA/Scrutinize_FOIL_OCA_judges_2026_cleaned.csv',
+      tableId: 'scrt-judges-table-2026',
+      searchInputId: 'scrt-judges-search-2026',
+      statusId: 'scrt-judges-status-2026',
+      defaultSort: { key: 'judge', direction: 'asc' },
+      columnLabels: {
+        judge: 'Judge',
+        statutory_title: 'Statutory Title',
+        designated_title: 'Designated Title',
+        term_begin: 'Term Begin',
+        term_end: 'Term End',
+        county: 'County',
+        court_sitting_in: 'Court Sitting In',
+        first_year_on_the_bench: 'First Year on the Bench',
+        supervsing_district_county: 'Supervising District/County',
+        supervising_court_coordinating_judge__cj__court: 'Supervising/CJ Court',
+        certificated_title: 'Certificated Title',
+        certification_start_date: 'Certification Start',
+        certification_end_date: 'Certification End',
+        supervising_judge_court: 'Supervising Judge Court'
+      }
+    });
+  });
+</script>
+

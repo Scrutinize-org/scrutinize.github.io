@@ -16,12 +16,29 @@
       margin-bottom: calc(var(--scrt-unit) * 4) !important;
     }
   }
+
+  .scrt-update-banner {
+    margin: calc(var(--scrt-unit) * 4) 0 calc(var(--scrt-unit) * 5) 0;
+    padding: calc(var(--scrt-unit) * 3) calc(var(--scrt-unit) * 3.5);
+    border-radius: 0.75em;
+    border: 1px solid var(--scrt-color-yellow2);
+    background: linear-gradient(180deg, var(--scrt-color-yellow0), #ffffff);
+  }
+
+  .scrt-update-banner strong {
+    font-weight: var(--scrt-weight-semibold);
+  }
 </style>
 
 <div class="scrt-wrapper">
 
   <div class="scrt-section">
     <h1>For the First Time: A Complete, Public List of New York State Judges</h1>
+
+    <div class="scrt-update-banner" role="note" aria-label="Updated data available">
+      <strong>Update:</strong> Newer data is now available. View the 2026 release here:
+      <a href="https://www.scrutinize.org/full-list-of-new-york-state-judges-foil-release-2026">full-list-of-new-york-state-judges-foil-release-2026</a>
+    </div>
 
     <p>
       Scrutinize has obtained records identifying every judge currently presiding in New York State courts. We secured these records through a Freedom of Information Law (FOIL) request filed jointly by Scrutinize and journalist Janon Fisher, with pro bono representation from Cornell Law School’s First Amendment Clinic.
