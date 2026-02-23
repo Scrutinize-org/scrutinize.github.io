@@ -162,6 +162,27 @@
     };
   }
 
+  function normalizeColumnKey(key) {
+    return (key ?? '')
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/[^\w]+/g, '_')
+      .replace(/__+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  }
+
+  function titleizeColumnKey(key) {
+    const normalized = normalizeColumnKey(key);
+    if (!normalized) return (key ?? '').toString();
+
+    return normalized
+      .split('_')
+      .filter(Boolean)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
   function isNameSuffix(word) {
     const normalized = (word ?? '').toString().trim().replace(/\.$/, '').toLowerCase();
     return normalized === 'jr' || normalized === 'sr' || normalized === 'ii' || normalized === 'iii' || normalized === 'iv' || normalized === 'v';
@@ -212,6 +233,29 @@
     const thead = table.createTHead();
     const tbody = table.createTBody();
 
+    const normalizedColumnLabels = {};
+    for (const [key, value] of Object.entries(columnLabels)) {
+      normalizedColumnLabels[normalizeColumnKey(key)] = value;
+    }
+
+    function resolveColumnLabel(key) {
+      if (Object.prototype.hasOwnProperty.call(columnLabels, key)) {
+        return columnLabels[key];
+      }
+
+      const normalizedKey = normalizeColumnKey(key);
+
+      if (Object.prototype.hasOwnProperty.call(normalizedColumnLabels, normalizedKey)) {
+        return normalizedColumnLabels[normalizedKey];
+      }
+
+      if (normalizedKey.startsWith('supervising_court_coordinating')) {
+        return 'Supervising/CJ Court';
+      }
+
+      return titleizeColumnKey(key);
+    }
+
     const state = {
       header: [],
       rows: [],
@@ -226,7 +270,7 @@
 
       state.header.forEach(key => {
         const th = createEl('th', { attrs: { scope: 'col', tabindex: '0' } });
-        const label = columnLabels[key] ?? key;
+        const label = resolveColumnLabel(key);
         const twoLine = breakTwoPlusWordHeaders ? splitIntoTwoLines(label) : null;
         if (twoLine) {
           th.appendChild(document.createTextNode(twoLine.top));
