@@ -21,23 +21,35 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: calc(var(--scrt-unit) * 2);
-    margin-top: calc(var(--scrt-unit) * 5);
-    margin-bottom: calc(var(--scrt-unit) * 2);
+    gap: calc(var(--scrt-unit) * 2.5);
+    margin-top: calc(var(--scrt-unit) * 6);
+    margin-bottom: calc(var(--scrt-unit) * 2.5);
   }
 
   .scrt-table-toolbar label {
     font-weight: var(--scrt-weight-semibold);
+    letter-spacing: 0.01em;
   }
 
   .scrt-table-toolbar input[type="search"] {
     flex: 1;
     min-width: 240px;
-    padding: calc(var(--scrt-unit) * 2.2) calc(var(--scrt-unit) * 3);
-    border: 1px solid var(--scrt-color-gray1);
+    padding: calc(var(--scrt-unit) * 2.4) calc(var(--scrt-unit) * 3) calc(var(--scrt-unit) * 2.4) calc(var(--scrt-unit) * 7.5);
+    border: 1px solid rgba(213, 222, 240, 0.9);
     border-radius: 0.75em;
     font-size: var(--scrt-scale-0);
     outline: none;
+    background:
+      radial-gradient(1200px 300px at 10% 0%, rgba(83, 166, 229, 0.12), transparent 55%),
+      linear-gradient(180deg, #ffffff, #fbfdff);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+    background-repeat: no-repeat;
+    background-position:
+      0 0,
+      0 0;
+    background-size:
+      auto,
+      auto;
   }
 
   .scrt-table-toolbar input[type="search"]:focus {
@@ -45,51 +57,198 @@
     box-shadow: 0 0 0 3px rgba(83, 166, 229, 0.25);
   }
 
+  .scrt-table-toolbar input[type="search"] {
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2353a6e5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E"),
+      radial-gradient(1200px 300px at 10% 0%, rgba(83, 166, 229, 0.12), transparent 55%),
+      linear-gradient(180deg, #ffffff, #fbfdff);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: calc(var(--scrt-unit) * 2.6) 50%, 0 0, 0 0;
+    background-size: 18px 18px, auto, auto;
+  }
+
   .scrt-table-status {
     margin: 0;
-    color: var(--scrt-color-gray5);
+    color: var(--scrt-color-gray6);
     font-size: var(--scrt-scale-00);
+    padding: calc(var(--scrt-unit) * 1.4) calc(var(--scrt-unit) * 2.2);
+    border: 1px solid rgba(213, 222, 240, 0.9);
+    border-radius: 999px;
+    background: linear-gradient(180deg, #ffffff, var(--scrt-color-gray0));
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  }
+
+  .scrt-table-hint {
+    margin: calc(var(--scrt-unit) * 2.5) 0 0 0;
+    color: var(--scrt-color-gray5);
+    font-size: var(--scrt-scale-000);
+  }
+
+  /* Optional SEO/helper index (paste generated HTML from generate_judges_seo_index.js) */
+  details.scrt-judges-seo-index {
+    margin-top: calc(var(--scrt-unit) * 5);
+    border: 1px solid rgba(213, 222, 240, 0.9);
+    border-radius: 1em;
+    background: linear-gradient(180deg, rgba(243, 247, 255, 0.65), rgba(255, 255, 255, 0.9));
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    padding: calc(var(--scrt-unit) * 2.5) calc(var(--scrt-unit) * 3);
+  }
+
+  details.scrt-judges-seo-index summary {
+    cursor: pointer;
+    font-weight: var(--scrt-weight-semibold);
+    color: var(--scrt-color-gray7);
+    padding: calc(var(--scrt-unit) * 1) 0;
+  }
+
+  .scrt-judges-seo-index__cols {
+    margin-top: calc(var(--scrt-unit) * 2.5);
+    column-count: 3;
+    column-gap: calc(var(--scrt-unit) * 6);
+  }
+
+  .scrt-judges-seo-index__cols a {
+    display: inline-block;
+    width: 100%;
+    break-inside: avoid;
+    color: var(--scrt-color-blue6);
+    text-decoration: none;
+    padding: calc(var(--scrt-unit) * 0.6) 0;
+  }
+
+  .scrt-judges-seo-index__cols a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 900px) {
+    .scrt-judges-seo-index__cols {
+      column-count: 2;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .scrt-judges-seo-index__cols {
+      column-count: 1;
+    }
   }
 
   .scrt-table-wrap {
-    border: 1px solid var(--scrt-color-gray1);
-    border-radius: 0.75em;
+    border: 1px solid rgba(213, 222, 240, 0.9);
+    border-radius: 1em;
     overflow: auto;
     max-height: 75vh;
-    background: var(--scrt-color-white);
+    background:
+      radial-gradient(1100px 260px at 10% 0%, rgba(83, 166, 229, 0.08), transparent 55%),
+      linear-gradient(180deg, #ffffff, #fbfdff);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.06),
+      0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  .scrt-table-wrap::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+  }
+  .scrt-table-wrap::-webkit-scrollbar-thumb {
+    background: rgba(120, 128, 145, 0.35);
+    border-radius: 999px;
+    border: 3px solid rgba(255, 255, 255, 0.75);
+  }
+  .scrt-table-wrap::-webkit-scrollbar-thumb:hover {
+    background: rgba(120, 128, 145, 0.55);
   }
 
   table.scrt-judges-table {
     width: 100%;
     border-collapse: collapse;
     font-size: var(--scrt-scale-00);
+    line-height: 1.25;
+    font-variant-numeric: tabular-nums;
+  }
+
+  table.scrt-judges-table caption.scrt-table-caption {
+    text-align: left;
+    padding: calc(var(--scrt-unit) * 2.2) calc(var(--scrt-unit) * 3);
+    color: var(--scrt-color-gray5);
+    font-size: var(--scrt-scale-000);
+    border-bottom: 1px solid rgba(213, 222, 240, 0.9);
+    background: linear-gradient(180deg, rgba(243, 247, 255, 0.7), rgba(255, 255, 255, 0.9));
   }
 
   table.scrt-judges-table th,
   table.scrt-judges-table td {
     padding: calc(var(--scrt-unit) * 2.2) calc(var(--scrt-unit) * 3);
-    border-bottom: 1px solid var(--scrt-color-gray1);
+    border-bottom: 1px solid rgba(213, 222, 240, 0.9);
     vertical-align: top;
   }
 
   table.scrt-judges-table th {
     position: sticky;
     top: 0;
-    z-index: 1;
-    background: linear-gradient(180deg, var(--scrt-color-gray0), #ffffff);
+    z-index: 3;
+    background:
+      linear-gradient(180deg, rgba(243, 247, 255, 0.95), rgba(255, 255, 255, 0.92));
+    backdrop-filter: blur(10px);
     font-weight: var(--scrt-weight-semibold);
     text-align: left;
     cursor: pointer;
     user-select: none;
     white-space: nowrap;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
   }
 
   table.scrt-judges-table td {
     white-space: normal;
+    transition: background 0.15s ease;
+  }
+
+  table.scrt-judges-table tbody tr:nth-child(2n) td {
+    background: rgba(243, 247, 255, 0.45);
   }
 
   table.scrt-judges-table tbody tr:hover {
-    background: var(--scrt-color-blue0);
+    background: transparent;
+  }
+
+  table.scrt-judges-table tbody tr:hover td {
+    background: rgba(240, 247, 255, 0.85);
+  }
+
+  /* sticky Judge column */
+  table.scrt-judges-table th.scrt-col-judge,
+  table.scrt-judges-table td.scrt-col-judge {
+    position: sticky;
+    left: 0;
+  }
+
+  table.scrt-judges-table th.scrt-col-judge {
+    z-index: 4;
+    box-shadow: 10px 0 18px -18px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(0, 0, 0, 0.03);
+  }
+
+  table.scrt-judges-table td.scrt-col-judge {
+    z-index: 2;
+    font-weight: var(--scrt-weight-semibold);
+    background:
+      linear-gradient(90deg, rgba(240, 247, 255, 0.9), rgba(255, 255, 255, 0.75) 65%, rgba(255, 255, 255, 0));
+    box-shadow: 10px 0 18px -18px rgba(0, 0, 0, 0.22);
+  }
+
+  table.scrt-judges-table tbody tr:nth-child(2n) td.scrt-col-judge {
+    background:
+      linear-gradient(90deg, rgba(240, 247, 255, 0.95), rgba(255, 255, 255, 0.78) 65%, rgba(255, 255, 255, 0));
+  }
+
+  table.scrt-judges-table tbody tr:hover td.scrt-col-judge {
+    background:
+      linear-gradient(90deg, rgba(240, 247, 255, 1), rgba(255, 255, 255, 0.88) 65%, rgba(255, 255, 255, 0));
+  }
+
+  table.scrt-judges-table th[aria-sort="ascending"],
+  table.scrt-judges-table th[aria-sort="descending"] {
+    background:
+      linear-gradient(180deg, rgba(83, 166, 229, 0.16), rgba(255, 255, 255, 0.9));
   }
 
   table.scrt-judges-table th[aria-sort="ascending"]::after {
@@ -138,12 +297,16 @@
     <div class="scrt-table-toolbar">
       <label for="scrt-judges-search-2026">Search</label>
       <input id="scrt-judges-search-2026" type="search" placeholder="Try a judge name, county, court, or title…" autocomplete="off">
+      <p id="scrt-judges-status-2026" class="scrt-table-status" aria-live="polite"></p>
     </div>
-    <p id="scrt-judges-status-2026" class="scrt-table-status"></p>
 
     <div class="scrt-table-wrap" role="region" aria-label="New York State judges table (2026)" tabindex="0">
-      <table id="scrt-judges-table-2026" class="scrt-judges-table"></table>
+      <table id="scrt-judges-table-2026" class="scrt-judges-table">
+        <caption class="scrt-table-caption">Click any column header to sort. Use the search box to filter.</caption>
+      </table>
     </div>
+
+    <div id="scrt-judges-seo-index-2026"></div>
   </div>
 
 </div>
@@ -162,6 +325,8 @@
       tableId: 'scrt-judges-table-2026',
       searchInputId: 'scrt-judges-search-2026',
       statusId: 'scrt-judges-status-2026',
+      seoIndexContainerId: 'scrt-judges-seo-index-2026',
+      seoIndexSummaryText: 'Browse judge names (A–Z)',
       defaultSort: { key: 'judge', direction: 'asc' },
       columnLabels: {
         judge: 'Judge',
