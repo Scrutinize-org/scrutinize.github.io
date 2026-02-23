@@ -152,6 +152,38 @@
     return el;
   }
 
+  function splitIntoTwoLines(label) {
+    const words = (label ?? '').toString().trim().split(/\s+/).filter(Boolean);
+    if (words.length <= 1) return null;
+    const splitIndex = Math.max(1, Math.floor(words.length / 2));
+    return {
+      top: words.slice(0, splitIndex).join(' '),
+      bottom: words.slice(splitIndex).join(' '),
+    };
+  }
+
+  function isNameSuffix(word) {
+    const normalized = (word ?? '').toString().trim().replace(/\.$/, '').toLowerCase();
+    return normalized === 'jr' || normalized === 'sr' || normalized === 'ii' || normalized === 'iii' || normalized === 'iv' || normalized === 'v';
+  }
+
+  function splitJudgeName(fullName) {
+    const raw = (fullName ?? '').toString().trim();
+    if (!raw) return null;
+    const parts = raw.split(/\s+/).filter(Boolean);
+    if (parts.length <= 1) return null;
+
+    const last = parts[parts.length - 1];
+    const hasSuffix = isNameSuffix(last);
+    const lastNameIndex = hasSuffix ? parts.length - 2 : parts.length - 1;
+    if (lastNameIndex <= 0) return null;
+
+    const first = parts.slice(0, lastNameIndex).join(' ');
+    const lastLine = hasSuffix ? `${parts[lastNameIndex]} ${last}` : parts[lastNameIndex];
+
+    return { first, last: lastLine };
+  }
+
   function mount({
     dataUrl,
     tableId,
@@ -159,6 +191,9 @@
     statusId,
     columnLabels = {},
     defaultSort = { key: 'judge', direction: 'asc' },
+    judgeNameKey = 'judge',
+    breakJudgeBeforeLastName = true,
+    breakTwoPlusWordHeaders = true,
   }) {
     const table = document.getElementById(tableId);
     const searchInput = document.getElementById(searchInputId);
@@ -190,10 +225,16 @@
       const tr = document.createElement('tr');
 
       state.header.forEach(key => {
-        const th = createEl('th', {
-          text: columnLabels[key] ?? key,
-          attrs: { scope: 'col', tabindex: '0' },
-        });
+        const th = createEl('th', { attrs: { scope: 'col', tabindex: '0' } });
+        const label = columnLabels[key] ?? key;
+        const twoLine = breakTwoPlusWordHeaders ? splitIntoTwoLines(label) : null;
+        if (twoLine) {
+          th.appendChild(document.createTextNode(twoLine.top));
+          th.appendChild(document.createElement('br'));
+          th.appendChild(document.createTextNode(twoLine.bottom));
+        } else {
+          th.textContent = label;
+        }
 
         const isActive = state.sort.key === key;
         th.setAttribute('aria-sort', isActive ? (state.sort.direction === 'asc' ? 'ascending' : 'descending') : 'none');
@@ -227,7 +268,23 @@
       state.filtered.forEach(row => {
         const tr = document.createElement('tr');
         state.header.forEach(key => {
-          tr.appendChild(createEl('td', { text: row[key] ?? '' }));
+          const td = document.createElement('td');
+          const value = row[key] ?? '';
+
+          if (breakJudgeBeforeLastName && key === judgeNameKey) {
+            const nameParts = splitJudgeName(value);
+            if (nameParts) {
+              td.appendChild(document.createTextNode(nameParts.first));
+              td.appendChild(document.createElement('br'));
+              td.appendChild(document.createTextNode(nameParts.last));
+            } else {
+              td.textContent = value;
+            }
+          } else {
+            td.textContent = value;
+          }
+
+          tr.appendChild(td);
         });
         fragment.appendChild(tr);
       });
