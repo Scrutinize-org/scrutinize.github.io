@@ -183,6 +183,55 @@
       .join(' ');
   }
 
+  function slugify(value) {
+    const raw = (value ?? '').toString().trim();
+    if (!raw) return '';
+
+    const normalized = raw
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+
+    return normalized
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function renderSeoIndex({
+    container,
+    items,
+    summaryText = 'Browse judge names (A–Z)',
+    maxItems = 5000,
+  }) {
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    const details = createEl('details', { className: 'scrt-judges-seo-index' });
+    const summary = createEl('summary', { text: summaryText });
+    const cols = createEl('div', { className: 'scrt-judges-seo-index__cols' });
+
+    const limited = items.slice(0, maxItems);
+    limited.forEach(({ name, href }) => {
+      const a = createEl('a', { text: name, attrs: { href } });
+      cols.appendChild(a);
+    });
+
+    if (items.length > maxItems) {
+      cols.appendChild(
+        createEl('div', {
+          text: `Showing first ${maxItems.toLocaleString()} of ${items.length.toLocaleString()} names.`,
+          attrs: { style: 'break-inside: avoid; color: var(--scrt-color-gray5); padding-top: 8px;' },
+        })
+      );
+    }
+
+    details.appendChild(summary);
+    details.appendChild(cols);
+    container.appendChild(details);
+  }
+
   function isNameSuffix(word) {
     const normalized = (word ?? '').toString().trim().replace(/\.$/, '').toLowerCase();
     return normalized === 'jr' || normalized === 'sr' || normalized === 'ii' || normalized === 'iii' || normalized === 'iv' || normalized === 'v';
@@ -215,6 +264,10 @@
     judgeNameKey = 'judge',
     breakJudgeBeforeLastName = true,
     breakTwoPlusWordHeaders = true,
+    rowIdPrefix = 'scrt-judge-',
+    seoIndexContainerId = null,
+    seoIndexSummaryText = 'Browse judge names (A–Z)',
+    seoIndexMaxItems = 5000,
   }) {
     const table = document.getElementById(tableId);
     const searchInput = document.getElementById(searchInputId);
@@ -224,14 +277,20 @@
       throw new Error(`ScrtJudgesTable.mount: table element not found: #${tableId}`);
     }
 
-    if (!dataUrl) {
-      throw new Error('ScrtJudgesTable.mount: dataUrl is required');
-    }
-
     setText(statusEl, 'Loading…');
 
     const thead = table.createTHead();
     const tbody = table.createTBody();
+
+    let seoIndexContainer = null;
+    if (seoIndexContainerId) {
+      seoIndexContainer = document.getElementById(seoIndexContainerId);
+      if (!seoIndexContainer) {
+        seoIndexContainer = document.createElement('div');
+        seoIndexContainer.id = seoIndexContainerId;
+        table.parentElement?.insertAdjacentElement('afterend', seoIndexContainer);
+      }
+    }
 
     const normalizedColumnLabels = {};
     for (const [key, value] of Object.entries(columnLabels)) {
@@ -270,6 +329,10 @@
 
       state.header.forEach(key => {
         const th = createEl('th', { attrs: { scope: 'col', tabindex: '0' } });
+        const normalizedKey = normalizeColumnKey(key);
+        th.classList.add('scrt-col', `scrt-col-${normalizedKey || 'unknown'}`);
+        th.dataset.key = key;
+        th.dataset.col = normalizedKey;
         const label = resolveColumnLabel(key);
         const twoLine = breakTwoPlusWordHeaders ? splitIntoTwoLines(label) : null;
         if (twoLine) {
@@ -311,9 +374,13 @@
       const fragment = document.createDocumentFragment();
       state.filtered.forEach(row => {
         const tr = document.createElement('tr');
+        if (row && row.__scrtRowId) tr.id = row.__scrtRowId;
         state.header.forEach(key => {
           const td = document.createElement('td');
           const value = row[key] ?? '';
+          const normalizedKey = normalizeColumnKey(key);
+          td.classList.add('scrt-col', `scrt-col-${normalizedKey || 'unknown'}`);
+          td.dataset.col = normalizedKey;
 
           if (breakJudgeBeforeLastName && key === judgeNameKey) {
             const nameParts = splitJudgeName(value);
@@ -352,6 +419,43 @@
       renderStatus();
     }
 
+    function finalizeDataAndRender() {
+      const usedIds = new Map();
+      const nameToId = new Map();
+      state.rows.forEach((row, index) => {
+        const judgeValue = row?.[judgeNameKey] ?? '';
+        let base = slugify(judgeValue);
+        if (!base) base = `row-${index + 1}`;
+        let id = `${rowIdPrefix}${base}`;
+
+        const seen = usedIds.get(id) ?? 0;
+        usedIds.set(id, seen + 1);
+        if (seen > 0) id = `${id}-${seen + 1}`;
+
+        row.__scrtRowId = id;
+        if (judgeValue && !nameToId.has(judgeValue)) nameToId.set(judgeValue, id);
+      });
+
+      if (state.header.length && !state.header.includes(state.sort.key)) {
+        state.sort = { key: state.header[0], direction: 'asc' };
+      }
+
+      render();
+
+      if (seoIndexContainer) {
+        const items = Array.from(nameToId.entries())
+          .sort((a, b) => a[0].localeCompare(b[0], 'en', { sensitivity: 'base' }))
+          .map(([name, id]) => ({ name, href: `#${id}` }));
+
+        renderSeoIndex({
+          container: seoIndexContainer,
+          items,
+          summaryText: `${seoIndexSummaryText} (${items.length.toLocaleString()})`,
+          maxItems: seoIndexMaxItems,
+        });
+      }
+    }
+
     if (searchInput) {
       let searchTimer = null;
       searchInput.addEventListener('input', () => {
@@ -361,6 +465,29 @@
           render();
         }, 80);
       });
+    }
+
+    if (!dataUrl) {
+      const headRow = thead.querySelector('tr');
+      const headerKeys = headRow
+        ? Array.from(headRow.querySelectorAll('th')).map(th => (th.getAttribute('data-key') || '').trim()).filter(Boolean)
+        : [];
+
+      if (!headerKeys.length) {
+        const message = 'Could not load table data. Provide dataUrl or pre-render a <thead> with th[data-key].';
+        setText(statusEl, message);
+        return Promise.reject(new Error(message));
+      }
+
+      const bodyRows = Array.from(tbody.querySelectorAll('tr'));
+      const dataRows = bodyRows.map(tr =>
+        Array.from(tr.querySelectorAll('td')).map(td => (td.textContent ?? '').toString().trim())
+      );
+
+      state.header = headerKeys;
+      state.rows = rowsToObjects(headerKeys, dataRows);
+      finalizeDataAndRender();
+      return Promise.resolve();
     }
 
     return fetch(dataUrl, { cache: 'no-store' })
@@ -378,11 +505,7 @@
 
         state.header = header;
         state.rows = rowsToObjects(header, dataRows);
-        if (state.header.length && !state.header.includes(state.sort.key)) {
-          state.sort = { key: state.header[0], direction: 'asc' };
-        }
-
-        render();
+        finalizeDataAndRender();
       })
       .catch(err => {
         setText(statusEl, `Could not load table data. ${err.message}`);
