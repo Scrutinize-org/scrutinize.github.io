@@ -1,0 +1,1851 @@
+<div class="scrt-wrapper scrt-annual-report">
+  
+<style id="scrt-annual-report-styles">
+.scrt-annual-report {
+  --scrt-blue: var(--scrt-color-blue5, #0169a3);
+  --scrt-blue-soft: var(--scrt-color-blue1, #c3e2ff);
+  --scrt-blue-deep: var(--scrt-color-blue6, #004b7c);
+  --scrt-red: var(--scrt-color-category0, #984447);
+  --scrt-green: var(--scrt-color-green5, #3e6f5c);
+  --scrt-ink: var(--scrt-color-gray7, #272e3b);
+  --scrt-muted: var(--scrt-color-gray5, #5c6373);
+  --scrt-line: var(--scrt-color-gray1, #d5def0);
+  --scrt-amber: var(--scrt-color-yellow3, #c09569);
+  --scrt-paper: #ffffff;
+  --scrt-bg:
+    radial-gradient(circle at 12% 8%, rgba(1, 105, 163, 0.13), transparent 32%),
+    radial-gradient(circle at 86% 16%, rgba(152, 68, 71, 0.15), transparent 35%),
+    linear-gradient(165deg, #f4f8ff 0%, #f8fbff 48%, #fff8f3 100%);
+  color: var(--scrt-ink);
+}
+
+.scrt-annual-report .scrt-report-shell {
+  background: transparent;
+  border-radius: 22px;
+  padding: 8px 2px 0 2px;
+  position: relative;
+  overflow: visible;
+}
+
+.scrt-annual-report .scrt-report-shell::before {
+  content: none;
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(1, 105, 163, 0.12), rgba(1, 105, 163, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scrt-annual-report .scrt-report-shell::after {
+  content: none;
+  position: absolute;
+  inset: auto auto -180px -150px;
+  width: 430px;
+  height: 430px;
+  background: radial-gradient(circle, rgba(152, 68, 71, 0.09), rgba(152, 68, 71, 0) 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scrt-annual-report .scrt-report-shell > * {
+  position: relative;
+  z-index: 1;
+}
+
+.scrt-annual-report .scrt-header {
+  background: linear-gradient(165deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid rgba(1, 105, 163, 0.18);
+  border-radius: 18px;
+  padding: 26px 24px 22px 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 28px rgba(39, 46, 59, 0.09);
+  overflow: hidden;
+}
+
+.scrt-annual-report .scrt-header::before {
+  content: none;
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--scrt-blue), var(--scrt-amber), var(--scrt-red));
+}
+
+.scrt-annual-report .scrt-header h1 {
+  margin: 0 0 8px 0;
+  color: var(--scrt-red);
+  font-size: clamp(1.75rem, 2.6vw, 2.6rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.scrt-annual-report .scrt-header .scrt-header-subtitle {
+  margin: 10px 0 2px 0;
+  color: var(--scrt-muted);
+  font-size: clamp(1.05rem, 1.28vw, 1.16rem);
+  line-height: 1.62;
+  max-width: none;
+}
+
+.scrt-annual-report .scrt-header .scrt-header-subtitle a {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(92, 99, 115, 0.55);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.scrt-annual-report .scrt-header .scrt-header-subtitle a:hover {
+  color: var(--scrt-blue);
+  text-decoration-color: rgba(1, 105, 163, 0.55);
+}
+
+.scrt-annual-report .scrt-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.scrt-annual-report .scrt-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--scrt-line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--scrt-blue);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: transform 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.scrt-annual-report .scrt-nav a:hover {
+  background: var(--scrt-blue-soft);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.scrt-annual-report .scrt-nav a.is-active {
+  background: var(--scrt-blue);
+  color: #fff;
+  border-color: var(--scrt-blue);
+  box-shadow: 0 4px 10px rgba(1, 105, 163, 0.24);
+}
+
+.scrt-annual-report .scrt-report-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 254, 255, 0.98));
+  border: 1px solid rgba(213, 222, 240, 0.95);
+  border-radius: 18px;
+  margin-bottom: 18px;
+  padding: clamp(18px, 2.4vw, 30px);
+  box-shadow: 0 10px 22px rgba(39, 46, 59, 0.07);
+  opacity: 0;
+  transform: translateY(16px) scale(0.994);
+  transition: opacity 0.34s ease, transform 0.34s ease, box-shadow 0.3s ease;
+  transition-delay: calc(var(--reveal-index, 0) * 22ms);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrt-annual-report .scrt-report-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.scrt-annual-report .scrt-report-section::before {
+  content: none;
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--scrt-blue) 0%, rgba(1, 105, 163, 0.2) 60%, rgba(1, 105, 163, 0) 100%);
+}
+
+.scrt-annual-report .scrt-report-section.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scrt-annual-report .scrt-report-section:hover {
+  box-shadow: 0 14px 26px rgba(39, 46, 59, 0.1);
+}
+
+.scrt-annual-report .scrt-report-section h2 {
+  margin: 0 0 10px 0;
+  color: var(--scrt-blue-deep);
+  font-size: clamp(1.25rem, 1.8vw, 1.9rem);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.scrt-annual-report .scrt-section-kicker {
+  margin: 0 0 4px 0;
+  color: var(--scrt-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.scrt-annual-report .scrt-title-accent {
+  display: none;
+  width: 56px;
+  height: 2px;
+  border-radius: 999px;
+  margin: -2px 0 12px 0;
+  background: linear-gradient(90deg, var(--scrt-blue), rgba(1, 105, 163, 0.3));
+}
+
+.scrt-annual-report .scrt-section-intro {
+  color: var(--scrt-ink);
+  font-size: 1rem;
+  line-height: 1.66;
+  margin-bottom: 14px;
+}
+
+.scrt-annual-report .scrt-stat-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-top: 12px;
+}
+
+.scrt-annual-report .scrt-stat-card {
+  background: linear-gradient(165deg, #ffffff 0%, #f1f7ff 100%);
+  border: 1px solid rgba(1, 105, 163, 0.2);
+  border-radius: 14px;
+  padding: 12px 12px 11px 12px;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.scrt-annual-report .scrt-stat-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -40% 0 auto;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(1, 105, 163, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.scrt-annual-report .scrt-stat-card.is-popping {
+  animation: scrt-stat-pop 360ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+}
+
+@keyframes scrt-stat-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.975);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.scrt-annual-report .scrt-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgba(1, 105, 163, 0.14);
+}
+
+.scrt-annual-report .scrt-stat-value {
+  color: var(--scrt-blue-deep);
+  font-size: clamp(1.36rem, 2.1vw, 2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.scrt-annual-report .scrt-stat-value .scrt-stat-main {
+  display: inline-block;
+}
+
+.scrt-annual-report .scrt-stat-value .scrt-stat-delta {
+  font-size: 0.51em;
+  font-weight: 600;
+  color: var(--scrt-muted);
+  white-space: nowrap;
+}
+
+.scrt-annual-report .scrt-stat-label {
+  margin-top: 4px;
+  color: var(--scrt-ink);
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.scrt-annual-report #metric-unprotectedrate .scrt-stat-grid {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.scrt-annual-report #metric-unprotectedrate .scrt-stat-card {
+  background: linear-gradient(165deg, #ffffff 0%, #edf6ff 100%);
+  border: 1px solid rgba(1, 105, 163, 0.28);
+  box-shadow: 0 6px 14px rgba(1, 105, 163, 0.08);
+}
+
+.scrt-annual-report #metric-unprotectedrate .scrt-stat-value {
+  color: var(--scrt-blue-deep);
+  font-size: clamp(1.36rem, 2.1vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.scrt-annual-report #metric-unprotectedrate .scrt-stat-label {
+  color: var(--scrt-ink);
+  font-size: 0.86rem;
+  font-weight: 500;
+}
+
+.scrt-annual-report .scrt-chart-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.scrt-annual-report .scrt-chart-card {
+  border: 1px solid rgba(1, 105, 163, 0.16);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  padding: 10px 12px 6px 12px;
+  box-shadow: inset 0 1px 0 rgba(1, 105, 163, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scrt-annual-report .scrt-chart-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(39, 46, 59, 0.1);
+}
+
+.scrt-annual-report .scrt-chart-header h3 {
+  margin: 0 0 6px 0;
+  color: var(--scrt-ink);
+  font-size: 1rem;
+}
+
+.scrt-annual-report .scrt-chart-description {
+  margin: 0 0 8px 0;
+  color: var(--scrt-muted);
+  font-size: 0.86rem;
+}
+
+.scrt-annual-report .scrt-chart-footnote {
+  margin: 8px 0 0 0;
+  color: var(--scrt-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.scrt-annual-report .scrt-chart-footnote a {
+  color: inherit;
+}
+
+.scrt-annual-report .scrt-report-meta {
+  margin: 10px 2px 0 2px;
+  color: rgba(92, 99, 115, 0.6);
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.015em;
+  text-align: right;
+}
+
+.scrt-annual-report .scrt-header .scrt-report-meta {
+  margin-top: 8px;
+}
+
+.scrt-annual-report .scrt-accordion-group {
+  margin: 10px 0 14px 0;
+}
+
+.scrt-annual-report details.scrt-accordion {
+  border: 1px solid rgba(213, 222, 240, 0.9);
+  border-radius: 12px;
+  background: rgba(245, 247, 252, 0.65);
+  padding: 10px 12px;
+}
+
+.scrt-annual-report details.scrt-accordion summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--scrt-muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.scrt-annual-report details.scrt-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.scrt-annual-report details.scrt-accordion summary::after {
+  content: "▾";
+  float: right;
+  color: var(--scrt-muted);
+}
+
+.scrt-annual-report details.scrt-accordion[open] summary::after {
+  content: "▴";
+}
+
+.scrt-annual-report .scrt-accordion-body {
+  margin-top: 10px;
+  color: var(--scrt-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.scrt-annual-report .scrt-accordion-body p {
+  margin: 0 0 0.85rem 0;
+}
+
+.scrt-annual-report .scrt-accordion-body p:last-child {
+  margin-bottom: 0;
+}
+
+.scrt-annual-report .scrt-plotly-chart {
+  width: 100%;
+  min-height: 300px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.scrt-annual-report .scrt-table-grid {
+  margin-top: 14px;
+  display: grid;
+  gap: 14px;
+}
+
+.scrt-annual-report .scrt-table-widget {
+  border: 1px solid rgba(1, 105, 163, 0.14);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(39, 46, 59, 0.05);
+}
+
+.scrt-annual-report .scrt-table-header {
+  background: linear-gradient(150deg, #ffffff 0%, #edf5ff 100%);
+  border-bottom: 1px solid rgba(1, 105, 163, 0.12);
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+}
+
+.scrt-annual-report .scrt-table-title-block {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scrt-annual-report .scrt-table-header h3 {
+  margin: 0;
+  color: var(--scrt-ink);
+  font-size: 0.98rem;
+}
+
+.scrt-annual-report .scrt-table-description-inline {
+  margin: 0;
+  color: var(--scrt-muted);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+.scrt-annual-report #scorecard .scrt-table-header {
+  background: linear-gradient(140deg, #ffffff 0%, #e8f2ff 66%, #fff6f0 100%);
+}
+
+.scrt-annual-report #scorecard .scrt-table-header h3 {
+  font-size: 1.14rem;
+  font-weight: 800;
+  color: var(--scrt-red);
+  letter-spacing: 0.01em;
+}
+
+.scrt-annual-report #scorecard .scrt-table-scroll {
+  overflow-x: auto;
+}
+
+.scrt-annual-report #scorecard table {
+  table-layout: auto;
+  min-width: 920px;
+}
+
+.scrt-annual-report #scorecard th[data-key="metric"],
+.scrt-annual-report #scorecard td:first-child {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.scrt-annual-report .scrt-table-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.scrt-annual-report .scrt-load-more {
+  border: 1px solid var(--scrt-line);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #fff;
+  color: var(--scrt-blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.scrt-annual-report .scrt-load-more:hover {
+  background: var(--scrt-blue-soft);
+  border-color: rgba(1, 105, 163, 0.35);
+}
+
+.scrt-annual-report .scrt-load-more[hidden] {
+  display: none;
+}
+
+.scrt-annual-report .scrt-search-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--scrt-muted);
+}
+
+.scrt-annual-report .scrt-search-label input {
+  border: 1px solid rgba(1, 105, 163, 0.2);
+  border-radius: 8px;
+  padding: 5px 7px;
+  font-size: 0.82rem;
+  min-width: 170px;
+}
+
+.scrt-annual-report .scrt-search-label input:focus {
+  outline: none;
+  border-color: var(--scrt-blue);
+  box-shadow: 0 0 0 2px rgba(1, 105, 163, 0.15);
+}
+
+.scrt-annual-report .scrt-row-count {
+  color: var(--scrt-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.scrt-annual-report .scrt-table-description {
+  margin: 0;
+  padding: 8px 12px 0 12px;
+  color: var(--scrt-muted);
+  font-size: 0.84rem;
+}
+
+.scrt-annual-report .scrt-table-scroll {
+  overflow: visible;
+  max-height: none;
+}
+
+.scrt-annual-report table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+}
+
+.scrt-annual-report th,
+.scrt-annual-report td {
+  border-bottom: 1px solid #e7edf7;
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.86rem;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.scrt-annual-report th {
+  color: var(--scrt-blue-deep);
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  white-space: normal;
+  position: static;
+  background: #f8fbff;
+  z-index: 1;
+}
+
+.scrt-annual-report tbody tr:nth-child(even) td {
+  background: #fcfdff;
+}
+
+.scrt-annual-report tbody tr:hover td {
+  background: #f6f9ff;
+}
+
+.scrt-annual-report th[data-sort-dir="asc"]::after {
+  content: " ▲";
+  font-size: 0.72rem;
+}
+
+.scrt-annual-report th[data-sort-dir="desc"]::after {
+  content: " ▼";
+  font-size: 0.72rem;
+}
+
+.scrt-annual-report .scrt-empty-row td {
+  color: var(--scrt-muted);
+  text-align: center;
+  padding: 18px 12px;
+}
+
+.scrt-annual-report .scrt-footnote {
+  margin-top: 10px;
+  color: var(--scrt-muted);
+  font-size: 0.8rem;
+}
+
+.scrt-annual-report .scrt-scorecard-inline-notes {
+  margin-top: 12px;
+}
+
+.scrt-annual-report .scrt-scorecard-inline-notes p {
+  margin: 0 0 6px 0;
+  color: var(--scrt-blue-deep);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.scrt-annual-report .scrt-scorecard-inline-notes ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.scrt-annual-report .scrt-scorecard-inline-notes li {
+  margin: 0 0 6px 0;
+  color: var(--scrt-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.scrt-annual-report a {
+  color: var(--scrt-blue);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+.scrt-annual-report .scrt-section-read-more {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrt-annual-report .scrt-report-section,
+  .scrt-annual-report .scrt-chart-card,
+  .scrt-annual-report .scrt-stat-card,
+  .scrt-annual-report .scrt-nav a {
+    transition: none !important;
+  }
+
+  .scrt-annual-report .scrt-stat-card.is-popping {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .scrt-annual-report .scrt-report-shell {
+    padding: 10px 8px 0 8px;
+  }
+
+  .scrt-annual-report .scrt-header {
+    padding: 18px 14px 16px 14px;
+  }
+
+  .scrt-annual-report .scrt-table-tools {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .scrt-annual-report .scrt-search-label input {
+    min-width: 126px;
+  }
+
+  .scrt-annual-report .scrt-chart-card {
+    padding: 10px 10px 8px 10px;
+    overflow: hidden;
+  }
+
+  .scrt-annual-report .scrt-plotly-chart {
+    width: 100%;
+    min-width: 0;
+    min-height: 250px;
+  }
+
+  .scrt-annual-report .scrt-table-scroll {
+    overflow: visible;
+    max-height: none;
+  }
+
+  .scrt-annual-report #scorecard .scrt-table-scroll {
+    overflow: visible;
+  }
+
+  .scrt-annual-report .scrt-table-scroll thead {
+    display: none;
+  }
+
+  .scrt-annual-report .scrt-table-scroll table,
+  .scrt-annual-report #scorecard table {
+    width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .scrt-annual-report .scrt-table-scroll tbody,
+  .scrt-annual-report .scrt-table-scroll tr,
+  .scrt-annual-report .scrt-table-scroll td {
+    display: block;
+    width: 100%;
+  }
+
+  .scrt-annual-report .scrt-table-scroll tr {
+    border-bottom: 1px solid #e7edf7;
+    padding: 8px 12px;
+  }
+
+  .scrt-annual-report .scrt-table-scroll tr:last-child {
+    border-bottom: none;
+  }
+
+  .scrt-annual-report .scrt-table-scroll td {
+    border-bottom: none;
+    padding: 4px 0;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    background: transparent !important;
+  }
+
+  .scrt-annual-report .scrt-table-scroll td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    color: var(--scrt-muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .scrt-annual-report .scrt-empty-row td::before {
+    content: none;
+  }
+
+  .scrt-annual-report .scrt-empty-row td {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .scrt-annual-report #scorecard td:first-child {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .scrt-annual-report tbody tr:nth-child(even) td,
+  .scrt-annual-report tbody tr:hover td {
+    background: transparent;
+  }
+}
+</style>
+
+  <div class="scrt-report-shell">
+    <header class="scrt-header">
+      <h1>The State of NY Courts: 2025 in Review</h1>
+      <p class="scrt-header-subtitle">We just updated every judicial profile on <a href="https://judges.scrutinize.org" target="_blank" rel="noopener noreferrer">judges.scrutinize.org</a> with 2025 data. This factsheet steps back from individual judges to show what the numbers look like statewide: how the metrics we track changed from 2024 to 2025, and where the trends are heading. To learn what each metric means, how it&#39;s calculated, and why it matters, follow the &quot;read more&quot; links in each section or visit the judicial profiles&#39; <a href="https://judges.scrutinize.org/methodology" target="_blank" rel="noopener noreferrer">methodology</a> page.</p>
+      <p class="scrt-report-meta">Published: March 05, 2026</p>
+    </header>
+    
+<section id="overview" class="scrt-report-section">
+  <p class="scrt-section-kicker">Statewide Snapshot</p>
+  <h2>2025 At A Glance</h2>
+  <div class="scrt-stat-grid">
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">1,500</span></div>
+  <div class="scrt-stat-label">Non-criminal published decisions</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">451</span></div>
+  <div class="scrt-stat-label">Criminal-court published decisions</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">17</span></div>
+  <div class="scrt-stat-label">Suppression reversals</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">12</span></div>
+  <div class="scrt-stat-label">Excessive sentences</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">0</span></div>
+  <div class="scrt-stat-label">Reassigned reversals</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">5</span></div>
+  <div class="scrt-stat-label">Judicial admonitions or censures</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">94.4%</span></div>
+  <div class="scrt-stat-label">Decisions favored commercial bonds</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">98.1%</span></div>
+  <div class="scrt-stat-label">Decisions blocked affordable bail</div>
+</div>
+</div>
+  <div id="scorecard" class="scrt-table-grid">
+<div class="scrt-table-widget" id="scorecard-2025" data-scrt-table>
+  <div class="scrt-table-header">
+    
+    <div class="scrt-table-title-block">
+      <h3>Annual Metric Scorecard (2025 vs 2024)</h3>
+      
+    </div>
+
+    <div class="scrt-table-tools">
+      
+      
+      
+    </div>
+  </div>
+  
+  <div class="scrt-table-scroll">
+    <table>
+      <thead>
+        <tr><th data-type="text" data-key="metric">Metric</th><th data-type="number" data-key="value_prior">2024</th><th data-type="number" data-key="value_current">2025</th><th data-type="number" data-key="delta">Difference</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-sort="Published Decisions (excludes NYSCEF)" data-label="Metric">Published Decisions (excludes NYSCEF)</td><td data-sort="1717.0" data-label="2024">1,717</td><td data-sort="1951.0" data-label="2025">1,951</td><td data-sort="13.628421665695981" data-label="Difference">+13.6%</td></tr><tr><td data-sort="Suppression Reversals" data-label="Metric">Suppression Reversals</td><td data-sort="10.0" data-label="2024">10</td><td data-sort="17.0" data-label="2025">17</td><td data-sort="70.0" data-label="Difference">+70%</td></tr><tr><td data-sort="Excessive Sentences" data-label="Metric">Excessive Sentences</td><td data-sort="12.0" data-label="2024">12</td><td data-sort="12.0" data-label="2025">12</td><td data-sort="0.0" data-label="Difference">0%</td></tr><tr><td data-sort="Excessive Sentence Reductions (Years)" data-label="Metric">Excessive Sentence Reductions (Years)</td><td data-sort="100.0" data-label="2024">100</td><td data-sort="94.5" data-label="2025">94.5</td><td data-sort="-5.5" data-label="Difference">-5.5%</td></tr><tr><td data-sort="Reassigned Reversals" data-label="Metric">Reassigned Reversals</td><td data-sort="1.0" data-label="2024">1</td><td data-sort="0.0" data-label="2025">0</td><td data-sort="-100.0" data-label="Difference">-100%</td></tr><tr><td data-sort="Favored Commercial Bonds" data-label="Metric">Favored Commercial Bonds</td><td data-sort="95.6611273406446" data-label="2024">95.7%</td><td data-sort="94.36072410198085" data-label="2025">94.4%</td><td data-sort="-1.3004032386637476" data-label="Difference">-1.3%</td></tr><tr><td data-sort="Blocked Affordable Bail" data-label="Metric">Blocked Affordable Bail</td><td data-sort="98.37172549207413" data-label="2024">98.4%</td><td data-sort="98.05705620320349" data-label="2025">98.1%</td><td data-sort="-0.3146692888706468" data-label="Difference">-0.3%</td></tr><tr><td data-sort="Public Discipline (Admonitions/Censures only)" data-label="Metric">Public Discipline (Admonitions/Censures only)</td><td data-sort="5.0" data-label="2024">5</td><td data-sort="5.0" data-label="2025">5</td><td data-sort="0.0" data-label="Difference">0%</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="metric-publisheddecisionsrate" class="scrt-report-section">
+  <h2>Published Decisions</h2>
+  <p class="scrt-section-intro">In New York, many trial-court written decisions are not automatically published online, and judges have discretion over whether to make written decisions publicly and freely available through the State Reporter database. This data shows how many of each judge&#x27;s written decisions appeared in that database per year. Higher values mean judges made more decisions publicly accessible statewide; they do not necessarily reflect judges&#x27; caseloads or the merits of the decisions. <a class="scrt-section-read-more" href="https://www.scrutinize.org/opencriminalcourts" target="_blank" rel="noopener noreferrer">Read more &gt;</a></p>
+  
+  <div class="scrt-stat-grid">
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">1,717 → 1,951</span> <span class="scrt-stat-delta">(+13.6%)</span></div>
+  <div class="scrt-stat-label">Published decisions (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">8.7% → 9.8%</span></div>
+  <div class="scrt-stat-label">Statewide publication rate per 100k residents (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">305 → 353</span> <span class="scrt-stat-delta">(+15.7%)</span></div>
+  <div class="scrt-stat-label">Judges with 1+ published decisions (2024 to 2025)</div>
+</div>
+</div>
+  <div class="scrt-chart-grid">
+<div class="scrt-chart-card">
+  <div class="scrt-chart-header">
+    <h3>Top Judges by Non-criminal Published Decisions (2025)</h3>
+    <p class="scrt-chart-description">Labels on the right show each judge&#x27;s change versus 2024.</p>
+  </div>
+  <div id="metric-publishedDecisionsRate-top-non-criminal-publishers-2025" class="scrt-plotly-chart"></div>
+  
+</div>
+
+<div class="scrt-chart-card">
+  <div class="scrt-chart-header">
+    <h3>Top Judges by Criminal-Court Published Decisions (2025)</h3>
+    <p class="scrt-chart-description">Labels on the right show each judge&#x27;s change versus 2024.</p>
+  </div>
+  <div id="metric-publishedDecisionsRate-top-criminal-publishers-2025" class="scrt-plotly-chart"></div>
+  <p class="scrt-chart-footnote">Note: The 2024 totals used for the comparison labels may not match the <a href="https://www.scrutinize.org/the-state-of-criminal-court-transparency-in-2024" target="_blank" rel="noopener noreferrer">State of Criminal Court Transparency in 2024</a> report because some 2024 decisions were published online later (including in 2025).</p>
+</div>
+
+<div class="scrt-chart-card">
+  <div class="scrt-chart-header">
+    <h3>Counties with the Highest 3-Year Publication Rates per 100k residents (2023-2025)</h3>
+    <p class="scrt-chart-description">Bars rank counties by average publication rate over 2023-2025 (per 100,000 residents). Right labels show change since 2023.</p>
+  </div>
+  <div id="metric-publishedDecisionsRate-county-benchmark-2025" class="scrt-plotly-chart"></div>
+  <p class="scrt-chart-footnote">Note: 2025 rates use 2024 county estimates (latest available at time of publication).</p>
+</div>
+</div>
+  
+</section>
+
+<section id="metric-unprotectedrate" class="scrt-report-section">
+  <h2>Suppression Reversals</h2>
+  <p class="scrt-section-intro">When defendants challenge evidence as unlawfully obtained, trial judges decide whether it should be suppressed (excluded) due to constitutional violations. This data shows the percentage of suppression-related appellate decisions across the state where an appellate court reversed a trial judge&#x27;s denial of suppression in the past year. <a class="scrt-section-read-more" href="https://www.scrutinize.org/unprotected" target="_blank" rel="noopener noreferrer">Read more &gt;</a></p>
+  
+  <div class="scrt-stat-grid">
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">10 → 17</span> <span class="scrt-stat-delta">(+70%)</span></div>
+  <div class="scrt-stat-label">Reversal decisions (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">10 → 15</span> <span class="scrt-stat-delta">(+50%)</span></div>
+  <div class="scrt-stat-label">Judges with reversals (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">7.1% → 7.9%</span></div>
+  <div class="scrt-stat-label">Overall reversal rate (2024 to 2025)</div>
+</div>
+</div>
+  
+  <div class="scrt-table-grid">
+<div class="scrt-table-widget" id="metric-unprotectedRate-top-2025" data-scrt-table>
+  <div class="scrt-table-header">
+    
+    <div class="scrt-table-title-block">
+      <h3>Top 5 Judges by Suppression Reversals (2025)</h3>
+      
+    </div>
+
+    <div class="scrt-table-tools">
+      
+      
+      
+    </div>
+  </div>
+  
+  <div class="scrt-table-scroll">
+    <table>
+      <thead>
+        <tr><th data-type="text" data-key="judge">Judge</th><th data-type="text" data-key="county">County</th><th data-type="number" data-key="count_2025">Reversals</th><th data-type="number" data-key="total_rate">Reversal Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/laura-a-ward&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Laura A. Ward&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/laura-a-ward" target="_blank" rel="noopener noreferrer">Laura A. Ward</a></td><td data-sort="New York" data-label="County">New York</td><td data-sort="2" data-label="Reversals">2</td><td data-sort="2.73972602739726" data-label="Reversal Rate">2.7%</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/alexander-r-renzi&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Alexander R. Renzi&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/alexander-r-renzi" target="_blank" rel="noopener noreferrer">Alexander R. Renzi</a></td><td data-sort="Monroe" data-label="County">Monroe</td><td data-sort="2" data-label="Reversals">2</td><td data-sort="2.564102564102564" data-label="Reversal Rate">2.6%</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/armen-j-nazarian&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Armen J. Nazarian&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/armen-j-nazarian" target="_blank" rel="noopener noreferrer">Armen J. Nazarian</a></td><td data-sort="Oswego" data-label="County">Oswego</td><td data-sort="1" data-label="Reversals">1</td><td data-sort="33.33333333333333" data-label="Reversal Rate">33.3%</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/elizabeth-n-warin&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Elizabeth N. Warin&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/elizabeth-n-warin" target="_blank" rel="noopener noreferrer">Elizabeth N. Warin</a></td><td data-sort="Kings" data-label="County">Kings</td><td data-sort="1" data-label="Reversals">1</td><td data-sort="33.33333333333333" data-label="Reversal Rate">33.3%</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/michael-l-dollinger&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Michael L. Dollinger&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/michael-l-dollinger" target="_blank" rel="noopener noreferrer">Michael L. Dollinger</a></td><td data-sort="Monroe" data-label="County">Monroe</td><td data-sort="1" data-label="Reversals">1</td><td data-sort="33.33333333333333" data-label="Reversal Rate">33.3%</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="metric-excessivesentencestotal" class="scrt-report-section">
+  <h2>Excessive Sentences</h2>
+  <p class="scrt-section-intro">New York appellate courts can reduce a sentence they find &#x27;excessive&#x27; or &#x27;unduly harsh&#x27; as a matter of discretion in the interest of justice. This data counts how many times appellate courts reduced sentences imposed after trial (excluding guilty pleas) for this reason in the past year. <a class="scrt-section-read-more" href="https://www.scrutinize.org/excessive-sentencers" target="_blank" rel="noopener noreferrer">Read more &gt;</a></p>
+  
+  <div class="scrt-stat-grid">
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">12 → 12</span> <span class="scrt-stat-delta">(0%)</span></div>
+  <div class="scrt-stat-label">Findings (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">100 → 94.5</span> <span class="scrt-stat-delta">(-5.5%)</span></div>
+  <div class="scrt-stat-label">Years Reduced (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">12 → 10</span> <span class="scrt-stat-delta">(-16.7%)</span></div>
+  <div class="scrt-stat-label">Judges with Findings (2024 to 2025)</div>
+</div>
+</div>
+  
+  <div class="scrt-table-grid">
+<div class="scrt-table-widget" id="metric-excessiveSentencesTotal-summary-2025" data-scrt-table>
+  <div class="scrt-table-header">
+    
+    <div class="scrt-table-title-block">
+      <h3>Excessive Sentences and Years Reduced in 2025</h3>
+      <p class="scrt-table-description-inline">Sorted by the number of findings first, then total years reduced.</p>
+    </div>
+
+    <div class="scrt-table-tools">
+      
+      
+      
+    </div>
+  </div>
+  
+  <div class="scrt-table-scroll">
+    <table>
+      <thead>
+        <tr><th data-type="text" data-key="judge">Judge</th><th data-type="text" data-key="county">County</th><th data-type="number" data-key="findings">Excessive Sentences</th><th data-type="number" data-key="years_reduced">Years Reduced</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/thomas-e-moran&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Thomas E. Moran&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/thomas-e-moran" target="_blank" rel="noopener noreferrer">Thomas E. Moran</a></td><td data-sort="Monroe" data-label="County">Monroe</td><td data-sort="2" data-label="Excessive Sentences">2</td><td data-sort="8.0" data-label="Years Reduced">8</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/robert-m-mandelbaum&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Robert M. Mandelbaum&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/robert-m-mandelbaum" target="_blank" rel="noopener noreferrer">Robert M. Mandelbaum</a></td><td data-sort="New York" data-label="County">New York</td><td data-sort="2" data-label="Excessive Sentences">2</td><td data-sort="7.0" data-label="Years Reduced">7</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/dineen-a-riviezzo&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Dineen A. Riviezzo&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/dineen-a-riviezzo" target="_blank" rel="noopener noreferrer">Dineen A. Riviezzo</a></td><td data-sort="Kings" data-label="County">Kings</td><td data-sort="1" data-label="Excessive Sentences">1</td><td data-sort="35.0" data-label="Years Reduced">35</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/craig-stephen-brown&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Craig Stephen Brown&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/craig-stephen-brown" target="_blank" rel="noopener noreferrer">Craig Stephen Brown</a></td><td data-sort="Orange" data-label="County">Orange</td><td data-sort="1" data-label="Excessive Sentences">1</td><td data-sort="10.0" data-label="Years Reduced">10</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/jessica-segal&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Jessica Segal&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/jessica-segal" target="_blank" rel="noopener noreferrer">Jessica Segal</a></td><td data-sort="Dutchess" data-label="County">Dutchess</td><td data-sort="1" data-label="Excessive Sentences">1</td><td data-sort="10.0" data-label="Years Reduced">10</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="metric-rdjstotal" class="scrt-report-section">
+  <h2>Reassigned Reversals</h2>
+  <p class="scrt-section-intro">In rare cases, an appellate court not only overturns a trial judge&#x27;s decision but also orders that the case be reassigned to a different trial judge. This data shows how many times appellate courts ordered reassignment in the past year. <a class="scrt-section-read-more" href="https://www.scrutinize.org/reverse-reassign" target="_blank" rel="noopener noreferrer">Read more &gt;</a></p>
+  
+  <div class="scrt-stat-grid">
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">1 → 0</span> <span class="scrt-stat-delta">(-100%)</span></div>
+  <div class="scrt-stat-label">Reassigned reversals (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">1 → 0</span> <span class="scrt-stat-delta">(-100%)</span></div>
+  <div class="scrt-stat-label">Judges with reassignments (2024 to 2025)</div>
+</div>
+</div>
+  
+  
+</section>
+
+<section id="metric-settingbailtofailcommercialbonds" class="scrt-report-section">
+  <h2>Favored Commercial Bonds</h2>
+  <p class="scrt-section-intro">When a court specifies monetary bail in New York, it must offer multiple alternative forms, including at least one unsecured or partially secured surety bond. Commercial (insurance-company) bail bonds typically involve a nonrefundable fee paid to a bail bond company. This metric shows the percentage of bail decisions (cash, commercial bond, and partially secured surety bond) across the state in the past year where only those three forms were set and the commercial bond&#x27;s nonrefundable fee was lower than both cash bail and the partially secured surety bond deposit. <a class="scrt-section-read-more" href="https://www.scrutinize.org/setting-bail-to-fail" target="_blank" rel="noopener noreferrer">Read more &gt;</a></p>
+  <div class="scrt-accordion-group"><details class="scrt-accordion">
+  <summary>We changed how we calculate this metric.</summary>
+  <div class="scrt-accordion-body"><p>In earlier versions of this metric, we reported the percentage out of all monetary-bail cases a judge handled, including cases where the judge set bail forms beyond cash bail, commercial bond, and PSSB.</p><p>Starting in 2026, we calculate this metric using cases where the judge set cash bail, a commercial bond, and a PSSB, with no other forms of bail set. We made this change because our Judicial Profiles are mainly used to compare judges, and this updated approach produces a better figure for comparison.</p></div>
+</details></div>
+  <div class="scrt-stat-grid">
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">95.7% → 94.4%</span></div>
+  <div class="scrt-stat-label">Statewide rate (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">165 → 114</span> <span class="scrt-stat-delta">(-30.9%)</span></div>
+  <div class="scrt-stat-label">Judges with 25+ eligible cases (2024 to 2025)</div>
+</div>
+</div>
+  
+  <div class="scrt-table-grid">
+<div class="scrt-table-widget" id="metric-settingBailToFailCommercialBonds-top-rates-2025" data-scrt-table>
+  <div class="scrt-table-header">
+    
+    <div class="scrt-table-title-block">
+      <h3>Highest 2025 Rates</h3>
+      <p class="scrt-table-description-inline">Includes judges with 25+ eligible cases in 2025. If more than 5 have a 100% rate, the 5 with the most cases are shown.</p>
+    </div>
+
+    <div class="scrt-table-tools">
+      
+      
+      
+    </div>
+  </div>
+  
+  <div class="scrt-table-scroll">
+    <table>
+      <thead>
+        <tr><th data-type="text" data-key="judge">Judge</th><th data-type="text" data-key="county">County</th><th data-type="number" data-key="rate_2025">2025 Rate (Cases)</th><th data-type="number" data-key="rate_total">Overall Rate (Cases)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/anthony-m-battisti&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Anthony M. Battisti&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/anthony-m-battisti" target="_blank" rel="noopener noreferrer">Anthony M. Battisti</a></td><td data-sort="Queens" data-label="County">Queens</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (170)</td><td data-sort="99.44196428571429" data-label="Overall Rate (Cases)">99.4% (896)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/jennifer-a-tubridy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Jennifer A. Tubridy&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/jennifer-a-tubridy" target="_blank" rel="noopener noreferrer">Jennifer A. Tubridy</a></td><td data-sort="Queens" data-label="County">Queens</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (166)</td><td data-sort="98.03707742639041" data-label="Overall Rate (Cases)">98.0% (917)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/les-s-wright&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Les S. Wright&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/les-s-wright" target="_blank" rel="noopener noreferrer">Les S. Wright</a></td><td data-sort="Nassau" data-label="County">Nassau</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (111)</td><td data-sort="100.0" data-label="Overall Rate (Cases)">100.0% (111)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/ryan-e-cronin&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Ryan E. Cronin&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/ryan-e-cronin" target="_blank" rel="noopener noreferrer">Ryan E. Cronin</a></td><td data-sort="Nassau" data-label="County">Nassau</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (101)</td><td data-sort="100.0" data-label="Overall Rate (Cases)">100.0% (101)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/pamela-a-goldsmith&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Pamela A. Goldsmith&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/pamela-a-goldsmith" target="_blank" rel="noopener noreferrer">Pamela A. Goldsmith</a></td><td data-sort="Bronx" data-label="County">Bronx</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (91)</td><td data-sort="98.75583203732504" data-label="Overall Rate (Cases)">98.8% (643)</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="scrt-table-widget" id="metric-settingBailToFailCommercialBonds-lowest-rates-2025" data-scrt-table>
+  <div class="scrt-table-header">
+    
+    <div class="scrt-table-title-block">
+      <h3>Lowest 2025 Rates</h3>
+      <p class="scrt-table-description-inline"> Includes judges with 25+ eligible cases in 2025.When rates are tied, judges with fewer cases are listed first.</p>
+    </div>
+
+    <div class="scrt-table-tools">
+      
+      
+      
+    </div>
+  </div>
+  
+  <div class="scrt-table-scroll">
+    <table>
+      <thead>
+        <tr><th data-type="text" data-key="judge">Judge</th><th data-type="text" data-key="county">County</th><th data-type="number" data-key="rate_2025">2025 Rate (Cases)</th><th data-type="number" data-key="rate_total">Overall Rate (Cases)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/christopher-e-whitehair&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Christopher E. Whitehair&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/christopher-e-whitehair" target="_blank" rel="noopener noreferrer">Christopher E. Whitehair</a></td><td data-sort="Kings" data-label="County">Kings</td><td data-sort="42.66666666666667" data-label="2025 Rate (Cases)">42.7% (75)</td><td data-sort="52.97450424929179" data-label="Overall Rate (Cases)">53.0% (353)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/george-panebianco&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;George Panebianco&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/george-panebianco" target="_blank" rel="noopener noreferrer">George Panebianco</a></td><td data-sort="Chautauqua" data-label="County">Chautauqua</td><td data-sort="45.45454545454545" data-label="2025 Rate (Cases)">45.5% (33)</td><td data-sort="51.39860139860139" data-label="Overall Rate (Cases)">51.4% (286)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/michael-j-gaffey&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Michael J. Gaffey&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/michael-j-gaffey" target="_blank" rel="noopener noreferrer">Michael J. Gaffey</a></td><td data-sort="Queens" data-label="County">Queens</td><td data-sort="62.66666666666667" data-label="2025 Rate (Cases)">62.7% (75)</td><td data-sort="94.17852522639069" data-label="Overall Rate (Cases)">94.2% (773)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/ilona-b-coleman&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Ilona B. Coleman&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/ilona-b-coleman" target="_blank" rel="noopener noreferrer">Ilona B. Coleman</a></td><td data-sort="New York" data-label="County">New York</td><td data-sort="65.46762589928058" data-label="2025 Rate (Cases)">65.5% (139)</td><td data-sort="65.46762589928058" data-label="Overall Rate (Cases)">65.5% (139)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/lana-schlesinger&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Lana Schlesinger&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/lana-schlesinger" target="_blank" rel="noopener noreferrer">Lana Schlesinger</a></td><td data-sort="Queens" data-label="County">Queens</td><td data-sort="71.08433734939759" data-label="2025 Rate (Cases)">71.1% (83)</td><td data-sort="71.08433734939759" data-label="Overall Rate (Cases)">71.1% (83)</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="metric-settingbailtofailpssb" class="scrt-report-section">
+  <h2>Blocked Affordable Bail</h2>
+  <p class="scrt-section-intro">When monetary bail is set, New York law requires courts to include an unsecured or partially secured surety bond among the forms offered. A partially secured surety bond (PSSB) is secured only by a deposit (up to 10% of the bond amount), and that deposit is generally refundable if court obligations are met. This metric shows the percentage of cash, commercial bond, and partially secured surety bond bail decisions across the state in the past year where only those three forms were set and the upfront PSSB deposit was not the lowest-upfront-payment option among the forms offered. <a class="scrt-section-read-more" href="https://www.scrutinize.org/setting-bail-to-fail" target="_blank" rel="noopener noreferrer">Read more &gt;</a></p>
+  <div class="scrt-accordion-group"><details class="scrt-accordion">
+  <summary>We changed how we calculate this metric.</summary>
+  <div class="scrt-accordion-body"><p>In earlier versions of this metric, we reported the percentage out of all monetary-bail cases a judge handled, including cases where the judge set bail forms beyond cash bail, commercial bond, and PSSB.</p><p>Starting in 2026, we calculate this metric using cases where the judge set cash bail, a commercial bond, and a PSSB, with no other forms of bail set. We made this change because our Judicial Profiles are mainly used to compare judges, and this updated approach produces a better figure for comparison.</p></div>
+</details></div>
+  <div class="scrt-stat-grid">
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">98.4% → 98.1%</span></div>
+  <div class="scrt-stat-label">Statewide rate (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">165 → 114</span> <span class="scrt-stat-delta">(-30.9%)</span></div>
+  <div class="scrt-stat-label">Judges with 25+ eligible cases (2024 to 2025)</div>
+</div>
+</div>
+  
+  <div class="scrt-table-grid">
+<div class="scrt-table-widget" id="metric-settingBailToFailPSSB-top-rates-2025" data-scrt-table>
+  <div class="scrt-table-header">
+    
+    <div class="scrt-table-title-block">
+      <h3>Highest 2025 Rates</h3>
+      <p class="scrt-table-description-inline">Includes judges with 25+ eligible cases in 2025. If more than 5 have a 100% rate, the 5 with the most cases are shown.</p>
+    </div>
+
+    <div class="scrt-table-tools">
+      
+      
+      
+    </div>
+  </div>
+  
+  <div class="scrt-table-scroll">
+    <table>
+      <thead>
+        <tr><th data-type="text" data-key="judge">Judge</th><th data-type="text" data-key="county">County</th><th data-type="number" data-key="rate_2025">2025 Rate (Cases)</th><th data-type="number" data-key="rate_total">Overall Rate (Cases)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/glenda-m-hernandez&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Glenda M. Hernandez&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/glenda-m-hernandez" target="_blank" rel="noopener noreferrer">Glenda M. Hernandez</a></td><td data-sort="Queens" data-label="County">Queens</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (310)</td><td data-sort="100.0" data-label="Overall Rate (Cases)">100.0% (310)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/maria-t-gonzalez&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Maria T. Gonzalez&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/maria-t-gonzalez" target="_blank" rel="noopener noreferrer">Maria T. Gonzalez</a></td><td data-sort="Queens" data-label="County">Queens</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (216)</td><td data-sort="99.79959919839679" data-label="Overall Rate (Cases)">99.8% (1,497)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/kacie-a-lally&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Kacie A. Lally&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/kacie-a-lally" target="_blank" rel="noopener noreferrer">Kacie A. Lally</a></td><td data-sort="New York" data-label="County">New York</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (208)</td><td data-sort="100.0" data-label="Overall Rate (Cases)">100.0% (258)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/john-n-mcpadden&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;John N. McPadden&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/john-n-mcpadden" target="_blank" rel="noopener noreferrer">John N. McPadden</a></td><td data-sort="Kings" data-label="County">Kings</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (208)</td><td data-sort="99.7560975609756" data-label="Overall Rate (Cases)">99.8% (820)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/julieta-v-lozano&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Julieta V. Lozano&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/julieta-v-lozano" target="_blank" rel="noopener noreferrer">Julieta V. Lozano</a></td><td data-sort="New York" data-label="County">New York</td><td data-sort="100.0" data-label="2025 Rate (Cases)">100.0% (188)</td><td data-sort="100.0" data-label="Overall Rate (Cases)">100.0% (929)</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="scrt-table-widget" id="metric-settingBailToFailPSSB-lowest-rates-2025" data-scrt-table>
+  <div class="scrt-table-header">
+    
+    <div class="scrt-table-title-block">
+      <h3>Lowest 2025 Rates</h3>
+      <p class="scrt-table-description-inline"> Includes judges with 25+ eligible cases in 2025.When rates are tied, judges with fewer cases are listed first.</p>
+    </div>
+
+    <div class="scrt-table-tools">
+      
+      
+      
+    </div>
+  </div>
+  
+  <div class="scrt-table-scroll">
+    <table>
+      <thead>
+        <tr><th data-type="text" data-key="judge">Judge</th><th data-type="text" data-key="county">County</th><th data-type="number" data-key="rate_2025">2025 Rate (Cases)</th><th data-type="number" data-key="rate_total">Overall Rate (Cases)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/christopher-e-whitehair&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Christopher E. Whitehair&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/christopher-e-whitehair" target="_blank" rel="noopener noreferrer">Christopher E. Whitehair</a></td><td data-sort="Kings" data-label="County">Kings</td><td data-sort="44.0" data-label="2025 Rate (Cases)">44.0% (75)</td><td data-sort="53.82436260623229" data-label="Overall Rate (Cases)">53.8% (353)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/michael-j-gaffey&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Michael J. Gaffey&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/michael-j-gaffey" target="_blank" rel="noopener noreferrer">Michael J. Gaffey</a></td><td data-sort="Queens" data-label="County">Queens</td><td data-sort="62.66666666666667" data-label="2025 Rate (Cases)">62.7% (75)</td><td data-sort="95.21345407503235" data-label="Overall Rate (Cases)">95.2% (773)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/ilona-b-coleman&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Ilona B. Coleman&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/ilona-b-coleman" target="_blank" rel="noopener noreferrer">Ilona B. Coleman</a></td><td data-sort="New York" data-label="County">New York</td><td data-sort="66.90647482014388" data-label="2025 Rate (Cases)">66.9% (139)</td><td data-sort="66.90647482014388" data-label="Overall Rate (Cases)">66.9% (139)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/lana-schlesinger&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Lana Schlesinger&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/lana-schlesinger" target="_blank" rel="noopener noreferrer">Lana Schlesinger</a></td><td data-sort="Queens" data-label="County">Queens</td><td data-sort="84.33734939759037" data-label="2025 Rate (Cases)">84.3% (83)</td><td data-sort="84.33734939759037" data-label="Overall Rate (Cases)">84.3% (83)</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/george-panebianco&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;George Panebianco&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/george-panebianco" target="_blank" rel="noopener noreferrer">George Panebianco</a></td><td data-sort="Chautauqua" data-label="County">Chautauqua</td><td data-sort="90.9090909090909" data-label="2025 Rate (Cases)">90.9% (33)</td><td data-sort="98.25174825174825" data-label="Overall Rate (Cases)">98.3% (286)</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="metric-misconduct" class="scrt-report-section">
+  <h2>Public Discipline</h2>
+  <p class="scrt-section-intro">This data shows publicly available disciplinary actions (admonitions or censures) issued against judges by the New York State Commission on Judicial Conduct. It reflects public determinations only and does not include non-public outcomes or pending matters. <a class="scrt-section-read-more" href="https://cjc.ny.gov/" target="_blank" rel="noopener noreferrer">Read more &gt;</a></p>
+  
+  <div class="scrt-stat-grid">
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">5 → 5</span> <span class="scrt-stat-delta">(0%)</span></div>
+  <div class="scrt-stat-label">Public discipline determinations (2024 to 2025)</div>
+</div>
+
+<div class="scrt-stat-card">
+  <div class="scrt-stat-value"><span class="scrt-stat-main">5 → 5</span> <span class="scrt-stat-delta">(0%)</span></div>
+  <div class="scrt-stat-label">Judges with public discipline (2024 to 2025)</div>
+</div>
+</div>
+  
+  <div class="scrt-table-grid">
+<div class="scrt-table-widget" id="metric-misconduct-top-2025" data-scrt-table>
+  <div class="scrt-table-header">
+    
+    <div class="scrt-table-title-block">
+      <h3>Top 5 Judges by Public Discipline Determinations (2025)</h3>
+      <p class="scrt-table-description-inline">Excludes determinations involving Town and Village judges.</p>
+    </div>
+
+    <div class="scrt-table-tools">
+      
+      
+      
+    </div>
+  </div>
+  
+  <div class="scrt-table-scroll">
+    <table>
+      <thead>
+        <tr><th data-type="text" data-key="judge">Judge</th><th data-type="text" data-key="county">County</th><th data-type="number" data-key="count_2025">Number (2025)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/corey-e-klein&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Corey E. Klein&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/corey-e-klein" target="_blank" rel="noopener noreferrer">Corey E. Klein</a></td><td data-sort="Nassau" data-label="County">Nassau</td><td data-sort="1" data-label="Number (2025)">1</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/daniel-l-seiden&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Daniel L. Seiden&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/daniel-l-seiden" target="_blank" rel="noopener noreferrer">Daniel L. Seiden</a></td><td data-sort="Broome" data-label="County">Broome</td><td data-sort="1" data-label="Number (2025)">1</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/melissa-loehr&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Melissa Loehr&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/melissa-loehr" target="_blank" rel="noopener noreferrer">Melissa Loehr</a></td><td data-sort="Westchester" data-label="County">Westchester</td><td data-sort="1" data-label="Number (2025)">1</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/naita-a-semaj&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Naita A. Semaj&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/naita-a-semaj" target="_blank" rel="noopener noreferrer">Naita A. Semaj</a></td><td data-sort="Bronx" data-label="County">Bronx</td><td data-sort="1" data-label="Number (2025)">1</td></tr><tr><td data-sort="&lt;a href=&quot;https://judges.scrutinize.org/judge/nichelle-a-johnson&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Nichelle A. Johnson&lt;/a&gt;" data-label="Judge"><a href="https://judges.scrutinize.org/judge/nichelle-a-johnson" target="_blank" rel="noopener noreferrer">Nichelle A. Johnson</a></td><td data-sort="Westchester" data-label="County">Westchester</td><td data-sort="1" data-label="Number (2025)">1</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</section>
+
+  </div>
+</div>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script id="scrt-chart-specs-2025" type="application/json">[{"id": "metric-publishedDecisionsRate-top-non-criminal-publishers-2025", "figure": {"data": [{"type": "bar", "orientation": "h", "x": [125.0, 111.0, 82.0, 81.0, 40.0, 36.0, 36.0, 33.0, 32.0, 31.0], "y": ["Gerald Lebovits (New York)", "Aaron D. Maslow (Richmond)", "Linda S. Jamieson (Westchester)", "Ronald Castorina Jr (Richmond)", "Francois A. Rivera (Kings)", "Ashlee Y. Crawford (New York)", "James L. Hyer (Dutchess)", "Robert R. Reed (New York)", "Patria Frias Colon (Kings)", "Consuelo M. Melendez (Kings)"], "marker": {"color": "#3287c4", "line": {"color": "#ffffff", "width": 0.8}}, "text": [], "cliponaxis": false, "customdata": [[118.0, 125.0, 7.0], [139.0, 111.0, -28.0], [4.0, 82.0, 78.0], [28.0, 81.0, 53.0], [34.0, 40.0, 6.0], [12.0, 36.0, 24.0], [29.0, 36.0, 7.0], [51.0, 33.0, -18.0], [28.0, 32.0, 4.0], [13.0, 31.0, 18.0]], "hovertemplate": "<b>%{y}</b><br>2024 non-criminal (civil/family/etc.) published decisions: %{customdata[0]:,.0f}<br>2025 non-criminal (civil/family/etc.) published decisions: %{customdata[1]:,.0f}<br>Change: %{customdata[2]:+,.0f}<extra></extra>", "showlegend": false}, {"type": "scatter", "mode": "text", "x": [156.36, 142.36, 113.36, 112.36, 71.36, 67.36, 67.36, 64.36, 63.36, 62.36], "y": ["Gerald Lebovits (New York)", "Aaron D. Maslow (Richmond)", "Linda S. Jamieson (Westchester)", "Ronald Castorina Jr (Richmond)", "Francois A. Rivera (Kings)", "Ashlee Y. Crawford (New York)", "James L. Hyer (Dutchess)", "Robert R. Reed (New York)", "Patria Frias Colon (Kings)", "Consuelo M. Melendez (Kings)"], "text": ["+7 vs 2024", "-28 vs 2024", "+78 vs 2024", "+53 vs 2024", "+6 vs 2024", "+24 vs 2024", "+7 vs 2024", "-18 vs 2024", "+4 vs 2024", "+18 vs 2024"], "textposition": "middle left", "textfont": {"size": 12, "color": "#272e3b"}, "hoverinfo": "skip", "showlegend": false}], "layout": {"height": 320, "paper_bgcolor": "rgba(0,0,0,0)", "plot_bgcolor": "#f8fbff", "margin": {"l": 245, "r": 215, "t": 26, "b": 52}, "font": {"family": "Poppins, Arial, sans-serif", "size": 13, "color": "#272e3b"}, "title": {"text": "", "x": 0.01, "xanchor": "left", "font": {"size": 18}}, "legend": {"orientation": "h", "y": 1.12, "x": 0, "xanchor": "left", "font": {"size": 12}}, "hoverlabel": {"font": {"family": "Poppins, Arial, sans-serif"}}, "hovermode": "closest", "transition": {"duration": 380, "easing": "cubic-in-out"}, "showlegend": false, "bargap": 0.34, "xaxis": {"title": "", "gridcolor": "rgba(150, 159, 175, 0.18)", "zerolinecolor": "rgba(150, 159, 175, 0.3)", "linecolor": "rgba(150, 159, 175, 0.4)", "ticks": "outside", "ticklen": 4, "range": [0, 203.39999999999998], "rangemode": "tozero", "griddash": "dot", "automargin": true}, "yaxis": {"title": "", "gridcolor": "rgba(150, 159, 175, 0.18)", "zerolinecolor": "rgba(150, 159, 175, 0.3)", "linecolor": "rgba(150, 159, 175, 0.4)", "ticks": "", "ticklen": 0, "autorange": "reversed", "automargin": true, "ticklabelstandoff": 10, "showline": false}}}, "animateBars": true, "config": {"displayModeBar": false, "responsive": true, "displaylogo": false}}, {"id": "metric-publishedDecisionsRate-top-criminal-publishers-2025", "figure": {"data": [{"type": "bar", "orientation": "h", "x": [29.0, 26.0, 23.0, 20.0, 17.0, 16.0, 15.0, 14.0, 11.0, 9.0], "y": ["David L. Goodwin (Bronx)", "Ilona B. Coleman (New York)", "Brenda M. Freedman (Erie)", "Deidra R. Moore (Bronx)", "Joshua A. Glick (Kings)", "Tehilah H. R. Kahan (Kings)", "Yadhira Gonzalez Taylor (Bronx)", "Wanda L. Licitra (Queens)", "Scott A. Miller (Tompkins)", "Elizabeth Y. Shamahs (New York)"], "marker": {"color": "#3e6f5c", "line": {"color": "#ffffff", "width": 0.8}}, "text": [], "cliponaxis": false, "customdata": [[0.0, 29.0, 29.0], [0.0, 26.0, 26.0], [13.0, 23.0, 10.0], [0.0, 20.0, 20.0], [24.0, 17.0, -7.0], [0.0, 16.0, 16.0], [34.0, 15.0, -19.0], [25.0, 14.0, -11.0], [7.0, 11.0, 4.0], [0.0, 9.0, 9.0]], "hovertemplate": "<b>%{y}</b><br>2024 criminal published decisions: %{customdata[0]:,.0f}<br>2025 criminal published decisions: %{customdata[1]:,.0f}<br>Change: %{customdata[2]:+,.0f}<extra></extra>", "showlegend": false}, {"type": "scatter", "mode": "text", "x": [40.2, 37.2, 34.2, 31.200000000000003, 28.200000000000003, 27.200000000000003, 26.200000000000003, 25.200000000000003, 22.200000000000003, 20.200000000000003], "y": ["David L. Goodwin (Bronx)", "Ilona B. Coleman (New York)", "Brenda M. Freedman (Erie)", "Deidra R. Moore (Bronx)", "Joshua A. Glick (Kings)", "Tehilah H. R. Kahan (Kings)", "Yadhira Gonzalez Taylor (Bronx)", "Wanda L. Licitra (Queens)", "Scott A. Miller (Tompkins)", "Elizabeth Y. Shamahs (New York)"], "text": ["+29 vs 2024", "+26 vs 2024", "+10 vs 2024", "+20 vs 2024", "-7 vs 2024", "+16 vs 2024", "-19 vs 2024", "-11 vs 2024", "+4 vs 2024", "+9 vs 2024"], "textposition": "middle left", "textfont": {"size": 12, "color": "#272e3b"}, "hoverinfo": "skip", "showlegend": false}], "layout": {"height": 320, "paper_bgcolor": "rgba(0,0,0,0)", "plot_bgcolor": "#f3fbf7", "margin": {"l": 245, "r": 215, "t": 26, "b": 52}, "font": {"family": "Poppins, Arial, sans-serif", "size": 13, "color": "#272e3b"}, "title": {"text": "", "x": 0.01, "xanchor": "left", "font": {"size": 18}}, "legend": {"orientation": "h", "y": 1.12, "x": 0, "xanchor": "left", "font": {"size": 12}}, "hoverlabel": {"font": {"family": "Poppins, Arial, sans-serif"}}, "hovermode": "closest", "transition": {"duration": 380, "easing": "cubic-in-out"}, "showlegend": false, "bargap": 0.34, "xaxis": {"title": "", "gridcolor": "rgba(150, 159, 175, 0.18)", "zerolinecolor": "rgba(150, 159, 175, 0.3)", "linecolor": "rgba(150, 159, 175, 0.4)", "ticks": "outside", "ticklen": 4, "range": [0, 57.0], "rangemode": "tozero", "griddash": "dot", "automargin": true}, "yaxis": {"title": "", "gridcolor": "rgba(150, 159, 175, 0.18)", "zerolinecolor": "rgba(150, 159, 175, 0.3)", "linecolor": "rgba(150, 159, 175, 0.4)", "ticks": "", "ticklen": 0, "autorange": "reversed", "automargin": true, "ticklabelstandoff": 10, "showline": false}}}, "animateBars": true, "config": {"displayModeBar": false, "responsive": true, "displaylogo": false}}, {"id": "metric-publishedDecisionsRate-county-benchmark-2025", "figure": {"data": [{"type": "bar", "orientation": "h", "x": [37.1, 27.7, 16.5, 12.9, 11.7, 11.6, 11.5, 11.3, 10.1, 9.8], "y": ["Richmond", "New York", "Albany", "Tompkins", "Herkimer", "Kings", "Putnam", "Dutchess", "Bronx", "Genesee"], "marker": {"color": "#c09569", "line": {"color": "#ffffff", "width": 0.8}}, "cliponaxis": false, "customdata": [[26.678847312106132, 39.74211781330037, 44.760061981646366, 18.1, 223.0], [24.55258876740494, 28.78366725598917, 29.62670353545329, 5.1, 492.0], [15.723270440251572, 14.689152529659587, 19.064644772536912, 3.3, 61.0], [8.53040140277712, 17.04513172099013, 13.257324671881214, 4.7, 14.0], [13.429353208776082, 15.104472602164975, 6.713098934295544, -6.7, 4.0], [7.983225199840953, 12.530413950629404, 14.249525620685269, 6.3, 373.0], [9.184798138547578, 12.194006645733621, 13.210173866211425, 4.0, 13.0], [7.377005204141853, 13.001603531102168, 13.668352430133051, 6.3, 41.0], [7.85302625092164, 9.677018669424376, 12.78233063050832, 4.9, 177.0], [5.205260783565257, 8.67995278105687, 15.623915005902369, 10.4, 9.0]], "hovertemplate": "<b>%{y}</b><br>2023 rate: %{customdata[0]:.1f} per 100k<br>2024 rate: %{customdata[1]:.1f} per 100k<br>2025 rate: %{customdata[2]:.1f} per 100k<br>Change since start: %{customdata[3]:+.1f} per 100k<br>Published decisions (2025): %{customdata[4]:,.0f}<extra></extra>", "showlegend": false}, {"type": "scatter", "mode": "text", "x": [49.68432, 40.28432, 29.084319999999998, 25.48432, 24.28432, 24.18432, 24.084319999999998, 23.884320000000002, 22.68432, 22.384320000000002], "y": ["Richmond", "New York", "Albany", "Tompkins", "Herkimer", "Kings", "Putnam", "Dutchess", "Bronx", "Genesee"], "text": ["+18.1 vs 2023", "+5.1 vs 2023", "+3.3 vs 2023", "+4.7 vs 2023", "-6.7 vs 2023", "+6.3 vs 2023", "+4.0 vs 2023", "+6.3 vs 2023", "+4.9 vs 2023", "+10.4 vs 2023"], "textposition": "middle left", "textfont": {"size": 12, "color": "#272e3b"}, "hoverinfo": "skip", "showlegend": false}], "layout": {"height": 320, "paper_bgcolor": "rgba(0,0,0,0)", "plot_bgcolor": "#fff7f0", "margin": {"l": 210, "r": 220, "t": 22, "b": 52}, "font": {"family": "Poppins, Arial, sans-serif", "size": 13, "color": "#272e3b"}, "title": {"text": "", "x": 0.01, "xanchor": "left", "font": {"size": 18}}, "legend": {"orientation": "h", "y": 1.12, "x": 0, "xanchor": "left", "font": {"size": 12}}, "hoverlabel": {"font": {"family": "Poppins, Arial, sans-serif"}}, "hovermode": "closest", "transition": {"duration": 380, "easing": "cubic-in-out"}, "showlegend": false, "bargap": 0.34, "xaxis": {"title": "3-year average published decisions per 100k residents", "gridcolor": "rgba(150, 159, 175, 0.18)", "zerolinecolor": "rgba(150, 159, 175, 0.3)", "linecolor": "rgba(150, 159, 175, 0.4)", "ticks": "outside", "ticklen": 4, "range": [0, 78.652], "rangemode": "tozero", "griddash": "dot", "automargin": true}, "yaxis": {"title": "", "gridcolor": "rgba(150, 159, 175, 0.18)", "zerolinecolor": "rgba(150, 159, 175, 0.3)", "linecolor": "rgba(150, 159, 175, 0.4)", "ticks": "", "ticklen": 0, "autorange": "reversed", "automargin": true, "ticklabelstandoff": 8, "showline": false}}}, "animateBars": true, "config": {"displayModeBar": false, "responsive": true, "displaylogo": false}}]</script>
+
+<script>
+(function() {
+  const reportRoot = document.querySelector('.scrt-annual-report');
+  if (!reportRoot) return;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function revealSections() {
+    const sections = reportRoot.querySelectorAll('.scrt-report-section');
+    sections.forEach((section, index) => {
+      section.style.setProperty('--reveal-index', String(index));
+    });
+
+    const navLinks = Array.from(reportRoot.querySelectorAll('.scrt-nav a'));
+    const navById = new Map();
+    navLinks.forEach((link) => {
+      const href = link.getAttribute('href') || '';
+      if (href.startsWith('#')) {
+        navById.set(href.slice(1), link);
+      }
+    });
+
+    function setActiveNav(sectionId) {
+      navLinks.forEach((link) => link.classList.remove('is-active'));
+      if (navById.has(sectionId)) {
+        navById.get(sectionId).classList.add('is-active');
+      }
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      sections.forEach((section) => section.classList.add('is-visible'));
+      if (sections[0] && sections[0].id) {
+        setActiveNav(sections[0].id);
+      }
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          if (entry.target.id) {
+            setActiveNav(entry.target.id);
+          }
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '-4% 0px -12% 0px' });
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
+  function initSortableTables() {
+    const tableWidgets = reportRoot.querySelectorAll('[data-scrt-table]');
+    tableWidgets.forEach((widget) => {
+      const table = widget.querySelector('table');
+      const searchInput = widget.querySelector('[data-table-search]');
+      const rowCount = widget.querySelector('[data-table-count]');
+      const loadMoreButton = widget.querySelector('[data-table-load-more]');
+      if (!table) return;
+
+      const tbody = table.querySelector('tbody');
+      const headers = Array.from(table.querySelectorAll('th'));
+      const rows = Array.from(tbody.querySelectorAll('tr')).filter((row) => !row.classList.contains('scrt-empty-row'));
+      const initialVisibleRaw = Number(widget.dataset.tableInitialVisible || 0);
+      const expandStepRaw = Number(widget.dataset.tableExpandStep || 0);
+      const hasExpandableRows = Number.isFinite(initialVisibleRaw) && initialVisibleRaw > 0 && Boolean(loadMoreButton);
+      const initialVisibleRows = hasExpandableRows
+        ? Math.max(1, Math.floor(initialVisibleRaw))
+        : Number.POSITIVE_INFINITY;
+      const expandStepRows = hasExpandableRows
+        ? Math.max(1, Math.floor(expandStepRaw || initialVisibleRows))
+        : 0;
+
+      let sortColumn = null;
+      let sortDirection = 'asc';
+      let visibleLimit = initialVisibleRows;
+
+      function getCellValue(row, columnIndex, type) {
+        const cell = row.cells[columnIndex];
+        if (!cell) return '';
+        const raw = (cell.dataset.sort || cell.textContent || '').trim();
+        if (type === 'number') {
+          const numeric = Number(raw.toString().replace(/,/g, ''));
+          return Number.isFinite(numeric) ? numeric : Number.NEGATIVE_INFINITY;
+        }
+        return raw.toLowerCase();
+      }
+
+      function setLoadMoreState(totalRows, renderedRows, queryIsActive) {
+        if (!loadMoreButton) return;
+        if (!hasExpandableRows || queryIsActive || totalRows <= renderedRows) {
+          loadMoreButton.hidden = true;
+          return;
+        }
+        const remainingRows = totalRows - renderedRows;
+        const nextCount = Math.min(expandStepRows, remainingRows);
+        loadMoreButton.textContent = `Show ${nextCount} More`;
+        loadMoreButton.hidden = false;
+      }
+
+      function updateTable() {
+        const query = (searchInput?.value || '').toLowerCase().trim();
+        const queryIsActive = query.length > 0;
+        let filteredRows = rows.filter((row) => row.textContent.toLowerCase().includes(query));
+
+        if (sortColumn !== null) {
+          const sortType = headers[sortColumn]?.dataset.type || 'text';
+          filteredRows = filteredRows.sort((a, b) => {
+            const aValue = getCellValue(a, sortColumn, sortType);
+            const bValue = getCellValue(b, sortColumn, sortType);
+            if (sortType === 'number') {
+              return sortDirection === 'asc' ? aValue - bValue : bValue - aValue;
+            }
+            return sortDirection === 'asc'
+              ? String(aValue).localeCompare(String(bValue))
+              : String(bValue).localeCompare(String(aValue));
+          });
+        }
+
+        const rowsToRender = hasExpandableRows && !queryIsActive
+          ? filteredRows.slice(0, visibleLimit)
+          : filteredRows;
+
+        tbody.innerHTML = '';
+        rowsToRender.forEach((row) => tbody.appendChild(row));
+        if (rowCount) {
+          if (hasExpandableRows && !queryIsActive && filteredRows.length > rowsToRender.length) {
+            rowCount.textContent = `${rowsToRender.length} of ${filteredRows.length} rows`;
+          } else {
+            rowCount.textContent = `${filteredRows.length} rows`;
+          }
+        }
+
+        if (filteredRows.length === 0) {
+          const emptyRow = document.createElement('tr');
+          emptyRow.className = 'scrt-empty-row';
+          const emptyCell = document.createElement('td');
+          emptyCell.colSpan = headers.length;
+          emptyCell.textContent = 'No rows match the current filter.';
+          emptyRow.appendChild(emptyCell);
+          tbody.appendChild(emptyRow);
+        }
+
+        setLoadMoreState(filteredRows.length, rowsToRender.length, queryIsActive);
+      }
+
+      headers.forEach((header, index) => {
+        header.addEventListener('click', () => {
+          if (sortColumn === index) {
+            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+          } else {
+            sortColumn = index;
+            sortDirection = 'asc';
+          }
+
+          headers.forEach((item) => item.removeAttribute('data-sort-dir'));
+          header.setAttribute('data-sort-dir', sortDirection);
+          updateTable();
+        });
+      });
+
+      if (searchInput) {
+        searchInput.addEventListener('input', updateTable);
+      }
+
+      if (loadMoreButton && hasExpandableRows) {
+        loadMoreButton.addEventListener('click', () => {
+          visibleLimit += expandStepRows;
+          updateTable();
+        });
+      }
+
+      updateTable();
+    });
+  }
+
+  function renderCharts() {
+    const specsNode = document.getElementById('scrt-chart-specs-2025');
+    if (!specsNode) return;
+
+    let specs = [];
+    try {
+      specs = JSON.parse(specsNode.textContent || '[]');
+    } catch (error) {
+      console.error('Failed to parse chart specs:', error);
+      return;
+    }
+
+    if (!window.Plotly) {
+      console.warn('Plotly failed to load; charts were not rendered.');
+      return;
+    }
+
+    const renderedCharts = new Set();
+
+    function isMobileViewport() {
+      return window.matchMedia('(max-width: 700px)').matches;
+    }
+
+    function removeMobileYoyDescriptionText() {
+      if (!isMobileViewport()) return;
+      const yoyDescriptionPattern = /Labels on the right show each judge['’]s change versus \d{4}\.?/gi;
+      reportRoot.querySelectorAll('.scrt-chart-description').forEach((node) => {
+        const originalText = String(node.textContent || '');
+        if (!yoyDescriptionPattern.test(originalText)) {
+          return;
+        }
+        const cleanedText = originalText
+          .replace(yoyDescriptionPattern, '')
+          .replace(/\s{2,}/g, ' ')
+          .replace(/\s+\./g, '.')
+          .trim();
+        if (!cleanedText) {
+          node.style.display = 'none';
+          return;
+        }
+        node.textContent = cleanedText;
+      });
+    }
+
+    function wrapAxisLabel(value, maxCharsPerLine) {
+      const text = String(value || '').trim();
+      if (!text || text.length <= maxCharsPerLine) {
+        return text;
+      }
+
+      const words = text.split(/\s+/).filter(Boolean);
+      if (words.length <= 1) {
+        const chunks = [];
+        for (let index = 0; index < text.length; index += maxCharsPerLine) {
+          chunks.push(text.slice(index, index + maxCharsPerLine));
+        }
+        return chunks.join('<br>');
+      }
+
+      const lines = [];
+      let currentLine = '';
+      words.forEach((word) => {
+        const tentativeLine = currentLine ? `${currentLine} ${word}` : word;
+        if (tentativeLine.length > maxCharsPerLine && currentLine) {
+          lines.push(currentLine);
+          currentLine = word;
+        } else {
+          currentLine = tentativeLine;
+        }
+      });
+      if (currentLine) {
+        lines.push(currentLine);
+      }
+      return lines.join('<br>');
+    }
+
+    function countWrappedLines(value) {
+      const text = String(value || '');
+      if (!text) {
+        return 1;
+      }
+      return text.split('<br>').filter((line) => line.trim().length > 0).length || 1;
+    }
+
+    function wrapAxisTitleForMobile(value) {
+      const titleText = String(value || '')
+        .replace(/<br\s*\/?>/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (!titleText || titleText.length <= 28) {
+        return titleText;
+      }
+
+      const words = titleText.split(/\s+/).filter(Boolean);
+      if (words.length < 2) {
+        return wrapAxisLabel(titleText, Math.ceil(titleText.length / 2));
+      }
+
+      const midpoint = Math.ceil(titleText.length / 2);
+      let splitIndex = 1;
+      let closestDistance = Number.POSITIVE_INFINITY;
+      for (let index = 1; index < words.length; index += 1) {
+        const leftLength = words.slice(0, index).join(' ').length;
+        const distance = Math.abs(leftLength - midpoint);
+        if (distance < closestDistance) {
+          splitIndex = index;
+          closestDistance = distance;
+        }
+      }
+
+      const firstLine = words.slice(0, splitIndex).join(' ');
+      const secondLine = words.slice(splitIndex).join(' ');
+      return `${firstLine}<br>${secondLine}`;
+    }
+
+    function applyMobileChartLayout(traces, layout) {
+      if (!isMobileViewport()) {
+        return { traces, layout };
+      }
+
+      let mobileTraces = traces.map((trace) => JSON.parse(JSON.stringify(trace || {})));
+      const mobileLayout = JSON.parse(JSON.stringify(layout || {}));
+      const baseMargin = mobileLayout.margin || {};
+
+      mobileLayout.margin = Object.assign({}, baseMargin, {
+        l: Math.min(120, Math.max(72, Number(baseMargin.l) || 90)),
+        r: 14,
+        t: Math.max(24, Number(baseMargin.t) || 24),
+        b: Math.max(44, Number(baseMargin.b) || 44),
+      });
+      mobileLayout.font = Object.assign({}, mobileLayout.font || {}, { size: 11 });
+
+      if (mobileLayout.legend) {
+        mobileLayout.legend = Object.assign({}, mobileLayout.legend, {
+          orientation: 'h',
+          x: 0,
+          y: -0.2,
+          xanchor: 'left',
+          font: Object.assign({}, mobileLayout.legend.font || {}, { size: 10 }),
+        });
+      }
+
+      if (mobileLayout.xaxis) {
+        const xAxisTitleRaw = mobileLayout.xaxis.title;
+        const xAxisTitleTextRaw =
+          typeof xAxisTitleRaw === 'string'
+            ? xAxisTitleRaw
+            : String((xAxisTitleRaw && xAxisTitleRaw.text) || '');
+        const xAxisTitleText = xAxisTitleTextRaw.trim();
+        const mobileXAxisTitleText = wrapAxisTitleForMobile(xAxisTitleText);
+        const hasLongXAxisTitle = xAxisTitleText.length > 28;
+        const xAxisTitleObject =
+          xAxisTitleRaw && typeof xAxisTitleRaw === 'object'
+            ? xAxisTitleRaw
+            : (xAxisTitleText ? { text: xAxisTitleText } : null);
+
+        mobileLayout.xaxis = Object.assign({}, mobileLayout.xaxis, {
+          automargin: true,
+          tickfont: Object.assign({}, mobileLayout.xaxis.tickfont || {}, { size: 10 }),
+          title: xAxisTitleObject
+            ? Object.assign({}, xAxisTitleObject, {
+                text: mobileXAxisTitleText || xAxisTitleText,
+                standoff: hasLongXAxisTitle ? 2 : 5,
+                font: Object.assign({}, xAxisTitleObject.font || {}, {
+                  size: hasLongXAxisTitle ? 8 : 9,
+                }),
+              })
+            : xAxisTitleRaw,
+          tickangle:
+            mobileLayout.xaxis.tickangle === undefined || mobileLayout.xaxis.tickangle === null
+              ? 0
+              : mobileLayout.xaxis.tickangle,
+        });
+      }
+
+      if (mobileLayout.yaxis) {
+        mobileLayout.yaxis = Object.assign({}, mobileLayout.yaxis, {
+          automargin: true,
+          tickfont: Object.assign({}, mobileLayout.yaxis.tickfont || {}, { size: 10 }),
+        });
+      }
+
+      const hasHorizontalBarTrace = mobileTraces.some(
+        (trace) => trace && trace.orientation === 'h' && Array.isArray(trace.y)
+      );
+      if (hasHorizontalBarTrace) {
+        mobileTraces = mobileTraces.filter((trace) => {
+          if (!trace || typeof trace !== 'object') {
+            return true;
+          }
+          const mode = String(trace.mode || '');
+          const isTextOnlyScatter =
+            trace.type === 'scatter' &&
+            mode.includes('text') &&
+            !mode.includes('markers') &&
+            !mode.includes('lines');
+          if (!isTextOnlyScatter || !Array.isArray(trace.text) || trace.text.length === 0) {
+            return true;
+          }
+          const yoyTextCount = trace.text
+            .map((value) => String(value || ''))
+            .filter(
+              (value) =>
+                /\bvs\s\d{4}\b/i.test(value) ||
+                /No change vs/i.test(value)
+            ).length;
+          return yoyTextCount < Math.ceil(trace.text.length * 0.6);
+        });
+      }
+
+      let horizontalBarCount = 0;
+      let horizontalBarLineCount = 0;
+      mobileTraces.forEach((trace) => {
+        if (!trace || typeof trace !== 'object') return;
+
+        if (trace.orientation === 'h' && Array.isArray(trace.y)) {
+          trace.y = trace.y.map((value) => {
+            const wrappedLabel = wrapAxisLabel(value, 16);
+            horizontalBarLineCount += countWrappedLines(wrappedLabel);
+            return wrappedLabel;
+          });
+          horizontalBarCount += trace.y.length;
+        } else if ((!trace.orientation || trace.orientation === 'v') && Array.isArray(trace.x)) {
+          trace.x = trace.x.map((value) => wrapAxisLabel(value, 10));
+        }
+
+        if (trace.textfont && typeof trace.textfont === 'object') {
+          trace.textfont = Object.assign({}, trace.textfont, { size: 10 });
+        }
+      });
+
+      if (horizontalBarCount > 0) {
+        const additionalRowUnits = Math.ceil(horizontalBarCount * 0.4);
+        const effectiveRowCount = Math.max(horizontalBarCount, horizontalBarLineCount + additionalRowUnits);
+        mobileLayout.height = Math.max(280, Math.min(760, 120 + (effectiveRowCount * 20)));
+      } else if (Number.isFinite(Number(mobileLayout.height))) {
+        mobileLayout.height = Math.max(250, Math.min(420, Number(mobileLayout.height)));
+      }
+
+      return { traces: mobileTraces, layout: mobileLayout };
+    }
+
+    function drawChart(spec) {
+      if (renderedCharts.has(spec.id)) return;
+      const target = document.getElementById(spec.id);
+      if (!target) return;
+      renderedCharts.add(spec.id);
+
+      const figure = spec.figure || {};
+      const traces = figure.data || [];
+      const layout = figure.layout || {};
+      const config = Object.assign(
+        { responsive: true, displayModeBar: false, displaylogo: false },
+        spec.config || {}
+      );
+      const mobileResult = applyMobileChartLayout(traces, layout);
+      const tracesToRender = mobileResult.traces;
+      const layoutToRender = mobileResult.layout;
+
+      if (spec.animateBars && !prefersReducedMotion) {
+        const initialTraces = tracesToRender.map((trace) => {
+          const copy = JSON.parse(JSON.stringify(trace));
+          if (copy.type === 'bar') {
+            if (copy.orientation === 'h' && Array.isArray(copy.x)) {
+              copy.x = copy.x.map(() => 0);
+            } else if (Array.isArray(copy.y)) {
+              copy.y = copy.y.map(() => 0);
+            }
+          }
+          return copy;
+        });
+
+        Plotly.newPlot(target, initialTraces, layoutToRender, config).then(() => {
+          Plotly.animate(
+            target,
+            { data: tracesToRender },
+            {
+              transition: { duration: 860, easing: 'cubic-out' },
+              frame: { duration: 860, redraw: true }
+            }
+          );
+        });
+      } else {
+        Plotly.newPlot(target, tracesToRender, layoutToRender, config);
+      }
+    }
+
+    removeMobileYoyDescriptionText();
+
+    if (!('IntersectionObserver' in window)) {
+      specs.forEach((spec) => drawChart(spec));
+      return;
+    }
+
+    const chartObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const chartId = entry.target.getAttribute('id');
+        const spec = specs.find((item) => item.id === chartId);
+        if (spec) {
+          drawChart(spec);
+        }
+        chartObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -12% 0px' });
+
+    specs.forEach((spec) => {
+      const target = document.getElementById(spec.id);
+      if (!target) return;
+      chartObserver.observe(target);
+    });
+
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      if (!window.Plotly) return;
+      if (resizeTimer) {
+        window.clearTimeout(resizeTimer);
+      }
+      resizeTimer = window.setTimeout(() => {
+        reportRoot.querySelectorAll('.scrt-plotly-chart').forEach((chartNode) => {
+          if (chartNode && chartNode.data) {
+            window.Plotly.Plots.resize(chartNode);
+          }
+        });
+      }, 120);
+    });
+  }
+
+  function animateStatCards() {
+    if (prefersReducedMotion) return;
+
+    const sectionsWithStats = Array.from(reportRoot.querySelectorAll('.scrt-report-section')).filter((section) =>
+      section.querySelector('.scrt-stat-value')
+    );
+    if (sectionsWithStats.length === 0) return;
+
+    const animatedSections = new WeakSet();
+    const scrambleChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ%.,:+-';
+
+    function randomScrambleChar() {
+      return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+    }
+
+    function scrambleFrame(originalText, progress) {
+      if (progress >= 1) {
+        return originalText;
+      }
+
+      const revealCount = Math.floor(originalText.length * progress);
+      return Array.from(originalText).map((char, index) => {
+        if (char === ' ') {
+          return ' ';
+        }
+        if (index < revealCount) {
+          return char;
+        }
+        return randomScrambleChar();
+      }).join('');
+    }
+
+    function animateSection(section) {
+      if (animatedSections.has(section)) return;
+      animatedSections.add(section);
+
+      const cards = Array.from(section.querySelectorAll('.scrt-stat-card'));
+      cards.forEach((card, index) => {
+        card.style.animationDelay = String(index * 55) + 'ms';
+        card.classList.add('is-popping');
+      });
+
+      const statValueNodes = Array.from(section.querySelectorAll('.scrt-stat-main'));
+      const targetNodes = statValueNodes.length > 0
+        ? statValueNodes
+        : Array.from(section.querySelectorAll('.scrt-stat-value'));
+
+      const items = targetNodes.map((node, index) => {
+        return {
+          node,
+          originalText: (node.textContent || '').trim(),
+          startDelayMs: index * 65,
+        };
+      });
+      if (items.length === 0) return;
+
+      const startAt = performance.now();
+      const durationMs = 420;
+
+      function draw(now) {
+        let allDone = true;
+
+        items.forEach((item) => {
+          const elapsed = now - startAt - item.startDelayMs;
+          const progress = Math.min(1, Math.max(0, elapsed / durationMs));
+          if (progress < 1) {
+            allDone = false;
+          }
+          item.node.textContent = scrambleFrame(item.originalText, progress);
+        });
+
+        if (!allDone) {
+          requestAnimationFrame(draw);
+        } else {
+          items.forEach((item) => {
+            item.node.textContent = item.originalText;
+          });
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      sectionsWithStats.forEach((section) => animateSection(section));
+      return;
+    }
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateSection(entry.target);
+        statObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.28, rootMargin: '0px 0px -15% 0px' });
+
+    sectionsWithStats.forEach((section) => statObserver.observe(section));
+  }
+
+  revealSections();
+  initSortableTables();
+  renderCharts();
+  animateStatCards();
+})();
+</script>
