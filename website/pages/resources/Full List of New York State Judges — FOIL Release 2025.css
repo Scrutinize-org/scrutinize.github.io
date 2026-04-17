@@ -20,13 +20,61 @@
   .scrt-update-banner {
     margin: calc(var(--scrt-unit) * 4) 0 calc(var(--scrt-unit) * 5) 0;
     padding: calc(var(--scrt-unit) * 3) calc(var(--scrt-unit) * 3.5);
-    border-radius: 0.75em;
-    border: 1px solid var(--scrt-color-yellow2);
-    background: linear-gradient(180deg, var(--scrt-color-yellow0), #ffffff);
+    border-radius: 0.8em;
+    border: 1px solid rgba(83, 166, 229, 0.16);
+    border-left: 4px solid rgba(83, 166, 229, 0.75);
+    background: linear-gradient(180deg, rgba(247, 251, 255, 0.96), rgba(255, 255, 255, 0.98));
+    box-shadow: none;
   }
 
-  .scrt-update-banner strong {
+  .scrt-update-banner__title {
+    margin: 0;
+    font-size: var(--scrt-scale-0);
+    line-height: var(--scrt-lh-tightest);
     font-weight: var(--scrt-weight-semibold);
+    color: var(--scrt-color-gray7);
+  }
+
+  .scrt-update-banner__body {
+    margin: calc(var(--scrt-unit) * 1.2) 0 0 0;
+    max-width: 46rem;
+    color: var(--scrt-color-gray6);
+  }
+
+  .scrt-update-banner__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--scrt-unit) * 2.5);
+    margin-top: calc(var(--scrt-unit) * 2.2);
+  }
+
+  .scrt-update-banner__link {
+    display: inline-flex;
+    align-items: center;
+    padding-bottom: 0.15em;
+    border-bottom: 1px solid rgba(83, 166, 229, 0.28);
+    color: var(--scrt-color-blue6);
+    font-weight: var(--scrt-weight-semibold);
+    text-decoration: none;
+  }
+
+  .scrt-update-banner__link:hover,
+  .scrt-update-banner__link:focus {
+    border-bottom-color: currentColor;
+  }
+
+  @media (max-width: 700px) {
+    .scrt-update-banner {
+      padding: calc(var(--scrt-unit) * 2.5) calc(var(--scrt-unit) * 3);
+    }
+
+    .scrt-update-banner__title {
+      font-size: var(--scrt-scale-00m);
+    }
+
+    .scrt-update-banner__links {
+      gap: calc(var(--scrt-unit) * 1.5);
+    }
   }
 </style>
 
@@ -35,9 +83,11 @@
   <div class="scrt-section">
     <h1>For the First Time: A Complete, Public List of New York State Judges</h1>
 
-    <div class="scrt-update-banner" role="note" aria-label="Updated data available">
-      <strong>Update:</strong> Newer data is now available. View the 2026 release here:
-      <a href="https://www.scrutinize.org/full-list-of-new-york-state-judges-foil-release-2026">https://www.scrutinize.org/full-list-of-new-york-state-judges-foil-release-2026</a>
+    <div class="scrt-update-banner" role="note" aria-label="2026 data and profiles available">
+      <p class="scrt-update-banner__title">2026 data is now available.</p>
+      <p class="scrt-update-banner__body">
+        For the latest version of this dataset, see <a href="https://www.scrutinize.org/full-list-of-new-york-state-judges-foil-release-2026" class="scrt-update-banner__link">Scrutinize's 2026 FOIL release</a> or visit our <a href="https://judges.scrutinize.org" class="scrt-update-banner__link">judicial profiles</a> page.
+      </p>
     </div>
 
     <p>
