@@ -25,8 +25,12 @@
       <address>
         1207 Delaware Ave #2599<br>
         Wilmington, DE 19806<br>
-        <a href="mailto:info@scrutinize.org">info [at] scrutinize [dot] org</a>
+        <a href="mailto:info@scrutinize.org">info@scrutinize.org</a>
       </address>
+
+      <p class="scrt-footer-status">
+        Scrutinize is an IRS-recognized 501(c)(3) nonprofit organization.
+      </p>
     </div>
 
     <!-- Mailchimp signup: field above button -->
@@ -135,6 +139,13 @@
     font-style: normal;
     line-height: 1.6;
   }
+
+  .scrt-footer-status {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #fff !important;
+}
 
   /* signup form */
   .scrt-footer-signup form {
